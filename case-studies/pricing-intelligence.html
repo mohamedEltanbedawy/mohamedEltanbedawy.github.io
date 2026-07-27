@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing &amp; Revenue Intelligence · Case Study · Mohamed Eltanbedawy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/design-system.css">
+</head>
+<body>
+
+<!-- ============================= ENGLISH ============================= -->
+<div id="doc-en" dir="ltr">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">← tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button class="btn-en active" onclick="setLang('en')">English</button>
+      <button class="btn-ar" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">Case Study · MENA Ride-Hailing Leader · Analytics Product 05 / 07</div>
+    <h1 style="max-width:none">Pricing &amp; Revenue Intelligence</h1>
+    <p class="lead">Scenario simulators that answered the most expensive question in the business — what happens to GMV, subsidies, COGS, and net revenue if we change the margin in city X — before anyone touched production pricing.</p>
+    <div class="tagrow">
+      <span class="tag">Scenario Modeling</span><span class="tag">Pricing Simulation</span><span class="tag">Google Sheets</span>
+      <span class="tag">SQL</span><span class="tag">Financial Modeling</span><span class="tag">Elasticity Assumptions</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="Product scorecard" style="margin-top:28px">
+      <div class="sc-head"><span class="t">product scorecard — structural facts</span><span class="live">production</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">2</div><div class="lbl">scenario models — pricing simulation &amp; GMV expectation</div></div>
+        <div class="metric"><div class="val">1</div><div class="lbl">input cell drives each scenario — New Margin %</div></div>
+        <div class="metric"><div class="val">4</div><div class="lbl">delta formats per line — ABS · % of GMV · DIFF · DIFF ABS</div></div>
+        <div class="metric"><div class="val">−10<em>%</em></div><div class="lbl">explicit elasticity assumption, stated in the model</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">Text-only case study, by design: these models live in files carrying an internal data classification, so no screenshots are published — the methodology is the portfolio piece.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">01</span>The Business Problem</h2>
+    <p>Margin changes are the highest-leverage, highest-risk lever a marketplace has. Raise the margin and trips may fall; add subsidies and net revenue bleeds. Commercial teams needed to see the full financial cascade of a pricing decision — <b>per city, per product</b> — before deploying it, not after.</p>
+    <div class="callout">The goal: turn "what if we change the margin?" from a debate into a calculation anyone could run by editing one cell.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">02</span>My Role</h2>
+    <p>Sole analyst on the product: I designed the model structure, wrote the SQL that fed the historical baselines, and built the scenario calculators with designated input cells, explicit assumptions, and full delta accounting.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">03</span>What I Built</h2>
+    <div class="grid2">
+      <div class="panel"><h3>Pricing Simulation Model</h3><p>Per-city calculators (built city by city, tab by tab) comparing three months of baseline data. The analyst enters a New Margin % into a designated input cell; the model cascades the change through expected trips, GMV, subsidies, returns &amp; waivers, COGS, and net revenue for each product line.</p></div>
+      <div class="panel"><h3>GMV Expectation Model</h3><p>The same engine applied month by month with monthly baseline blocks: expected GMV, rider and captain subsidies, promotion discounts, marketing credits, returns and waivers, current vs expected COGS, and current vs expected net revenue — every line in absolute, %-of-GMV, and difference formats.</p></div>
+      <div class="panel"><h3>Explicit Assumptions</h3><p>The elasticity assumption — an expected growth rate of −10% under margin increase — sits in a visible, labeled cell, not buried in a formula. Anyone reviewing the scenario sees exactly what was assumed and can change it.</p></div>
+      <div class="panel"><h3>Price-Change History Tracking</h3><p>Weekly trend charts of bookings and trips per product line spanning past price changes — so every new scenario is read against what actually happened the last time pricing moved.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">04</span>Signature Build Details</h2>
+    <div class="results">
+      <div class="result"><div><b>Input cells, not input meetings:</b> the interface is one designated blue cell — New Margin % — against labeled current-margin references. Editing it recomputes the entire financial cascade.</div></div>
+      <div class="result"><div><b>Four formats per line item:</b> every financial line reads in ABS, % of GMV, DIFF, and DIFF ABS — so finance, commercial, and ops each read the scenario in their native unit.</div></div>
+      <div class="result"><div><b>The full cost side, not just revenue:</b> subsidies (rider and captain), returns, waivers, and COGS are modeled explicitly — a margin change that "grows GMV" but bleeds subsidies shows its true net effect.</div></div>
+      <div class="result"><div><b>History beside hypothesis:</b> the price-change trend charts sit in the same file as the simulator — assumption checking built into the workflow.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">05</span>KPIs Defined &amp; Governed</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">GMV</span><span class="tag">Net Revenue</span><span class="tag">COGS</span>
+      <span class="tag">Rider / Captain Subsidies</span><span class="tag">Returns &amp; Waivers</span>
+      <span class="tag">Margin %</span><span class="tag">C/R</span><span class="tag">ATF</span>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">06</span>Decisions Enabled</h2>
+    <div class="results">
+      <div class="result"><div>Commercial teams tested margin scenarios per city and product line before deployment.</div></div>
+      <div class="result"><div>Pricing debates moved from opinions to a shared model with visible assumptions.</div></div>
+      <div class="result"><div>The full subsidy-and-COGS cascade prevented "revenue up, profit down" surprises.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">07</span>Skills Demonstrated</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Scenario &amp; sensitivity modeling</span><span class="tag">Financial modeling</span>
+      <span class="tag">Elasticity assumptions</span><span class="tag">Model UX (input-cell design)</span>
+      <span class="tag">SQL baselines</span><span class="tag">Sheets as a modeling tool</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>Mohamed Eltanbedawy</b> · Business &amp; Data Analyst — BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<!-- ============================= ARABIC ============================= -->
+<div id="doc-ar" dir="rtl" style="display:none">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">→ tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="اللغة">
+      <button class="btn-en" onclick="setLang('en')">English</button>
+      <button class="btn-ar active" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">دراسة حالة · شركة نقل تشاركي رائدة في الشرق الأوسط · منتج تحليلي 05 / 07</div>
+    <h1 style="max-width:none">ذكاء التسعير والإيرادات</h1>
+    <p class="lead">محاكيات سيناريوهات أجابت أغلى سؤال في البزنس — ماذا يحدث للـ GMV والدعم والتكاليف وصافي الإيراد لو غيّرنا الهامش في مدينة ما — قبل أن يلمس أحد تسعير الـ production.</p>
+    <div class="tagrow">
+      <span class="tag">نمذجة سيناريوهات</span><span class="tag">محاكاة تسعير</span><span class="tag">Google Sheets</span>
+      <span class="tag">SQL</span><span class="tag">نمذجة مالية</span><span class="tag">افتراضات مرونة</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="سكوركارد المنتج" style="margin-top:28px">
+      <div class="sc-head"><span class="t">سكوركارد المنتج — حقائق بنيوية</span><span class="live">production</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">2</div><div class="lbl">نموذجا سيناريو — محاكاة التسعير وتوقّع الـ GMV</div></div>
+        <div class="metric"><div class="val">1</div><div class="lbl">خلية إدخال تقود كل سيناريو — New Margin %</div></div>
+        <div class="metric"><div class="val">4</div><div class="lbl">صيغ فروق لكل بند — ABS · % GMV · DIFF · DIFF ABS</div></div>
+        <div class="metric"><div class="val">−10<em>%</em></div><div class="lbl">افتراض مرونة صريح، معلن داخل النموذج</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">دراسة حالة نصية بالكامل، عن قصد: هذه النماذج تعيش في ملفات تحمل تصنيف بيانات داخليًا، فلا تُنشر لها لقطات — المنهجية هي قطعة البورتفوليو.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠١</span>المشكلة</h2>
+    <p>تغييرات الهامش هي أعلى رافعة وأعلى مخاطرة يملكها الماركت بليس. ارفع الهامش وقد تنخفض الرحلات؛ أضف دعمًا وينزف صافي الإيراد. الفرق التجارية كانت تحتاج رؤية السلسلة المالية الكاملة لقرار التسعير — <b>لكل مدينة ولكل منتج</b> — قبل نشره، لا بعده.</p>
+    <div class="callout">الهدف: تحويل «ماذا لو غيّرنا الهامش؟» من جدال إلى حساب يجريه أي شخص بتعديل خلية واحدة.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٢</span>دوري</h2>
+    <p>المحلل الوحيد على المنتج: صممت بنية النموذج، كتبت الـ SQL التي غذّت خطوط الأساس التاريخية، وبنيت حاسبات السيناريوهات بخلايا إدخال محددة وافتراضات صريحة ومحاسبة فروق كاملة.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٣</span>ما بنيته</h2>
+    <div class="grid2">
+      <div class="panel"><h3>نموذج محاكاة التسعير</h3><p>حاسبات لكل مدينة (مبنية مدينة بمدينة، تابًا بتاب) تقارن ثلاثة أشهر من بيانات الأساس. يُدخل المحلل New Margin % في خلية إدخال محددة؛ فيُسلسل النموذج التغيير عبر الرحلات المتوقعة والـ GMV والدعم والمرتجعات والإعفاءات والتكاليف وصافي الإيراد لكل خط منتج.</p></div>
+      <div class="panel"><h3>نموذج توقّع الـ GMV</h3><p>نفس المحرك مطبقًا شهرًا بشهر بكتل أساس شهرية: GMV متوقع، دعم الركاب والكباتن، خصومات البرومو، أرصدة التسويق، المرتجعات والإعفاءات، التكاليف الحالية مقابل المتوقعة، وصافي الإيراد الحالي مقابل المتوقع — كل بند بصيغ مطلقة و%-من-GMV وفروق.</p></div>
+      <div class="panel"><h3>افتراضات صريحة</h3><p>افتراض المرونة — معدل نمو متوقع −10% عند رفع الهامش — يجلس في خلية مرئية ومعنونة، لا مدفونًا في معادلة. أي مراجع للسيناريو يرى بالضبط ما افتُرض ويستطيع تغييره.</p></div>
+      <div class="panel"><h3>تتبع تاريخ تغييرات السعر</h3><p>رسوم اتجاه أسبوعية للحجوزات والرحلات لكل خط منتج تمتد عبر تغييرات الأسعار السابقة — فيُقرأ كل سيناريو جديد مقابل ما حدث فعلًا آخر مرة تحرك فيها التسعير.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٤</span>تفاصيل بناء مميزة</h2>
+    <div class="results">
+      <div class="result"><div><b>خلايا إدخال، لا اجتماعات إدخال:</b> الواجهة خلية زرقاء محددة واحدة — New Margin % — مقابل مراجع هامش حالية معنونة. تعديلها يعيد حساب السلسلة المالية كاملة.</div></div>
+      <div class="result"><div><b>أربع صيغ لكل بند:</b> كل بند مالي يُقرأ ABS و% من GMV وDIFF وDIFF ABS — فتقرأ المالية والتجارية والتشغيل السيناريو كلٌّ بوحدته الأصلية.</div></div>
+      <div class="result"><div><b>جانب التكلفة كاملًا، لا الإيراد فقط:</b> الدعم (ركاب وكباتن) والمرتجعات والإعفاءات والتكاليف منمذجة صراحة — تغيير هامش «ينمّي GMV» لكنه ينزف دعمًا يُظهر أثره الصافي الحقيقي.</div></div>
+      <div class="result"><div><b>التاريخ بجوار الفرضية:</b> رسوم اتجاه تغييرات السعر تجلس في نفس ملف المحاكي — فحص الافتراضات مبني داخل سير العمل.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٥</span>مؤشرات معرّفة ومحوكمة</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">GMV</span><span class="tag">Net Revenue</span><span class="tag">COGS</span>
+      <span class="tag">دعم الركاب / الكباتن</span><span class="tag">المرتجعات والإعفاءات</span>
+      <span class="tag">Margin %</span><span class="tag">C/R</span><span class="tag">ATF</span>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٦</span>القرارات التي أتاحها</h2>
+    <div class="results">
+      <div class="result"><div>الفرق التجارية اختبرت سيناريوهات الهامش لكل مدينة وخط منتج قبل النشر.</div></div>
+      <div class="result"><div>جدالات التسعير انتقلت من الآراء إلى نموذج مشترك بافتراضات مرئية.</div></div>
+      <div class="result"><div>سلسلة الدعم-والتكاليف الكاملة منعت مفاجآت «الإيراد صعد والربح نزل».</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٧</span>المهارات المُظهَرة</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">نمذجة سيناريوهات وحساسية</span><span class="tag">نمذجة مالية</span>
+      <span class="tag">افتراضات مرونة</span><span class="tag">تجربة استخدام النماذج (خلايا إدخال)</span>
+      <span class="tag">خطوط أساس SQL</span><span class="tag">Sheets كأداة نمذجة</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>محمد الطنبداوي</b> · Business &amp; Data Analyst — BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<script>
+function setLang(l){
+  document.getElementById('doc-en').style.display=(l==='en')?'':'none';
+  document.getElementById('doc-ar').style.display=(l==='ar')?'':'none';
+  document.querySelectorAll('.btn-en').forEach(b=>b.classList.toggle('active',l==='en'));
+  document.querySelectorAll('.btn-ar').forEach(b=>b.classList.toggle('active',l==='ar'));
+  document.documentElement.lang=l;
+  document.documentElement.dir=(l==='ar')?'rtl':'ltr';
+  window.scrollTo(0,0);
+}
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
+</body>
+</html>

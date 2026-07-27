@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Affiliate eCommerce Operations Dashboard · Case Study · Mohamed Eltanbedawy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/design-system.css">
+</head>
+<body>
+
+<!-- ============================= ENGLISH ============================= -->
+<div id="doc-en" dir="ltr">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">← tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button class="btn-en active" onclick="setLang('en')">English</button>
+      <button class="btn-ar" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">Case Study · Independent · Own-Data Analytics</div>
+    <h1 style="max-width:none">Affiliate eCommerce Operations Dashboard</h1>
+    <p class="lead">Sole operator of an affiliate eCommerce business — and the analyst who instrumented it. One live Looker Studio dashboard became the operation's single source of truth, and the numbers it surfaced were not the ones anyone hoped for. That's exactly why it's here.</p>
+    <div class="hook">The dashboard's biggest finding was a <b>~50% cancellation rate</b>. Honest measurement first — <b>then</b> decisions.</div>
+    <div class="tagrow">
+      <span class="tag">Looker Studio</span><span class="tag">SQL on WooCommerce</span><span class="tag">eCommerce Ops</span>
+      <span class="tag">Sole Operator</span><span class="tag">Live Dashboard</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="Case scorecard" style="margin-top:28px">
+      <div class="sc-head"><span class="t">case scorecard — real, unpolished numbers</span><span class="live">live</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">~500</div><div class="lbl">orders sold as sole operator</div></div>
+        <div class="metric"><div class="val">~50<em>%</em></div><div class="lbl">cancellation rate the dashboard surfaced</div></div>
+        <div class="metric"><div class="val">1</div><div class="lbl">operator running the entire workflow</div></div>
+        <div class="metric"><div class="val">&lt;1<em>min</em></div><div class="lbl">to read the operation's daily status</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">01</span>The Setup</h2>
+    <p>An affiliate marketing operation selling physical products in a cash-on-delivery market: I marketed the products, took the orders, and followed them through delivery — as the <b>only operator</b> on the business. No team, no handoffs, and initially, no instrumentation: order status lived in scattered messages and platform screens.</p>
+    <div class="callout">You can't improve an operation you read from screenshots and memory. Step one was measurement.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">02</span>What I Built</h2>
+    <div class="grid2">
+      <div class="panel"><h3>Live Looker Studio Dashboard</h3><p>The operation's single source of truth: order lifecycle by status, delivery performance, and recorded commissions — checked before every daily decision, and readable in under a minute by a non-analyst.</p></div>
+      <div class="panel"><h3>SQL Directly on the Store Database</h3><p>Queries written directly against the WooCommerce database — the same discipline used on production marketplace tables, applied to a small business: define the metrics, own the data model, then visualize.</p></div>
+      <div class="panel"><h3>End-to-End Ownership</h3><p>Data model, metric definitions, and the dashboard itself — one person owned the pipeline from raw order rows to the decision screen.</p></div>
+      <div class="panel"><h3>Built for an Operator, Not an Analyst</h3><p>The design target was reading speed: today's orders, their statuses, and what needs chasing — before the first coffee, not after an export.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">03</span>What the Numbers Said</h2>
+    <p>The dashboard's headline discovery: of roughly 500 orders sold, about <b>half cancelled</b> before completing delivery. In a cash-on-delivery affiliate model, that isn't a footnote — it's the difference between a business and an expensive hobby. Instead of burying the number, the dashboard put it front and center: cancellation became a tracked, decomposed, daily-visible metric.</p>
+    <div class="results">
+      <div class="result"><div><b>Honest instrumentation beats optimistic reporting:</b> the operation's worst number got the most screen space — because it was the one that decided everything else.</div></div>
+      <div class="result"><div><b>Delivery performance became measurable:</b> statuses tracked through the courier chain showed where orders stalled, and commissions were recorded against completed deliveries only.</div></div>
+      <div class="result"><div><b>Every daily decision started from the same screen:</b> which orders to chase, which products to keep promoting, and whether the funnel deserved more spend.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">04</span>Why This Case Is in the Portfolio</h2>
+    <p>This is the only portfolio piece running on my own operational data, live, with real — and imperfect — numbers. It demonstrates the full loop most analyst portfolios only describe: run an operation, instrument it honestly, read the uncomfortable result, and let the data drive what happens next.</p>
+    
+    <a class="c-link" href="https://lookerstudio.google.com/reporting/add4ae0b-b573-464d-9d82-9a7fdd7cb63b" target="_blank" rel="noopener">Open the live dashboard ↗</a>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Looker Studio overview page<br><em>(or embed via iframe)</em><span class="file">assets/affiliate-dashboard-overview.png</span></span><img src="../assets/affiliate-dashboard-overview.png" alt="SCREENSHOT SLOT Looker Studio overview page (or embed via iframe)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">05</span>Skills Demonstrated</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Looker Studio</span><span class="tag">SQL on production DB</span>
+      <span class="tag">Metric definition</span><span class="tag">eCommerce operations</span>
+      <span class="tag">Dashboard UX for operators</span><span class="tag">Honest analytics</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>Mohamed Eltanbedawy</b> · Business &amp; Data Analyst — BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<!-- ============================= ARABIC ============================= -->
+<div id="doc-ar" dir="rtl" style="display:none">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">→ tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="اللغة">
+      <button class="btn-en" onclick="setLang('en')">English</button>
+      <button class="btn-ar active" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">دراسة حالة · مستقل · تحليلات على بيانات خاصة</div>
+    <h1 style="max-width:none">داشبورد عمليات التجارة الإلكترونية بالعمولة</h1>
+    <p class="lead">المشغّل الوحيد لنشاط تجارة إلكترونية بالعمولة — والمحلل الذي قاسه. داشبورد Looker Studio حي واحد صار مصدر الحقيقة الوحيد للعملية، والأرقام التي كشفها لم تكن ما تمناه أحد. وهذا بالضبط سبب وجوده هنا.</p>
+    <div class="hook">أكبر اكتشاف للداشبورد كان معدل إلغاء <b>~50%</b>. قياس صادق أولًا — <b>ثم</b> القرارات.</div>
+    <div class="tagrow">
+      <span class="tag">Looker Studio</span><span class="tag">SQL على WooCommerce</span><span class="tag">عمليات eCommerce</span>
+      <span class="tag">مشغّل وحيد</span><span class="tag">داشبورد حي</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="سكوركارد الحالة" style="margin-top:28px">
+      <div class="sc-head"><span class="t">سكوركارد الحالة — أرقام حقيقية غير مجمّلة</span><span class="live">live</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">~500</div><div class="lbl">أوردر مُباع كمشغّل وحيد</div></div>
+        <div class="metric"><div class="val">~50<em>%</em></div><div class="lbl">معدل الإلغاء الذي كشفه الداشبورد</div></div>
+        <div class="metric"><div class="val">1</div><div class="lbl">مشغّل يدير سير العمل بالكامل</div></div>
+        <div class="metric"><div class="val">&lt;1<em>د</em></div><div class="lbl">لقراءة حالة العملية اليومية</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠١</span>السياق</h2>
+    <p>عملية تسويق بالعمولة تبيع منتجات فعلية في سوق الدفع عند الاستلام: أسوّق المنتجات، وأستقبل الأوردرات، وأتابعها حتى التسليم — بصفتي <b>المشغّل الوحيد</b> على البزنس. لا فريق، لا تسليمات بين أطراف، وفي البداية لا قياس: حالة الأوردرات كانت تعيش في رسائل متناثرة وشاشات منصات.</p>
+    <div class="callout">لا يمكنك تحسين عملية تقرأها من سكرينشوتات وذاكرة. الخطوة الأولى كانت القياس.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٢</span>ما بنيته</h2>
+    <div class="grid2">
+      <div class="panel"><h3>داشبورد Looker Studio حي</h3><p>مصدر الحقيقة الوحيد للعملية: دورة حياة الأوردرات بالحالة، أداء التوصيل، والعمولات المسجلة — يُراجَع قبل كل قرار يومي، ومقروء في أقل من دقيقة من غير محلل.</p></div>
+      <div class="panel"><h3>SQL مباشرة على قاعدة المتجر</h3><p>استعلامات مكتوبة مباشرة على قاعدة WooCommerce — نفس الانضباط المستخدم على جداول ماركت بليس في الـ production، مطبقًا على بزنس صغير: عرّف المقاييس، امتلك نموذج البيانات، ثم صوّر.</p></div>
+      <div class="panel"><h3>ملكية من طرف إلى طرف</h3><p>نموذج البيانات وتعريفات المقاييس والداشبورد نفسه — شخص واحد امتلك الخط من صفوف الأوردرات الخام إلى شاشة القرار.</p></div>
+      <div class="panel"><h3>مبني لمشغّل، لا لمحلل</h3><p>هدف التصميم كان سرعة القراءة: أوردرات اليوم وحالاتها وما يحتاج ملاحقة — قبل أول قهوة، لا بعد export.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٣</span>ماذا قالت الأرقام</h2>
+    <p>الاكتشاف الرئيسي للداشبورد: من نحو 500 أوردر مُباع، <b>نصفها تقريبًا أُلغي</b> قبل إتمام التسليم. في نموذج عمولة بالدفع عند الاستلام، هذا ليس هامشًا — إنه الفرق بين بزنس وهواية مكلفة. بدل دفن الرقم، وضعه الداشبورد في الصدارة: صار الإلغاء مقياسًا متتبعًا ومفككًا ومرئيًا يوميًا.</p>
+    <div class="results">
+      <div class="result"><div><b>القياس الصادق يتفوق على التقارير المتفائلة:</b> أسوأ رقم في العملية أخذ أكبر مساحة شاشة — لأنه الرقم الذي قرر كل شيء آخر.</div></div>
+      <div class="result"><div><b>أداء التوصيل صار قابلًا للقياس:</b> الحالات المتتبعة عبر سلسلة الشحن أظهرت أين تتعطل الأوردرات، والعمولات سُجلت على التسليمات المكتملة فقط.</div></div>
+      <div class="result"><div><b>كل قرار يومي بدأ من نفس الشاشة:</b> أي أوردرات تُلاحَق، أي منتجات يستمر الترويج لها، وهل يستحق القمع إنفاقًا أكبر.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٤</span>لماذا هذه الحالة في البورتفوليو</h2>
+    <p>هذه القطعة الوحيدة في البورتفوليو التي تعمل على بياناتي التشغيلية الخاصة، حيّة، بأرقام حقيقية — وغير مثالية. تُظهر الحلقة الكاملة التي تكتفي أغلب بورتفوليوهات المحللين بوصفها: شغّل عملية، قِسها بصدق، اقرأ النتيجة غير المريحة، ودع البيانات تقود ما يلي.</p>
+    
+    <a class="c-link" href="https://lookerstudio.google.com/reporting/add4ae0b-b573-464d-9d82-9a7fdd7cb63b" target="_blank" rel="noopener">افتح الداشبورد الحي ↗</a>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>صفحة النظرة العامة في Looker Studio<br><em>(أو تضمين عبر iframe)</em><span class="file">assets/affiliate-dashboard-overview.png</span></span><img src="../assets/affiliate-dashboard-overview.png" alt="مكان سكرينشوت صفحة النظرة العامة في Looker Studio (أو تضمين عبر iframe)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٥</span>المهارات المُظهَرة</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Looker Studio</span><span class="tag">SQL على قاعدة production</span>
+      <span class="tag">تعريف مقاييس</span><span class="tag">عمليات eCommerce</span>
+      <span class="tag">تجربة داشبورد للمشغّلين</span><span class="tag">تحليلات صادقة</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>محمد الطنبداوي</b> · Business &amp; Data Analyst — BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<script>
+function setLang(l){
+  document.getElementById('doc-en').style.display=(l==='en')?'':'none';
+  document.getElementById('doc-ar').style.display=(l==='ar')?'':'none';
+  document.querySelectorAll('.btn-en').forEach(b=>b.classList.toggle('active',l==='en'));
+  document.querySelectorAll('.btn-ar').forEach(b=>b.classList.toggle('active',l==='ar'));
+  document.documentElement.lang=l;
+  document.documentElement.dir=(l==='ar')?'rtl':'ltr';
+  window.scrollTo(0,0);
+}
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
+</body>
+</html>

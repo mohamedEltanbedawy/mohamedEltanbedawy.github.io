@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SalamaSons — Ad Intelligence &amp; AI Recommendation Loop · Case Study · Mohamed Eltanbedawy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/design-system.css">
+</head>
+<body>
+
+<!-- ============================= ENGLISH ============================= -->
+<div id="doc-en" dir="ltr">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">← tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button class="btn-en active" onclick="setLang('en')">English</button>
+      <button class="btn-ar" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">Case Study · Client Project · Ad Analytics &amp; AI Advisory</div>
+    <h1 style="max-width:none">SalamaSons — Ad Intelligence &amp; AI Recommendation Loop</h1>
+    <p class="lead">A home-appliances retailer in Mauritania was spending on social ads and reading the results by scrolling. I built the measurement loop: automated collection of post and ad performance into a warehouse sheet every four hours, and an AI layer that reads it and sends a recommendation per ad straight to the owner's Telegram.</p>
+    <div class="hook">Ads without measurement is spending. Measurement without a recommendation is <b>reporting</b>. This closes the loop from <b>spend → data → decision</b>.</div>
+    <div class="tagrow">
+      <span class="tag">Ad Analytics</span><span class="tag">n8n</span><span class="tag">Meta Graph API</span>
+      <span class="tag">Google Sheets</span><span class="tag">OpenAI</span><span class="tag">Telegram</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="Case scorecard" style="margin-top:28px">
+      <div class="sc-head"><span class="t">case scorecard — structural facts</span><span class="live">running</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">4<em>h</em></div><div class="lbl">refresh cycle — data updated six times a day</div></div>
+        <div class="metric"><div class="val">2</div><div class="lbl">chained workflows — collection, then advisory</div></div>
+        <div class="metric"><div class="val">1</div><div class="lbl">recommendation per ad, delivered to Telegram</div></div>
+        <div class="metric"><div class="val">0</div><div class="lbl">manual steps between spend and advice</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">Client confidentiality: no spend figures, revenue, or account identifiers appear in this case study. The build is the story.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">01</span>The Business Problem</h2>
+    <p>A single-owner retail operation running paid social in a market where every ad decision is made by feel: open the ads manager, scroll the posts, remember roughly which one "did well last week," and adjust. The performance data existed — it was just locked inside platform screens, unaggregated, never compared, and never written down. So nothing accumulated: last month's lesson was gone by this month.</p>
+    <div class="callout">The owner didn't need another dashboard to log into. He needed the answer to arrive where he already was — and to say what to <i>do</i>, not just what happened.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">02</span>My Role</h2>
+    <p>Built and deployed independently: the data-collection workflows against the social platform, the sheet schema that acts as the warehouse, the scheduling and chaining, the prompt design for the advisory layer, and the Telegram delivery. Design, build, and ongoing operation.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">03</span>The Loop</h2>
+    <div class="arch">
+      <div class="layer"><div class="node accent"><div class="t">Published posts &amp; live ads</div><div class="s">social platform</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer">
+        <div class="node"><div class="t">Workflow 1 — Collection</div><div class="s">every 4 hours · impressions + full ad detail</div></div>
+      </div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node det"><div class="t">Google Sheets warehouse</div><div class="s">append + update · one row per post / per ad</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer">
+        <div class="node ai"><div class="t">Workflow 2 — Advisory</div><div class="s">reads the sheet · OpenAI · per-ad recommendation</div></div>
+      </div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node"><div class="t">Owner's Telegram</div><div class="s">one message, per ad, ready to act on</div></div></div>
+    </div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>the two chained workflows on the n8n canvas<br><em>(blur credentials &amp; account IDs)</em><span class="file">assets/salamasons-workflows.png</span></span><img src="../assets/salamasons-workflows.png" alt="SCREENSHOT SLOT the two chained workflows on the n8n canvas (blur credentials &amp; accoun" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">04</span>What I Built</h2>
+    <div class="grid2">
+      <div class="panel"><h3>Post-performance collection</h3><p>A scheduled workflow pulls the published posts and their impressions, writing each into a Google Sheet — so reach stops being a number you glance at and becomes a series you can compare across weeks.</p></div>
+      <div class="panel"><h3>Full ad-detail extraction</h3><p>The same pass collects the complete detail behind every running ad and lands it in the sheet alongside performance — creative, targeting and delivery attributes sitting in the same row as the result they produced.</p></div>
+      <div class="panel"><h3>A four-hour heartbeat</h3><p>The cycle runs every four hours rather than daily: fast enough to catch an ad going wrong the same day it does, slow enough that the numbers have settled and the owner isn't buried in noise.</p></div>
+      <div class="panel"><h3>Chained AI advisory</h3><p>A second workflow fires after collection completes, reads the accumulated data, and passes it to OpenAI for a per-ad recommendation — then delivers it to the owner's Telegram. The advice arrives in the app he already checks, not in a dashboard he has to remember to open.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">05</span>Engineering Decisions</h2>
+    <div class="results">
+      <div class="result"><div><b>The sheet is the warehouse, deliberately:</b> the client reads and edits spreadsheets fluently and reads nothing else. Putting the data where he can audit it himself made the AI layer trustworthy instead of magical — he can always check the row the recommendation came from.</div></div>
+      <div class="result"><div><b>Collection and advice are separate workflows:</b> chained, not merged. If the platform API misbehaves, collection fails alone and the alert is specific; the advisory layer simply doesn't run on stale data rather than confidently advising on it.</div></div>
+      <div class="result"><div><b>Per-ad granularity, not a summary:</b> a weekly digest averages away the one ad that's burning budget. One recommendation per ad keeps the unit of decision the same as the unit of spend.</div></div>
+      <div class="result"><div><b>Delivery beats dashboards:</b> for a single-owner operation, a Telegram message that arrives is worth more than a perfect dashboard that goes unopened. The interface is the messaging app he was already in.</div></div>
+      <div class="result"><div><b>Accumulating history:</b> because every cycle appends, the sheet became a growing performance record — the thing the operation never had, and the reason each month can now be compared to the last.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">06</span>How This Differs From the Al-Raky Build</h2>
+    <p>Both are commerce automation, but they solve opposite halves of the same business. <a href="commerce-os.html">Al-Raky</a> is a <b>pre-sale production system</b>: it takes a photo and a price and manufactures everything needed to sell — content, media, listings, sales agents. SalamaSons is a <b>post-publication measurement system</b>: it takes what's already running and turns its results into advice. One creates the ads; this one judges them.</p>
+    <div class="callout">Different category (home appliances vs cosmetics), different market (Mauritania vs Egypt), different problem (production vs measurement) — built as two projects, not one product deployed twice.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">07</span>Skills Demonstrated</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Marketing analytics</span><span class="tag">API data extraction</span>
+      <span class="tag">Scheduled pipelines</span><span class="tag">Workflow chaining</span>
+      <span class="tag">Prompt engineering</span><span class="tag">LLM-assisted analysis</span>
+      <span class="tag">Sheets as a data layer</span><span class="tag">Alert &amp; delivery design</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>Mohamed Eltanbedawy</b> · Business &amp; Data Analyst — BI, Automation &amp; AI<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<!-- ============================= ARABIC ============================= -->
+<div id="doc-ar" dir="rtl" style="display:none">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">→ tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="اللغة">
+      <button class="btn-en" onclick="setLang('en')">English</button>
+      <button class="btn-ar active" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">دراسة حالة · مشروع عميل · تحليلات إعلانات واستشارة بالذكاء الاصطناعي</div>
+    <h1 style="max-width:none">SalamaSons — حلقة ذكاء الإعلانات والتوصيات</h1>
+    <p class="lead">تاجر أجهزة منزلية في موريتانيا كان ينفق على إعلانات السوشيال ويقرأ النتائج بالتمرير. بنيت له حلقة القياس: تجميع آلي لأداء المنشورات والإعلانات في شيت-مستودع كل أربع ساعات، وطبقة ذكاء اصطناعي تقرأه وترسل توصية لكل إعلان مباشرة إلى تليجرام صاحب المتجر.</p>
+    <div class="hook">إعلانات بلا قياس = إنفاق. وقياس بلا توصية = <b>تقرير</b>. وهذا يغلق الحلقة من <b>الإنفاق ← البيانات ← القرار</b>.</div>
+    <div class="tagrow">
+      <span class="tag">تحليلات إعلانات</span><span class="tag">n8n</span><span class="tag">Meta Graph API</span>
+      <span class="tag">Google Sheets</span><span class="tag">OpenAI</span><span class="tag">Telegram</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="سكوركارد الحالة" style="margin-top:28px">
+      <div class="sc-head"><span class="t">سكوركارد الحالة — حقائق بنيوية</span><span class="live">تعمل</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">4<em>س</em></div><div class="lbl">دورة التحديث — البيانات تتحدث ست مرات يوميًا</div></div>
+        <div class="metric"><div class="val">2</div><div class="lbl">workflows متسلسلان — تجميع ثم استشارة</div></div>
+        <div class="metric"><div class="val">1</div><div class="lbl">توصية لكل إعلان، تصل على تليجرام</div></div>
+        <div class="metric"><div class="val">0</div><div class="lbl">خطوات يدوية بين الإنفاق والتوصية</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">سرية العميل: لا أرقام إنفاق ولا إيرادات ولا معرّفات حسابات في هذه الدراسة. البناء هو القصة.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠١</span>المشكلة</h2>
+    <p>عملية تجزئة بمالك واحد تُشغّل إعلانات مدفوعة في سوق تُتخذ فيه كل قرارات الإعلان بالإحساس: افتح مدير الإعلانات، مرّر المنشورات، تذكّر تقريبًا أيها «مشى كويس الأسبوع الماضي»، وعدّل. بيانات الأداء كانت موجودة — لكنها محبوسة داخل شاشات المنصة، غير مجمّعة، ولا تُقارن، ولا تُكتب. فلم يتراكم شيء: درس الشهر الماضي يضيع بحلول هذا الشهر.</p>
+    <div class="callout">صاحب المتجر لم يكن يحتاج داشبورد آخر يسجّل الدخول إليه. كان يحتاج أن تصله الإجابة حيث هو أصلًا — وأن تقول له ماذا <i>يفعل</i>، لا ماذا حدث فقط.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٢</span>دوري</h2>
+    <p>بنيت ونشرت المشروع بمفردي: workflows تجميع البيانات من المنصة، وسكيما الشيت التي تعمل كمستودع، والجدولة والتسلسل، وتصميم البرومبت لطبقة الاستشارة، والتسليم على تليجرام. التصميم والبناء والتشغيل المستمر.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٣</span>الحلقة</h2>
+    <div class="arch">
+      <div class="layer"><div class="node accent"><div class="t">منشورات منشورة وإعلانات حية</div><div class="s">منصة السوشيال</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer">
+        <div class="node"><div class="t">Workflow 1 — التجميع</div><div class="s">كل 4 ساعات · الإمبريشنز + تفاصيل الإعلان كاملة</div></div>
+      </div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node det"><div class="t">مستودع Google Sheets</div><div class="s">إضافة وتحديث · صف لكل منشور / لكل إعلان</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer">
+        <div class="node ai"><div class="t">Workflow 2 — الاستشارة</div><div class="s">يقرأ الشيت · OpenAI · توصية لكل إعلان</div></div>
+      </div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node"><div class="t">تليجرام صاحب المتجر</div><div class="s">رسالة واحدة، لكل إعلان، جاهزة للتنفيذ</div></div></div>
+    </div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>الـ workflowين المتسلسلين على كانفاس n8n<br><em>(مع تمويه بيانات الاعتماد ومعرّفات الحسابات)</em><span class="file">assets/salamasons-workflows.png</span></span><img src="../assets/salamasons-workflows.png" alt="مكان سكرينشوت الـ workflowين المتسلسلين على كانفاس n8n (مع تمويه بيانات الاعتماد ومعرّفات " hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٤</span>ما بنيته</h2>
+    <div class="grid2">
+      <div class="panel"><h3>تجميع أداء المنشورات</h3><p>workflow مجدول يسحب المنشورات المنشورة وإمبريشناتها، ويكتب كل واحد في Google Sheet — فيتوقف الوصول عن كونه رقمًا تلمحه ويصير سلسلة تقارنها عبر الأسابيع.</p></div>
+      <div class="panel"><h3>استخراج تفاصيل الإعلانات كاملة</h3><p>نفس التمريرة تجمع التفاصيل الكاملة لكل إعلان شغّال وتنزلها في الشيت بجوار الأداء — الكرييتف والاستهداف وخصائص العرض في نفس الصف مع النتيجة التي أنتجتها.</p></div>
+      <div class="panel"><h3>نبضة كل أربع ساعات</h3><p>الدورة تعمل كل أربع ساعات لا يوميًا: سريعة كفاية لالتقاط إعلان يتعثر في نفس اليوم، وبطيئة كفاية لتستقر الأرقام ولا يغرق صاحب المتجر في الضوضاء.</p></div>
+      <div class="panel"><h3>استشارة AI متسلسلة</h3><p>workflow ثانٍ ينطلق بعد اكتمال التجميع، يقرأ البيانات المتراكمة، ويمررها إلى OpenAI للحصول على توصية لكل إعلان — ثم يسلّمها إلى تليجرام صاحب المتجر. تصل النصيحة في التطبيق الذي يفتحه أصلًا، لا في داشبورد عليه أن يتذكر فتحه.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٥</span>قرارات هندسية</h2>
+    <div class="results">
+      <div class="result"><div><b>الشيت هو المستودع، عن قصد:</b> العميل يقرأ الجداول ويعدّلها بطلاقة ولا يقرأ غيرها. وضع البيانات حيث يستطيع تدقيقها بنفسه جعل طبقة الـ AI جديرة بالثقة بدل أن تكون سحرية — يستطيع دائمًا مراجعة الصف الذي جاءت منه التوصية.</div></div>
+      <div class="result"><div><b>التجميع والاستشارة workflowان منفصلان:</b> متسلسلان، لا مدموجان. فإذا تعثّرت الـ API، يفشل التجميع وحده ويكون الإنذار محددًا؛ وطبقة الاستشارة ببساطة لا تعمل على بيانات قديمة بدل أن تنصح بثقة بناءً عليها.</div></div>
+      <div class="result"><div><b>تحبيب لكل إعلان، لا ملخّص:</b> الملخص الأسبوعي يذيب بالمتوسط الإعلان الوحيد الذي يحرق الميزانية. توصية لكل إعلان تُبقي وحدة القرار مطابقة لوحدة الإنفاق.</div></div>
+      <div class="result"><div><b>التسليم يتفوق على الداشبوردات:</b> لعملية بمالك واحد، رسالة تليجرام تصل أثمن من داشبورد مثالي لا يُفتح. الواجهة هي تطبيق المحادثة الذي كان فيه أصلًا.</div></div>
+      <div class="result"><div><b>تاريخ يتراكم:</b> لأن كل دورة تضيف صفوفًا، صار الشيت سجل أداء متناميًا — الشيء الذي لم تملكه العملية قط، والسبب في أن كل شهر صار قابلًا للمقارنة بما قبله.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٦</span>كيف يختلف عن مشروع الراقي</h2>
+    <p>كلاهما أتمتة تجارة، لكنهما يحلّان نصفين متقابلين من نفس البزنس. <a href="commerce-os.html">الراقي</a> نظام <b>إنتاج ما قبل البيع</b>: يأخذ صورة وسعرًا ويصنع كل ما يلزم للبيع — محتوى وميديا ومنتجات ووكلاء مبيعات. وSalamaSons نظام <b>قياس ما بعد النشر</b>: يأخذ ما يعمل بالفعل ويحوّل نتائجه إلى نصيحة. الأول يصنع الإعلانات، وهذا يحكم عليها.</p>
+    <div class="callout">فئة مختلفة (أجهزة منزلية مقابل كوزمتكس)، وسوق مختلف (موريتانيا مقابل مصر)، ومشكلة مختلفة (إنتاج مقابل قياس) — مبنيان كمشروعين، لا كمنتج واحد نُشر مرتين.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٧</span>المهارات المُظهَرة</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">تحليلات تسويقية</span><span class="tag">استخراج بيانات عبر API</span>
+      <span class="tag">خطوط مجدولة</span><span class="tag">تسلسل workflows</span>
+      <span class="tag">هندسة برومبت</span><span class="tag">تحليل بمساعدة LLM</span>
+      <span class="tag">Sheets كطبقة بيانات</span><span class="tag">تصميم الإنذار والتسليم</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>محمد الطنبداوي</b> · Business &amp; Data Analyst — BI وأتمتة وذكاء اصطناعي<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<script>
+function setLang(l){
+  document.getElementById('doc-en').style.display=(l==='en')?'':'none';
+  document.getElementById('doc-ar').style.display=(l==='ar')?'':'none';
+  document.querySelectorAll('.btn-en').forEach(b=>b.classList.toggle('active',l==='en'));
+  document.querySelectorAll('.btn-ar').forEach(b=>b.classList.toggle('active',l==='ar'));
+  document.documentElement.lang=l;
+  document.documentElement.dir=(l==='ar')?'rtl':'ltr';
+  window.scrollTo(0,0);
+}
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
+</body>
+</html>

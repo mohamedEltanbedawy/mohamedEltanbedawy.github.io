@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jotia — Dropshipping Automation Platform · Case Study · Mohamed Eltanbedawy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/design-system.css">
+</head>
+<body>
+
+<!-- ============================= ENGLISH ============================= -->
+<div id="doc-en" dir="ltr">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">← tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button class="btn-en active" onclick="setLang('en')">English</button>
+      <button class="btn-ar" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">Case Study · Independent · Automation Engineering</div>
+    <h1 style="max-width:none">Jotia — Dropshipping Automation Platform</h1>
+    <p class="lead">An end-to-end dropshipping machine: supplier discovery, deterministic pricing, AI content, auto-publishing, and an Arabic Messenger sales agent — built as 12 self-hosted n8n workflows and 4 Node.js microservices over PostgreSQL.</p>
+    <div class="tagrow">
+      <span class="tag">n8n (self-hosted)</span><span class="tag">Node.js Microservices</span><span class="tag">PostgreSQL</span>
+      <span class="tag">Puppeteer</span><span class="tag">AI Content</span><span class="tag">WooCommerce</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="Case scorecard" style="margin-top:28px">
+      <div class="sc-head"><span class="t">case scorecard — structural facts</span><span class="live">archived build</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">12</div><div class="lbl">self-hosted n8n workflows</div></div>
+        <div class="metric"><div class="val">4</div><div class="lbl">Node.js microservices</div></div>
+        <div class="metric"><div class="val">2</div><div class="lbl">supplier platforms integrated via adapters</div></div>
+        <div class="metric"><div class="val">1</div><div class="lbl">PostgreSQL database as single source of truth</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">Honest framing: the Jotia store itself is closed. This case is presented as a documented engineering build — the codebase and workflows are the evidence, and no business figures are claimed.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">01</span>The Business Problem</h2>
+    <p>Dropshipping lives or dies on catalog velocity: find supplier products, price them with a margin that survives shipping and returns, produce listing content, publish, and answer buyers — for every product, continuously. Done by hand, each step is small; together they are a full-time job that caps how much catalog one person can run.</p>
+    <div class="callout">The goal: a platform where supplier catalogs flow to a published, sellable store with humans only approving — not executing.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">02</span>What I Built</h2>
+    <div class="grid2">
+      <div class="panel"><h3>Supplier Discovery Adapters</h3><p>Stateless Puppeteer and REST adapters for two supplier platforms (Taager, Safka), each behind a unified contract: product details, variant availability, and links normalized into one schema regardless of source.</p></div>
+      <div class="panel"><h3>Deterministic Pricing Engine</h3><p>Margin and pricing rules run in plain code — no AI near money. Supplier cost in, sellable price out, reproducibly, with the rules editable as configuration.</p></div>
+      <div class="panel"><h3>AI Content &amp; Media Factory</h3><p>Generated listing copy plus an image pipeline: original photo saved, background removed with rembg, and Arabic discount banners composed with Sharp using custom Arabic fonts — publish-ready media from raw supplier images.</p></div>
+      <div class="panel"><h3>Auto-Publishing + Arabic Sales Agent</h3><p>Products published to the WooCommerce storefront automatically, and an Arabic-language Messenger sales agent answered buyers from the product knowledge — closing the loop from discovery to conversation.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">03</span>Engineering Decisions</h2>
+    <div class="results">
+      <div class="result"><div><b>Sheets to PostgreSQL, deliberately:</b> the data layer was migrated from spreadsheets to a typed PostgreSQL schema — real numeric prices instead of text, categorization, and image references — with the migration intent documented in the schema itself.</div></div>
+      <div class="result"><div><b>Adapters with one contract:</b> every supplier integration exposes the same interface, so adding a supplier means writing an adapter, not touching the pipeline.</div></div>
+      <div class="result"><div><b>Operational safety modes:</b> scrapers ship with dryRun and test modes and environment-based credentials — production behavior is opt-in, not default.</div></div>
+      <div class="result"><div><b>Order-status feedback loop:</b> a dedicated scraper reads order timelines from the supplier side and writes them back — fulfillment state visible without logging into supplier panels.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">04</span>Where It Fits</h2>
+    <p>Jotia was the engineering proving ground for the ideas that later became the <a href="commerce-os.html">AI Commerce Operating System</a>: adapters behind contracts, deterministic money paths, AI limited to language and media, and a database as the single source of truth. One of 16+ stores I have built and operated end to end — presented here for the build, not the business.</p>
+    <div class="arch">
+      <div class="layer">
+        <div class="node accent"><div class="t">Supplier platforms</div><div class="s">Taager · Safka</div></div>
+      </div>
+      <div class="arrow">↓</div>
+      <div class="layer">
+        <div class="node"><div class="t">Puppeteer adapter</div><div class="s">stateless · dryRun / test modes</div></div>
+        <div class="node"><div class="t">REST adapter</div><div class="s">variant discovery</div></div>
+      </div>
+      <div class="arch-note" style="margin:10px 0">one contract — product details, variants and links normalised into a single schema</div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node det"><div class="t">Pricing engine</div><div class="s">deterministic code · margin rules as config</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer">
+        <div class="node ai"><div class="t">Content factory</div><div class="s">AI listing copy</div></div>
+        <div class="node"><div class="t">Media factory</div><div class="s">rembg · Sharp · Arabic discount banners</div></div>
+      </div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node"><div class="t">PostgreSQL</div><div class="s">typed schema · single source of truth</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer">
+        <div class="node"><div class="t">WooCommerce storefront</div><div class="s">auto-published</div></div>
+        <div class="node"><div class="t">Arabic Messenger agent</div><div class="s">answers from product knowledge</div></div>
+      </div>
+      <div class="arch-note">an order-status scraper reads fulfilment timelines from the supplier side and writes them back</div>
+    </div>
+  <div class="figure reveal"><span>DIAGRAM SLOT<br>Jotia pipeline — suppliers → pricing → content → store<span class="file">assets/jotia-pipeline.png</span></span><img src="../assets/jotia-pipeline.png" alt="DIAGRAM SLOT Jotia pipeline — suppliers → pricing → content → store" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">05</span>Skills Demonstrated</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Workflow engineering (n8n)</span><span class="tag">Node.js microservices</span>
+      <span class="tag">Web scraping (Puppeteer)</span><span class="tag">Adapter / contract design</span>
+      <span class="tag">PostgreSQL schema design</span><span class="tag">Media-processing automation</span>
+      <span class="tag">AI content pipelines</span><span class="tag">WooCommerce integration</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>Mohamed Eltanbedawy</b> · Business &amp; Data Analyst — BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<!-- ============================= ARABIC ============================= -->
+<div id="doc-ar" dir="rtl" style="display:none">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">→ tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="اللغة">
+      <button class="btn-en" onclick="setLang('en')">English</button>
+      <button class="btn-ar active" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">دراسة حالة · مستقل · هندسة أتمتة</div>
+    <h1 style="max-width:none">Jotia — منصة أتمتة دروبشيبينج</h1>
+    <p class="lead">ماكينة دروبشيبينج من طرف إلى طرف: اكتشاف الموردين، تسعير حتمي، محتوى AI، نشر تلقائي، ووكيل مبيعات Messenger بالعربية — مبنية كـ 12 n8n workflow ذاتية الاستضافة و4 خدمات Node.js مصغّرة فوق PostgreSQL.</p>
+    <div class="tagrow">
+      <span class="tag">n8n (self-hosted)</span><span class="tag">خدمات Node.js مصغّرة</span><span class="tag">PostgreSQL</span>
+      <span class="tag">Puppeteer</span><span class="tag">محتوى AI</span><span class="tag">WooCommerce</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="سكوركارد الحالة" style="margin-top:28px">
+      <div class="sc-head"><span class="t">سكوركارد الحالة — حقائق بنيوية</span><span class="live">بناء مؤرشف</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">12</div><div class="lbl">n8n workflow ذاتية الاستضافة</div></div>
+        <div class="metric"><div class="val">4</div><div class="lbl">خدمات Node.js مصغّرة</div></div>
+        <div class="metric"><div class="val">2</div><div class="lbl">منصتا موردين مدمجتان عبر أدابترات</div></div>
+        <div class="metric"><div class="val">1</div><div class="lbl">قاعدة PostgreSQL كمصدر حقيقة وحيد</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">تأطير صادق: متجر Jotia نفسه مغلق. تُعرض هذه الحالة كبناء هندسي موثّق — الكود والـ workflows هما الدليل، ولا تُدّعى أي أرقام أعمال.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠١</span>المشكلة</h2>
+    <p>الدروبشيبينج يحيا أو يموت بسرعة الكتالوج: إيجاد منتجات الموردين، تسعيرها بهامش ينجو من الشحن والمرتجعات، إنتاج محتوى الصفحات، النشر، والرد على المشترين — لكل منتج، باستمرار. يدويًا، كل خطوة صغيرة؛ ومجتمعةً هي وظيفة كاملة تحدّ حجم الكتالوج الذي يديره شخص واحد.</p>
+    <div class="callout">الهدف: منصة تتدفق فيها كتالوجات الموردين إلى متجر منشور وقابل للبيع، والبشر يوافقون فقط — لا ينفذون.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٢</span>ما بنيته</h2>
+    <div class="grid2">
+      <div class="panel"><h3>أدابترات اكتشاف الموردين</h3><p>أدابترات Puppeteer وREST عديمة الحالة لمنصتي موردين (تاجر، Safka)، كل منها خلف عقد موحّد: تفاصيل المنتج وتوفر الـ variants والروابط مطبَّعة في سكيما واحدة أيًا كان المصدر.</p></div>
+      <div class="panel"><h3>محرك تسعير حتمي</h3><p>قواعد الهامش والتسعير تعمل بكود صِرف — لا AI قرب المال. تكلفة المورد تدخل، سعر بيع يخرج، بشكل قابل للتكرار، والقواعد قابلة للتعديل كإعدادات.</p></div>
+      <div class="panel"><h3>مصنع المحتوى والميديا بالـ AI</h3><p>نصوص صفحات مولّدة بالإضافة لخط صور: حفظ الأصلية، إزالة الخلفية بـ rembg، وتركيب بنرات خصم عربية بـ Sharp بخطوط عربية مخصصة — ميديا جاهزة للنشر من صور الموردين الخام.</p></div>
+      <div class="panel"><h3>نشر تلقائي + وكيل مبيعات عربي</h3><p>المنتجات تُنشر على متجر WooCommerce تلقائيًا، ووكيل مبيعات Messenger بالعربية يجيب المشترين من معرفة المنتجات — فتُغلق الحلقة من الاكتشاف إلى المحادثة.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٣</span>قرارات هندسية</h2>
+    <div class="results">
+      <div class="result"><div><b>من Sheets إلى PostgreSQL، عمدًا:</b> طبقة البيانات هاجرت من الجداول إلى سكيما PostgreSQL منمّطة — أسعار رقمية حقيقية بدل نصوص، تصنيف، ومراجع صور — ونية الهجرة موثقة في السكيما نفسها.</div></div>
+      <div class="result"><div><b>أدابترات بعقد واحد:</b> كل تكامل مورد يكشف نفس الواجهة، فإضافة مورد تعني كتابة أدابتر، لا لمس الخط.</div></div>
+      <div class="result"><div><b>أوضاع أمان تشغيلية:</b> السكرابرز تأتي بأوضاع dryRun وtest وبيانات اعتماد من البيئة — سلوك الـ production اختيار صريح، لا افتراضي.</div></div>
+      <div class="result"><div><b>حلقة رجعية لحالة الأوردرات:</b> سكرابر مخصص يقرأ تايم لاين الأوردرات من جهة المورد ويكتبها رجوعًا — حالة التنفيذ مرئية بلا دخول للوحات الموردين.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٤</span>موقعها من المنظومة</h2>
+    <p>كانت Jotia أرض الإثبات الهندسية للأفكار التي صارت لاحقًا <a href="commerce-os.html">نظام تشغيل التجارة بالذكاء الاصطناعي</a>: أدابترات خلف عقود، مسارات مال حتمية، AI محدود باللغة والميديا، وقاعدة بيانات كمصدر حقيقة وحيد. واحد من +16 متجرًا بنيتها وشغّلتها من طرف إلى طرف — يُعرض هنا للبناء، لا للبزنس.</p>
+    <div class="arch">
+      <div class="layer">
+        <div class="node accent"><div class="t">منصات الموردين</div><div class="s">تاجر · Safka</div></div>
+      </div>
+      <div class="arrow">↓</div>
+      <div class="layer">
+        <div class="node"><div class="t">أدابتر Puppeteer</div><div class="s">عديم الحالة · أوضاع dryRun / test</div></div>
+        <div class="node"><div class="t">أدابتر REST</div><div class="s">اكتشاف الـ variants</div></div>
+      </div>
+      <div class="arch-note" style="margin:10px 0">عقد واحد — تفاصيل المنتج والـ variants والروابط مطبَّعة في سكيما واحدة</div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node det"><div class="t">محرك التسعير</div><div class="s">كود حتمي · قواعد الهامش كإعدادات</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer">
+        <div class="node ai"><div class="t">مصنع المحتوى</div><div class="s">نصوص صفحات بالـ AI</div></div>
+        <div class="node"><div class="t">مصنع الميديا</div><div class="s">rembg · Sharp · بنرات خصم عربية</div></div>
+      </div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node"><div class="t">PostgreSQL</div><div class="s">سكيما منمّطة · مصدر حقيقة وحيد</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer">
+        <div class="node"><div class="t">متجر WooCommerce</div><div class="s">نشر تلقائي</div></div>
+        <div class="node"><div class="t">وكيل Messenger عربي</div><div class="s">يجيب من معرفة المنتج</div></div>
+      </div>
+      <div class="arch-note">سكرابر حالة الأوردرات يقرأ تايم لاين التنفيذ من جهة المورد ويكتبه رجوعًا</div>
+    </div>
+  <div class="figure reveal"><span>مكان دياجرام<br>خط Jotia — موردون ← تسعير ← محتوى ← متجر<span class="file">assets/jotia-pipeline.png</span></span><img src="../assets/jotia-pipeline.png" alt="مكان دياجرام خط Jotia — موردون ← تسعير ← محتوى ← متجر" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٥</span>المهارات المُظهَرة</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">هندسة workflows (n8n)</span><span class="tag">خدمات Node.js مصغّرة</span>
+      <span class="tag">استخراج بيانات الويب (Puppeteer)</span><span class="tag">تصميم أدابتر / عقد</span>
+      <span class="tag">تصميم سكيما PostgreSQL</span><span class="tag">أتمتة معالجة الوسائط</span>
+      <span class="tag">خطوط محتوى AI</span><span class="tag">تكامل WooCommerce</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>محمد الطنبداوي</b> · Business &amp; Data Analyst — BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<script>
+function setLang(l){
+  document.getElementById('doc-en').style.display=(l==='en')?'':'none';
+  document.getElementById('doc-ar').style.display=(l==='ar')?'':'none';
+  document.querySelectorAll('.btn-en').forEach(b=>b.classList.toggle('active',l==='en'));
+  document.querySelectorAll('.btn-ar').forEach(b=>b.classList.toggle('active',l==='ar'));
+  document.documentElement.lang=l;
+  document.documentElement.dir=(l==='ar')?'rtl':'ltr';
+  window.scrollTo(0,0);
+}
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
+</body>
+</html>

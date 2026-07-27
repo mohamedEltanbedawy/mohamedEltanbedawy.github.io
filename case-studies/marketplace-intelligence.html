@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marketplace Intelligence · Case Study · Mohamed Eltanbedawy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/design-system.css">
+</head>
+<body>
+
+<!-- ============================= ENGLISH ============================= -->
+<div id="doc-en" dir="ltr">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">← tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button class="btn-en active" onclick="setLang('en')">English</button>
+      <button class="btn-ar" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">Case Study · MENA Ride-Hailing Leader · Analytics Product 02 / 07</div>
+    <h1 style="max-width:none">Marketplace Intelligence</h1>
+    <p class="lead">The suite that answers one question from every angle: why do rides fail? Booking-funnel analytics, acceptance-rate decomposition, peak-pricing analysis, and anomaly matrices — with the metric glossary written into the dashboards.</p>
+    <div class="tagrow">
+      <span class="tag">Funnel Analysis</span><span class="tag">Tableau</span><span class="tag">SQL</span>
+      <span class="tag">Segmentation</span><span class="tag">Peak Pricing</span><span class="tag">Anomaly Detection</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="Product scorecard" style="margin-top:28px">
+      <div class="sc-head"><span class="t">product scorecard — structural facts</span><span class="live">production</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">14</div><div class="lbl">peak-multiplier brackets in the pricing analysis</div></div>
+        <div class="metric"><div class="val">9<em>×</em>11</div><div class="lbl">duration × distance anomaly matrix</div></div>
+        <div class="metric"><div class="val">24<em>h</em></div><div class="lbl">hour-of-day heatmaps per peak bracket</div></div>
+        <div class="metric"><div class="val">2</div><div class="lbl">parameterized views — daily &amp; hourly</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">Note on numbers: no figure from inside a client dashboard is presented here as an achievement. The build is the story; published screenshots have absolute figures blurred.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">01</span>The Business Problem</h2>
+    <p>In a two-sided marketplace, a failed ride has many possible causes: the customer never got an offer, got one and waited too long, cancelled before or after assignment, or the price didn't clear. Aggregate completion rates hide all of that. The commercial and ops teams needed to know <b>where the booking funnel leaks</b>, and how peak pricing and trip distance change captain behavior.</p>
+    <div class="callout">The goal: decompose every failed ride into a named, measurable failure mode — then track each mode daily, hourly, and by city.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">02</span>My Role</h2>
+    <p>Sole analyst on the product: self-written SQL for every view, hourly and daily parameterized architectures, and the in-dashboard metric glossary that made the suite readable across departments. One person owned the questions, the queries, and the answers.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">03</span>What I Built</h2>
+    <div class="grid2">
+      <div class="panel"><h3>Bid-Ask Dashboard + Daily Report</h3><p>A dual-tab navigation system covering the full booking funnel — app open → dropoff added → CCT selection → ride → completion — per city, with funnel drop-offs per stage, LO metrics with in-view definitions, and demand/supply performance blocks with WoW deltas.</p></div>
+      <div class="panel"><h3>Bid-Ask Rides Deep Analysis</h3><p>Failed rides split by zero-ask vs ask-received, then by timed-out vs customer-cancelled — each with requested-vs-suggested price comparison, captain-offer status breakdowns, and median timing metrics (creation → first ask → assignment → cancellation).</p></div>
+      <div class="panel"><h3>Peak Analysis Workbook</h3><p>Sessions, bookings, trips, and paid cancellations across 14 peak-multiplier brackets — as overview bars and as 8 hour-of-day heatmap matrices (bracket × 24 hours) with in-row relative highlighting.</p></div>
+      <div class="panel"><h3>User Segments &amp; Anomaly Matrices</h3><p>User segmentation (Power / High / Medium / Low × Flexi / Marketplace / Shared dependency) with WoW pivots; a duration × distance cross-tab (9 × 11 brackets) that surfaces anomalous rides; and zone-level booking contribution and C/R tables.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">04</span>Signature Build Details</h2>
+    <div class="results">
+      <div class="result"><div><b>A glossary inside the dashboard:</b> every non-obvious term — ask received, timed-out, PAC, suggested price, captain offers — is defined in colored text inside the view itself. Cross-department readers never needed a translator.</div></div>
+      <div class="result"><div><b>Failure modes, not failure rates:</b> "not completed" splits into zero-ask vs ask-received, then timed-out vs cancelled, each against price positioning — so pricing and supply teams saw <i>their</i> share of the leak separately.</div></div>
+      <div class="result"><div><b>Per-city funnel accounting:</b> the daily report repeats the full funnel table per city with WoW deltas — one scroll compares Cairo, Alexandria, Damietta, and Tanta stage by stage.</div></div>
+      <div class="result"><div><b>Toggle architecture:</b> Dates-aggregate vs Hours views share one layout; the same funnel logic reads by day for trends and by hour-of-day for operational patterns.</div></div>
+      <div class="result"><div><b>Timing medians for cancellations:</b> creation-to-first-ask, first-ask-to-assignment, assignment-to-cancellation — the difference between "no supply" and "slow supply" quantified.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">05</span>KPIs Defined &amp; Governed</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Acceptance Rate</span><span class="tag">CNF</span><span class="tag">PAC / POAC</span>
+      <span class="tag">Impression Rate</span><span class="tag">Conversion Rate</span><span class="tag">C/R</span>
+      <span class="tag">R/S</span><span class="tag">Peak Intensity</span><span class="tag">Assignment Rate</span>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">06</span>Decisions Enabled</h2>
+    <div class="results">
+      <div class="result"><div>Pricing teams saw acceptance behavior per peak bracket and distance band before touching multipliers.</div></div>
+      <div class="result"><div>Ops distinguished supply gaps (zero-ask) from matching friction (ask-received but timed out) — two different fixes.</div></div>
+      <div class="result"><div>The segment pivots showed which user tiers depended on which marketplace model, week over week.</div></div>
+      <div class="result"><div>The anomaly matrix flagged implausible duration-distance combinations for quality review.</div></div>
+    </div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Bid-Ask Dashboard — funnel overview<br><em>(blur all absolute figures)</em><span class="file">assets/mkt-bidask-funnel.png</span></span><img src="../assets/mkt-bidask-funnel.png" alt="SCREENSHOT SLOT Bid-Ask Dashboard — funnel overview (blur all absolute figures)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Peak Analysis — hourly heatmaps (bracket × hour)<br><em>(blur all absolute figures)</em><span class="file">assets/mkt-peak-heatmaps.png</span></span><img src="../assets/mkt-peak-heatmaps.png" alt="SCREENSHOT SLOT Peak Analysis — hourly heatmaps (bracket × hour) (blur all absolute figure" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">07</span>Skills Demonstrated</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Funnel decomposition</span><span class="tag">Multi-dimensional segmentation</span>
+      <span class="tag">Peak / surge analysis</span><span class="tag">Anomaly matrices</span>
+      <span class="tag">Parameterized view design</span><span class="tag">Semantic layer / in-view definitions</span>
+      <span class="tag">Advanced SQL</span><span class="tag">Tableau navigation systems</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>Mohamed Eltanbedawy</b> · Business &amp; Data Analyst — BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<!-- ============================= ARABIC ============================= -->
+<div id="doc-ar" dir="rtl" style="display:none">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">→ tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="اللغة">
+      <button class="btn-en" onclick="setLang('en')">English</button>
+      <button class="btn-ar active" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">دراسة حالة · شركة نقل تشاركي رائدة في الشرق الأوسط · منتج تحليلي 02 / 07</div>
+    <h1 style="max-width:none">ذكاء الماركت بليس</h1>
+    <p class="lead">الحزمة التي تجيب سؤالًا واحدًا من كل الزوايا: لماذا تفشل الرحلات؟ تحليلات قمع الحجز، تفكيك معدل القبول، تحليل تسعير الذروة، ومصفوفات الشذوذ — مع قاموس المقاييس مكتوبًا داخل الداشبوردات.</p>
+    <div class="tagrow">
+      <span class="tag">تحليل قمعي</span><span class="tag">Tableau</span><span class="tag">SQL</span>
+      <span class="tag">تقسيم شرائح</span><span class="tag">تسعير الذروة</span><span class="tag">رصد الشذوذ</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="سكوركارد المنتج" style="margin-top:28px">
+      <div class="sc-head"><span class="t">سكوركارد المنتج — حقائق بنيوية</span><span class="live">production</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">14</div><div class="lbl">شريحة معامل ذروة في تحليل التسعير</div></div>
+        <div class="metric"><div class="val">9<em>×</em>11</div><div class="lbl">مصفوفة شذوذ مدة × مسافة</div></div>
+        <div class="metric"><div class="val">24<em>h</em></div><div class="lbl">هيت ماب بالساعة لكل شريحة ذروة</div></div>
+        <div class="metric"><div class="val">2</div><div class="lbl">عرضان ببارامترات — يومي وبالساعة</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">ملاحظة عن الأرقام: لا يُعرض هنا أي رقم من داخل داشبوردات العميل كإنجاز. البناء هو القصة؛ واللقطات المنشورة أرقامها المطلقة مموّهة.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠١</span>المشكلة</h2>
+    <p>في ماركت بليس ثنائي الأطراف، الرحلة الفاشلة لها أسباب كثيرة محتملة: العميل لم يصله عرض أصلًا، أو وصله وانتظر أكثر من اللازم، أو ألغى قبل التعيين أو بعده، أو السعر لم يُقبل. معدلات الإكمال الإجمالية تخفي كل ذلك. الفرق التجارية والتشغيلية كانت تحتاج معرفة <b>أين يسرّب قمع الحجز</b>، وكيف يغيّر تسعير الذروة ومسافة الرحلة سلوك الكباتن.</p>
+    <div class="callout">الهدف: تفكيك كل رحلة فاشلة إلى نمط فشل مسمّى وقابل للقياس — ثم تتبع كل نمط يوميًا وبالساعة وبالمدينة.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٢</span>دوري</h2>
+    <p>المحلل الوحيد على المنتج: SQL مكتوبة بنفسي لكل عرض، معماريات ببارامترات يومية وبالساعة، وقاموس المقاييس داخل الداشبورد الذي جعل الحزمة مقروءة عبر الإدارات. شخص واحد امتلك الأسئلة والاستعلامات والإجابات.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٣</span>ما بنيته</h2>
+    <div class="grid2">
+      <div class="panel"><h3>داشبورد Bid-Ask + التقرير اليومي</h3><p>نظام تنقّل ثنائي التابات يغطي قمع الحجز كاملًا — فتح التطبيق ← إضافة الوجهة ← اختيار CCT ← الرحلة ← الإكمال — لكل مدينة، مع تسريبات القمع لكل مرحلة، ومقاييس LO بتعريفات داخل العرض، وكتل أداء طلب/عرض بفروق WoW.</p></div>
+      <div class="panel"><h3>التحليل العميق لرحلات Bid-Ask</h3><p>الرحلات الفاشلة مقسّمة إلى صفر-عروض مقابل وصلها عروض، ثم انتهت مهلتها مقابل ألغاها العميل — كل منها بمقارنة السعر المطلوب مقابل المقترح، وتفكيك حالات عروض الكباتن، ومقاييس توقيت وسيطة (الإنشاء ← أول عرض ← التعيين ← الإلغاء).</p></div>
+      <div class="panel"><h3>وورك بوك تحليل الذروة</h3><p>الجلسات والحجوزات والرحلات والإلغاءات المدفوعة عبر 14 شريحة معامل ذروة — كأعمدة نظرة عامة وكـ 8 مصفوفات هيت ماب بالساعة (شريحة × 24 ساعة) بإبراز نسبي داخل كل صف.</p></div>
+      <div class="panel"><h3>شرائح المستخدمين ومصفوفات الشذوذ</h3><p>تقسيم المستخدمين (Power / High / Medium / Low × اعتماد Flexi / Marketplace / مشترك) بجداول pivot أسبوعية؛ ومصفوفة تقاطع مدة × مسافة (9 × 11 شريحة) تكشف الرحلات الشاذة؛ وجداول مساهمة الحجز وC/R على مستوى الـ zones.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٤</span>تفاصيل بناء مميزة</h2>
+    <div class="results">
+      <div class="result"><div><b>قاموس داخل الداشبورد:</b> كل مصطلح غير بديهي — ask received، timed-out، PAC، السعر المقترح، عروض الكباتن — معرّف بنص ملوّن داخل العرض نفسه. القرّاء من الإدارات الأخرى لم يحتاجوا مترجمًا أبدًا.</div></div>
+      <div class="result"><div><b>أنماط فشل، لا معدلات فشل:</b> «غير مكتملة» تنقسم إلى صفر-عروض مقابل وصلها عروض، ثم مهلة منتهية مقابل إلغاء، كل منها مقابل تموضع السعر — فرأى فريقا التسعير والعرض حصة <i>كل منهما</i> من التسريب منفصلة.</div></div>
+      <div class="result"><div><b>محاسبة قمعية لكل مدينة:</b> التقرير اليومي يكرر جدول القمع الكامل لكل مدينة بفروق WoW — تمريرة واحدة تقارن القاهرة والإسكندرية ودمياط وطنطا مرحلة بمرحلة.</div></div>
+      <div class="result"><div><b>معمارية تبديل:</b> عرضا التجميع بالتواريخ وبالساعات يتشاركان تخطيطًا واحدًا؛ نفس منطق القمع يُقرأ باليوم للاتجاهات وبساعة اليوم للأنماط التشغيلية.</div></div>
+      <div class="result"><div><b>وسائط توقيت للإلغاءات:</b> الإنشاء-لأول-عرض، أول-عرض-للتعيين، التعيين-للإلغاء — الفرق بين «لا يوجد عرض» و«عرض بطيء» مقاسًا بالأرقام.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٥</span>مؤشرات معرّفة ومحوكمة</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Acceptance Rate</span><span class="tag">CNF</span><span class="tag">PAC / POAC</span>
+      <span class="tag">Impression Rate</span><span class="tag">Conversion Rate</span><span class="tag">C/R</span>
+      <span class="tag">R/S</span><span class="tag">Peak Intensity</span><span class="tag">Assignment Rate</span>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٦</span>القرارات التي أتاحها</h2>
+    <div class="results">
+      <div class="result"><div>فرق التسعير رأت سلوك القبول لكل شريحة ذروة ونطاق مسافة قبل لمس المعاملات.</div></div>
+      <div class="result"><div>التشغيل ميّز فجوات العرض (صفر-عروض) عن احتكاك المطابقة (عروض وصلت لكن انتهت مهلتها) — إصلاحان مختلفان.</div></div>
+      <div class="result"><div>جداول الشرائح أظهرت أي فئات مستخدمين تعتمد على أي نموذج ماركت بليس، أسبوعًا بأسبوع.</div></div>
+      <div class="result"><div>مصفوفة الشذوذ علّمت تركيبات المدة-المسافة غير المنطقية لمراجعة الجودة.</div></div>
+    </div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>داشبورد Bid-Ask — نظرة القمع العامة<br><em>(مع تمويه كل الأرقام المطلقة)</em><span class="file">assets/mkt-bidask-funnel.png</span></span><img src="../assets/mkt-bidask-funnel.png" alt="مكان سكرينشوت داشبورد Bid-Ask — نظرة القمع العامة (مع تمويه كل الأرقام المطلقة)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>تحليل الذروة — هيت ماب بالساعة (شريحة × ساعة)<br><em>(مع تمويه كل الأرقام المطلقة)</em><span class="file">assets/mkt-peak-heatmaps.png</span></span><img src="../assets/mkt-peak-heatmaps.png" alt="مكان سكرينشوت تحليل الذروة — هيت ماب بالساعة (شريحة × ساعة) (مع تمويه كل الأرقام المطلقة)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٧</span>المهارات المُظهَرة</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">تفكيك قمعي</span><span class="tag">تقسيم متعدد الأبعاد</span>
+      <span class="tag">تحليل ذروة / surge</span><span class="tag">مصفوفات شذوذ</span>
+      <span class="tag">تصميم عروض ببارامترات</span><span class="tag">طبقة دلالية / تعريفات داخل العرض</span>
+      <span class="tag">SQL متقدمة</span><span class="tag">أنظمة تنقّل Tableau</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>محمد الطنبداوي</b> · Business &amp; Data Analyst — BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<script>
+function setLang(l){
+  document.getElementById('doc-en').style.display=(l==='en')?'':'none';
+  document.getElementById('doc-ar').style.display=(l==='ar')?'':'none';
+  document.querySelectorAll('.btn-en').forEach(b=>b.classList.toggle('active',l==='en'));
+  document.querySelectorAll('.btn-ar').forEach(b=>b.classList.toggle('active',l==='ar'));
+  document.documentElement.lang=l;
+  document.documentElement.dir=(l==='ar')?'rtl':'ltr';
+  window.scrollTo(0,0);
+}
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
+</body>
+</html>

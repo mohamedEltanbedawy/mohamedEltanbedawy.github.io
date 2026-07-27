@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Real-Time Operations · Case Study · Mohamed Eltanbedawy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/design-system.css">
+</head>
+<body>
+
+<!-- ============================= ENGLISH ============================= -->
+<div id="doc-en" dir="ltr">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">← tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button class="btn-en active" onclick="setLang('en')">English</button>
+      <button class="btn-ar" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">Case Study · MENA Ride-Hailing Leader · Analytics Product 06 / 07</div>
+    <h1 style="max-width:none">Real-Time Operations</h1>
+    <p class="lead">Intraday marketplace visibility for Egypt and Pakistan: 15-minute-granularity views on live tables refreshing roughly every five minutes, with day-over-day comparison overlays from sessions all the way down to utilization.</p>
+    <div class="tagrow">
+      <span class="tag">Near-Real-Time BI</span><span class="tag">Live Pipelines</span><span class="tag">Tableau</span>
+      <span class="tag">SQL</span><span class="tag">Ops Analytics</span><span class="tag">2 Countries</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="Product scorecard" style="margin-top:28px">
+      <div class="sc-head"><span class="t">product scorecard — structural facts</span><span class="live">production</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">15<em>min</em></div><div class="lbl">finest time granularity in the views</div></div>
+        <div class="metric"><div class="val">~5<em>min</em></div><div class="lbl">refresh cycle of the live source tables</div></div>
+        <div class="metric"><div class="val">14<em>+</em></div><div class="lbl">metrics in the grid, sessions to utilization</div></div>
+        <div class="metric"><div class="val">2</div><div class="lbl">countries — Egypt &amp; Pakistan builds</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">Note on numbers: no figure from inside a client dashboard is presented here as an achievement. Published screenshots have absolute figures blurred.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">01</span>The Business Problem</h2>
+    <p>Ops teams managed an intraday business with yesterday's report. A supply gap at 2pm, a demand spike after rain, a promo misfiring at launch — by the time the daily dashboard showed it, the moment to react was gone. The marketplace needed <b>operational</b> visibility: what is happening right now, and is it normal for this hour?</p>
+    <div class="callout">The goal: a live view where "is right now normal?" is answered by overlaying today's curve on comparable days — down to 15-minute slices.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">02</span>My Role</h2>
+    <p>Sole analyst on the product: the SQL against live tables, the 15-minute/hourly view architecture, the day-over-day comparison design, and the in-dashboard timezone documentation that kept a GMT pipeline readable for local ops teams.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">03</span>What I Built</h2>
+    <div class="grid2">
+      <div class="panel"><h3>Real-Time Egypt (V2)</h3><p>A grid of metric trends — sessions, bookings, trips, missed bookings, C/R, fulfillment, active users, promo and peak trips, peak factor — plus a full supply block: available and active captains, available/active/busy hours, cash-collection hours, and a full-width utilization view. Three comparison days overlaid per chart.</p></div>
+      <div class="panel"><h3>Real-Time Pakistan</h3><p>The same architecture deployed for a second market, with four comparison days overlaid and its own supply section — proving the design portable across markets rather than a one-off build.</p></div>
+      <div class="panel"><h3>15-Min / Hourly Toggle</h3><p>One switch moves every chart between 15-minute slices (for incident forensics) and hourly aggregation (for shape reading) — same layout, same metrics, two operating altitudes.</p></div>
+      <div class="panel"><h3>Timezone &amp; Partial-Day Handling</h3><p>GMT-to-local conversion documented inside the dashboard, and today's partial curve simply ends at "now" against complete comparison days — no misleading extrapolation.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">04</span>Signature Build Details</h2>
+    <div class="results">
+      <div class="result"><div><b>Comparison overlays as the baseline:</b> every chart draws today against same-weekday reference days — anomaly detection by eye, calibrated to the hour.</div></div>
+      <div class="result"><div><b>Supply depth most live dashboards skip:</b> available vs active captains, and available vs active vs busy vs cash-collection hours, each defined in-view — ending ambiguity about what "available" means.</div></div>
+      <div class="result"><div><b>Utilization as the bottom line:</b> the full-width closing chart divides busy time by available time — one line telling ops whether supply and demand are actually meeting.</div></div>
+      <div class="result"><div><b>Built on a live pipeline:</b> source tables refresh roughly every five minutes; the views are designed to be re-read all day, not exported once.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">05</span>KPIs Defined &amp; Governed</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Sessions</span><span class="tag">Bookings</span><span class="tag">Fulfillment Rate</span>
+      <span class="tag">C/R</span><span class="tag">Missed Bookings</span><span class="tag">Peak Factor</span>
+      <span class="tag">Available / Active Hours</span><span class="tag">Utilization %</span>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">06</span>Decisions Enabled</h2>
+    <div class="results">
+      <div class="result"><div>Ops responded to supply gaps and demand spikes within the hour, not the next day.</div></div>
+      <div class="result"><div>Launch-day behavior of promos and pricing changes was visible in 15-minute slices.</div></div>
+      <div class="result"><div>The same product served two markets, giving regional ops a shared operating picture.</div></div>
+    </div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Real-Time Egypt — 15-minute view<br><em>(blur all absolute figures)</em><span class="file">assets/rt-egypt-15min.png</span></span><img src="../assets/rt-egypt-15min.png" alt="SCREENSHOT SLOT Real-Time Egypt — 15-minute view (blur all absolute figures)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">07</span>Skills Demonstrated</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Near-real-time pipelines</span><span class="tag">Intraday analytics design</span>
+      <span class="tag">Comparison-overlay UX</span><span class="tag">Timezone handling</span>
+      <span class="tag">Partial-data handling</span><span class="tag">Multi-market deployment</span>
+      <span class="tag">Advanced SQL</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>Mohamed Eltanbedawy</b> · Business &amp; Data Analyst — BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<!-- ============================= ARABIC ============================= -->
+<div id="doc-ar" dir="rtl" style="display:none">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">→ tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="اللغة">
+      <button class="btn-en" onclick="setLang('en')">English</button>
+      <button class="btn-ar active" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">دراسة حالة · شركة نقل تشاركي رائدة في الشرق الأوسط · منتج تحليلي 06 / 07</div>
+    <h1 style="max-width:none">عمليات الوقت الفعلي</h1>
+    <p class="lead">رؤية ماركت بليس خلال اليوم لمصر وباكستان: عروض بدقة 15 دقيقة على جداول حية تتحدث كل خمس دقائق تقريبًا، مع طبقات مقارنة يوم-على-يوم من الجلسات نزولًا حتى الـ utilization.</p>
+    <div class="tagrow">
+      <span class="tag">BI شبه لحظي</span><span class="tag">خطوط حية</span><span class="tag">Tableau</span>
+      <span class="tag">SQL</span><span class="tag">تحليلات تشغيل</span><span class="tag">دولتان</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="سكوركارد المنتج" style="margin-top:28px">
+      <div class="sc-head"><span class="t">سكوركارد المنتج — حقائق بنيوية</span><span class="live">production</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">15<em>min</em></div><div class="lbl">أدق تحبيب زمني في العروض</div></div>
+        <div class="metric"><div class="val">~5<em>min</em></div><div class="lbl">دورة تحديث الجداول المصدرية الحية</div></div>
+        <div class="metric"><div class="val">14<em>+</em></div><div class="lbl">مقياسًا في الشبكة، من الجلسات إلى الـ utilization</div></div>
+        <div class="metric"><div class="val">2</div><div class="lbl">دولتان — نسختا مصر وباكستان</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">ملاحظة عن الأرقام: لا يُعرض هنا أي رقم من داخل داشبوردات العميل كإنجاز. اللقطات المنشورة أرقامها المطلقة مموّهة.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠١</span>المشكلة</h2>
+    <p>فرق التشغيل كانت تدير بزنس يتغير خلال اليوم بتقرير الأمس. فجوة عرض الساعة 2 ظهرًا، قفزة طلب بعد مطر، برومو يتعثر ساعة إطلاقه — بحلول ظهورها في الداشبورد اليومي، تكون لحظة التفاعل قد فاتت. الماركت بليس كان يحتاج رؤية <b>تشغيلية</b>: ماذا يحدث الآن، وهل هو طبيعي لهذه الساعة؟</p>
+    <div class="callout">الهدف: عرض حي يجيب فيه سؤال «هل الآن طبيعي؟» بتركيب منحنى اليوم فوق أيام مقارنة — حتى شرائح الربع ساعة.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٢</span>دوري</h2>
+    <p>المحلل الوحيد على المنتج: الـ SQL على الجداول الحية، معمارية عروض الربع-ساعة/بالساعة، تصميم مقارنات يوم-على-يوم، وتوثيق المناطق الزمنية داخل الداشبورد الذي أبقى خط GMT مقروءًا لفرق التشغيل المحلية.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٣</span>ما بنيته</h2>
+    <div class="grid2">
+      <div class="panel"><h3>ريل تايم مصر (V2)</h3><p>شبكة اتجاهات مقاييس — جلسات، حجوزات، رحلات، حجوزات فائتة، C/R، إتمام، مستخدمون نشطون، رحلات برومو وذروة، معامل الذروة — بالإضافة لكتلة عرض كاملة: كباتن متاحون ونشطون، ساعات متاحة/نشطة/مشغولة، ساعات تحصيل كاش، وعرض utilization بعرض الصفحة. ثلاثة أيام مقارنة فوق كل رسم.</p></div>
+      <div class="panel"><h3>ريل تايم باكستان</h3><p>نفس المعمارية منشورة لسوق ثانٍ، بأربعة أيام مقارنة متراكبة وقسم عرض خاص به — ما يثبت أن التصميم قابل للنقل بين الأسواق لا بناء لمرة واحدة.</p></div>
+      <div class="panel"><h3>مفتاح 15 دقيقة / بالساعة</h3><p>مفتاح واحد ينقل كل الرسوم بين شرائح الربع ساعة (لتشريح الحوادث) والتجميع بالساعة (لقراءة الشكل) — نفس التخطيط، نفس المقاييس، ارتفاعا تشغيل.</p></div>
+      <div class="panel"><h3>المناطق الزمنية والأيام الجزئية</h3><p>تحويل GMT-إلى-محلي موثق داخل الداشبورد، ومنحنى اليوم الجزئي ينتهي ببساطة عند «الآن» مقابل أيام مقارنة مكتملة — بلا استقراء مضلل.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٤</span>تفاصيل بناء مميزة</h2>
+    <div class="results">
+      <div class="result"><div><b>طبقات المقارنة كخط الأساس:</b> كل رسم يرسم اليوم مقابل أيام مرجعية من نفس يوم الأسبوع — رصد شذوذ بالعين، معايَر بالساعة.</div></div>
+      <div class="result"><div><b>عمق عرض تتجاوزه أغلب الداشبوردات الحية:</b> كباتن متاحون مقابل نشطين، وساعات متاحة مقابل نشطة مقابل مشغولة مقابل تحصيل كاش، كلٌّ معرّف داخل العرض — نهاية الغموض حول معنى «متاح».</div></div>
+      <div class="result"><div><b>الـ utilization كخلاصة:</b> الرسم الختامي بعرض الصفحة يقسم الوقت المشغول على المتاح — خط واحد يخبر التشغيل هل يلتقي العرض والطلب فعلًا.</div></div>
+      <div class="result"><div><b>مبني على خط حي:</b> الجداول المصدرية تتحدث كل خمس دقائق تقريبًا؛ العروض مصممة لتُقرأ طوال اليوم، لا لتُصدَّر مرة.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٥</span>مؤشرات معرّفة ومحوكمة</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Sessions</span><span class="tag">Bookings</span><span class="tag">Fulfillment Rate</span>
+      <span class="tag">C/R</span><span class="tag">Missed Bookings</span><span class="tag">Peak Factor</span>
+      <span class="tag">Available / Active Hours</span><span class="tag">Utilization %</span>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٦</span>القرارات التي أتاحها</h2>
+    <div class="results">
+      <div class="result"><div>التشغيل تفاعل مع فجوات العرض وقفزات الطلب خلال الساعة نفسها، لا اليوم التالي.</div></div>
+      <div class="result"><div>سلوك يوم الإطلاق للبرومو وتغييرات التسعير كان مرئيًا بشرائح ربع ساعة.</div></div>
+      <div class="result"><div>نفس المنتج خدم سوقين، فأعطى التشغيل الإقليمي صورة تشغيل مشتركة.</div></div>
+    </div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>ريل تايم مصر — عرض الربع ساعة<br><em>(مع تمويه كل الأرقام المطلقة)</em><span class="file">assets/rt-egypt-15min.png</span></span><img src="../assets/rt-egypt-15min.png" alt="مكان سكرينشوت ريل تايم مصر — عرض الربع ساعة (مع تمويه كل الأرقام المطلقة)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٧</span>المهارات المُظهَرة</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">خطوط شبه لحظية</span><span class="tag">تصميم تحليلات خلال اليوم</span>
+      <span class="tag">تجربة مقارنات متراكبة</span><span class="tag">معالجة مناطق زمنية</span>
+      <span class="tag">معالجة بيانات جزئية</span><span class="tag">نشر متعدد الأسواق</span>
+      <span class="tag">SQL متقدمة</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>محمد الطنبداوي</b> · Business &amp; Data Analyst — BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<script>
+function setLang(l){
+  document.getElementById('doc-en').style.display=(l==='en')?'':'none';
+  document.getElementById('doc-ar').style.display=(l==='ar')?'':'none';
+  document.querySelectorAll('.btn-en').forEach(b=>b.classList.toggle('active',l==='en'));
+  document.querySelectorAll('.btn-ar').forEach(b=>b.classList.toggle('active',l==='ar'));
+  document.documentElement.lang=l;
+  document.documentElement.dir=(l==='ar')?'rtl':'ltr';
+  window.scrollTo(0,0);
+}
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
+</body>
+</html>

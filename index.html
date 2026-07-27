@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohamed Eltanbedawy — Business &amp; Data Analyst</title>
+<meta name="description" content="Business & Data Analyst — Business Intelligence · Marketplace, Product & Growth Analytics. SQL pipelines, 50+ BI dashboards across nine countries, cohorts, funnels and driver trees — plus the AI automation systems that act on the numbers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/design-system.css">
+</head>
+<body>
+
+<!-- ===== Reusable icon sprite ===== -->
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 21h18"/><rect x="5" y="12" width="3.5" height="6" rx="1"/><rect x="10.2" y="8" width="3.5" height="10" rx="1"/><rect x="15.5" y="4" width="3.5" height="14" rx="1"/></symbol>
+  <symbol id="i-line" viewBox="0 0 24 24"><path d="M3 20V4"/><path d="M3 20h18"/><path d="M6 15l4-5 3.5 3L20 6"/><circle cx="20" cy="6" r="1.4"/></symbol>
+  <symbol id="i-flow" viewBox="0 0 24 24"><rect x="3" y="3" width="6" height="5" rx="1.4"/><rect x="15" y="3" width="6" height="5" rx="1.4"/><rect x="9" y="16" width="6" height="5" rx="1.4"/><path d="M6 8v3.5a1.5 1.5 0 0 0 1.5 1.5h9A1.5 1.5 0 0 0 18 11.5V8"/><path d="M12 13v3"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24"><path d="M2.5 3h2.2l2.3 11.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.5L20.5 7H6"/><circle cx="9.5" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M20.5 13.3 13 20.8a2 2 0 0 1-2.8 0l-7-7A2 2 0 0 1 2.6 12V4.6A2 2 0 0 1 4.6 2.6H12a2 2 0 0 1 1.4.6l7 7a2 2 0 0 1 0 2.9z"/><circle cx="7.5" cy="7.5" r="1.3"/></symbol>
+  <symbol id="i-table" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9.5h18M3 15h18M9.5 9.5V20"/></symbol>
+  <symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.5 6a4 4 0 1 0 3.9 5l2.6 2.6-3 3L15.4 14A4 4 0 0 1 10 10.6"/><path d="M9.8 11.2 3.5 17.5a2 2 0 0 0 2.8 2.8l6.3-6.3"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M12 3.5 22 9l-10 5.5L2 9z"/><path d="M6 11v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13.5a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1.7 1.7"/><path d="M14 10.5a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1.7-1.7"/></symbol>
+  <symbol id="i-git" viewBox="0 0 24 24"><circle cx="6.5" cy="5.5" r="2.5"/><circle cx="6.5" cy="18.5" r="2.5"/><circle cx="17.5" cy="8.5" r="2.5"/><path d="M6.5 8v8"/><path d="M17.5 11v1.5a3.5 3.5 0 0 1-3.5 3.5h-4"/></symbol>
+
+  <!-- ===== Capability illustrations (120×120) ===== -->
+  <symbol id="ill-sql" viewBox="0 0 120 120">
+    <ellipse cx="38" cy="26" rx="22" ry="8"/>
+    <path d="M16 26v40c0 4.4 9.8 8 22 8s22-3.6 22-8V26"/>
+    <path d="M16 46c0 4.4 9.8 8 22 8s22-3.6 22-8"/>
+    <rect x="66" y="52" width="40" height="42" rx="4" fill="var(--accent-soft)" stroke="var(--accent)"/>
+    <path d="M66 66h40M66 80h40M86 66v28"/>
+    <path d="M60 40h14a6 6 0 0 1 6 6v6"/>
+    <circle cx="80" cy="52" r="2.6" fill="var(--accent)" stroke="none"/>
+  </symbol>
+  <symbol id="ill-bi" viewBox="0 0 120 120">
+    <rect x="14" y="20" width="92" height="80" rx="6"/>
+    <path d="M14 36h92"/>
+    <circle cx="24" cy="28" r="2.2" fill="var(--accent)" stroke="none"/>
+    <rect x="24" y="46" width="30" height="16" rx="3" fill="var(--accent-soft)" stroke="none"/>
+    <rect x="60" y="46" width="36" height="16" rx="3" fill="var(--accent-soft)" stroke="none"/>
+    <rect x="24" y="76" width="8" height="14" rx="2" fill="var(--accent)" stroke="none"/>
+    <rect x="38" y="70" width="8" height="20" rx="2" fill="var(--accent)" stroke="none"/>
+    <rect x="52" y="80" width="8" height="10" rx="2" fill="var(--accent)" stroke="none"/>
+    <path d="M68 86l8-10 7 6 13-16"/>
+    <circle cx="96" cy="66" r="3"/>
+  </symbol>
+  <symbol id="ill-methods" viewBox="0 0 120 120">
+    <path d="M14 44l16-14 14 11 18-19 14 11 16-17"/>
+    <circle cx="92" cy="16" r="3.2" fill="var(--accent)" stroke="none"/>
+    <rect x="14" y="60" width="20" height="14" rx="2.5" fill="var(--accent)" stroke="none"/>
+    <rect x="38" y="60" width="20" height="14" rx="2.5" fill="var(--accent)" opacity=".62" stroke="none"/>
+    <rect x="62" y="60" width="20" height="14" rx="2.5" fill="var(--accent)" opacity=".38" stroke="none"/>
+    <rect x="86" y="60" width="20" height="14" rx="2.5" fill="var(--accent)" opacity=".2" stroke="none"/>
+    <rect x="14" y="80" width="20" height="14" rx="2.5" fill="var(--accent)" stroke="none"/>
+    <rect x="38" y="80" width="20" height="14" rx="2.5" fill="var(--accent)" opacity=".5" stroke="none"/>
+    <rect x="62" y="80" width="20" height="14" rx="2.5" fill="var(--accent)" opacity=".26" stroke="none"/>
+  </symbol>
+  <symbol id="ill-pipeline" viewBox="0 0 120 120">
+    <rect x="10" y="26" width="26" height="20" rx="4" fill="var(--accent-soft)" stroke="var(--accent)"/>
+    <rect x="47" y="26" width="26" height="20" rx="4"/>
+    <rect x="10" y="74" width="26" height="20" rx="4"/>
+    <path d="M36 36h11M73 36h8a6 6 0 0 1 6 6v14"/>
+    <path d="M36 84h30a6 6 0 0 0 6-6V64"/>
+    <ellipse cx="87" cy="66" rx="19" ry="7"/>
+    <path d="M68 66v22c0 3.9 8.5 7 19 7s19-3.1 19-7V66"/>
+    <path d="M68 80c0 3.9 8.5 7 19 7s19-3.1 19-7"/>
+    <path d="M40 60v6M40 66h-4M40 66h4" opacity=".5"/>
+  </symbol>
+  <symbol id="ill-flow" viewBox="0 0 120 120">
+    <rect x="8" y="50" width="28" height="20" rx="5" fill="var(--accent-soft)" stroke="var(--accent)"/>
+    <rect x="50" y="18" width="28" height="20" rx="5"/>
+    <rect x="50" y="82" width="28" height="20" rx="5"/>
+    <rect x="88" y="50" width="24" height="20" rx="5"/>
+    <path d="M36 60c8 0 6-32 14-32"/>
+    <path d="M36 60c8 0 6 32 14 32"/>
+    <path d="M78 28c8 0 4 32 10 32"/>
+    <path d="M78 92c8 0 4-32 10-32"/>
+    <circle cx="43" cy="60" r="2.4" fill="var(--accent)" stroke="none"/>
+    <circle cx="84" cy="60" r="2.4" fill="var(--accent)" stroke="none"/>
+  </symbol>
+  <symbol id="ill-ai" viewBox="0 0 120 120">
+    <rect x="34" y="34" width="52" height="52" rx="10" fill="var(--accent-soft)" stroke="var(--accent)"/>
+    <rect x="49" y="49" width="22" height="22" rx="5"/>
+    <path d="M46 34V18M60 34V16M74 34V18M46 86v16M60 86v18M74 86v16M34 46H18M34 60H16M34 74H18M86 46h16M86 60h18M86 74h16"/>
+    <path d="M92 18l2.6 6.4L101 27l-6.4 2.6L92 36l-2.6-6.4L83 27l6.4-2.6z" fill="var(--accent)" stroke="none"/>
+  </symbol>
+  <symbol id="ill-track" viewBox="0 0 120 120">
+    <path d="M62 12H30a8 8 0 0 0-8 8v32a8 8 0 0 0 2.3 5.6l34 34a8 8 0 0 0 11.3 0l30-30a8 8 0 0 0 0-11.3l-34-34A8 8 0 0 0 62 12z" fill="var(--accent-soft)" stroke="var(--accent)"/>
+    <circle cx="40" cy="30" r="5"/>
+    <path d="M74 62a10 10 0 0 1 0 14M84 54a20 20 0 0 1 0 30M94 46a30 30 0 0 1 0 46" opacity=".85"/>
+  </symbol>
+  <symbol id="ill-shop" viewBox="0 0 120 120">
+    <path d="M18 40h84l-8-20H26z" fill="var(--accent-soft)" stroke="var(--accent)"/>
+    <path d="M24 40v54a4 4 0 0 0 4 4h64a4 4 0 0 0 4-4V40"/>
+    <path d="M18 40c0 7 5 12 11 12s11-5 11-12M40 40c0 7 5 12 11 12s11-5 11-12M62 40c0 7 5 12 11 12s11-5 11-12"/>
+    <rect x="46" y="62" width="28" height="24" rx="3"/>
+    <path d="M46 70h28M60 62v24" opacity=".6"/>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></symbol>
+</svg>
+
+<!-- ============================= ENGLISH ============================= -->
+<div id="doc-en" dir="ltr">
+
+<header class="toolbar">
+  <div class="wrap">
+    <div class="wb-title">tanbedawy<span class="dot">.</span>workbook</div>
+    <nav class="tabs" aria-label="Sections">
+      <a href="#practice">capabilities</a>
+      <a href="#analytics">analytics</a>
+      <a href="#work">systems</a>
+      <a href="#record">experience</a>
+      <a href="#contact">contact</a>
+    </nav>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button class="btn-en active" onclick="setLang('en')">English</button>
+      <button class="btn-ar" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <section class="hero-split" style="padding-bottom:24px">
+    <div class="hs-left">
+      <h1>
+        <span class="greet">// hello, my name is</span>
+        <span class="row1"><span class="accent">Mohamed</span>
+          <span class="portrait">
+            <svg class="ring" viewBox="0 0 100 100" aria-hidden="true"><circle class="track" cx="50" cy="50" r="47"/><circle class="arc" cx="50" cy="50" r="47" stroke-dasharray="216 295" stroke-dashoffset="0"/></svg>
+          <svg class="tick" viewBox="0 0 100 100" aria-hidden="true"><line x1="50" y1="2" x2="50" y2="7"/><line x1="98" y1="50" x2="93" y2="50"/><line x1="50" y1="98" x2="50" y2="93"/><line x1="2" y1="50" x2="7" y2="50"/></svg>
+            <span class="avatar"><span>PHOTO<br>assets/<br>mohamed-photo.jpg</span><img src="assets/mohamed-photo.jpg" alt="Mohamed Eltanbedawy" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></span>
+            <span class="pin">available</span>
+          </span>
+        </span>
+        <span class="fam">Eltanbedawy.</span>
+      </h1>
+      <div class="sig"><b>Business &amp; Data Analyst</b><br>Business Intelligence · Marketplace, Product &amp; Growth Analytics<br>Cairo, Egypt · working remotely</div>
+    </div>
+
+    <div class="hs-right">
+      <p>I turn operational data into decisions people act on: <strong>SQL pipelines against live production tables</strong>, BI read daily by leadership across <strong>nine countries</strong>, and analysis that decomposes a moving number into the drivers behind it — cohorts, funnels, driver trees, segmentation, pricing simulation.</p>
+      <p>Then I build the systems that <b>act</b> on those numbers: ~50 n8n automation workflows in production, two AI commerce systems built for retailers in Egypt and Mauritania, and full GA4 / GTM / server-side Conversions API tracking stacks.</p>
+      <div class="hero-cta">
+        <a class="act primary" href="#analytics">See the work <svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="act" href="mailto:mohamed.tanbedawy@gmail.com"><svg class="ico"><use href="#i-mail"/></svg>Email</a>
+        <a class="act" href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener"><svg class="ico"><use href="#i-link"/></svg>LinkedIn</a>
+        <a class="act" href="https://github.com/mohamedEltanbedawy" target="_blank" rel="noopener"><svg class="ico"><use href="#i-git"/></svg>GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="scorecard" aria-label="Scorecard" style="margin:0 0 8px">
+    <div class="sc-head">
+      <span class="t">Verified figures — every number defensible in an interview</span>
+      <span class="live">production</span>
+    </div>
+    <div class="sc-grid">
+      <div class="metric"><div class="val">2,000<em>+</em></div><div class="lbl">SQL queries written against live production tables</div></div>
+      <div class="metric"><div class="val">50<em>+</em></div><div class="lbl">BI dashboards shipped across nine countries</div></div>
+      <div class="metric"><div class="val">~50</div><div class="lbl">n8n automation workflows in production</div></div>
+      <div class="metric"><div class="val">10<em>+</em></div><div class="lbl">client eCommerce stores built &amp; operated end to end</div></div>
+    </div>
+  </div>
+
+  <section id="practice" style="padding:56px 0 24px">
+    <div class="label"><svg class="ico"><use href="#i-table"/></svg><b>01</b> — Capabilities</div>
+    <h2 class="sec-title">Data first — then the systems that act on it</h2>
+    <p class="sec-sub">levels are self-assessed and evidenced. every claim below has a case study behind it</p>
+
+    <div class="cap-band"><span class="n">core</span> · data &amp; analytics</div>
+    <div class="cap-grid">
+      <article class="cap core">
+        <div class="cap-shot"><svg viewBox="0 0 120 120" role="img" aria-hidden="true"><use href="#ill-sql"/></svg></div>
+        <div class="cap-body">
+          <div class="cap-top"><h3><svg class="ico"><use href="#i-db"/></svg>SQL &amp; data modelling</h3><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+          <p>Thousands of queries against live production tables — not sample datasets. Metric definitions, data models, and the semantic layer that stops two teams reporting two different numbers.</p>
+          <div class="cap-tools">PostgreSQL · BigQuery · MySQL · window functions · CTEs</div>
+          <div class="cap-foot"><span class="cap-lvl">expert</span><a class="act cap-ev" href="#analytics">See it applied →</a></div>
+        </div>
+      </article>
+      <article class="cap core">
+        <div class="cap-shot"><svg viewBox="0 0 120 120" role="img" aria-hidden="true"><use href="#ill-bi"/></svg></div>
+        <div class="cap-body">
+          <div class="cap-top"><h3><svg class="ico"><use href="#i-chart"/></svg>BI &amp; dashboard design</h3><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+          <p>50+ dashboards across nine countries, from 7-tab executive scorecards to a live operator dashboard readable in under a minute. Built to be read, not admired.</p>
+          <div class="cap-tools">Tableau · Looker Studio · Power BI · Google Sheets</div>
+          <div class="cap-foot"><span class="cap-lvl">expert</span><a class="act cap-ev" href="case-studies/executive-intelligence.html">Case study →</a></div>
+        </div>
+      </article>
+      <article class="cap core">
+        <div class="cap-shot"><svg viewBox="0 0 120 120" role="img" aria-hidden="true"><use href="#ill-methods"/></svg></div>
+        <div class="cap-body">
+          <div class="cap-top"><h3><svg class="ico"><use href="#i-line"/></svg>Analytical methods</h3><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+          <p>Decomposing a moving number into its causes: 13-month retention cohorts, booking-funnel forensics, a six-level GMV driver tree, and margin simulators with visible elasticity assumptions.</p>
+          <div class="cap-tools">cohorts · funnels · driver trees · segmentation · scenario modelling</div>
+          <div class="cap-foot"><span class="cap-lvl">expert</span><a class="act cap-ev" href="case-studies/supply-intelligence.html">Case study →</a></div>
+        </div>
+      </article>
+      <article class="cap core">
+        <div class="cap-shot"><svg viewBox="0 0 120 120" role="img" aria-hidden="true"><use href="#ill-pipeline"/></svg></div>
+        <div class="cap-body">
+          <div class="cap-top"><h3><svg class="ico"><use href="#i-flow"/></svg>Data engineering</h3><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+          <p>Scrapers → staging sheets → warehouse → SQL models, running daily for a paying client. Plus a full migration of an operation off spreadsheets onto a typed PostgreSQL schema.</p>
+          <div class="cap-tools">BigQuery · PostgreSQL · Apps Script · scheduled ETL</div>
+          <div class="cap-foot"><span class="cap-lvl">advanced</span><a class="act cap-ev" href="case-studies/egx-warehouse.html">Case study →</a></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="cap-band"><span class="n">extended</span> · systems that act on the data</div>
+    <div class="cap-grid">
+      <article class="cap ext">
+        <div class="cap-shot"><svg viewBox="0 0 120 120" role="img" aria-hidden="true"><use href="#ill-flow"/></svg></div>
+        <div class="cap-body">
+          <div class="cap-top"><h3><svg class="ico"><use href="#i-tool"/></svg>Workflow automation</h3><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+          <p>~50 production workflows with a staged pipeline, central alerting, exit-checks after every stage, and a published failure rate. Automation as a platform, not a pile of scripts.</p>
+          <div class="cap-tools">n8n (self-hosted, Docker) · Node.js microservices · Puppeteer</div>
+          <div class="cap-foot"><span class="cap-lvl">expert</span><a class="act cap-ev" href="case-studies/automation-platform.html">Case study →</a></div>
+        </div>
+      </article>
+      <article class="cap ext">
+        <div class="cap-shot"><svg viewBox="0 0 120 120" role="img" aria-hidden="true"><use href="#ill-ai"/></svg></div>
+        <div class="cap-body">
+          <div class="cap-top"><h3><svg class="ico"><use href="#i-target"/></svg>AI systems &amp; prompt engineering</h3><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+          <p>A unified AI gateway over three providers with fallback and per-call cost logging, content pipelines with validation layers, and Arabic conversational sales agents synced to a product database.</p>
+          <div class="cap-tools">OpenAI · Gemini · OpenRouter · knowledge bases · sales agents</div>
+          <div class="cap-foot"><span class="cap-lvl">advanced</span><a class="act cap-ev" href="case-studies/commerce-os.html">Case study →</a></div>
+        </div>
+      </article>
+      <article class="cap ext">
+        <div class="cap-shot"><svg viewBox="0 0 120 120" role="img" aria-hidden="true"><use href="#ill-track"/></svg></div>
+        <div class="cap-body">
+          <div class="cap-top"><h3><svg class="ico"><use href="#i-tag"/></svg>Measurement &amp; tracking</h3><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+          <p>Building tracking architectures from scratch and diagnosing broken ones: duplicated events, missing conversions, cross-domain attribution gaps — the work that decides whether any of the analytics above is true.</p>
+          <div class="cap-tools">GA4 · Google Tag Manager · Meta Pixel · server-side CAPI</div>
+          <div class="cap-foot"><span class="cap-lvl">advanced</span><a class="act cap-ev" href="case-studies/salamasons.html">Case study →</a></div>
+        </div>
+      </article>
+      <article class="cap ext">
+        <div class="cap-shot"><svg viewBox="0 0 120 120" role="img" aria-hidden="true"><use href="#ill-shop"/></svg></div>
+        <div class="cap-body">
+          <div class="cap-top"><h3><svg class="ico"><use href="#i-cart"/></svg>eCommerce operations</h3><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+          <p>Client stores built and run end to end: catalog, pricing, order lifecycle, and delivery follow-up — the operational side that makes the data mean something.</p>
+          <div class="cap-tools">WooCommerce · YouCan · EasyOrders · order lifecycle</div>
+          <div class="cap-foot"><span class="cap-lvl">expert</span><a class="act cap-ev" href="case-studies/ecom-bounty.html">Case study →</a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="analytics" style="padding:40px 0 24px">
+    <div class="label"><svg class="ico"><use href="#i-chart"/></svg><b>02</b> — Analytics &amp; BI</div>
+    <h2 class="sec-title">The analysis that answered the expensive questions</h2>
+    <p class="sec-sub">24 documented dashboards across nine countries · click any row to open it · figures blurred by policy</p>
+    <div class="xlist">
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-line"/></svg></span>
+          <span class="xmain"><span class="xtitle">Executive Performance Intelligence</span><span class="xsum">A seven-tab scorecard and a six-level GMV driver tree, read daily across nine countries.</span></span>
+          <span class="xmeta">7 tabs</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody">
+          <p>Leadership had no single daily view and no way to trace a moving number to its cause. I blended eight Sheets and SQL sources into interconnected views with city and product drill-downs, then built a driver tree that decomposes GMV six levels into demand, supply, pricing and promo drivers — every node compared against the same day last week and a four-week average. <strong>Ad-hoc deep-dive requests dropped 30%.</strong></p>
+          <div class="k-line">Tableau · SQL · KPI governance · cascading filters · scenario targets</div>
+          <a class="act" href="case-studies/executive-intelligence.html">Read the case study <svg class="ico"><use href="#i-arrow"/></svg></a>
+        </div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-flow"/></svg></span>
+          <span class="xmain"><span class="xtitle">Marketplace Intelligence</span><span class="xsum">Why rides fail — decomposed into named failure modes, not an aggregate rate.</span></span>
+          <span class="xmeta">14 brackets</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody">
+          <p>Aggregate completion rates hide every cause. This suite splits each failure into a named mode: no offer received, offer received but timed out, cancelled before or after assignment — each across fourteen peak-multiplier brackets and distance bands, with timing medians separating &ldquo;no supply&rdquo; from &ldquo;slow supply&rdquo;. The metric glossary lives inside the dashboard so any department reads it unaided.</p>
+          <div class="k-line">funnel forensics · acceptance decomposition · duration×distance anomaly matrix</div>
+          <a class="act" href="case-studies/marketplace-intelligence.html">Read the case study <svg class="ico"><use href="#i-arrow"/></svg></a>
+        </div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-table"/></svg></span>
+          <span class="xmain"><span class="xtitle">Supply Lifecycle Intelligence</span><span class="xsum">The largest workbook I built: eight tabs on the entire life of a driver.</span></span>
+          <span class="xmeta">8 tabs</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody">
+          <p>Thirteen-month retention cohort triangles, churn split voluntary versus blocked across six block categories, and the deepest segmentation in the stack — segment by tier by cash-block status by week. <strong>&ldquo;We lost drivers&rdquo; became &ldquo;we blocked this many for quality, and this many left on their own&rdquo;</strong> — two completely different problems with two different owners.</p>
+          <div class="k-line">13-month cohorts · churn causes · 30-day rolling vs target · supplier 360</div>
+          <a class="act" href="case-studies/supply-intelligence.html">Read the case study <svg class="ico"><use href="#i-arrow"/></svg></a>
+        </div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-chart"/></svg></span>
+          <span class="xmain"><span class="xtitle">Growth &amp; Acquisition Intelligence</span><span class="xsum">Install to activation, charted twice: daily for events, 30-day rolling for truth.</span></span>
+          <span class="xmeta">2× views</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody">
+          <p>Acquisition spend gets judged twice — did the funnel convert, and did the users stay? Every metric renders daily and 30-day rolling side by side, so a campaign spike is never mistaken for a trend change. Beside them: a month-to-date heatmap with a column per calendar day, and a new-user retention cohort connecting each acquisition month to its afterlife.</p>
+          <div class="k-line">install→activation funnels · rolling windows · MTD heatmaps · graduation rate</div>
+          <a class="act" href="case-studies/growth-intelligence.html">Read the case study <svg class="ico"><use href="#i-arrow"/></svg></a>
+        </div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-target"/></svg></span>
+          <span class="xmain"><span class="xtitle">Pricing &amp; Revenue Intelligence</span><span class="xsum">Change a margin in a model and watch the whole financial cascade move.</span></span>
+          <span class="xmeta">1 input cell</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody">
+          <p>Margin is the highest-leverage and highest-risk lever a marketplace has. These simulators answer the question before deployment: change the margin in a city, and expected trips, GMV, rider and captain subsidies, returns, waivers, COGS and net revenue all recompute — driven by one input cell, with the elasticity assumption sitting visibly in the model rather than buried in a formula.</p>
+          <div class="k-line">scenario modelling · elasticity assumptions · ABS / %-of-GMV / delta views</div>
+          <a class="act" href="case-studies/pricing-intelligence.html">Read the case study <svg class="ico"><use href="#i-arrow"/></svg></a>
+        </div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-db"/></svg></span>
+          <span class="xmain"><span class="xtitle">Real-Time Operations</span><span class="xsum">Fifteen-minute granularity on tables refreshing every five, in two countries.</span></span>
+          <span class="xmeta">15 min</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody">
+          <p>Ops teams were managing an intraday business with yesterday&rsquo;s report. Every chart overlays today against comparable days, so &ldquo;is right now normal?&rdquo; is answered by eye — from sessions down to utilization, with available versus active versus busy hours each defined in-view and timezone conversion documented inside the dashboard.</p>
+          <div class="k-line">live pipelines · comparison overlays · partial-day handling · utilization</div>
+          <a class="act" href="case-studies/realtime-operations.html">Read the case study <svg class="ico"><use href="#i-arrow"/></svg></a>
+        </div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-tag"/></svg></span>
+          <span class="xmain"><span class="xtitle">Geospatial Intelligence</span><span class="xsum">Polygon zone maps built from real district files, not hand-drawn shapes.</span></span>
+          <span class="xmeta">3 cities</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody">
+          <p>City averages hide everything a territory manager needs. I built zone maps for Jeddah and Riyadh from real district-composition files — with the district-to-zone mapping documented inside the dashboard so definitions are auditable — colored by a selectable metric, beside three-level hierarchical tables running from zone group down to individual districts.</p>
+          <div class="k-line">polygon mapping · metric selector · zone hierarchy · outlet performance</div>
+          <a class="act" href="case-studies/geospatial-intelligence.html">Read the case study <svg class="ico"><use href="#i-arrow"/></svg></a>
+        </div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-cap"/></svg></span>
+          <span class="xmain"><span class="xtitle">Public Tableau work</span><span class="xsum">Four visualizations you can open and click — no NDA, no blurring.</span></span>
+          <span class="xmeta">public</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody">
+          <p>Everything above carries client data and is published with figures blurred. These four don&rsquo;t: Score Cards KPIs, Munchys Pet, Ecommerce High Level, and Ecommerce Overview are live on Tableau Public. Open them, interact with them, and judge the craft directly instead of taking my word for it.</p>
+          <div class="k-line">open · interactive · judge it yourself</div>
+          <a class="act" href="https://public.tableau.com/app/profile/mohamed.ibrahim2814">Open the profile <svg class="ico"><use href="#i-arrow"/></svg></a>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section id="work" style="padding:40px 0 24px">
+    <div class="label"><svg class="ico"><use href="#i-flow"/></svg><b>03</b> — AI, automation &amp; commerce systems</div>
+    <h2 class="sec-title">Built to run without me</h2>
+    <p class="sec-sub">2024 → now · where the analysis stops describing and starts acting</p>
+
+    <article class="proj">
+      <div class="proj-body">
+        <div class="proj-head">
+          <div class="proj-no">01</div>
+          <div class="proj-title">
+            <h3><a href="case-studies/automation-platform.html">The Automation Platform — ~50 workflows in production</a></h3>
+            <div class="proj-meta"><span class="tag">n8n self-hosted</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">AI gateway</span></div>
+          </div>
+        </div>
+        <p class="proj-desc">Not one clever workflow — <strong>an operating system made of them</strong>: a staged product pipeline (PG-00 → PG-95), a unified AI gateway over three providers with automatic fallback and per-call cost logging, Node.js media services, sales agents, scrapers, and a central alerter. <span class="hl">447 production executions</span> in the measured period at a <span class="hl">9.2% failure rate</span> — published on purpose, because a platform claiming zero failures isn't measuring.</p>
+        <div class="proj-actions">
+          <a class="act primary" href="case-studies/automation-platform.html">Read the case study <svg class="ico"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <div class="shot"><span>SCREENSHOT SLOT<br>n8n canvas — production workflow list<br><em>(blur credentials &amp; keys)</em><span class="file">assets/n8n-workflow-list.png</span></span><img src="assets/n8n-workflow-list.png" alt="SCREENSHOT SLOT n8n canvas — production workflow list (blur credentials &amp; keys)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    </article>
+
+    <article class="proj flip">
+      <div class="proj-body">
+        <div class="proj-head">
+          <div class="proj-no">02</div>
+          <div class="proj-title">
+            <h3><a href="case-studies/commerce-os.html">Al-Raky — AI Commerce Operating System</a></h3>
+            <div class="proj-meta"><span class="tag">cosmetics · Egypt</span><span class="tag">n8n</span><span class="tag">PostgreSQL</span><span class="tag">WooCommerce</span></div>
+          </div>
+        </div>
+        <p class="proj-desc">A <strong>pre-sale production system</strong>: the owner takes a photo and sets a price, and <span class="hl">50+ automated workflows</span> do the rest — product intelligence, market research, AI images and video, WooCommerce listings, a monthly publishing calendar, and Messenger/WhatsApp sales agents that update instantly with every new product. Media cost <strong>under one cent per product</strong>.</p>
+        <div class="proj-actions">
+          <a class="act primary" href="case-studies/commerce-os.html">Read the case study <svg class="ico"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <div class="shot"><span>DIAGRAM SLOT<br>Al-Raky architecture<br><em>(export clean diagram from n8n)</em><span class="file">assets/commerce-os-architecture.png</span></span><img src="assets/commerce-os-architecture.png" alt="DIAGRAM SLOT Al-Raky architecture (export clean diagram from n8n)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    </article>
+
+    <article class="proj">
+      <div class="proj-body">
+        <div class="proj-head">
+          <div class="proj-no">03</div>
+          <div class="proj-title">
+            <h3><a href="case-studies/salamasons.html">SalamaSons — Ad Intelligence &amp; AI Recommendation Loop</a></h3>
+            <div class="proj-meta"><span class="tag">home appliances · Mauritania</span><span class="tag">ad analytics</span><span class="tag">OpenAI</span><span class="tag">Telegram</span></div>
+          </div>
+        </div>
+        <p class="proj-desc">The opposite half of the problem: a <strong>post-publication measurement system</strong>. Workflows pull post impressions and full ad detail into a sheet-warehouse <span class="hl">every four hours</span>; a chained second workflow reads the accumulated data, passes it to OpenAI, and delivers <strong>a recommendation per ad</strong> to the owner's Telegram. Spend → data → decision, with no manual step in between.</p>
+        <div class="proj-actions">
+          <a class="act primary" href="case-studies/salamasons.html">Read the case study <svg class="ico"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <div class="shot"><span>SCREENSHOT SLOT<br>the two chained workflows on the n8n canvas<br><em>(blur credentials &amp; account IDs)</em><span class="file">assets/salamasons-workflows.png</span></span><img src="assets/salamasons-workflows.png" alt="SCREENSHOT SLOT the two chained workflows on the n8n canvas (blur credentials &amp; accoun" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    </article>
+
+    <article class="proj">
+      <div class="proj-body">
+        <div class="proj-head">
+          <div class="proj-no">04</div>
+          <div class="proj-title">
+            <h3><a href="case-studies/ecom-bounty.html">Affiliate eCommerce Operations Dashboard</a></h3>
+            <div class="proj-meta"><span class="tag">live</span><span class="tag">Looker Studio</span><span class="tag">SQL on WooCommerce</span><span class="tag">own data</span></div>
+          </div>
+        </div>
+        <p class="proj-desc">Sole operator of an affiliate business — <strong>~500 orders</strong> — and the analyst who instrumented it. The dashboard's headline finding was a <span class="hl">~50% cancellation rate</span>: the worst number in the operation, given the most screen space, because it was the one deciding everything else. The only piece here running on my own live data.</p>
+        <div class="proj-actions">
+          <a class="act primary" href="case-studies/ecom-bounty.html">Read the case study <svg class="ico"><use href="#i-arrow"/></svg></a>
+          <a class="act" href="https://lookerstudio.google.com/reporting/add4ae0b-b573-464d-9d82-9a7fdd7cb63b" target="_blank" rel="noopener">Open the live dashboard ↗</a>
+        </div>
+      </div>
+      <div class="shot"><span>SCREENSHOT SLOT<br>Looker Studio overview page<br><em>(or embed via iframe)</em><span class="file">assets/affiliate-dashboard-overview.png</span></span><img src="assets/affiliate-dashboard-overview.png" alt="SCREENSHOT SLOT Looker Studio overview page (or embed via iframe)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    </article>
+
+    <article class="proj flip">
+      <div class="proj-body">
+        <div class="proj-head">
+          <div class="proj-no">05</div>
+          <div class="proj-title">
+            <h3><a href="case-studies/egx-warehouse.html">EGX Portfolio Valuation Warehouse</a></h3>
+            <div class="proj-meta"><span class="tag">paid client</span><span class="tag">BigQuery</span><span class="tag">Apps Script</span><span class="tag">running daily</span></div>
+          </div>
+        </div>
+        <p class="proj-desc">A real ETL pipeline in miniature, built for a private client and running every day: scrapers pull <strong>9 EGX tickers</strong> into Sheets, upload jobs stream them into <span class="hl">BigQuery</span>, and SQL models compute each owner's daily wallet value — with dividends and corporate actions (bonus shares, capital increases, subscription rights) modeled explicitly, the part manual tracking always gets wrong.</p>
+        <div class="proj-actions">
+          <a class="act primary" href="case-studies/egx-warehouse.html">Read the case study <svg class="ico"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <div class="shot"><span>DIAGRAM SLOT<br>EGX pipeline — scraper → Sheets → BigQuery → SQL<br><span class="file">assets/egx-pipeline.png</span></span><img src="assets/egx-pipeline.png" alt="DIAGRAM SLOT EGX pipeline — scraper → Sheets → BigQuery → SQL" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    </article>
+
+    <article class="proj solo">
+      <div class="proj-body">
+        <div class="proj-head">
+          <div class="proj-no">06</div>
+          <div class="proj-title">
+            <h3><a href="case-studies/jotia.html">Jotia — Dropshipping Automation Platform</a></h3>
+            <div class="proj-meta"><span class="tag">12 workflows</span><span class="tag">4 microservices</span><span class="tag">supplier adapters</span><span class="tag">archived build</span></div>
+          </div>
+        </div>
+        <p class="proj-desc">Supplier catalogs to a published, sellable store with humans only approving: stateless <strong>Puppeteer and REST adapters</strong> for two supplier platforms behind one contract, deterministic pricing, an image pipeline (background removal + Arabic discount banners), and an Arabic Messenger sales agent. The engineering proving ground for the Commerce OS.</p>
+        <div class="proj-actions">
+          <a class="act primary" href="case-studies/jotia.html">Read the case study <svg class="ico"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section id="record" style="padding:40px 0 24px">
+    <div class="label"><svg class="ico"><use href="#i-line"/></svg><b>04</b> — Experience</div>
+    <h2 class="sec-title">Career timeline</h2>
+    <p class="sec-sub">2012 → now · every role, with details on demand</p>
+
+    <div class="tl">
+
+      <div class="tl-item"><span class="tl-conn"></span><span class="tl-dot"></span>
+        <div class="tl-box">
+          <div class="tl-when">Jun 2024 → now</div>
+          <h3>eCommerce Analytics &amp; Automation Consultant</h3>
+          <div class="tl-org">Self-employed · Remote</div>
+          <details><summary>Details <span class="sign"></span></summary>
+            <ul>
+              <li>Built and operated 10+ stores end to end (WooCommerce, YouCan, EasyOrders): store build, catalog, tracking, and order operations, end to end.</li>
+              <li>Developed ~50 production n8n automation workflows backed by custom Node.js microservices; migrated operational data from Google Sheets to PostgreSQL.</li>
+              <li>Designed measurement architectures (GA4, GTM, Meta Pixel, server-side CAPI); fixed duplicated events, missing conversions, and cross-domain attribution gaps.</li>
+              <li>Sole analytics and operations operator for an affiliate eCommerce business; built its Looker Studio dashboard — order lifecycle, delivery performance, commissions.</li>
+              <li>Built a daily EGX portfolio-valuation warehouse (Apps Script → Sheets → BigQuery → SQL) for a private client.</li>
+              <li>Taught SQL, Tableau &amp; Excel to professional trainees.</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+
+      <div class="tl-item right"><span class="tl-conn"></span><span class="tl-dot"></span>
+        <div class="tl-box">
+          <div class="tl-when">Jan 2023 → Jun 2024</div>
+          <h3>Senior Business Analyst</h3>
+          <div class="tl-org">Careem (an Uber company)</div>
+          <details><summary>Details <span class="sign"></span></summary>
+            <ul>
+              <li>Owned analytics, reporting, and analysis for two key markets (Morocco and Jordan); ran weekly leadership meetings with the General Manager and executive team.</li>
+              <li>Led development of a Master Scorecard in Tableau integrating four SQL-based sources — a centralized view of ~90% of company KPIs across nine markets and five verticals, used daily by the CEO, reducing deep-dive analysis requests by 30%.</li>
+              <li>Designed the KPI dashboard for the Bid-Ask ride-hailing project covering funnel conversion stages and week-over-week performance; it became the primary source of operational and strategic insight across departments.</li>
+              <li>Built a user segmentation based on discount utilization and trip patterns, driving a 10% increase in marketing growth-hack campaign performance, with per-segment ROI tracking.</li>
+              <li>Developed and maintained the company's most critical supply-side dashboard: captain retention, churn, and performance by segment and region.</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+
+      <div class="tl-item"><span class="tl-conn"></span><span class="tl-dot"></span>
+        <div class="tl-box">
+          <div class="tl-when">Jan 2021 → Dec 2022</div>
+          <h3>Business Analyst</h3>
+          <div class="tl-org">Careem</div>
+          <details><summary>Details <span class="sign"></span></summary>
+            <ul>
+              <li>Selected as the first analyst in Careem Egypt's newly created data analytics department — a function management established after I had built SQL reporting and dashboards on my own initiative while still in supply roles.</li>
+              <li>Created 2,000+ ad-hoc SQL queries and 50 Tableau dashboards covering most business areas for leadership and business teams.</li>
+              <li>Built zones and peak-multiplier analysis that informed supply-balancing and pricing decisions, contributing to a 7% improvement in service reliability and 5% gross revenue growth.</li>
+              <li>Delivered competitor market-share analysis using announced competitor outages against historical hourly demand data.</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+
+      <div class="tl-item right"><span class="tl-conn"></span><span class="tl-dot"></span>
+        <div class="tl-box">
+          <div class="tl-when">Jan 2020 → Dec 2020</div>
+          <h3>Supply Lead — Growth</h3>
+          <div class="tl-org">Careem</div>
+          <details><summary>Details <span class="sign"></span></summary>
+            <ul>
+              <li>Led a team managing driver acquisition and support across 19 cities in Delta, Canal, and Upper Egypt; acquired 60K drivers and 300 supply partners and resolved 100K Zendesk tickets.</li>
+              <li>Launched the Driver's City Change Policy (+13% driver retention) and the Driver's Early Life Program (+25% activation rate).</li>
+              <li>Built the Escalations Manuals Playbook, reducing total support tickets by 30%.</li>
+              <li>Taught myself SQL and dashboard-building to run the region's supply reporting — before any formal data role existed; this work directly led to the creation of the analytics department I later joined as its first analyst.</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+
+      <div class="tl-item"><span class="tl-conn"></span><span class="tl-dot"></span>
+        <div class="tl-box">
+          <div class="tl-when">Nov 2017 → Dec 2019</div>
+          <h3>Supply Growth Associate → Senior Associate</h3>
+          <div class="tl-org">Careem</div>
+          <details><summary>Details <span class="sign"></span></summary>
+            <ul>
+              <li>Led on-ground market launches in Shebin elKom and Banha, including budget ownership and third-party management; acquired 13K drivers and 18 suppliers.</li>
+              <li>Resolved 12K+ Zendesk tickets across both cities within a 24-hour SLA.</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+
+      <div class="tl-item right era"><span class="tl-conn"></span><span class="tl-dot"></span>
+        <div class="tl-box">
+          <div class="tl-when">Oct 2016 → Oct 2017</div>
+          <h3>HR Admin Clerk</h3>
+          <div class="tl-org">Froneri Egypt Ice Cream Factory</div>
+          <details><summary>Details <span class="sign"></span></summary>
+            <p>Personnel administration for a manufacturing workforce: employee records and contracts, attendance and leave tracking, payroll inputs, and government/labour-office paperwork — the same factory operation after the Nestlé ice-cream business transferred to Froneri.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="tl-item era"><span class="tl-conn"></span><span class="tl-dot"></span>
+        <div class="tl-box">
+          <div class="tl-when">Sep 2015 → Sep 2016</div>
+          <h3>HR Admin Clerk</h3>
+          <div class="tl-org">Nestlé Egypt Ice Cream Factory</div>
+          <details><summary>Details <span class="sign"></span></summary>
+            <p>Day-to-day HR administration on a multinational factory floor: maintaining personnel files, processing attendance and shift records, supporting hiring and onboarding paperwork, and handling employee requests — my first exposure to operational data at scale, in spreadsheets long before dashboards.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="tl-item right era"><span class="tl-conn"></span><span class="tl-dot"></span>
+        <div class="tl-box">
+          <div class="tl-when">Nov 2014 → Sep 2015</div>
+          <h3>Front Office Receptionist</h3>
+          <div class="tl-org">Oberoi Hotels &amp; Resorts · Philae Nile Cruise</div>
+          <details><summary>Details <span class="sign"></span></summary>
+            <p>Front desk on a five-star Nile cruise: guest check-in and check-out, reservations, folios and billing, and handling requests from an international guest list in English — service operations where the standard is set by the guest, not the process.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="tl-item era"><span class="tl-conn"></span><span class="tl-dot"></span>
+        <div class="tl-box">
+          <div class="tl-when">Sep 2012 → Jul 2014</div>
+          <h3>Financial Accountant</h3>
+          <div class="tl-org">Business Compaq · Cairo</div>
+          <details><summary>Details <span class="sign"></span></summary>
+            <p>Where the numbers started: journal entries and ledgers, invoices, payables and receivables, bank reconciliations, and monthly closings. Accounting is the original discipline of making figures reconcile — the habit that later made metric definitions and data models feel familiar.</p>
+          </details>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:44px">
+      <div class="label"><svg class="ico"><use href="#i-cap"/></svg>Education &amp; training</div>
+      <h2 class="sec-title" style="font-size:clamp(20px,2.6vw,26px)">Where the skills came from</h2>
+      <p class="sec-sub">degrees, certificates, paid programmes, and the parts nobody certified · click any row for the syllabus</p>
+      <div class="xlist">
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-cap"/></svg></span>
+          <span class="xmain"><span class="xtitle">Bachelor of Commerce, Accounting</span><span class="xsum">Menoufia University — where reconciling numbers became a habit.</span></span>
+          <span class="xmeta">2008—2012</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody"><p>Four years of accounting: ledgers, reconciliations, and closings. The original discipline of making figures agree — which is what metric definitions and data models turn out to be.</p></div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-chart"/></svg></span>
+          <span class="xmain"><span class="xtitle">Data Analysis Nanodegree</span><span class="xsum">Udacity · Egypt FWD — the full three-stage track.</span></span>
+          <span class="xmeta">2021</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody"><p>The complete Data Analysis path under the Egypt FWD scholarship, taken across three stages in one year.</p><ul><li>Challenger stage — Jan to Apr 2021</li><li>Professional stage — May to Jul 2021</li><li>Track stage, 1 Million Arab Coders — Nov to Dec 2021</li></ul></div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-db"/></svg></span>
+          <span class="xmain"><span class="xtitle">DataCamp</span><span class="xsum">3 completed tracks, 19 courses, 7 applied DataLab projects.</span></span>
+          <span class="xmeta">3 tracks</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody"><p>Structured, hands-on practice with an audit trail — every course and project completed under my name, verifiable on the platform.</p><p><strong>Tracks completed</strong></p><ul><li><strong>Data Analyst</strong> — 15 courses: Python foundations, pandas manipulation and joining, Seaborn visualisation, statistics, sampling, hypothesis testing, exploratory data analysis</li><li><strong>Python Data Fundamentals</strong> — 9 courses: Python, pandas, Seaborn, statistics, EDA</li><li><strong>Importing &amp; Cleaning Data</strong> — 6 courses: importing from files, databases and APIs, cleaning, reshaping with pandas</li></ul><p><strong>Applied DataLab projects</strong></p><ul class="two"><li>Investigating Netflix Movies</li><li>Exploring Airbnb Market Trends</li><li>Time Series Analysis for Transportation</li><li>Analyzing Motorcycle Part Sales</li><li>What and Where are the World&rsquo;s Oldest Businesses</li><li>Analyzing Unicorn Companies</li><li>Analyzing Crime in Los Angeles</li></ul><div class="k-line">Python · pandas · Seaborn · statistics · hypothesis testing · sampling · EDA</div></div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-target"/></svg></span>
+          <span class="xmain"><span class="xtitle">Google Data Analytics Professional Certificate</span><span class="xsum">Coursera — plus the R programming specialisation.</span></span>
+          <span class="xmeta">Google</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody"><p>Google&rsquo;s end-to-end analytics certificate, from asking the right question through cleaning, analysing and sharing — with the R programming course completed alongside it.</p><ul><li>Google Data Analytics Professional Certificate — Coursera</li><li>Data Analysis with R Programming — Google</li></ul></div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-flow"/></svg></span>
+          <span class="xmain"><span class="xtitle">Media Buyer Mind Shift</span><span class="xsum">37+ hours, selective admission, applied live on a real store — the deepest tracking and measurement training I&rsquo;ve taken.</span></span>
+          <span class="xmeta">37+ hrs</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody"><p>A selective, project-based programme: applications were filtered and only accepted candidates enrolled. Everything was taught, then rebuilt live on a real eCommerce project rather than slides. Despite the name, the bulk of it is measurement engineering and data reading — which is exactly why it&rsquo;s here.</p><ul><li><strong>Conversion tracking in depth</strong> — every method, troubleshooting, Conversions API setup, and routing data so it lands in more than one place for later analysis</li><li><strong>Reading the data</strong> — diagnosing whether the problem is the campaign, the product, the targeting, the creative or the operator, live inside the ads dashboard and Google Analytics</li><li><strong>Business dashboards in Google Data Studio</strong> — consolidating every number with full breakdowns to drive business-level decisions</li><li><strong>Scaling</strong> — 10+ scaling strategies with the reasoning behind each, not a recipe</li><li><strong>360° remarketing architecture</strong> — building a retargeting machine that covers every angle of the user journey</li><li>Landing and product page requirements, creative sourcing, ad copy, testing strategies, and TikTok Ads features</li></ul><div class="k-line">conversion tracking · Conversions API · Google Analytics · Google Data Studio · testing &amp; scaling strategy</div></div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-tool"/></svg></span>
+          <span class="xmain"><span class="xtitle">Hesham Saad — three technical workshops</span><span class="xsum">Store build, landing pages, and hosting/domain/email administration.</span></span>
+          <span class="xmeta">3 workshops</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody"><p>Three hands-on DIY workshops covering the technical stack behind a commerce operation, each rated 4.88–5.00 by attendees.</p><p><strong>[DIY] WooCommerce Store</strong> — building a professional store end to end</p><ul><li>WordPress setup, WooCommerce install and initial configuration</li><li>Categories, product types, shipping, payment and email settings</li><li>Menus, header and footer, page building, professional design</li><li>Adding tracking codes for the ad platforms, load-speed optimisation, conversion tweaks, and securing the site</li></ul><p><strong>[DIY] Landing Page Workshop</strong> — pages built to convert</p><ul><li>The elements that raise conversion rate, and decision-making elements</li><li>Connecting Google Sheets to collect submissions</li><li>Linking Google Tag Manager to add tracking codes</li><li>Building data-entry forms to your own requirements</li></ul><p><strong>Hosting, Domain &amp; Email Management</strong> — the infrastructure layer</p><ul><li>Hosting and server types: web, MySQL, DNS, email sender, email hosting, FTP</li><li>Domain structure, subdomains, connecting domain to server, DNS management and record types</li><li>Email: registering @mydomain addresses, Zoho mail, Elastic email sender, client setup</li><li>Manual WordPress installation with database, and PHP version management on Cloudways</li></ul><div class="k-line">WooCommerce · WordPress · GTM · DNS · email infrastructure · site speed</div></div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-cart"/></svg></span>
+          <span class="xmain"><span class="xtitle">Mohamed Shahawy — eCommerce business system</span><span class="xsum">Building an eCommerce operation as a system, not a series of one-off sales.</span></span>
+          <span class="xmeta">course</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody"><p>A paid programme on running eCommerce as a repeatable system — the operating side of the business that sits underneath the analytics.</p></div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-tag"/></svg></span>
+          <span class="xmain"><span class="xtitle">Digital Marketing Challenger</span><span class="xsum">Udacity · Egypt FWD.</span></span>
+          <span class="xmeta">Udacity</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody"><p>The digital marketing track under the Egypt FWD scholarship — the measurement and channel fundamentals that the tracking work later built on.</p></div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-tool"/></svg></span>
+          <span class="xmain"><span class="xtitle">Self-taught, on the job</span><span class="xsum">The parts nobody certified — learned by shipping.</span></span>
+          <span class="xmeta">continuous</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody"><ul><li>SQL and dashboard-building, learned inside a supply operations role before any data job existed — the work an analytics department was later created around</li><li>n8n, Node.js, PostgreSQL, Puppeteer and AI tooling, learned by putting production systems in front of real clients</li></ul></div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-cap"/></svg></span>
+          <span class="xmain"><span class="xtitle">Teaching</span><span class="xsum">SQL, Tableau and Excel for professional trainees.</span></span>
+          <span class="xmeta">2024 — now</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody"><p>Teaching the same material I taught myself, to working professionals — the fastest way I know to find out whether you actually understand something.</p></div>
+      </details>
+      </div>
+      <div class="schema" style="margin-top:12px"><div class="schema-row"><div class="k">languages</div><div class="v">Arabic (Native) · English (Professional Working Proficiency)</div></div></div>
+    </div>
+  </section>
+
+</div>
+
+<footer id="contact" class="dark-foot">
+  <div class="wrap">
+    <div class="label"><svg class="ico"><use href="#i-mail"/></svg>05 — Contact</div>
+    <p class="big">Let's put your numbers to work.</p>
+    <p>Available for full-time remote analyst roles and contract analytics &amp; automation engagements. Pick any case study — or email me and I'll walk you through one on a screen share.</p>
+    <div class="contact-row">
+      <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a>
+      <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin/tanbedawy ↗</a>
+      <a href="https://github.com/mohamedEltanbedawy" target="_blank" rel="noopener">github ↗</a>
+      <a href="https://public.tableau.com/app/profile/mohamed.ibrahim2814" target="_blank" rel="noopener">tableau public ↗</a>
+    </div>
+    <div class="foot-meta">
+      <span>© 2026 Mohamed Eltanbedawy — Cairo, Egypt · Remote</span>
+      <span>built like a dashboard, on purpose</span>
+    </div>
+  </div>
+</footer>
+</main>
+</div>
+
+<!-- ============================= ARABIC ============================= -->
+<div id="doc-ar" dir="rtl" style="display:none">
+
+<header class="toolbar">
+  <div class="wrap">
+    <div class="wb-title">tanbedawy<span class="dot">.</span>workbook</div>
+    <nav class="tabs" aria-label="الأقسام">
+      <a href="#ar-practice">capabilities</a>
+      <a href="#ar-analytics">analytics</a>
+      <a href="#ar-work">systems</a>
+      <a href="#ar-record">experience</a>
+      <a href="#ar-contact">contact</a>
+    </nav>
+    <div class="lang-toggle" role="group" aria-label="اللغة">
+      <button class="btn-en" onclick="setLang('en')">English</button>
+      <button class="btn-ar active" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <section class="hero-split" style="padding-bottom:24px">
+    <div class="hs-left">
+      <h1>
+        <span class="greet">// أهلًا، اسمي</span>
+        <span class="row1"><span class="accent">محمد</span>
+          <span class="portrait">
+            <svg class="ring" viewBox="0 0 100 100" aria-hidden="true"><circle class="track" cx="50" cy="50" r="47"/><circle class="arc" cx="50" cy="50" r="47" stroke-dasharray="216 295" stroke-dashoffset="0"/></svg>
+          <svg class="tick" viewBox="0 0 100 100" aria-hidden="true"><line x1="50" y1="2" x2="50" y2="7"/><line x1="98" y1="50" x2="93" y2="50"/><line x1="50" y1="98" x2="50" y2="93"/><line x1="2" y1="50" x2="7" y2="50"/></svg>
+            <span class="avatar"><span>PHOTO<br>assets/<br>mohamed-photo.jpg</span><img src="assets/mohamed-photo.jpg" alt="محمد الطنبداوي" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></span>
+            <span class="pin">متاح</span>
+          </span>
+        </span>
+        <span class="fam">الطنبداوي.</span>
+      </h1>
+      <div class="sig"><b>Business &amp; Data Analyst</b><br>Business Intelligence · Marketplace, Product &amp; Growth Analytics<br>القاهرة، مصر · أعمل عن بُعد</div>
+    </div>
+
+    <div class="hs-right">
+      <p>أحوّل البيانات التشغيلية إلى قرارات يتصرف الناس بناءً عليها: <strong>خطوط SQL على جداول production حية</strong>، وBI تقرأه القيادة يوميًا عبر <strong>تسع دول</strong>، وتحليل يفكك الرقم المتحرك إلى محركاته — كوهورتات، وأقماع، وأشجار محركات، وتقسيم شرائح، ومحاكاة تسعير.</p>
+      <p>ثم أبني الأنظمة التي <b>تتصرف</b> بناءً على تلك الأرقام: نحو 50 workflow أتمتة في الـ production، ونظامَي تجارة بالذكاء الاصطناعي مبنيَّين لتاجرَين في مصر وموريتانيا، ومعماريات تتبع كاملة بـ GA4 وGTM وConversions API من جانب الخادم.</p>
+      <div class="hero-cta">
+        <a class="act primary" href="#ar-analytics">شاهد الشغل <svg class="ico" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></a>
+        <a class="act" href="mailto:mohamed.tanbedawy@gmail.com"><svg class="ico"><use href="#i-mail"/></svg>إيميل</a>
+        <a class="act" href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener"><svg class="ico"><use href="#i-link"/></svg>لينكدإن</a>
+        <a class="act" href="https://github.com/mohamedEltanbedawy" target="_blank" rel="noopener"><svg class="ico"><use href="#i-git"/></svg>جيتهب</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="scorecard" aria-label="سكوركارد" style="margin:0 0 8px">
+    <div class="sc-head">
+      <span class="t">أرقام موثّقة — كل رقم قابل للدفاع عنه في مقابلة</span>
+      <span class="live">production</span>
+    </div>
+    <div class="sc-grid">
+      <div class="metric"><div class="val">2,000<em>+</em></div><div class="lbl">استعلام SQL على جداول production حية</div></div>
+      <div class="metric"><div class="val">50<em>+</em></div><div class="lbl">داشبورد BI عبر تسع دول</div></div>
+      <div class="metric"><div class="val">~50</div><div class="lbl">n8n workflow أتمتة في الـ production</div></div>
+      <div class="metric"><div class="val">10<em>+</em></div><div class="lbl">متاجر عملاء بُنيت وشُغّلت من طرف إلى طرف</div></div>
+    </div>
+  </div>
+
+  <section id="ar-practice" style="padding:56px 0 24px">
+    <div class="label"><svg class="ico"><use href="#i-table"/></svg><b>01</b> — القدرات</div>
+    <h2 class="sec-title">الداتا أولًا — ثم الأنظمة التي تتصرف بها</h2>
+    <p class="sec-sub">المستويات تقدير ذاتي مدعوم بدليل. كل ادعاء تحته دراسة حالة</p>
+
+    <div class="cap-band"><span class="n">أساسي</span> · الداتا والتحليلات</div>
+    <div class="cap-grid">
+      <article class="cap core">
+        <div class="cap-shot"><svg viewBox="0 0 120 120" role="img" aria-hidden="true"><use href="#ill-sql"/></svg></div>
+        <div class="cap-body">
+          <div class="cap-top"><h3><svg class="ico"><use href="#i-db"/></svg>SQL ونمذجة البيانات</h3><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+          <p>آلاف الاستعلامات على جداول production حية — لا مجموعات بيانات تدريبية. تعريفات المقاييس، ونماذج البيانات، والطبقة الدلالية التي تمنع فريقين من الإبلاغ عن رقمين مختلفين.</p>
+          <div class="cap-tools">PostgreSQL · BigQuery · MySQL · window functions · CTEs</div>
+          <div class="cap-foot"><span class="cap-lvl">خبير</span><a class="act cap-ev" href="#ar-analytics">شاهدها مطبّقة ←</a></div>
+        </div>
+      </article>
+      <article class="cap core">
+        <div class="cap-shot"><svg viewBox="0 0 120 120" role="img" aria-hidden="true"><use href="#ill-bi"/></svg></div>
+        <div class="cap-body">
+          <div class="cap-top"><h3><svg class="ico"><use href="#i-chart"/></svg>تصميم الـ BI والداشبوردات</h3><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+          <p>+50 داشبورد عبر تسع دول، من سكوركاردات تنفيذية بسبعة تابات إلى داشبورد مشغّل حي يُقرأ في أقل من دقيقة. مبنية لتُقرأ، لا لتُعجَب بها.</p>
+          <div class="cap-tools">Tableau · Looker Studio · Power BI · Google Sheets</div>
+          <div class="cap-foot"><span class="cap-lvl">خبير</span><a class="act cap-ev" href="case-studies/executive-intelligence.html">دراسة الحالة ←</a></div>
+        </div>
+      </article>
+      <article class="cap core">
+        <div class="cap-shot"><svg viewBox="0 0 120 120" role="img" aria-hidden="true"><use href="#ill-methods"/></svg></div>
+        <div class="cap-body">
+          <div class="cap-top"><h3><svg class="ico"><use href="#i-line"/></svg>المنهجيات التحليلية</h3><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+          <p>تفكيك الرقم المتحرك إلى أسبابه: كوهورتات احتفاظ 13 شهرًا، وتشريح قمع الحجز، وشجرة محركات GMV بستة مستويات، ومحاكيات هامش بافتراضات مرونة مرئية.</p>
+          <div class="cap-tools">كوهورتات · أقماع · أشجار محركات · تقسيم شرائح · نمذجة سيناريوهات</div>
+          <div class="cap-foot"><span class="cap-lvl">خبير</span><a class="act cap-ev" href="case-studies/supply-intelligence.html">دراسة الحالة ←</a></div>
+        </div>
+      </article>
+      <article class="cap core">
+        <div class="cap-shot"><svg viewBox="0 0 120 120" role="img" aria-hidden="true"><use href="#ill-pipeline"/></svg></div>
+        <div class="cap-body">
+          <div class="cap-top"><h3><svg class="ico"><use href="#i-flow"/></svg>هندسة البيانات</h3><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+          <p>سكرابرز ← شيتات تجهيز ← مستودع ← نماذج SQL، تعمل يوميًا لعميل مدفوع. بالإضافة لترحيل كامل لعملية من الجداول إلى سكيما PostgreSQL منمّطة.</p>
+          <div class="cap-tools">BigQuery · PostgreSQL · Apps Script · ETL مجدول</div>
+          <div class="cap-foot"><span class="cap-lvl">متقدّم</span><a class="act cap-ev" href="case-studies/egx-warehouse.html">دراسة الحالة ←</a></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="cap-band"><span class="n">موسّع</span> · الأنظمة التي تتصرف بالبيانات</div>
+    <div class="cap-grid">
+      <article class="cap ext">
+        <div class="cap-shot"><svg viewBox="0 0 120 120" role="img" aria-hidden="true"><use href="#ill-flow"/></svg></div>
+        <div class="cap-body">
+          <div class="cap-top"><h3><svg class="ico"><use href="#i-tool"/></svg>أتمتة سير العمل</h3><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+          <p>نحو 50 workflow في الـ production بخط مرحلي، وإنذار مركزي، وتحقّق خروج بعد كل مرحلة، ومعدل فشل منشور. الأتمتة كمنصة، لا ككومة سكربتات.</p>
+          <div class="cap-tools">n8n (ذاتي الاستضافة · Docker) · خدمات Node.js · Puppeteer</div>
+          <div class="cap-foot"><span class="cap-lvl">خبير</span><a class="act cap-ev" href="case-studies/automation-platform.html">دراسة الحالة ←</a></div>
+        </div>
+      </article>
+      <article class="cap ext">
+        <div class="cap-shot"><svg viewBox="0 0 120 120" role="img" aria-hidden="true"><use href="#ill-ai"/></svg></div>
+        <div class="cap-body">
+          <div class="cap-top"><h3><svg class="ico"><use href="#i-target"/></svg>أنظمة الـ AI وهندسة البرومبت</h3><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+          <p>بوابة AI موحّدة فوق ثلاثة مزوّدين باحتياط وتسجيل تكلفة لكل استدعاء، وخطوط محتوى بطبقات تحقّق، ووكلاء مبيعات محادثة بالعربية متزامنون مع قاعدة المنتجات.</p>
+          <div class="cap-tools">OpenAI · Gemini · OpenRouter · قواعد معرفة · وكلاء مبيعات</div>
+          <div class="cap-foot"><span class="cap-lvl">متقدّم</span><a class="act cap-ev" href="case-studies/commerce-os.html">دراسة الحالة ←</a></div>
+        </div>
+      </article>
+      <article class="cap ext">
+        <div class="cap-shot"><svg viewBox="0 0 120 120" role="img" aria-hidden="true"><use href="#ill-track"/></svg></div>
+        <div class="cap-body">
+          <div class="cap-top"><h3><svg class="ico"><use href="#i-tag"/></svg>القياس والتتبع</h3><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+          <p>بناء معماريات التتبع من الصفر وتشخيص المكسورة: أحداث مكررة، وتحويلات مفقودة، وفجوات إحالة — الشغل الذي يقرر إن كانت كل التحليلات أعلاه صحيحة أصلًا.</p>
+          <div class="cap-tools">GA4 · Google Tag Manager · Meta Pixel · CAPI من جانب الخادم</div>
+          <div class="cap-foot"><span class="cap-lvl">متقدّم</span><a class="act cap-ev" href="case-studies/salamasons.html">دراسة الحالة ←</a></div>
+        </div>
+      </article>
+      <article class="cap ext">
+        <div class="cap-shot"><svg viewBox="0 0 120 120" role="img" aria-hidden="true"><use href="#ill-shop"/></svg></div>
+        <div class="cap-body">
+          <div class="cap-top"><h3><svg class="ico"><use href="#i-cart"/></svg>عمليات التجارة الإلكترونية</h3><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+          <p>متاجر عملاء بُنيت وأُديرت من طرف إلى طرف: الكتالوج، والتسعير، ودورة حياة الأوردر، ومتابعة التوصيل — الجانب التشغيلي الذي يجعل للبيانات معنى.</p>
+          <div class="cap-tools">WooCommerce · YouCan · EasyOrders · دورة حياة الأوردر</div>
+          <div class="cap-foot"><span class="cap-lvl">خبير</span><a class="act cap-ev" href="case-studies/ecom-bounty.html">دراسة الحالة ←</a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="ar-analytics" style="padding:40px 0 24px">
+    <div class="label"><svg class="ico"><use href="#i-chart"/></svg><b>02</b> — التحليلات والـ BI</div>
+    <h2 class="sec-title">التحليل الذي أجاب الأسئلة الأغلى</h2>
+    <p class="sec-sub">24 داشبورد موثقًا عبر تسع دول · انقر أي صف ليُفتح · الأرقام مموّهة بسياسة معلنة</p>
+    <div class="xlist">
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-line"/></svg></span>
+          <span class="xmain"><span class="xtitle">ذكاء الأداء التنفيذي</span><span class="xsum">سكوركارد بسبعة تابات وشجرة محركات GMV بستة مستويات، تُقرأ يوميًا عبر تسع دول.</span></span>
+          <span class="xmeta">7 تابات</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody">
+          <p>القيادة لم يكن لديها عرض يومي واحد ولا طريقة لتتبع رقم متحرك إلى سببه. دمجت ثمانية مصادر Sheets وSQL في عروض مترابطة بتعمّق بالمدينة والمنتج، ثم بنيت شجرة محركات تفكك الـ GMV ستة مستويات إلى محركات طلب وعرض وتسعير وبرومو — كل عقدة مقارنة بنفس اليوم من الأسبوع الماضي وبمتوسط أربعة أسابيع. <strong>وانخفضت طلبات التحليل المعمق 30%.</strong></p>
+          <div class="k-line">Tableau · SQL · حوكمة مؤشرات · فلاتر متسلسلة · مستهدفات سيناريو</div>
+          <a class="act" href="case-studies/executive-intelligence.html">اقرأ دراسة الحالة <svg class="ico" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></a>
+        </div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-flow"/></svg></span>
+          <span class="xmain"><span class="xtitle">ذكاء الماركت بليس</span><span class="xsum">لماذا تفشل الرحلات — مفككة إلى أنماط فشل مسمّاة، لا معدل إجمالي.</span></span>
+          <span class="xmeta">14 شريحة</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody">
+          <p>معدلات الإكمال الإجمالية تخفي كل الأسباب. هذه الحزمة تقسم كل فشل إلى نمط مسمّى: لم يصله عرض، وصله عرض وانتهت مهلته، أُلغي قبل التعيين أو بعده — كل منها عبر أربع عشرة شريحة معامل ذروة ونطاقات مسافة، مع وسائط توقيت تفصل «لا يوجد عرض» عن «عرض بطيء». وقاموس المقاييس يعيش داخل الداشبورد ليقرأه أي قسم بلا مساعدة.</p>
+          <div class="k-line">تشريح قمعي · تفكيك القبول · مصفوفة شذوذ مدة×مسافة</div>
+          <a class="act" href="case-studies/marketplace-intelligence.html">اقرأ دراسة الحالة <svg class="ico" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></a>
+        </div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-table"/></svg></span>
+          <span class="xmain"><span class="xtitle">ذكاء دورة حياة العرض</span><span class="xsum">أكبر وورك بوك بنيته: ثمانية تابات على حياة السائق كاملة.</span></span>
+          <span class="xmeta">8 تابات</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody">
+          <p>مثلثات كوهورت احتفاظ لثلاثة عشر شهرًا، وتسرب مقسوم طوعي مقابل محظور عبر ست فئات حظر، وأعمق تقسيم شرائح في المجموعة — شريحة × فئة × حالة حظر الكاش × أسبوع. <strong>فتحوّلت «خسرنا سائقين» إلى «حظرنا هذا العدد للجودة، ورحل هذا العدد بإرادته»</strong> — مشكلتان مختلفتان تمامًا لكل منهما مسؤول مختلف.</p>
+          <div class="k-line">كوهورتات 13 شهرًا · أسباب التسرب · متحرك 30 يومًا مقابل المستهدف · Supplier 360</div>
+          <a class="act" href="case-studies/supply-intelligence.html">اقرأ دراسة الحالة <svg class="ico" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></a>
+        </div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-chart"/></svg></span>
+          <span class="xmain"><span class="xtitle">ذكاء النمو والاستحواذ</span><span class="xsum">من التثبيت للتفعيل، مرسومًا مرتين: يوميًا للأحداث، ومتحركًا للحقيقة.</span></span>
+          <span class="xmeta">عرضان</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody">
+          <p>إنفاق الاستحواذ يُحاكم مرتين — هل حوّل القمع، وهل بقي المستخدمون؟ كل مقياس يُرسم يوميًا ومتحركًا 30 يومًا جنبًا إلى جنب، فلا تُخلط قفزة حملة بتغيّر اتجاه أبدًا. وبجانبهما: هيت ماب شهر-حتى-تاريخه بعمود لكل يوم، وكوهورت احتفاظ يربط كل شهر استحواذ بمصيره.</p>
+          <div class="k-line">أقماع تثبيت←تفعيل · نوافذ متحركة · هيت ماب MTD · معدل الترقّي</div>
+          <a class="act" href="case-studies/growth-intelligence.html">اقرأ دراسة الحالة <svg class="ico" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></a>
+        </div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-target"/></svg></span>
+          <span class="xmain"><span class="xtitle">ذكاء التسعير والإيرادات</span><span class="xsum">غيّر هامشًا في النموذج وشاهد السلسلة المالية كلها تتحرك.</span></span>
+          <span class="xmeta">خلية واحدة</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody">
+          <p>الهامش أعلى رافعة وأعلى مخاطرة يملكها الماركت بليس. هذه المحاكيات تجيب السؤال قبل النشر: غيّر الهامش في مدينة، فتُعاد حسبة الرحلات المتوقعة والـ GMV ودعم الركاب والكباتن والمرتجعات والإعفاءات والتكاليف وصافي الإيراد — يقودها إدخال خلية واحدة، وافتراض المرونة جالس مرئيًا في النموذج لا مدفونًا في معادلة.</p>
+          <div class="k-line">نمذجة سيناريوهات · افتراضات مرونة · عروض ABS و%-من-GMV والفروق</div>
+          <a class="act" href="case-studies/pricing-intelligence.html">اقرأ دراسة الحالة <svg class="ico" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></a>
+        </div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-db"/></svg></span>
+          <span class="xmain"><span class="xtitle">عمليات الوقت الفعلي</span><span class="xsum">دقة خمس عشرة دقيقة على جداول تتحدث كل خمس، في دولتين.</span></span>
+          <span class="xmeta">15 دقيقة</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody">
+          <p>فرق التشغيل كانت تدير بزنس يتغير خلال اليوم بتقرير الأمس. كل رسم يركّب اليوم فوق أيام مقارنة، فيُجاب سؤال «هل الآن طبيعي؟» بالعين — من الجلسات نزولًا حتى الـ utilization، والساعات المتاحة مقابل النشطة مقابل المشغولة كلٌّ معرّف داخل العرض، وتحويل المنطقة الزمنية موثق داخل الداشبورد.</p>
+          <div class="k-line">خطوط حية · مقارنات متراكبة · معالجة يوم جزئي · utilization</div>
+          <a class="act" href="case-studies/realtime-operations.html">اقرأ دراسة الحالة <svg class="ico" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></a>
+        </div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-tag"/></svg></span>
+          <span class="xmain"><span class="xtitle">الذكاء الجغرافي المكاني</span><span class="xsum">خرائط مضلعات مبنية من ملفات أحياء حقيقية، لا أشكال مرسومة يدويًا.</span></span>
+          <span class="xmeta">3 مدن</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody">
+          <p>متوسطات المدينة تخفي كل ما يحتاجه مدير المنطقة. بنيت خرائط مناطق لجدة والرياض من ملفات تكوين أحياء حقيقية — وخريطة الحي-إلى-المنطقة موثقة داخل الداشبورد فالتعريفات قابلة للتدقيق — ملوّنة بمقياس قابل للاختيار، بجانب جداول هرمية بثلاثة مستويات من مجموعة المنطقة نزولًا للأحياء.</p>
+          <div class="k-line">خرائط مضلعات · مُحدد مقياس · هرمية المناطق · أداء المنافذ</div>
+          <a class="act" href="case-studies/geospatial-intelligence.html">اقرأ دراسة الحالة <svg class="ico" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></a>
+        </div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-cap"/></svg></span>
+          <span class="xmain"><span class="xtitle">شغل Tableau العام</span><span class="xsum">أربع فيجوالات تفتحها وتنقر فيها — بلا NDA وبلا تمويه.</span></span>
+          <span class="xmeta">عام</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody">
+          <p>كل ما فوق يحمل بيانات عملاء ويُنشر بأرقام مموّهة. وهذه الأربع لا: Score Cards KPIs وMunchys Pet وEcommerce High Level وEcommerce Overview حية على Tableau Public. افتحها، وتفاعل معها، واحكم على الحرفة مباشرة بدل أن تصدّقني.</p>
+          <div class="k-line">مفتوحة · تفاعلية · احكم بنفسك</div>
+          <a class="act" href="https://public.tableau.com/app/profile/mohamed.ibrahim2814">افتح البروفايل <svg class="ico" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></a>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section id="ar-work" style="padding:40px 0 24px">
+    <div class="label"><svg class="ico"><use href="#i-flow"/></svg><b>03</b> — أنظمة الـ AI والأتمتة والتجارة</div>
+    <h2 class="sec-title">مبنية لتعمل بدوني</h2>
+    <p class="sec-sub">2024 ← الآن · حيث يتوقف التحليل عن الوصف ويبدأ التصرّف</p>
+
+    <article class="proj">
+      <div class="proj-body">
+        <div class="proj-head">
+          <div class="proj-no">01</div>
+          <div class="proj-title">
+            <h3><a href="case-studies/automation-platform.html">منصة الأتمتة — نحو 50 workflow في الـ production</a></h3>
+            <div class="proj-meta"><span class="tag">n8n ذاتي الاستضافة</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">بوابة AI</span></div>
+          </div>
+        </div>
+        <p class="proj-desc">ليست workflow ذكية واحدة — بل <strong>نظام تشغيل مبني منها</strong>: خط منتجات مرحلي (PG-00 ← PG-95)، وبوابة AI موحّدة فوق ثلاثة مزوّدين باحتياط تلقائي وتسجيل تكلفة لكل استدعاء، وخدمات ميديا، ووكلاء مبيعات، وسكرابرز، ونظام إنذار مركزي. <span class="hl">447 تنفيذ production</span> في الفترة المقاسة بمعدل فشل <span class="hl">9.2%</span> — منشور عن قصد، لأن المنصة التي تدّعي صفر أعطال هي منصة لا تقيس.</p>
+        <div class="proj-actions">
+          <a class="act primary" href="case-studies/automation-platform.html">اقرأ دراسة الحالة <svg class="ico" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <div class="shot"><span>مكان سكرينشوت<br>كانفاس n8n — قائمة workflows الـ production<br><em>(مع تمويه بيانات الاعتماد)</em><span class="file">assets/n8n-workflow-list.png</span></span><img src="assets/n8n-workflow-list.png" alt="مكان سكرينشوت كانفاس n8n — قائمة workflows الـ production (مع تمويه بيانات الاعتماد)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    </article>
+
+    <article class="proj flip">
+      <div class="proj-body">
+        <div class="proj-head">
+          <div class="proj-no">02</div>
+          <div class="proj-title">
+            <h3><a href="case-studies/commerce-os.html">الراقي — نظام تشغيل تجارة بالذكاء الاصطناعي</a></h3>
+            <div class="proj-meta"><span class="tag">كوزمتكس · مصر</span><span class="tag">n8n</span><span class="tag">PostgreSQL</span><span class="tag">WooCommerce</span></div>
+          </div>
+        </div>
+        <p class="proj-desc">نظام <strong>إنتاج ما قبل البيع</strong>: صاحب المتجر يصوّر ويحدد السعر، و<span class="hl">أكثر من 50 workflow آلي</span> تفعل الباقي — ذكاء المنتج، وبحث السوق، وصور وفيديو بالـ AI، ومنتجات WooCommerce، وتقويم نشر شهري، ووكلاء مبيعات Messenger/WhatsApp يتحدّثون فورًا مع كل منتج جديد. تكلفة الميديا <strong>أقل من سنت للمنتج</strong>.</p>
+        <div class="proj-actions">
+          <a class="act primary" href="case-studies/commerce-os.html">اقرأ دراسة الحالة <svg class="ico" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <div class="shot"><span>مكان دياجرام<br>معمارية الراقي<br><em>(تصدير دياجرام نظيف من n8n)</em><span class="file">assets/commerce-os-architecture.png</span></span><img src="assets/commerce-os-architecture.png" alt="مكان دياجرام معمارية الراقي (تصدير دياجرام نظيف من n8n)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    </article>
+
+    <article class="proj">
+      <div class="proj-body">
+        <div class="proj-head">
+          <div class="proj-no">03</div>
+          <div class="proj-title">
+            <h3><a href="case-studies/salamasons.html">SalamaSons — حلقة ذكاء الإعلانات والتوصيات</a></h3>
+            <div class="proj-meta"><span class="tag">أجهزة منزلية · موريتانيا</span><span class="tag">تحليلات إعلانات</span><span class="tag">OpenAI</span><span class="tag">Telegram</span></div>
+          </div>
+        </div>
+        <p class="proj-desc">النصف المقابل من المشكلة: نظام <strong>قياس ما بعد النشر</strong>. workflows تسحب إمبريشنز المنشورات وتفاصيل الإعلانات كاملة إلى شيت-مستودع <span class="hl">كل أربع ساعات</span>؛ وworkflow ثانٍ متسلسل يقرأ البيانات المتراكمة، ويمررها إلى OpenAI، ويسلّم <strong>توصية لكل إعلان</strong> إلى تليجرام صاحب المتجر. إنفاق ← بيانات ← قرار، بلا خطوة يدوية بينهم.</p>
+        <div class="proj-actions">
+          <a class="act primary" href="case-studies/salamasons.html">اقرأ دراسة الحالة <svg class="ico" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <div class="shot"><span>مكان سكرينشوت<br>الـ workflowين المتسلسلين على كانفاس n8n<br><em>(مع تمويه بيانات الاعتماد)</em><span class="file">assets/salamasons-workflows.png</span></span><img src="assets/salamasons-workflows.png" alt="مكان سكرينشوت الـ workflowين المتسلسلين على كانفاس n8n (مع تمويه بيانات الاعتماد)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    </article>
+
+    <article class="proj">
+      <div class="proj-body">
+        <div class="proj-head">
+          <div class="proj-no">04</div>
+          <div class="proj-title">
+            <h3><a href="case-studies/ecom-bounty.html">داشبورد عمليات التجارة بالعمولة</a></h3>
+            <div class="proj-meta"><span class="tag">حي</span><span class="tag">Looker Studio</span><span class="tag">SQL على WooCommerce</span><span class="tag">بيانات خاصة</span></div>
+          </div>
+        </div>
+        <p class="proj-desc">المشغّل الوحيد لنشاط بالعمولة — <strong>نحو 500 أوردر</strong> — والمحلل الذي قاسه. الاكتشاف الرئيسي للداشبورد كان <span class="hl">معدل إلغاء ~50%</span>: أسوأ رقم في العملية، أخذ أكبر مساحة شاشة، لأنه الرقم الذي قرر كل شيء آخر. القطعة الوحيدة هنا التي تعمل على بياناتي الحية.</p>
+        <div class="proj-actions">
+          <a class="act primary" href="case-studies/ecom-bounty.html">اقرأ دراسة الحالة <svg class="ico" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></a>
+          <a class="act" href="https://lookerstudio.google.com/reporting/add4ae0b-b573-464d-9d82-9a7fdd7cb63b" target="_blank" rel="noopener">افتح الداشبورد الحي ↗</a>
+        </div>
+      </div>
+      <div class="shot"><span>مكان سكرينشوت<br>صفحة النظرة العامة في Looker Studio<br><em>(أو تضمين عبر iframe)</em><span class="file">assets/affiliate-dashboard-overview.png</span></span><img src="assets/affiliate-dashboard-overview.png" alt="مكان سكرينشوت صفحة النظرة العامة في Looker Studio (أو تضمين عبر iframe)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    </article>
+
+    <article class="proj flip">
+      <div class="proj-body">
+        <div class="proj-head">
+          <div class="proj-no">05</div>
+          <div class="proj-title">
+            <h3><a href="case-studies/egx-warehouse.html">مستودع تقييم محفظة EGX</a></h3>
+            <div class="proj-meta"><span class="tag">عميل مدفوع</span><span class="tag">BigQuery</span><span class="tag">Apps Script</span><span class="tag">يعمل يوميًا</span></div>
+          </div>
+        </div>
+        <p class="proj-desc">خط ETL حقيقي مصغّر، مبني لعميل خاص ويعمل كل يوم: سكرابرز تسحب <strong>9 أسهم من البورصة المصرية</strong> إلى Sheets، ومهام رفع تدفقها إلى <span class="hl">BigQuery</span>، ونماذج SQL تحسب قيمة محفظة كل مالك يوميًا — بالتوزيعات وإجراءات الشركات (أسهم مجانية، زيادات رأس مال، حقوق اكتتاب) منمذجة صراحة، وهي الجزء الذي تخطئه المتابعة اليدوية دائمًا.</p>
+        <div class="proj-actions">
+          <a class="act primary" href="case-studies/egx-warehouse.html">اقرأ دراسة الحالة <svg class="ico" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <div class="shot"><span>مكان دياجرام<br>خط EGX — سكرابر ← Sheets ← BigQuery ← SQL<br><span class="file">assets/egx-pipeline.png</span></span><img src="assets/egx-pipeline.png" alt="مكان دياجرام خط EGX — سكرابر ← Sheets ← BigQuery ← SQL" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    </article>
+
+    <article class="proj solo">
+      <div class="proj-body">
+        <div class="proj-head">
+          <div class="proj-no">06</div>
+          <div class="proj-title">
+            <h3><a href="case-studies/jotia.html">Jotia — منصة أتمتة دروبشيبينج</a></h3>
+            <div class="proj-meta"><span class="tag">12 workflow</span><span class="tag">4 خدمات مصغّرة</span><span class="tag">أدابترات موردين</span><span class="tag">بناء مؤرشف</span></div>
+          </div>
+        </div>
+        <p class="proj-desc">من كتالوجات الموردين إلى متجر منشور وقابل للبيع والبشر يوافقون فقط: <strong>أدابترات Puppeteer وREST</strong> عديمة الحالة لمنصتي موردين خلف عقد واحد، وتسعير حتمي، وخط صور (إزالة خلفية + بنرات خصم عربية)، ووكيل مبيعات Messenger بالعربية. أرض الإثبات الهندسية للـ Commerce OS.</p>
+        <div class="proj-actions">
+          <a class="act primary" href="case-studies/jotia.html">اقرأ دراسة الحالة <svg class="ico" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section id="ar-record" style="padding:40px 0 24px">
+    <div class="label"><svg class="ico"><use href="#i-line"/></svg><b>04</b> — الخبرة</div>
+    <h2 class="sec-title">الخط الزمني المهني</h2>
+    <p class="sec-sub">2012 ← الآن · كل وظيفة، وتفاصيلها عند الطلب</p>
+
+    <div class="tl">
+
+      <div class="tl-item"><span class="tl-conn"></span><span class="tl-dot"></span>
+        <div class="tl-box">
+          <div class="tl-when">يونيو 2024 ← الآن</div>
+          <h3>eCommerce Analytics &amp; Automation Consultant</h3>
+          <div class="tl-org">عمل حر · عن بُعد</div>
+          <details><summary>التفاصيل <span class="sign"></span></summary>
+            <ul>
+              <li>بنيت وشغّلت +10 متاجر من طرف إلى طرف (WooCommerce وYouCan وEasyOrders): بناء المتجر، والكتالوج، والتتبع، وعمليات الأوردرات، من طرف إلى طرف.</li>
+              <li>طوّرت ~50 workflow أتمتة production على n8n مدعومة بخدمات Node.js مخصصة؛ ورحّلت البيانات التشغيلية من Google Sheets إلى PostgreSQL.</li>
+              <li>صممت معماريات قياس (GA4 وGTM وMeta Pixel وCAPI من جانب الخادم)؛ وأصلحت الأحداث المكررة والتحويلات المفقودة وفجوات الإحالة عبر النطاقات.</li>
+              <li>المشغّل التحليلي والتشغيلي الوحيد لنشاط تجارة بالعمولة؛ بنيت داشبورد Looker Studio الخاص به — دورة حياة الأوردرات وأداء التوصيل والعمولات.</li>
+              <li>بنيت مستودع تقييم يومي لمحفظة EGX (Apps Script ← Sheets ← BigQuery ← SQL) لعميل خاص.</li>
+              <li>درّست SQL وTableau وExcel لمتدربين محترفين.</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+
+      <div class="tl-item right"><span class="tl-conn"></span><span class="tl-dot"></span>
+        <div class="tl-box">
+          <div class="tl-when">يناير 2023 ← يونيو 2024</div>
+          <h3>Senior Business Analyst</h3>
+          <div class="tl-org">كريم (شركة تابعة لأوبر)</div>
+          <details><summary>التفاصيل <span class="sign"></span></summary>
+            <ul>
+              <li>امتلكت التحليلات والتقارير والتحليل لسوقين رئيسيين (المغرب والأردن)؛ وأدرت اجتماعات قيادة أسبوعية مع المدير العام والفريق التنفيذي.</li>
+              <li>قدت تطوير Master Scorecard في Tableau يدمج أربعة مصادر SQL — عرض مركزي لنحو 90% من مؤشرات الشركة عبر تسعة أسواق وخمسة قطاعات، يستخدمه الـ CEO يوميًا، وخفّض طلبات التحليل المعمق 30%.</li>
+              <li>صممت داشبورد مؤشرات مشروع Bid-Ask يغطي مراحل تحويل القمع والأداء الأسبوعي؛ فصار المصدر الأساسي للرؤية التشغيلية والاستراتيجية بين الإدارات.</li>
+              <li>بنيت تقسيم مستخدمين على استغلال الخصومات وأنماط الرحلات، رفع أداء حملات الـ growth-hack التسويقية 10%، بتتبع ROI لكل شريحة.</li>
+              <li>طوّرت وصنت أهم داشبورد لجانب العرض في الشركة: احتفاظ الكباتن وتسربهم وأداؤهم بالشريحة والمنطقة.</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+
+      <div class="tl-item"><span class="tl-conn"></span><span class="tl-dot"></span>
+        <div class="tl-box">
+          <div class="tl-when">يناير 2021 ← ديسمبر 2022</div>
+          <h3>Business Analyst</h3>
+          <div class="tl-org">كريم</div>
+          <details><summary>التفاصيل <span class="sign"></span></summary>
+            <ul>
+              <li>اختِرت أول محلل في إدارة تحليل البيانات المنشأة حديثًا في كريم مصر — وظيفة أنشأتها الإدارة بعد أن بنيت تقارير وداشبوردات SQL بمبادرتي وأنا ما زلت في أدوار العرض.</li>
+              <li>أنشأت +2,000 استعلام SQL و50 داشبورد Tableau تغطي معظم مجالات العمل للقيادة وفرق الأعمال.</li>
+              <li>بنيت تحليل المناطق ومعاملات الذروة الذي وجّه قرارات موازنة العرض والتسعير، مساهمًا في تحسن 7% في موثوقية الخدمة و5% نمو في الإيراد الإجمالي.</li>
+              <li>سلّمت تحليل حصص سوق المنافسين باستخدام انقطاعاتهم المعلنة مقابل بيانات الطلب التاريخية بالساعة.</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+
+      <div class="tl-item right"><span class="tl-conn"></span><span class="tl-dot"></span>
+        <div class="tl-box">
+          <div class="tl-when">يناير 2020 ← ديسمبر 2020</div>
+          <h3>Supply Lead — Growth</h3>
+          <div class="tl-org">كريم</div>
+          <details><summary>التفاصيل <span class="sign"></span></summary>
+            <ul>
+              <li>قدت فريقًا يدير استقطاب ودعم السائقين عبر 19 مدينة في الدلتا والقناة والصعيد؛ استقطبت 60 ألف سائق و300 شريك توريد وحللت 100 ألف تذكرة Zendesk.</li>
+              <li>أطلقت سياسة تغيير مدينة السائق (+13% احتفاظ) وبرنامج الحياة المبكرة للسائق (+25% معدل تفعيل).</li>
+              <li>بنيت دليل التصعيدات، مخفضًا إجمالي تذاكر الدعم 30%.</li>
+              <li>علّمت نفسي SQL وبناء الداشبوردات لإدارة تقارير عرض المنطقة — قبل وجود أي دور بيانات رسمي؛ وهذا الشغل أدى مباشرة إلى إنشاء إدارة التحليلات التي انضممت إليها لاحقًا كأول محلل فيها.</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+
+      <div class="tl-item"><span class="tl-conn"></span><span class="tl-dot"></span>
+        <div class="tl-box">
+          <div class="tl-when">نوفمبر 2017 ← ديسمبر 2019</div>
+          <h3>Supply Growth Associate ← Senior Associate</h3>
+          <div class="tl-org">كريم</div>
+          <details><summary>التفاصيل <span class="sign"></span></summary>
+            <ul>
+              <li>قدت إطلاق سوقي شبين الكوم وبنها على الأرض، بملكية الميزانية وإدارة أطراف ثالثة؛ استقطبت 13 ألف سائق و18 موردًا.</li>
+              <li>حللت +12 ألف تذكرة Zendesk في المدينتين داخل SLA أربع وعشرين ساعة.</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+
+      <div class="tl-item right era"><span class="tl-conn"></span><span class="tl-dot"></span>
+        <div class="tl-box">
+          <div class="tl-when">أكتوبر 2016 ← أكتوبر 2017</div>
+          <h3>HR Admin Clerk</h3>
+          <div class="tl-org">مصنع آيس كريم فروني مصر</div>
+          <details><summary>التفاصيل <span class="sign"></span></summary>
+            <p>إدارة شؤون عاملين لقوة عمل صناعية: ملفات الموظفين والعقود، وتتبع الحضور والإجازات، ومدخلات الرواتب، وأوراق مكتب العمل — نفس المصنع بعد انتقال نشاط الآيس كريم من نستله إلى فروني.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="tl-item era"><span class="tl-conn"></span><span class="tl-dot"></span>
+        <div class="tl-box">
+          <div class="tl-when">سبتمبر 2015 ← سبتمبر 2016</div>
+          <h3>HR Admin Clerk</h3>
+          <div class="tl-org">مصنع آيس كريم نستله مصر</div>
+          <details><summary>التفاصيل <span class="sign"></span></summary>
+            <p>إدارة شؤون عاملين يومية في مصنع متعدد الجنسيات: حفظ ملفات الموظفين، ومعالجة سجلات الحضور والورديات، ودعم أوراق التعيين والانضمام، والتعامل مع طلبات الموظفين — أول احتكاك لي ببيانات تشغيلية بحجم كبير، في جداول قبل الداشبوردات بسنوات.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="tl-item right era"><span class="tl-conn"></span><span class="tl-dot"></span>
+        <div class="tl-box">
+          <div class="tl-when">نوفمبر 2014 ← سبتمبر 2015</div>
+          <h3>Front Office Receptionist</h3>
+          <div class="tl-org">فنادق أوبروي · باخرة فيلة النيلية</div>
+          <details><summary>التفاصيل <span class="sign"></span></summary>
+            <p>استقبال في باخرة نيلية خمس نجوم: تسجيل وصول ومغادرة الضيوف، والحجوزات، والفواتير والحسابات، والتعامل مع طلبات ضيوف دوليين بالإنجليزية — عمليات خدمة يضع فيها الضيف المعيار، لا الإجراء.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="tl-item era"><span class="tl-conn"></span><span class="tl-dot"></span>
+        <div class="tl-box">
+          <div class="tl-when">سبتمبر 2012 ← يوليو 2014</div>
+          <h3>Financial Accountant</h3>
+          <div class="tl-org">Business Compaq · القاهرة</div>
+          <details><summary>التفاصيل <span class="sign"></span></summary>
+            <p>من هنا بدأت الأرقام: قيود اليومية ودفاتر الأستاذ، والفواتير، والذمم الدائنة والمدينة، والتسويات البنكية، والإقفالات الشهرية. المحاسبة هي الانضباط الأصلي في جعل الأرقام تتطابق — وهي العادة التي جعلت تعريفات المقاييس ونماذج البيانات مألوفة لاحقًا.</p>
+          </details>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:44px">
+      <div class="label"><svg class="ico"><use href="#i-cap"/></svg>التعليم والتدريب</div>
+      <h2 class="sec-title" style="font-size:clamp(20px,2.6vw,26px)">من أين جاءت المهارات</h2>
+      <p class="sec-sub">شهادات وبرامج مدفوعة والأجزاء التي لم يشهد بها أحد · انقر أي صف لترى المنهج</p>
+      <div class="xlist">
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-cap"/></svg></span>
+          <span class="xmain"><span class="xtitle">بكالوريوس تجارة، محاسبة</span><span class="xsum">جامعة المنوفية — حيث صار تطابق الأرقام عادة.</span></span>
+          <span class="xmeta">2008—2012</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody"><p>أربع سنوات محاسبة: دفاتر أستاذ وتسويات وإقفالات. الانضباط الأصلي في جعل الأرقام تتفق — وهو ما تبيّن أن تعريفات المقاييس ونماذج البيانات هي إياه.</p></div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-chart"/></svg></span>
+          <span class="xmain"><span class="xtitle">Data Analysis Nanodegree</span><span class="xsum">Udacity · Egypt FWD — المسار الكامل بمراحله الثلاث.</span></span>
+          <span class="xmeta">2021</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody"><p>مسار تحليل البيانات كاملًا ضمن منحة Egypt FWD، مأخوذًا على ثلاث مراحل في سنة واحدة.</p><ul><li>مرحلة Challenger — يناير إلى أبريل 2021</li><li>مرحلة Professional — مايو إلى يوليو 2021</li><li>مرحلة Track، مليون مبرمج عربي — نوفمبر إلى ديسمبر 2021</li></ul></div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-db"/></svg></span>
+          <span class="xmain"><span class="xtitle">DataCamp</span><span class="xsum">3 مسارات مكتملة، 19 كورس، 7 مشاريع DataLab تطبيقية.</span></span>
+          <span class="xmeta">3 مسارات</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody"><p>تدريب منظّم وعملي بسجل قابل للتدقيق — كل كورس ومشروع مكتمل باسمي وقابل للتحقق على المنصة.</p><p><strong>المسارات المكتملة</strong></p><ul><li><strong>Data Analyst</strong> — 15 كورس: أساسيات بايثون، معالجة ودمج البيانات بـ pandas، تصوير بـ Seaborn، إحصاء، معاينة، اختبار فرضيات، تحليل استكشافي</li><li><strong>Python Data Fundamentals</strong> — 9 كورسات: بايثون، pandas، Seaborn، إحصاء، EDA</li><li><strong>Importing &amp; Cleaning Data</strong> — 6 كورسات: الاستيراد من الملفات وقواعد البيانات والـ APIs، التنظيف، وإعادة التشكيل بـ pandas</li></ul><p><strong>مشاريع DataLab التطبيقية</strong></p><ul class="two"><li>Investigating Netflix Movies</li><li>Exploring Airbnb Market Trends</li><li>Time Series Analysis for Transportation</li><li>Analyzing Motorcycle Part Sales</li><li>World&rsquo;s Oldest Businesses</li><li>Analyzing Unicorn Companies</li><li>Analyzing Crime in Los Angeles</li></ul><div class="k-line">Python · pandas · Seaborn · إحصاء · اختبار فرضيات · معاينة · EDA</div></div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-target"/></svg></span>
+          <span class="xmain"><span class="xtitle">Google Data Analytics Professional Certificate</span><span class="xsum">Coursera — بالإضافة لتخصص لغة R.</span></span>
+          <span class="xmeta">Google</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody"><p>شهادة جوجل للتحليلات من طرف إلى طرف، من طرح السؤال الصحيح مرورًا بالتنظيف والتحليل والمشاركة — مع كورس لغة R مكتملًا بجانبها.</p><ul><li>Google Data Analytics Professional Certificate — Coursera</li><li>Data Analysis with R Programming — Google</li></ul></div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-flow"/></svg></span>
+          <span class="xmain"><span class="xtitle">Media Buyer Mind Shift</span><span class="xsum">+37 ساعة، قبول انتقائي، طُبّق لايف على متجر حقيقي — أعمق تدريب تتبع وقياس أخذته.</span></span>
+          <span class="xmeta">+37 ساعة</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody"><p>برنامج انتقائي قائم على مشروع: الطلبات كانت تُفلتر ولا يلتحق إلا المقبولون. كل شيء يُشرح ثم يُعاد بناؤه لايف على مشروع تجارة إلكترونية حقيقي لا على شرائح. ورغم اسمه، الجزء الأكبر منه هندسة قياس وقراءة بيانات — ولهذا بالضبط هو هنا.</p><ul><li><strong>تتبع التحويلات بعمق</strong> — كل الطرق، والـ troubleshooting، وتركيب الـ Conversions API، وتوجيه البيانات لتصل لأكثر من مكان للتحليل لاحقًا</li><li><strong>قراءة البيانات</strong> — تشخيص هل المشكلة في الكامبين أم المنتج أم الاستهداف أم الكرييتف أم المشغّل نفسه، لايف داخل داشبورد الإعلانات وGoogle Analytics</li><li><strong>داشبوردات أعمال على Google Data Studio</strong> — تجميع كل الأرقام بكل الـ breakdowns لاتخاذ قرارات على مستوى البزنس</li><li><strong>السكيلنج</strong> — أكثر من 10 استراتيجيات مع المنطق خلف كل واحدة، لا وصفة جاهزة</li><li><strong>معمارية ريتارجتينج 360°</strong> — بناء آلة ريتارجتينج تغطي كل زوايا رحلة المستخدم</li><li>متطلبات صفحات الهبوط والمنتج، ومصادر الكرييتف، والأد كوبي، واستراتيجيات التيستينج، وفيتشرز TikTok Ads</li></ul><div class="k-line">تتبع التحويلات · Conversions API · Google Analytics · Google Data Studio · استراتيجيات تيستينج وسكيلنج</div></div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-tool"/></svg></span>
+          <span class="xmain"><span class="xtitle">هشام سعد — ثلاث ورش تقنية</span><span class="xsum">بناء المتاجر، وصفحات الهبوط، وإدارة الاستضافة والدومين والبريد.</span></span>
+          <span class="xmeta">3 ورش</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody"><p>ثلاث ورش عملية تغطي الستاك التقني خلف أي عملية تجارة إلكترونية، بتقييمات 4.88–5.00 من الحاضرين.</p><p><strong>[DIY] WooCommerce Store</strong> — بناء متجر احترافي من طرف إلى طرف</p><ul><li>إعداد ووردبريس، وتثبيت ووكومرس وضبط الإعدادات الأولية</li><li>التصنيفات، وأنواع المنتجات، والشحن، وطرق الدفع، وإعدادات البريد</li><li>القوائم، والهيدر والفوتر، وبناء الصفحات، والتصميم الاحترافي</li><li>إضافة أكواد التتبع لمنصات الإعلانات، وتسريع التحميل، وتريكات رفع التحويل، وتأمين الموقع</li></ul><p><strong>[DIY] Landing Page Workshop</strong> — صفحات مبنية للتحويل</p><ul><li>العناصر التي ترفع معدل التحويل، وعناصر اتخاذ القرار</li><li>ربط Google Sheets لتجميع البيانات</li><li>ربط Google Tag Manager لإضافة أكواد التتبع</li><li>بناء نماذج إدخال بيانات حسب متطلباتك</li></ul><p><strong>إدارة الاستضافة والدومين والبريد</strong> — طبقة البنية التحتية</p><ul><li>أنواع الاستضافة والسيرفرات: ويب، MySQL، DNS، مُرسل البريد، استضافة البريد، FTP</li><li>بنية الدومين، والسَبدومين، وربط الدومين بالسيرفر، وإدارة الـ DNS وأنواع السجلات</li><li>البريد: تسجيل عناوين @mydomain، وZoho mail، وElastic email sender، وإعداد العملاء</li><li>تثبيت ووردبريس يدويًا مع قاعدة البيانات، وإدارة إصدار PHP على Cloudways</li></ul><div class="k-line">WooCommerce · WordPress · GTM · DNS · بنية البريد · سرعة الموقع</div></div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-cart"/></svg></span>
+          <span class="xmain"><span class="xtitle">محمد الشهاوي — نظام التجارة الإلكترونية</span><span class="xsum">بناء عملية تجارة إلكترونية كنظام، لا كسلسلة مبيعات متفرقة.</span></span>
+          <span class="xmeta">كورس</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody"><p>برنامج مدفوع عن إدارة التجارة الإلكترونية كنظام قابل للتكرار — الجانب التشغيلي من البزنس الذي تجلس التحليلات فوقه.</p></div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-tag"/></svg></span>
+          <span class="xmain"><span class="xtitle">Digital Marketing Challenger</span><span class="xsum">Udacity · Egypt FWD.</span></span>
+          <span class="xmeta">Udacity</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody"><p>مسار التسويق الرقمي ضمن منحة Egypt FWD — أساسيات القياس والقنوات التي بُني عليها شغل التتبع لاحقًا.</p></div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-tool"/></svg></span>
+          <span class="xmain"><span class="xtitle">متعلَّم ذاتيًا، على أرض الشغل</span><span class="xsum">الأجزاء التي لم يشهد بها أحد — تعلمتها بالتسليم.</span></span>
+          <span class="xmeta">مستمر</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody"><ul><li>SQL وبناء الداشبوردات، تعلمتها داخل دور عمليات عرض قبل وجود أي وظيفة داتا — وهو الشغل الذي أُنشئت حوله إدارة تحليلات لاحقًا</li><li>n8n وNode.js وPostgreSQL وPuppeteer وأدوات الـ AI، تعلمتها بوضع أنظمة production أمام عملاء حقيقيين</li></ul></div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-cap"/></svg></span>
+          <span class="xmain"><span class="xtitle">التدريس</span><span class="xsum">SQL وTableau وExcel لمتدربين محترفين.</span></span>
+          <span class="xmeta">2024 — الآن</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody"><p>أدرّس نفس المادة التي علّمت بها نفسي، لمحترفين يعملون — أسرع طريقة أعرفها لاكتشاف هل تفهم الشيء فعلًا أم لا.</p></div>
+      </details>
+      </div>
+      <div class="schema" style="margin-top:12px"><div class="schema-row"><div class="k">languages</div><div class="v">العربية (لغة أم) · الإنجليزية (كفاءة عمل مهنية)</div></div></div>
+    </div>
+  </section>
+
+</div>
+
+<footer id="ar-contact" class="dark-foot">
+  <div class="wrap">
+    <div class="label"><svg class="ico"><use href="#i-mail"/></svg>05 — تواصل</div>
+    <p class="big">لنجعل أرقامك تعمل.</p>
+    <p>متاح لوظائف أناليست remote بدوام كامل وتعاقدات تحليلات وأتمتة. اختر أي دراسة حالة — أو راسلني وأشرحها لك على شير سكرين.</p>
+    <div class="contact-row">
+      <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a>
+      <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin/tanbedawy ↗</a>
+      <a href="https://github.com/mohamedEltanbedawy" target="_blank" rel="noopener">github ↗</a>
+      <a href="https://public.tableau.com/app/profile/mohamed.ibrahim2814" target="_blank" rel="noopener">tableau public ↗</a>
+    </div>
+    <div class="foot-meta">
+      <span>© 2026 محمد الطنبداوي — القاهرة، مصر · عن بُعد</span>
+      <span>مبني كأنه داشبورد، عن قصد</span>
+    </div>
+  </div>
+</footer>
+</main>
+</div>
+
+<script>
+function setLang(l){
+  document.getElementById('doc-en').style.display=(l==='en')?'':'none';
+  document.getElementById('doc-ar').style.display=(l==='ar')?'':'none';
+  document.querySelectorAll('.btn-en').forEach(b=>b.classList.toggle('active',l==='en'));
+  document.querySelectorAll('.btn-ar').forEach(b=>b.classList.toggle('active',l==='ar'));
+  document.documentElement.lang=l;
+  document.documentElement.dir=(l==='ar')?'rtl':'ltr';
+  window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>

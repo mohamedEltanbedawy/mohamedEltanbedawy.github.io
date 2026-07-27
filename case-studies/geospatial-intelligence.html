@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geospatial Intelligence · Case Study · Mohamed Eltanbedawy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/design-system.css">
+</head>
+<body>
+
+<!-- ============================= ENGLISH ============================= -->
+<div id="doc-en" dir="ltr">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">← tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button class="btn-en active" onclick="setLang('en')">English</button>
+      <button class="btn-ar" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">Case Study · MENA Ride-Hailing Leader · Analytics Product 07 / 07</div>
+    <h1 style="max-width:none">Geospatial Intelligence</h1>
+    <p class="lead">Territory decisions, made visible: polygon zone maps for Jeddah and Riyadh built from real district-composition files, metric-selectable heatmap coloring, and 3-level hierarchical zone performance tables.</p>
+    <div class="tagrow">
+      <span class="tag">Geo Analytics</span><span class="tag">Polygon Mapping</span><span class="tag">Tableau</span>
+      <span class="tag">SQL</span><span class="tag">Zone Performance</span><span class="tag">KSA Markets</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="Product scorecard" style="margin-top:28px">
+      <div class="sc-head"><span class="t">product scorecard — structural facts</span><span class="live">production</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">3</div><div class="lbl">cities — Jeddah, Riyadh, Dammam tabs</div></div>
+        <div class="metric"><div class="val">9<em>+</em></div><div class="lbl">polygon zone groups per city map</div></div>
+        <div class="metric"><div class="val">3</div><div class="lbl">levels in the zone hierarchy tables</div></div>
+        <div class="metric"><div class="val">1</div><div class="lbl">metric selector recolors the whole map</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">Note on numbers: no figure from inside a client dashboard is presented here as an achievement. Published screenshots have absolute figures blurred.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">01</span>The Business Problem</h2>
+    <p>City-level averages hide everything territory managers need: which districts perform, where coverage gaps sit, which zones deserve investment. Zone-level performance was effectively invisible — decisions about physical territory were being made from spreadsheets with no map behind them.</p>
+    <div class="callout">The goal: put the marketplace on an actual map — real district boundaries, colored by any metric the operator selects.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">02</span>My Role</h2>
+    <p>Sole analyst on the product: building the polygon zone maps from district composition files, wiring the metric-selectable coloring, and designing the hierarchical zone tables that sit beside the maps.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">03</span>What I Built</h2>
+    <div class="grid2">
+      <div class="panel"><h3>KSA Discovery Zone Mapping</h3><p>Interactive polygon maps of Jeddah and Riyadh, each district grouped into named zones (Central A, North B, Airport…) with real geographic boundaries — and a companion table documenting exactly which districts compose each zone group, inside the dashboard.</p></div>
+      <div class="panel"><h3>Zone Analysis — performance heatmaps</h3><p>City maps colored by a selectable metric — pick booked orders, delivery fee, or AOV and the whole map recolors on a red-to-green gradient — beside a 3-level hierarchical table: zone group → district → totals.</p></div>
+      <div class="panel"><h3>Zone Performance Tables</h3><p>Per-zone metrics side by side: live and active outlets, booked and delivered orders, express share, average delivery fee, AOV — with grand totals per city and per zone group.</p></div>
+      <div class="panel"><h3>Zone Contribution Views</h3><p>Booking contribution and C/R tracked daily per named zone — down to individual malls and airport terminals — with directional coloring for trend reading.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">04</span>Signature Build Details</h2>
+    <div class="results">
+      <div class="result"><div><b>Zones defined from source files, not hand-drawn:</b> the zone groups are built from real district composition files, and the district-to-zone mapping is documented inside the dashboard — territory definitions anyone can audit.</div></div>
+      <div class="result"><div><b>One selector, every metric:</b> the map's coloring is driven by a metric selector — the same geography answers demand, pricing, and service-quality questions without rebuilding anything.</div></div>
+      <div class="result"><div><b>Map and table, never separated:</b> every map ships with its hierarchical table — the visual for pattern-finding, the table for the exact numbers underneath.</div></div>
+      <div class="result"><div><b>Three cities, one architecture:</b> Jeddah, Riyadh, and Dammam live as tabs of the same build — adding a city means adding data, not redesigning.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">05</span>KPIs Defined &amp; Governed</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Booked Orders</span><span class="tag">Delivered Orders</span><span class="tag">AOV</span>
+      <span class="tag">Avg Delivery Fee</span><span class="tag">Express %</span><span class="tag">Live / Active Outlets</span>
+      <span class="tag">Zone Contribution %</span><span class="tag">C/R by Zone</span>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">06</span>Decisions Enabled</h2>
+    <div class="results">
+      <div class="result"><div>Territory managers saw zone-level performance on real boundaries instead of citywide averages.</div></div>
+      <div class="result"><div>Coverage and investment discussions started from a shared, auditable zone definition.</div></div>
+      <div class="result"><div>Daily zone contribution tables surfaced which specific locations moved the city's numbers.</div></div>
+    </div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Jeddah polygon zone map + composition table<br><em>(blur all absolute figures)</em><span class="file">assets/geo-jeddah-zones.png</span></span><img src="../assets/geo-jeddah-zones.png" alt="SCREENSHOT SLOT Jeddah polygon zone map + composition table (blur all absolute figures)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">07</span>Skills Demonstrated</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Geo-spatial analytics</span><span class="tag">Polygon mapping</span>
+      <span class="tag">Metric-selector UX</span><span class="tag">Hierarchical table design</span>
+      <span class="tag">Territory data modeling</span><span class="tag">Advanced SQL</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>Mohamed Eltanbedawy</b> · Business &amp; Data Analyst — BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<!-- ============================= ARABIC ============================= -->
+<div id="doc-ar" dir="rtl" style="display:none">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">→ tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="اللغة">
+      <button class="btn-en" onclick="setLang('en')">English</button>
+      <button class="btn-ar active" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">دراسة حالة · شركة نقل تشاركي رائدة في الشرق الأوسط · منتج تحليلي 07 / 07</div>
+    <h1 style="max-width:none">الذكاء الجغرافي المكاني</h1>
+    <p class="lead">قرارات المناطق، مرئية: خرائط مضلعات للمناطق في جدة والرياض مبنية من ملفات تكوين أحياء حقيقية، تلوين heatmap بمقياس قابل للاختيار، وجداول أداء مناطق هرمية بثلاثة مستويات.</p>
+    <div class="tagrow">
+      <span class="tag">تحليلات جغرافية</span><span class="tag">خرائط مضلعات</span><span class="tag">Tableau</span>
+      <span class="tag">SQL</span><span class="tag">أداء المناطق</span><span class="tag">أسواق السعودية</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="سكوركارد المنتج" style="margin-top:28px">
+      <div class="sc-head"><span class="t">سكوركارد المنتج — حقائق بنيوية</span><span class="live">production</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">3</div><div class="lbl">مدن — تابات جدة والرياض والدمام</div></div>
+        <div class="metric"><div class="val">9<em>+</em></div><div class="lbl">مجموعات مناطق مضلعة في خريطة كل مدينة</div></div>
+        <div class="metric"><div class="val">3</div><div class="lbl">مستويات في جداول هرمية المناطق</div></div>
+        <div class="metric"><div class="val">1</div><div class="lbl">مُحدد مقياس يعيد تلوين الخريطة كلها</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">ملاحظة عن الأرقام: لا يُعرض هنا أي رقم من داخل داشبوردات العميل كإنجاز. اللقطات المنشورة أرقامها المطلقة مموّهة.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠١</span>المشكلة</h2>
+    <p>متوسطات مستوى المدينة تخفي كل ما يحتاجه مديرو المناطق: أي الأحياء تؤدي، أين تقع فجوات التغطية، أي المناطق تستحق الاستثمار. الأداء على مستوى الـ zone كان غير مرئي عمليًا — قرارات المناطق الفعلية كانت تُتخذ من جداول بلا خريطة خلفها.</p>
+    <div class="callout">الهدف: وضع الماركت بليس على خريطة فعلية — حدود أحياء حقيقية، ملوّنة بأي مقياس يختاره المشغّل.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٢</span>دوري</h2>
+    <p>المحلل الوحيد على المنتج: بناء خرائط المضلعات من ملفات تكوين الأحياء، توصيل التلوين بمُحدد المقياس، وتصميم جداول المناطق الهرمية المجاورة للخرائط.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٣</span>ما بنيته</h2>
+    <div class="grid2">
+      <div class="panel"><h3>خرائط مناطق KSA</h3><p>خرائط مضلعات تفاعلية لجدة والرياض، كل حي مجمّع في zone مسماة (Central A، North B، Airport…) بحدود جغرافية حقيقية — وجدول مرافق يوثق بالضبط أي الأحياء تكوّن كل مجموعة، داخل الداشبورد.</p></div>
+      <div class="panel"><h3>تحليل المناطق — هيت ماب أداء</h3><p>خرائط مدن ملوّنة بمقياس قابل للاختيار — اختر الطلبات المحجوزة أو رسوم التوصيل أو الـ AOV فتُعاد تلوين الخريطة كلها بتدرج أحمر-إلى-أخضر — بجانب جدول هرمي بثلاثة مستويات: مجموعة ← حي ← إجماليات.</p></div>
+      <div class="panel"><h3>جداول أداء المناطق</h3><p>مقاييس كل zone جنبًا إلى جنب: المنافذ الحية والنشطة، الطلبات المحجوزة والمسلّمة، حصة الإكسبريس، متوسط رسوم التوصيل، الـ AOV — بإجماليات لكل مدينة ولكل مجموعة.</p></div>
+      <div class="panel"><h3>عروض مساهمة المناطق</h3><p>مساهمة الحجز والـ C/R متتبعة يوميًا لكل zone مسماة — وصولًا إلى مولات ومحطات مطار بعينها — بتلوين اتجاهي لقراءة الترند.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٤</span>تفاصيل بناء مميزة</h2>
+    <div class="results">
+      <div class="result"><div><b>مناطق معرّفة من ملفات مصدرية، لا مرسومة يدويًا:</b> المجموعات مبنية من ملفات تكوين أحياء حقيقية، وخريطة الحي-إلى-المنطقة موثقة داخل الداشبورد — تعريفات مناطق يستطيع أي أحد تدقيقها.</div></div>
+      <div class="result"><div><b>مُحدد واحد، كل المقاييس:</b> تلوين الخريطة يقوده مُحدد مقياس — نفس الجغرافيا تجيب أسئلة الطلب والتسعير وجودة الخدمة بلا إعادة بناء.</div></div>
+      <div class="result"><div><b>الخريطة والجدول، لا ينفصلان:</b> كل خريطة تأتي بجدولها الهرمي — البصري لاكتشاف الأنماط، والجدول للأرقام الدقيقة تحته.</div></div>
+      <div class="result"><div><b>ثلاث مدن، معمارية واحدة:</b> جدة والرياض والدمام تابات في نفس البناء — إضافة مدينة تعني إضافة بيانات، لا إعادة تصميم.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٥</span>مؤشرات معرّفة ومحوكمة</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Booked Orders</span><span class="tag">Delivered Orders</span><span class="tag">AOV</span>
+      <span class="tag">Avg Delivery Fee</span><span class="tag">Express %</span><span class="tag">Live / Active Outlets</span>
+      <span class="tag">Zone Contribution %</span><span class="tag">C/R by Zone</span>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٦</span>القرارات التي أتاحها</h2>
+    <div class="results">
+      <div class="result"><div>مديرو المناطق رأوا الأداء على حدود حقيقية بدل متوسطات المدينة.</div></div>
+      <div class="result"><div>نقاشات التغطية والاستثمار بدأت من تعريف مناطق مشترك وقابل للتدقيق.</div></div>
+      <div class="result"><div>جداول المساهمة اليومية كشفت أي المواقع بعينها تحرّك أرقام المدينة.</div></div>
+    </div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>خريطة مضلعات جدة + جدول التكوين<br><em>(مع تمويه كل الأرقام المطلقة)</em><span class="file">assets/geo-jeddah-zones.png</span></span><img src="../assets/geo-jeddah-zones.png" alt="مكان سكرينشوت خريطة مضلعات جدة + جدول التكوين (مع تمويه كل الأرقام المطلقة)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٧</span>المهارات المُظهَرة</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">تحليلات جغرافية مكانية</span><span class="tag">خرائط مضلعات</span>
+      <span class="tag">تجربة مُحدد المقياس</span><span class="tag">تصميم جداول هرمية</span>
+      <span class="tag">نمذجة بيانات مناطق</span><span class="tag">SQL متقدمة</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>محمد الطنبداوي</b> · Business &amp; Data Analyst — BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<script>
+function setLang(l){
+  document.getElementById('doc-en').style.display=(l==='en')?'':'none';
+  document.getElementById('doc-ar').style.display=(l==='ar')?'':'none';
+  document.querySelectorAll('.btn-en').forEach(b=>b.classList.toggle('active',l==='en'));
+  document.querySelectorAll('.btn-ar').forEach(b=>b.classList.toggle('active',l==='ar'));
+  document.documentElement.lang=l;
+  document.documentElement.dir=(l==='ar')?'rtl':'ltr';
+  window.scrollTo(0,0);
+}
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
+</body>
+</html>

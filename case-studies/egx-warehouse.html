@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EGX Portfolio Valuation Warehouse · Case Study · Mohamed Eltanbedawy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/design-system.css">
+</head>
+<body>
+
+<!-- ============================= ENGLISH ============================= -->
+<div id="doc-en" dir="ltr">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">← tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button class="btn-en active" onclick="setLang('en')">English</button>
+      <button class="btn-ar" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">Case Study · Freelance Client · Data Engineering</div>
+    <h1 style="max-width:none">EGX Portfolio Valuation Warehouse</h1>
+    <p class="lead">A daily-automated valuation system for a multi-owner Egyptian Exchange equity portfolio, built for a private client: scheduled scrapers → Google Sheets → BigQuery warehouse → SQL models for per-owner wallet values, dividends, and corporate actions.</p>
+    <div class="tagrow">
+      <span class="tag">Google Apps Script</span><span class="tag">BigQuery</span><span class="tag">SQL Modeling</span>
+      <span class="tag">Web Scraping</span><span class="tag">Financial Data</span><span class="tag">Automation</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="Case scorecard" style="margin-top:28px">
+      <div class="sc-head"><span class="t">case scorecard — structural facts</span><span class="live">running daily</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">9</div><div class="lbl">EGX tickers scraped daily</div></div>
+        <div class="metric"><div class="val">3</div><div class="lbl">BigQuery tables — prices, portfolio, symbols</div></div>
+        <div class="metric"><div class="val">~12</div><div class="lbl">tabs in the modeling workbook</div></div>
+        <div class="metric"><div class="val">daily</div><div class="lbl">fully automated on time-based triggers</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">Client confidentiality: no owner names and no portfolio values appear anywhere in this case study — the pipeline is the story.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">01</span>The Business Problem</h2>
+    <p>A family-held equity portfolio on the Egyptian Exchange, split across multiple owners, was being valued by hand: look up each stock price, multiply by each owner's shares, adjust for dividends and corporate actions, repeat. Slow, error-prone, and always out of date — and EGX corporate actions (bonus shares, capital increases, subscription rights) quietly change share counts if nobody models them.</p>
+    <div class="callout">The goal: every owner's wallet value, correct and current, every day, with zero manual work.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">02</span>The Pipeline</h2>
+    <div class="arch">
+      <div class="layer"><div class="node accent"><div class="t">mubasher.info</div><div class="s">daily last-prices · 9 EGX tickers</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node"><div class="t">Apps Script Scraper</div><div class="s">Cheerio · time-based trigger</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node"><div class="t">Google Sheets</div><div class="s">~12-tab model · dividends · corporate actions</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node"><div class="t">BigQuery Warehouse</div><div class="s">stocks.prices · portfolio · symbols_info</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node det"><div class="t">SQL Valuation Models</div><div class="s">per-owner daily wallet = Σ(price × shares)</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node"><div class="t">Per-Owner Dashboard</div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">03</span>What I Built</h2>
+    <div class="grid2">
+      <div class="panel"><h3>Scheduled Ingestion</h3><p>A Google Apps Script scraper (Cheerio) pulls daily last-prices for 9 EGX tickers from mubasher.info into a Google Sheet on a time-based trigger — running with a clean error record.</p></div>
+      <div class="panel"><h3>Warehouse Load</h3><p>Upload jobs stream the Prices and Portfolio sheets into BigQuery (stocks.prices, stocks.portfolio, stocks.symbols_info) via the Tabledata.insertAll API, also on triggers — spreadsheet convenience in front, warehouse rigor behind.</p></div>
+      <div class="panel"><h3>Valuation Modeling</h3><p>SQL computes each owner's daily wallet value as the sum of price × shares across holdings; the workbook models dividends and coupons alongside.</p></div>
+      <div class="panel"><h3>Corporate-Action Handling</h3><p>Bonus shares, capital increases, and subscription rights are modeled explicitly, so share counts and valuations stay correct through EGX events — the part manual tracking always gets wrong.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">04</span>Why It Matters</h2>
+    <div class="results">
+      <div class="result"><div><b>A real ETL pipeline in miniature:</b> scrape → stage → warehouse → model → serve, each step automated and observable.</div></div>
+      <div class="result"><div><b>BigQuery in actual use:</b> not a course exercise — a client system where the warehouse answers daily valuation queries.</div></div>
+      <div class="result"><div><b>Financial-domain modeling:</b> dividends, coupons, and corporate actions handled as first-class data, not footnotes.</div></div>
+      <div class="result"><div><b>Paid client work, documented:</b> built for a private client and running daily — the freelance engagement that pairs analytics engineering with financial modeling.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">05</span>Skills Demonstrated</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">ETL pipeline design</span><span class="tag">Google Apps Script</span>
+      <span class="tag">Web scraping (Cheerio)</span><span class="tag">BigQuery warehousing</span>
+      <span class="tag">SQL financial modeling</span><span class="tag">Corporate-action logic</span>
+      <span class="tag">Scheduled automation</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>Mohamed Eltanbedawy</b> · Business &amp; Data Analyst — BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<!-- ============================= ARABIC ============================= -->
+<div id="doc-ar" dir="rtl" style="display:none">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">→ tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="اللغة">
+      <button class="btn-en" onclick="setLang('en')">English</button>
+      <button class="btn-ar active" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">دراسة حالة · عميل فريلانس · هندسة بيانات</div>
+    <h1 style="max-width:none">مستودع تقييم محفظة EGX</h1>
+    <p class="lead">نظام تقييم يومي مؤتمت لمحفظة أسهم متعددة المُلّاك في البورصة المصرية، مبني لعميل خاص: سكرابرز مجدولة ← Google Sheets ← مستودع BigQuery ← نماذج SQL لقيم محافظ المُلّاك والتوزيعات وإجراءات الشركات.</p>
+    <div class="tagrow">
+      <span class="tag">Google Apps Script</span><span class="tag">BigQuery</span><span class="tag">نمذجة SQL</span>
+      <span class="tag">استخراج بيانات ويب</span><span class="tag">بيانات مالية</span><span class="tag">أتمتة</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="سكوركارد الحالة" style="margin-top:28px">
+      <div class="sc-head"><span class="t">سكوركارد الحالة — حقائق بنيوية</span><span class="live">يعمل يوميًا</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">9</div><div class="lbl">أسهم EGX تُسحب أسعارها يوميًا</div></div>
+        <div class="metric"><div class="val">3</div><div class="lbl">جداول BigQuery — أسعار، محفظة، رموز</div></div>
+        <div class="metric"><div class="val">~12</div><div class="lbl">تابًا في وورك بوك النمذجة</div></div>
+        <div class="metric"><div class="val">يومي</div><div class="lbl">مؤتمت بالكامل على triggers زمنية</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">سرية العميل: لا أسماء مُلّاك ولا قيم للمحفظة في أي مكان بهذه الدراسة — الخط هو القصة.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠١</span>المشكلة</h2>
+    <p>محفظة أسهم عائلية في البورصة المصرية، موزعة على عدة مُلّاك، كانت تُقيَّم يدويًا: ابحث عن سعر كل سهم، اضرب في أسهم كل مالك، عدّل للتوزيعات وإجراءات الشركات، وكرر. بطيء، معرض للخطأ، ومتأخر دائمًا — وإجراءات الشركات في EGX (أسهم مجانية، زيادات رأس مال، حقوق اكتتاب) تغيّر أعداد الأسهم بصمت إن لم ينمذجها أحد.</p>
+    <div class="callout">الهدف: قيمة محفظة كل مالك، صحيحة ومحدثة، كل يوم، بصفر عمل يدوي.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٢</span>الخط</h2>
+    <div class="arch">
+      <div class="layer"><div class="node accent"><div class="t">mubasher.info</div><div class="s">أسعار إغلاق يومية · 9 أسهم EGX</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node"><div class="t">سكرابر Apps Script</div><div class="s">Cheerio · trigger زمني</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node"><div class="t">Google Sheets</div><div class="s">نموذج ~12 تابًا · توزيعات · إجراءات شركات</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node"><div class="t">مستودع BigQuery</div><div class="s">stocks.prices · portfolio · symbols_info</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node det"><div class="t">نماذج تقييم SQL</div><div class="s">محفظة المالك اليومية = Σ(السعر × الأسهم)</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node"><div class="t">داشبورد لكل مالك</div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٣</span>ما بنيته</h2>
+    <div class="grid2">
+      <div class="panel"><h3>سحب مجدول</h3><p>سكرابر Google Apps Script (بـ Cheerio) يسحب أسعار الإغلاق اليومية لـ 9 أسهم EGX من mubasher.info إلى Google Sheet على trigger زمني — بسجل تشغيل نظيف من الأخطاء.</p></div>
+      <div class="panel"><h3>تحميل المستودع</h3><p>مهام رفع تدفق شيتات الأسعار والمحفظة إلى BigQuery (stocks.prices وstocks.portfolio وstocks.symbols_info) عبر Tabledata.insertAll، على triggers أيضًا — سهولة الجداول في الواجهة، وصرامة المستودع خلفها.</p></div>
+      <div class="panel"><h3>نمذجة التقييم</h3><p>الـ SQL تحسب قيمة محفظة كل مالك يوميًا كمجموع السعر × الأسهم عبر الحيازات؛ والوورك بوك ينمذج التوزيعات والكوبونات بجانبها.</p></div>
+      <div class="panel"><h3>معالجة إجراءات الشركات</h3><p>الأسهم المجانية وزيادات رأس المال وحقوق الاكتتاب منمذجة صراحة، فتبقى أعداد الأسهم والتقييمات صحيحة عبر أحداث البورصة — الجزء الذي تخطئه المتابعة اليدوية دائمًا.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٤</span>لماذا يهم</h2>
+    <div class="results">
+      <div class="result"><div><b>خط ETL حقيقي مصغّر:</b> سحب ← تجهيز ← مستودع ← نمذجة ← عرض، كل خطوة مؤتمتة وقابلة للمراقبة.</div></div>
+      <div class="result"><div><b>BigQuery في استخدام فعلي:</b> ليس تمرين كورس — نظام عميل يجيب فيه المستودع استعلامات التقييم اليومية.</div></div>
+      <div class="result"><div><b>نمذجة مجال مالي:</b> التوزيعات والكوبونات وإجراءات الشركات بيانات من الدرجة الأولى، لا هوامش.</div></div>
+      <div class="result"><div><b>شغل عميل مدفوع، موثّق:</b> مبني لعميل خاص ويعمل يوميًا — الارتباط الفريلانس الذي يجمع هندسة التحليلات بالنمذجة المالية.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٥</span>المهارات المُظهَرة</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">تصميم خطوط ETL</span><span class="tag">Google Apps Script</span>
+      <span class="tag">استخراج بيانات ويب (Cheerio)</span><span class="tag">مستودعات BigQuery</span>
+      <span class="tag">نمذجة مالية بـ SQL</span><span class="tag">منطق إجراءات الشركات</span>
+      <span class="tag">أتمتة مجدولة</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>محمد الطنبداوي</b> · Business &amp; Data Analyst — BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<script>
+function setLang(l){
+  document.getElementById('doc-en').style.display=(l==='en')?'':'none';
+  document.getElementById('doc-ar').style.display=(l==='ar')?'':'none';
+  document.querySelectorAll('.btn-en').forEach(b=>b.classList.toggle('active',l==='en'));
+  document.querySelectorAll('.btn-ar').forEach(b=>b.classList.toggle('active',l==='ar'));
+  document.documentElement.lang=l;
+  document.documentElement.dir=(l==='ar')?'rtl':'ltr';
+  window.scrollTo(0,0);
+}
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
+</body>
+</html>

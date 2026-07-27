@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Executive Performance Intelligence · Case Study · Mohamed Eltanbedawy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/design-system.css">
+</head>
+<body>
+
+<!-- ============================= ENGLISH ============================= -->
+<div id="doc-en" dir="ltr">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">← tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button class="btn-en active" onclick="setLang('en')">English</button>
+      <button class="btn-ar" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">Case Study · MENA Ride-Hailing Leader · Analytics Product 01 / 07</div>
+    <h1 style="max-width:none">Executive Performance Intelligence</h1>
+    <p class="lead">The command center leadership ran nine markets on: a 7-tab Master Scorecard, a full-page GMV driver tree, a multi-scenario goals tracker, and a weekly demand model — one governed view of the company's KPIs.</p>
+    <div class="tagrow">
+      <span class="tag">Executive BI</span><span class="tag">Tableau</span><span class="tag">SQL</span>
+      <span class="tag">KPI Design</span><span class="tag">Driver Trees</span><span class="tag">Metric Governance</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="Product scorecard" style="margin-top:28px">
+      <div class="sc-head"><span class="t">product scorecard — structural facts</span><span class="live">production</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">7</div><div class="lbl">tabs on the Master Scorecard workbook</div></div>
+        <div class="metric"><div class="val">9</div><div class="lbl">markets covered by one view</div></div>
+        <div class="metric"><div class="val">6<em>+</em></div><div class="lbl">decomposition levels in the GMV driver tree</div></div>
+        <div class="metric"><div class="val">3</div><div class="lbl">time windows — Monthly / Weekly / Daily switching</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">Note on numbers: no figure from inside a client dashboard is presented here as an achievement. The build is the story; internal data stays internal, and published screenshots have absolute figures blurred.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">01</span>The Business Problem</h2>
+    <p>Leadership across nine markets had no single daily view of the company's KPIs. Every question meant a new ad-hoc deep-dive, every team had its own numbers, and executive meetings started with reconciling figures instead of making decisions. When a headline metric moved, finding out <b>why</b> took analysts, not minutes.</p>
+    <div class="callout">The goal: one governed command center where leadership reads the whole marketplace in minutes — and can trace any swing to its root cause without filing a request.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">02</span>My Role</h2>
+    <p>Sole analyst on the product: I owned the pipeline end to end — self-written SQL data sources, blended Google Sheets models, metric definitions written into the dashboards themselves, and the multi-tab Tableau architectures on top. Design, build, governance, and iteration were one person's job: mine.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">03</span>What I Built</h2>
+    <div class="grid2">
+      <div class="panel"><h3>The Master Scorecard (7 tabs)</h3><p>A single executive command center blending 8 Google Sheets and SQL sources into 15+ interconnected views with city and product drill-downs — read daily by leadership across nine markets. Tabs span Summary Overview, Decision Matrix, Demand, Supply (overview + deep dive), HDL, and C4B.</p></div>
+      <div class="panel"><h3>GMV Driver Tree — six levels down</h3><p>A full-page metric tree decomposing GMV into demand, supply, pricing, and promo drivers. Every node shows the current day vs same-day-last-week vs a 4-week average, with change arrows and a per-node trend view — down to the captain funnel (active → new → reactivated → churned → dormant).</p></div>
+      <div class="panel"><h3>Goals Tracker — 4 target scenarios</h3><p>A 9-country tracker with scenario switching (Normal / P1 / P2 / P12 targets) and a country navigation grid. Each month shows metric value, target value, and achievement with directional coloring — target-vs-actual at a glance.</p></div>
+      <div class="panel"><h3>Weekly Demand Model (Sheets)</h3><p>A weekly network model grouping Topline, Customer Base, Customer Segments, Reliability, and Promo Engagement metrics with vs-last-week and vs-last-month deltas and snapshot charts. Described text-only: the file carries an internal data classification, so no screenshot is published.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">04</span>Signature Build Details</h2>
+    <div class="results">
+      <div class="result"><div><b>One window switch, three altitudes:</b> Monthly / Weekly / Daily views share one layout, so leadership reads the same table at any zoom level — with MoM, WoW, vs-last-month and vs-last-year comparison columns and conditional red-green formatting throughout.</div></div>
+      <div class="result"><div><b>Cascading geography:</b> country → city → top-6-cities filters adapt to each other; pick Egypt and the city columns become Cairo, Alexandria, Damietta, Tanta, Mansoura — pick UAE and they become Dubai, Abu Dhabi, Sharjah.</div></div>
+      <div class="result"><div><b>Acceptance-rate decomposition built into the scorecard:</b> a dedicated tab splits acceptance across peak-multiplier brackets, trip-distance brackets, driving-distance brackets, and their ratio — each with KPI strips and drill-down tables.</div></div>
+      <div class="result"><div><b>Acquisition funnel with target landing:</b> signups → registered → activated tracked monthly, weekly, and daily, with an expected-landing projection against targets per country.</div></div>
+      <div class="result"><div><b>Metric definitions inside the dashboard:</b> definitions, filter-usage notes, and edge-case explanations written into the views themselves — a semantic layer before the company had one, and the end of "whose number is right" debates.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">05</span>KPIs Defined &amp; Governed</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">GMV</span><span class="tag">GB</span><span class="tag">ATF</span><span class="tag">Net Revenue %</span>
+      <span class="tag">TPU</span><span class="tag">C/R</span><span class="tag">Activation Rate</span>
+      <span class="tag">Peak Intensity</span><span class="tag">Target Achievement</span><span class="tag">Utilization</span>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">06</span>Decisions Enabled</h2>
+    <div class="results">
+      <div class="result"><div>Cut ad-hoc deep-dive requests by 30% — the answers lived in the drill-downs.</div></div>
+      <div class="result"><div>Governed metric definitions ended cross-team "whose number is right" debates.</div></div>
+      <div class="result"><div>Standardized self-service reporting cut meeting prep time by 50%.</div></div>
+      <div class="result"><div>When performance swung, leadership saw the root cause in the driver tree — not a symptom.</div></div>
+    </div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Master Scorecard — Summary Overview<br><em>(blur all absolute figures)</em><span class="file">assets/exec-master-scorecard.png</span></span><img src="../assets/exec-master-scorecard.png" alt="SCREENSHOT SLOT Master Scorecard — Summary Overview (blur all absolute figures)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Egypt GMV Driver Tree — full page<br><em>(blur all absolute figures)</em><span class="file">assets/exec-driver-tree.png</span></span><img src="../assets/exec-driver-tree.png" alt="SCREENSHOT SLOT Egypt GMV Driver Tree — full page (blur all absolute figures)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">07</span>Skills Demonstrated</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Advanced SQL data sources</span><span class="tag">Multi-source blending</span>
+      <span class="tag">Multi-tab Tableau architecture</span><span class="tag">KPI driver-tree decomposition</span>
+      <span class="tag">Metric governance / semantic layer</span><span class="tag">Cascading filter design</span>
+      <span class="tag">Target &amp; scenario tracking</span><span class="tag">Executive communication</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>Mohamed Eltanbedawy</b> · Business &amp; Data Analyst — BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<!-- ============================= ARABIC ============================= -->
+<div id="doc-ar" dir="rtl" style="display:none">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">→ tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="اللغة">
+      <button class="btn-en" onclick="setLang('en')">English</button>
+      <button class="btn-ar active" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">دراسة حالة · شركة نقل تشاركي رائدة في الشرق الأوسط · منتج تحليلي 01 / 07</div>
+    <h1 style="max-width:none">ذكاء الأداء التنفيذي</h1>
+    <p class="lead">مركز القيادة الذي أدارت به الإدارة تسعة أسواق: Master Scorecard من 7 تابات، شجرة محركات GMV بصفحة كاملة، متتبع أهداف متعدد السيناريوهات، ونموذج طلب أسبوعي — عرض واحد محوكم لمؤشرات الشركة.</p>
+    <div class="tagrow">
+      <span class="tag">BI تنفيذي</span><span class="tag">Tableau</span><span class="tag">SQL</span>
+      <span class="tag">تصميم KPIs</span><span class="tag">أشجار المحركات</span><span class="tag">حوكمة المقاييس</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="سكوركارد المنتج" style="margin-top:28px">
+      <div class="sc-head"><span class="t">سكوركارد المنتج — حقائق بنيوية</span><span class="live">production</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">7</div><div class="lbl">تابات في الـ Master Scorecard</div></div>
+        <div class="metric"><div class="val">9</div><div class="lbl">أسواق يغطيها عرض واحد</div></div>
+        <div class="metric"><div class="val">6<em>+</em></div><div class="lbl">مستويات تفكيك في شجرة محركات GMV</div></div>
+        <div class="metric"><div class="val">3</div><div class="lbl">نوافذ زمنية — تبديل شهري / أسبوعي / يومي</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">ملاحظة عن الأرقام: لا يُعرض هنا أي رقم من داخل داشبوردات العميل كإنجاز. البناء هو القصة؛ البيانات الداخلية تبقى داخلية، واللقطات المنشورة أرقامها المطلقة مموّهة.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠١</span>المشكلة</h2>
+    <p>الإدارة عبر تسعة أسواق لم يكن لديها عرض يومي واحد لمؤشرات الشركة. كل سؤال كان يعني deep-dive جديدًا حسب الطلب، وكل فريق له أرقامه، والاجتماعات التنفيذية كانت تبدأ بمطابقة الأرقام بدل اتخاذ القرارات. وعندما يتحرك مؤشر رئيسي، معرفة <b>السبب</b> كانت تحتاج محللين، لا دقائق.</p>
+    <div class="callout">الهدف: مركز قيادة واحد محوكم تقرأ فيه القيادة السوق كله في دقائق — ويتتبع أي تأرجح إلى سببه الجذري بدون تقديم طلب.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٢</span>دوري</h2>
+    <p>المحلل الوحيد على المنتج: امتلكت الخط كاملًا من طرف إلى طرف — مصادر SQL مكتوبة بنفسي، نماذج Google Sheets مدمجة، تعريفات المقاييس مكتوبة داخل الداشبوردات نفسها، ومعماريات Tableau متعددة التابات فوقها. التصميم والبناء والحوكمة والتطوير كانت وظيفة شخص واحد: أنا.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٣</span>ما بنيته</h2>
+    <div class="grid2">
+      <div class="panel"><h3>الـ Master Scorecard (7 تابات)</h3><p>مركز قيادة تنفيذي واحد يدمج 8 مصادر Google Sheets وSQL في +15 عرضًا مترابطًا مع تعمّق بالمدينة والمنتج — تقرأه القيادة يوميًا عبر تسعة أسواق. التابات تشمل Summary Overview وDecision Matrix والطلب والعرض (نظرة عامة + تعمّق) وHDL وC4B.</p></div>
+      <div class="panel"><h3>شجرة محركات GMV — ستة مستويات</h3><p>شجرة مقاييس بصفحة كاملة تفكك GMV إلى محركات طلب وعرض وتسعير وبرومو. كل عقدة تعرض اليوم الحالي مقابل نفس اليوم الأسبوع الماضي مقابل متوسط 4 أسابيع، بأسهم تغيّر وعرض trend لكل عقدة — وصولًا إلى قمع الكباتن (نشط ← جديد ← معاد تفعيله ← متسرب ← خامل).</p></div>
+      <div class="panel"><h3>متتبع الأهداف — 4 سيناريوهات</h3><p>متتبع لتسع دول بتبديل سيناريوهات المستهدف (Normal / P1 / P2 / P12) وشبكة تنقّل بين الدول. كل شهر يعرض قيمة المؤشر وقيمة المستهدف ونسبة التحقيق بتلوين اتجاهي — المستهدف مقابل الفعلي بنظرة واحدة.</p></div>
+      <div class="panel"><h3>نموذج الطلب الأسبوعي (Sheets)</h3><p>نموذج شبكة أسبوعي يجمّع مقاييس Topline وقاعدة العملاء وشرائحهم والموثوقية وتفاعل البرومو، مع فروق مقابل الأسبوع والشهر الماضيين ورسوم snapshot. يُوصف نصيًا فقط: الملف يحمل تصنيف بيانات داخلي، فلا تُنشر له لقطة.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٤</span>تفاصيل بناء مميزة</h2>
+    <div class="results">
+      <div class="result"><div><b>مفتاح نافذة واحد، ثلاثة ارتفاعات:</b> العروض الشهرية والأسبوعية واليومية تتشارك تخطيطًا واحدًا، فتقرأ الإدارة نفس الجدول على أي مستوى تقريب — بأعمدة مقارنة MoM وWoW ومقابل الشهر والسنة الماضيين وتنسيق شرطي أحمر-أخضر في كل مكان.</div></div>
+      <div class="result"><div><b>جغرافيا متسلسلة:</b> فلاتر دولة ← مدينة ← أفضل 6 مدن تتكيف مع بعضها؛ اختر مصر فتصبح الأعمدة القاهرة والإسكندرية ودمياط وطنطا والمنصورة — اختر الإمارات فتصبح دبي وأبوظبي والشارقة.</div></div>
+      <div class="result"><div><b>تفكيك معدل القبول داخل السكوركارد:</b> تاب مخصص يقسم القبول عبر شرائح معامل الذروة وشرائح مسافة الرحلة وشرائح مسافة القيادة ونسبتهما — لكل منها أشرطة KPI وجداول تعمّق.</div></div>
+      <div class="result"><div><b>قمع استحواذ بإسقاط الوصول للمستهدف:</b> تسجيل ← اكتمال تسجيل ← تفعيل، متتبَع شهريًا وأسبوعيًا ويوميًا، مع إسقاط expected landing مقابل المستهدف لكل دولة.</div></div>
+      <div class="result"><div><b>تعريفات المقاييس داخل الداشبورد:</b> التعريفات وملاحظات استخدام الفلاتر وشرح الحالات الحدّية مكتوبة داخل العروض نفسها — طبقة دلالية قبل أن تملك الشركة واحدة، ونهاية نقاشات «رقم مَن الصحيح».</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٥</span>مؤشرات معرّفة ومحوكمة</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">GMV</span><span class="tag">GB</span><span class="tag">ATF</span><span class="tag">Net Revenue %</span>
+      <span class="tag">TPU</span><span class="tag">C/R</span><span class="tag">Activation Rate</span>
+      <span class="tag">Peak Intensity</span><span class="tag">Target Achievement</span><span class="tag">Utilization</span>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٦</span>القرارات التي أتاحها</h2>
+    <div class="results">
+      <div class="result"><div>خفّض طلبات التعمّق المخصصة بنسبة 30% — الإجابات كانت تعيش في الـ drill-downs.</div></div>
+      <div class="result"><div>تعريفات مقاييس محوكمة أنهت نقاشات «رقم مَن الصحيح» بين الفرق.</div></div>
+      <div class="result"><div>تقارير self-service موحّدة خفّضت وقت تحضير الاجتماعات بنسبة 50%.</div></div>
+      <div class="result"><div>عندما تأرجح الأداء، رأت القيادة السبب الجذري في شجرة المحركات — لا العرَض.</div></div>
+    </div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>Master Scorecard — Summary Overview<br><em>(مع تمويه كل الأرقام المطلقة)</em><span class="file">assets/exec-master-scorecard.png</span></span><img src="../assets/exec-master-scorecard.png" alt="مكان سكرينشوت Master Scorecard — Summary Overview (مع تمويه كل الأرقام المطلقة)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>شجرة محركات GMV مصر — صفحة كاملة<br><em>(مع تمويه كل الأرقام المطلقة)</em><span class="file">assets/exec-driver-tree.png</span></span><img src="../assets/exec-driver-tree.png" alt="مكان سكرينشوت شجرة محركات GMV مصر — صفحة كاملة (مع تمويه كل الأرقام المطلقة)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٧</span>المهارات المُظهَرة</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">مصادر SQL متقدمة</span><span class="tag">دمج مصادر متعددة</span>
+      <span class="tag">معمارية Tableau متعددة التابات</span><span class="tag">تفكيك أشجار KPI</span>
+      <span class="tag">حوكمة مقاييس / طبقة دلالية</span><span class="tag">تصميم فلاتر متسلسلة</span>
+      <span class="tag">تتبع مستهدفات وسيناريوهات</span><span class="tag">تواصل تنفيذي</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>محمد الطنبداوي</b> · Business &amp; Data Analyst — BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<script>
+function setLang(l){
+  document.getElementById('doc-en').style.display=(l==='en')?'':'none';
+  document.getElementById('doc-ar').style.display=(l==='ar')?'':'none';
+  document.querySelectorAll('.btn-en').forEach(b=>b.classList.toggle('active',l==='en'));
+  document.querySelectorAll('.btn-ar').forEach(b=>b.classList.toggle('active',l==='ar'));
+  document.documentElement.lang=l;
+  document.documentElement.dir=(l==='ar')?'rtl':'ltr';
+  window.scrollTo(0,0);
+}
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
+</body>
+</html>

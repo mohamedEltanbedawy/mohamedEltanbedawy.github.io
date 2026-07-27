@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Supply Lifecycle Intelligence · Case Study · Mohamed Eltanbedawy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/design-system.css">
+</head>
+<body>
+
+<!-- ============================= ENGLISH ============================= -->
+<div id="doc-en" dir="ltr">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">← tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button class="btn-en active" onclick="setLang('en')">English</button>
+      <button class="btn-ar" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">Case Study · MENA Ride-Hailing Leader · Analytics Product 03 / 07</div>
+    <h1 style="max-width:none">Supply Lifecycle Intelligence</h1>
+    <p class="lead">The full life of a captain, measured: profile and demographics, 13-month retention cohorts, churn decomposed by cause, the deepest segmentation pivots in the stack, supplier 360 views, and payout monitoring — one product, five dashboards, the largest workbook I built.</p>
+    <div class="tagrow">
+      <span class="tag">Cohort Analysis</span><span class="tag">Churn Decomposition</span><span class="tag">Tableau</span>
+      <span class="tag">SQL</span><span class="tag">Target Tracking</span><span class="tag">Supply Analytics</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="Product scorecard" style="margin-top:28px">
+      <div class="sc-head"><span class="t">product scorecard — structural facts</span><span class="live">production</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">8</div><div class="lbl">tabs — the largest workbook in the set</div></div>
+        <div class="metric"><div class="val">13</div><div class="lbl">months per retention cohort triangle</div></div>
+        <div class="metric"><div class="val">6</div><div class="lbl">block categories in churn decomposition</div></div>
+        <div class="metric"><div class="val">30<em>D</em></div><div class="lbl">rolling cumulative vs-target tracking</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">Note on numbers: no figure from inside a client dashboard is presented here as an achievement. Published screenshots have absolute figures and supplier names blurred.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">01</span>The Business Problem</h2>
+    <p>Supply is the expensive side of a ride-hailing marketplace: captains are recruited, onboarded, incentivized — and then some leave. The questions that decide budgets: <b>which captains churn, why, and what does it cost?</b> Is the supply funnel on target this month? And is churn voluntary, or is the platform blocking its own supply?</p>
+    <div class="callout">The goal: measure the entire captain lifecycle — from signup to dormancy — and split every departure into a named cause.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">02</span>My Role</h2>
+    <p>Sole analyst on the product: SQL layer, cohort modeling, segmentation design, and the multi-tab Tableau architectures. This product carries the deepest pivots and the largest workbook of the 24 dashboards I documented there.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">03</span>What I Built</h2>
+    <div class="grid2">
+      <div class="panel"><h3>Retention &amp; Early Churn (8 tabs)</h3><p>Weekly and monthly captain breakdowns — retention, early-life churn, reactivation, available hours, hours-per-captain — plus supply-target tabs with 30-day-rolling cumulative tracking against targets and a captain onboarding funnel (signups → registered → same-day activated).</p></div>
+      <div class="panel"><h3>Captain Retention Cohorts</h3><p>Classic triangle heatmaps: 13 monthly cohorts × months-since-activity, each cell showing retention percentage and absolute captain counts, from full retention at month zero to the long-tail floor at month twelve.</p></div>
+      <div class="panel"><h3>Captain Profile</h3><p>A demographic and behavioral X-ray with an interactive Egypt map filter: activity time slots (30-day rolling), tenure and age brackets, tier distribution, fleet network operators, payment-option treemaps, and birth-city rankings.</p></div>
+      <div class="panel"><h3>Supplier 360 + Payouts</h3><p>A parameterized Top-N supplier view (the N is a user input) ranking suppliers by activation, registration, and hours YTD/MTD, with retention-vs-churn trends; plus payout dashboards tracking transaction status, method mix, and per-captain averages daily and weekly.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">04</span>Signature Build Details</h2>
+    <div class="results">
+      <div class="result"><div><b>Churn with a cause attached:</b> every churned captain splits voluntary vs blocked, permanent vs temporary, new vs old — and blocked churn further splits by block category: Account Profile, Experience Engine, Fraud, Quality, Safety, Other. "We lost captains" became "we blocked this many for quality, this many left voluntarily."</div></div>
+      <div class="result"><div><b>The deepest pivot in the stack:</b> Segment × Tier × Cash-block status × week — Full-Time to Casual, Gold to Bronze, each with active captains, hours, and cash-block shares tracked weekly.</div></div>
+      <div class="result"><div><b>Segments that show their own migration:</b> each segment block charts how its captains redistribute across segments over 14 weeks — Full-Time drifting to Part-Time is visible before it becomes a supply problem.</div></div>
+      <div class="result"><div><b>Cumulative target accounting:</b> 30-day-rolling cumulative actuals vs targets for active captains, hours, and HPC — split by funnel stage (new / reactivated / retained), each with its own target percentage.</div></div>
+      <div class="result"><div><b>A sidebar refresh-stamped control panel:</b> the Supply Targets tab uses a dedicated filter sidebar with a last-refreshed timestamp — built for daily operational use, not occasional reporting.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">05</span>KPIs Defined &amp; Governed</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Retention Rate</span><span class="tag">Early-Life Churn</span><span class="tag">Reactivation Rate</span>
+      <span class="tag">AVH</span><span class="tag">HPC</span><span class="tag">Utilization</span>
+      <span class="tag">Activation Rate</span><span class="tag">Target Achievement %</span><span class="tag">Payout Method Mix</span>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">06</span>Decisions Enabled</h2>
+    <div class="results">
+      <div class="result"><div>Retention teams targeted the exact cohorts and segments where early-life churn concentrated.</div></div>
+      <div class="result"><div>Block-category splits separated supply problems the platform caused from ones it didn't.</div></div>
+      <div class="result"><div>Supply managers tracked month progress against targets daily instead of discovering misses at month end.</div></div>
+      <div class="result"><div>Supplier rankings informed partner management with YTD and MTD views on one page.</div></div>
+    </div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Retention cohort triangle — country level<br><em>(blur all absolute figures)</em><span class="file">assets/sup-retention-cohort.png</span></span><img src="../assets/sup-retention-cohort.png" alt="SCREENSHOT SLOT Retention cohort triangle — country level (blur all absolute figures)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Supply Targets — rolling funnel view<br><em>(blur all absolute figures)</em><span class="file">assets/sup-supply-targets.png</span></span><img src="../assets/sup-supply-targets.png" alt="SCREENSHOT SLOT Supply Targets — rolling funnel view (blur all absolute figures)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">07</span>Skills Demonstrated</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Cohort analysis</span><span class="tag">Churn decomposition</span>
+      <span class="tag">Multi-dimensional segmentation</span><span class="tag">Target / actual tracking</span>
+      <span class="tag">Parameter inputs (Top-N)</span><span class="tag">Geo filtering</span>
+      <span class="tag">Financial ops analytics</span><span class="tag">Advanced SQL</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>Mohamed Eltanbedawy</b> · Business &amp; Data Analyst — BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<!-- ============================= ARABIC ============================= -->
+<div id="doc-ar" dir="rtl" style="display:none">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">→ tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="اللغة">
+      <button class="btn-en" onclick="setLang('en')">English</button>
+      <button class="btn-ar active" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">دراسة حالة · شركة نقل تشاركي رائدة في الشرق الأوسط · منتج تحليلي 03 / 07</div>
+    <h1 style="max-width:none">ذكاء دورة حياة العرض</h1>
+    <p class="lead">حياة الكابتن كاملة، مقاسة: البروفايل والديموغرافيا، كوهورتات احتفاظ 13 شهرًا، التسرب مفككًا بالسبب، أعمق جداول pivot في المجموعة، عروض 360 للموردين، ومراقبة المدفوعات — منتج واحد، خمسة داشبوردات، وأكبر workbook بنيته.</p>
+    <div class="tagrow">
+      <span class="tag">تحليل كوهورت</span><span class="tag">تفكيك التسرب</span><span class="tag">Tableau</span>
+      <span class="tag">SQL</span><span class="tag">تتبع مستهدفات</span><span class="tag">تحليلات العرض</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="سكوركارد المنتج" style="margin-top:28px">
+      <div class="sc-head"><span class="t">سكوركارد المنتج — حقائق بنيوية</span><span class="live">production</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">8</div><div class="lbl">تابات — أكبر workbook في المجموعة</div></div>
+        <div class="metric"><div class="val">13</div><div class="lbl">شهرًا في مثلث كوهورت الاحتفاظ</div></div>
+        <div class="metric"><div class="val">6</div><div class="lbl">فئات حظر في تفكيك التسرب</div></div>
+        <div class="metric"><div class="val">30<em>D</em></div><div class="lbl">تتبع تراكمي متحرك مقابل المستهدف</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">ملاحظة عن الأرقام: لا يُعرض هنا أي رقم من داخل داشبوردات العميل كإنجاز. اللقطات المنشورة أرقامها المطلقة وأسماء الموردين فيها مموّهة.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠١</span>المشكلة</h2>
+    <p>العرض هو الجانب المكلف في ماركت بليس النقل: الكباتن يُستقطبون ويُفعَّلون ويُحفَّزون — ثم يرحل بعضهم. الأسئلة التي تحسم الميزانيات: <b>أي كباتن يتسربون، ولماذا، وكم يكلف ذلك؟</b> هل قمع العرض على المسار الصحيح هذا الشهر؟ وهل التسرب طوعي، أم أن المنصة تحظر عرضها بنفسها؟</p>
+    <div class="callout">الهدف: قياس دورة حياة الكابتن كاملة — من التسجيل إلى الخمول — وتقسيم كل رحيل إلى سبب مسمّى.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٢</span>دوري</h2>
+    <p>المحلل الوحيد على المنتج: طبقة SQL، نمذجة الكوهورتات، تصميم الشرائح، ومعماريات Tableau متعددة التابات. هذا المنتج يحمل أعمق جداول pivot وأكبر workbook بين الـ 24 داشبورد الموثقة من تلك الفترة.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٣</span>ما بنيته</h2>
+    <div class="grid2">
+      <div class="panel"><h3>الاحتفاظ والتسرب المبكر (8 تابات)</h3><p>تفكيكات أسبوعية وشهرية للكباتن — الاحتفاظ، التسرب المبكر، إعادة التفعيل، الساعات المتاحة، الساعات لكل كابتن — بالإضافة لتابات مستهدفات العرض بتتبع تراكمي متحرك 30 يومًا مقابل المستهدفات، وقمع تفعيل الكباتن (تسجيل ← اكتمال ← تفعيل بنفس اليوم).</p></div>
+      <div class="panel"><h3>كوهورتات احتفاظ الكباتن</h3><p>مثلثات heatmap كلاسيكية: 13 كوهورت شهري × الأشهر منذ النشاط، كل خلية تعرض نسبة الاحتفاظ والعدد المطلق للكباتن، من الاحتفاظ الكامل عند الشهر صفر إلى قاع الذيل الطويل عند الشهر الثاني عشر.</p></div>
+      <div class="panel"><h3>بروفايل الكابتن</h3><p>أشعة سينية ديموغرافية وسلوكية بخريطة مصر تفاعلية كفلتر: فترات النشاط الزمنية (متحرك 30 يوم)، شرائح الأقدمية والعمر، توزيع الفئات (Tier)، شبكات المحمول، treemap خيارات الدفع، وترتيب مدن الميلاد.</p></div>
+      <div class="panel"><h3>Supplier 360 + المدفوعات</h3><p>عرض موردين ببارامتر Top-N (الرقم إدخال يدوي) يرتب الموردين حسب التفعيل والتسجيل والساعات YTD/MTD، مع اتجاهات الاحتفاظ مقابل التسرب؛ وداشبوردات مدفوعات تتتبع حالات المعاملات ومزيج طرق الدفع والمتوسطات لكل كابتن يوميًا وأسبوعيًا.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٤</span>تفاصيل بناء مميزة</h2>
+    <div class="results">
+      <div class="result"><div><b>تسرب بسبب مرفق به:</b> كل كابتن متسرب ينقسم طوعي مقابل محظور، دائم مقابل مؤقت، جديد مقابل قديم — والمحظور ينقسم أيضًا بفئة الحظر: Account Profile وExperience Engine وFraud وQuality وSafety وOther. «خسرنا كباتن» صارت «حظرنا هذا العدد للجودة، ورحل هذا العدد طوعًا».</div></div>
+      <div class="result"><div><b>أعمق pivot في المجموعة:</b> شريحة × فئة × حالة حظر الكاش × أسبوع — من Full-Time إلى Casual، ومن Gold إلى Bronze، لكل منها كباتن نشطون وساعات وحصص حظر كاش متتبعة أسبوعيًا.</div></div>
+      <div class="result"><div><b>شرائح تُظهر هجرتها بنفسها:</b> كل كتلة شريحة ترسم كيف يتوزع كباتنها عبر الشرائح على مدى 14 أسبوعًا — انزياح Full-Time نحو Part-Time مرئي قبل أن يصبح مشكلة عرض.</div></div>
+      <div class="result"><div><b>محاسبة مستهدفات تراكمية:</b> فعليات تراكمية متحركة 30 يومًا مقابل المستهدفات للكباتن النشطين والساعات والـ HPC — مقسمة بمرحلة القمع (جديد / معاد تفعيله / محتفظ به)، لكل منها نسبة مستهدفها.</div></div>
+      <div class="result"><div><b>لوحة تحكم جانبية بختم تحديث:</b> تاب مستهدفات العرض يستخدم شريط فلاتر جانبيًا مخصصًا بطابع آخر تحديث — مبني للاستخدام التشغيلي اليومي، لا للتقارير العرضية.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٥</span>مؤشرات معرّفة ومحوكمة</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Retention Rate</span><span class="tag">Early-Life Churn</span><span class="tag">Reactivation Rate</span>
+      <span class="tag">AVH</span><span class="tag">HPC</span><span class="tag">Utilization</span>
+      <span class="tag">Activation Rate</span><span class="tag">Target Achievement %</span><span class="tag">Payout Method Mix</span>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٦</span>القرارات التي أتاحها</h2>
+    <div class="results">
+      <div class="result"><div>فرق الاحتفاظ استهدفت بالضبط الكوهورتات والشرائح التي تركّز فيها التسرب المبكر.</div></div>
+      <div class="result"><div>تقسيمات فئات الحظر فصلت مشاكل العرض التي تسببها المنصة عن غيرها.</div></div>
+      <div class="result"><div>مديرو العرض تتبعوا تقدم الشهر مقابل المستهدفات يوميًا بدل اكتشاف الفجوات في نهايته.</div></div>
+      <div class="result"><div>ترتيبات الموردين وجّهت إدارة الشركاء بعروض YTD وMTD في صفحة واحدة.</div></div>
+    </div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>مثلث كوهورت الاحتفاظ — مستوى الدولة<br><em>(مع تمويه كل الأرقام المطلقة)</em><span class="file">assets/sup-retention-cohort.png</span></span><img src="../assets/sup-retention-cohort.png" alt="مكان سكرينشوت مثلث كوهورت الاحتفاظ — مستوى الدولة (مع تمويه كل الأرقام المطلقة)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>مستهدفات العرض — العرض القمعي المتحرك<br><em>(مع تمويه كل الأرقام المطلقة)</em><span class="file">assets/sup-supply-targets.png</span></span><img src="../assets/sup-supply-targets.png" alt="مكان سكرينشوت مستهدفات العرض — العرض القمعي المتحرك (مع تمويه كل الأرقام المطلقة)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٧</span>المهارات المُظهَرة</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">تحليل كوهورت</span><span class="tag">تفكيك التسرب</span>
+      <span class="tag">تقسيم متعدد الأبعاد</span><span class="tag">تتبع مستهدف / فعلي</span>
+      <span class="tag">مدخلات بارامتر (Top-N)</span><span class="tag">فلترة جغرافية</span>
+      <span class="tag">تحليلات عمليات مالية</span><span class="tag">SQL متقدمة</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>محمد الطنبداوي</b> · Business &amp; Data Analyst — BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<script>
+function setLang(l){
+  document.getElementById('doc-en').style.display=(l==='en')?'':'none';
+  document.getElementById('doc-ar').style.display=(l==='ar')?'':'none';
+  document.querySelectorAll('.btn-en').forEach(b=>b.classList.toggle('active',l==='en'));
+  document.querySelectorAll('.btn-ar').forEach(b=>b.classList.toggle('active',l==='ar'));
+  document.documentElement.lang=l;
+  document.documentElement.dir=(l==='ar')?'rtl':'ltr';
+  window.scrollTo(0,0);
+}
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
+</body>
+</html>

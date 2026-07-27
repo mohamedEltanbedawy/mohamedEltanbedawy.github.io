@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Al-Raky — AI Commerce Operating System · Case Study · Mohamed Eltanbedawy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/design-system.css">
+</head>
+<body>
+
+<!-- ============================= ENGLISH ============================= -->
+<div id="doc-en" dir="ltr">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">← tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button class="btn-en active" onclick="setLang('en')">English</button>
+      <button class="btn-ar" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">Case Study · AI Automation &amp; Commerce Engineering</div>
+    <h1 style="max-width:none">Al-Raky — AI Commerce Operating System</h1>
+    <p class="lead">An autonomous, AI-powered platform that runs an online cosmetics business end to end: from product onboarding to content, publishing, sales, and operations.</p>
+    <div class="hook">The owner takes a <b>photo</b> and sets a <b>price</b>. The system does <b>everything else</b>.</div>
+    <div class="tagrow">
+      <span class="tag">Business Process Automation</span><span class="tag">AI Integration</span>
+      <span class="tag">Distributed Systems</span><span class="tag">n8n</span><span class="tag">PostgreSQL</span>
+      <span class="tag">WooCommerce</span><span class="tag">Prompt Engineering</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="Case scorecard" style="margin-top:28px">
+      <div class="sc-head">
+        <span class="t">case scorecard</span>
+        <span class="live">production</span>
+      </div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">50<em>+</em></div><div class="lbl">automated workflows</div></div>
+        <div class="metric"><div class="val">1</div><div class="lbl">manual step (photo + price)</div></div>
+        <div class="metric"><div class="val">1</div><div class="lbl">client · Egypt · cosmetics retail</div></div>
+        <div class="metric"><div class="val">&lt; 1¢</div><div class="lbl">media cost per product</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">01</span>Executive Summary</h2>
+    <p>Al-Raky is a fully automated, AI-powered commerce operating system built for a cosmetics retailer. It turns the entire business into an autonomous digital operation: product onboarding, market research, content generation, image and video production, publishing, customer service, order management, and operational data sync all run automatically.</p>
+    <p>The owner performs a single manual task — photograph a product, enter cost and selling price, and submit a Google Form. From that point on, the platform takes over. The multi-tenant foundation underneath it — per-client configuration and keys — later carried into a separate project for a home-appliances retailer in Mauritania, built around a different problem entirely: <a href="salamasons.html">SalamaSons, an ad-intelligence and recommendation loop</a>.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">02</span>The Business Problem</h2>
+    <p>In the Egyptian cash-on-delivery cosmetics market, a single operator must perform <b>15–20 manual steps per product</b>: research, analysis, pricing, ad copy, image design, video editing, publishing, customer replies, and shipping follow-up. This manual ceiling caps how many products can be tested each month — and in a market that runs on volume-testing, that ceiling <i>is</i> the profit ceiling.</p>
+    <div class="callout">The objective was never to build a website. It was to remove the human from every step that doesn't need human judgment.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">03</span>Design Philosophy</h2>
+    <p>Every workflow was redesigned automation-first. Instead of asking <i>“How can employees do this faster?”</i>, the system asks <i>“Why should humans do this at all?”</i> Humans keep only the decisions that need judgment — approve a product, review content, confirm a price — while the operator's role shifts from <b>executor</b> to <b>reviewer</b>. The number of products tested becomes a function of budget, not working hours.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">04</span>My Role</h2>
+    <p>I designed, engineered, deployed, and currently maintain the entire platform independently. Responsibilities spanned:</p>
+    <div class="grid2">
+      <div class="panel"><h3>Strategy &amp; Analysis</h3><p>Business analysis, business-process engineering, system &amp; automation architecture.</p></div>
+      <div class="panel"><h3>AI &amp; Data</h3><p>AI architecture, prompt engineering, content pipelines, database design.</p></div>
+      <div class="panel"><h3>Engineering</h3><p>Backend &amp; Node.js services, WordPress/WooCommerce, integrations, infrastructure.</p></div>
+      <div class="panel"><h3>Operations</h3><p>Deployment, monitoring, maintenance, and continuous improvement.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">05</span>Architecture</h2>
+    <p>A <b>distributed, pull-model architecture</b>. A central PostgreSQL database holds each product's state; a Dispatcher reads states on a schedule and triggers the right stage for each product; stateless Node.js microservices handle heavy work (scraping, image and video processing) outside the automation engine; and a unified AI Gateway abstracts three providers behind one contract with automatic fallback.</p>
+    <div class="arch">
+      <div class="layer"><div class="node accent"><div class="t">Google Form</div><div class="s">photo · cost · price</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node"><div class="t">Pipeline Dispatcher</div><div class="s">state engine · reads PostgreSQL</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer">
+        <div class="node det"><div class="t">Pricing Engine</div><div class="s">deterministic code</div></div>
+        <div class="node ai"><div class="t">Unified AI Gateway</div><div class="s">OpenAI · Gemini · OpenRouter + fallback</div></div>
+        <div class="node"><div class="t">Media Service</div><div class="s">Node.js · rembg · sharp · ffmpeg</div></div>
+      </div>
+      <div class="arrow">↓</div>
+      <div class="layer">
+        <div class="node"><div class="t">WooCommerce Store</div></div>
+        <div class="node"><div class="t">Facebook / Instagram</div></div>
+        <div class="node"><div class="t">Messenger &amp; WhatsApp</div><div class="s">AI sales agent</div></div>
+      </div>
+      <div class="arch-note">Central PostgreSQL holds all state · a central Alerter pushes any failure to Telegram</div>
+    </div>
+    <div class="figure reveal"><span>N8N CANVAS SLOT<br>production workflow canvas<br><em>(blur credentials &amp; keys)</em><span class="file">assets/commerce-os-n8n-canvas.png</span></span><img src="../assets/commerce-os-n8n-canvas.png" alt="N8N CANVAS SLOT production workflow canvas (blur credentials &amp; keys)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">06</span>End-to-End Product Lifecycle</h2>
+    <p class="muted" style="margin-top:-4px">One Google Form submission triggers this entire chain, with no further human input.</p>
+    <div class="steps">
+      <div class="step"><div class="badge"></div><div><h3>Intake</h3><p>The owner submits a Google Form: product images, cost price, selling price, category, and basic info.</p></div></div>
+      <div class="step"><div class="badge"></div><div><h3>Product Analysis</h3><p>AI extracts type, features, materials, colors, target audience, benefits, objections, positioning, and use cases.</p></div></div>
+      <div class="step"><div class="badge"></div><div><h3>Market Research</h3><p>AI studies trends, competitors, customer language, buying motivations, and pain points to build positioning.</p></div></div>
+      <div class="step"><div class="badge"></div><div><h3>Product Brain</h3><p>A knowledge object is generated: USP, customer avatars, emotional/engagement/conversion hooks, objection handling, cross-sell ideas, sales talking points, and FAQs.</p></div></div>
+      <div class="step"><div class="badge"></div><div><h3>Image Generation</h3><p>Commercial-quality lifestyle, studio, and campaign images are generated. The original phone photo is never used publicly.</p></div></div>
+      <div class="step"><div class="badge"></div><div><h3>Video Production</h3><p>Promotional videos with scenario, storyboard, hooks, captions, voice-over script, and platform-specific versions.</p></div></div>
+      <div class="step"><div class="badge"></div><div><h3>Social Content</h3><p>Facebook/Instagram posts, reels, captions, CTAs, hashtags, plus a monthly content plan and publishing schedule.</p></div></div>
+      <div class="step"><div class="badge"></div><div><h3>WooCommerce Listing</h3><p>The product is created automatically: title, descriptions, specs, SEO, gallery, categories, pricing, attributes, tags, and metadata.</p></div></div>
+      <div class="step"><div class="badge"></div><div><h3>Publishing Queue</h3><p>The product is slotted into the monthly social publishing calendar.</p></div></div>
+      <div class="step"><div class="badge"></div><div><h3>Sales-Agent Sync</h3><p>The Messenger/WhatsApp AI agent's knowledge base updates instantly — every new product is sellable with no retraining.</p></div></div>
+    </div>
+    <div class="ba">
+      <figure><div class="ba-shot"><span>RAW PHOTO<br>the owner&rsquo;s phone shot<span class="file">assets/commerce-os-before.png</span></span><img src="../assets/commerce-os-before.png" alt="RAW PHOTO the owner&rsquo;s phone shot" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div><figcaption><b>before</b> — raw phone photo</figcaption></figure>
+      <div class="ba-arrow">→</div>
+      <figure><div class="ba-shot"><span>GENERATED<br>campaign image<span class="file">assets/commerce-os-after.png</span></span><img src="../assets/commerce-os-after.png" alt="GENERATED campaign image" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div><figcaption><b>after</b> — AI-generated campaign image</figcaption></figure>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">07</span>Key Engineering Decisions</h2>
+    <div class="grid2">
+      <div class="panel"><h3>Language vs. money, strictly separated</h3><p>AI owns language, description, and visual analysis only. Anything touching money or state — pricing, order totals, stage transitions — runs in deterministic code, removing a whole class of unpredictable errors from the financial path.</p></div>
+      <div class="panel"><h3>Control by configuration</h3><p>Dozens of database settings drive behaviour: which AI provider and model, how many posts, which video templates, brand colors, margin tiers, shipping rates, publishing on/off. Changing behaviour edits a cell, not code.</p></div>
+      <div class="panel"><h3>Exit-checks at every stage</h3><p>Each workflow ends by re-reading the database to verify what should have been written actually was. Nothing counts as success until it is proven — turning silent failures into immediate, visible ones.</p></div>
+      <div class="panel"><h3>Structural locks over discipline</h3><p>An asset cannot be marked “ready” while its file link is empty; the rule is enforced at one un-bypassable point, so it is structurally impossible to publish a post without an image.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">08</span>AI &amp; Prompt Engineering</h2>
+    <p>A <b>unified AI Gateway</b> sits over three providers (OpenAI, Google Gemini, OpenRouter) behind a single call contract, with an automatic fallback chain on failure or quota limits and per-call cost logging. Prompt pipelines generate the Product Brain, marketing copy with multiple selling angles, video scripts, image prompts, and the sales agent's knowledge — each passing through a validation layer that enforces content rules before anything is stored or published.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">09</span>Data &amp; Database</h2>
+    <p>A central <b>PostgreSQL</b> database is the single source of truth: products, orders, customers, content, knowledge base, automation logs, and operational/reporting data — with indexes, JSONB fields, views, and triggers. Migrating off cloud spreadsheets removed the throughput ceiling that appeared under load: query time became a function of active work, not archive size.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">10</span>Technical Stack</h2>
+    <div class="schema">
+      <div class="schema-row"><div class="k">Automation &amp; Orchestration</div><div class="v"><span class="tag">n8n (self-hosted, Docker)</span> <span class="tag">Webhooks</span></div></div>
+      <div class="schema-row"><div class="k">Data</div><div class="v"><span class="tag">PostgreSQL</span> <span class="tag">Google Sheets</span> <span class="tag">Google Forms/Drive</span></div></div>
+      <div class="schema-row"><div class="k">Backend &amp; Media</div><div class="v"><span class="tag">Node.js / Express</span> <span class="tag">Puppeteer</span> <span class="tag">sharp</span> <span class="tag">rembg</span> <span class="tag">ffmpeg</span></div></div>
+      <div class="schema-row"><div class="k">AI</div><div class="v"><span class="tag">OpenAI</span> <span class="tag">Google Gemini</span> <span class="tag">OpenRouter</span> <span class="tag">Prompt Engineering</span></div></div>
+      <div class="schema-row"><div class="k">Storefront</div><div class="v"><span class="tag">WordPress</span> <span class="tag">WooCommerce</span> <span class="tag">Elementor Pro</span> <span class="tag">Astra Pro</span></div></div>
+      <div class="schema-row"><div class="k">Channels &amp; Infra</div><div class="v"><span class="tag">Meta Graph API</span> <span class="tag">WhatsApp API</span> <span class="tag">Telegram</span> <span class="tag">Cloudflare Tunnel</span> <span class="tag">REST APIs</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">11</span>Results &amp; Impact</h2>
+    <div class="results">
+      <div class="result"><div><b>Time per product:</b> from hours of manual work to minutes of automated operation.</div></div>
+      <div class="result"><div><b>Output per product:</b> multiple posts, several ad images in different roles, promotional videos, and a full sales-agent knowledge base.</div></div>
+      <div class="result"><div><b>Media cost:</b> under one cent per typical product — image and video processing run locally at near-zero cost; only text calls carry a cost.</div></div>
+      <div class="result"><div><b>Scalability:</b> the system's ceiling became the advertising budget, not operator hours.</div></div>
+      <div class="result"><div><b>Productization:</b> multi-tenant from the ground up (per-client configuration and keys) — the foundation a second, different client project was later built on.</div></div>
+    </div>
+    <div class="figure reveal"><span>CHAT SLOT<br>Messenger sales-agent conversation<br><em>(blur customer identity)</em><span class="file">assets/commerce-os-sales-agent-chat.png</span></span><img src="../assets/commerce-os-sales-agent-chat.png" alt="CHAT SLOT Messenger sales-agent conversation (blur customer identity)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">12</span>Skills Demonstrated</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Distributed systems design</span><span class="tag">Workflow engineering</span>
+      <span class="tag">Database design &amp; optimization</span><span class="tag">Microservices</span>
+      <span class="tag">AI integration</span><span class="tag">Prompt engineering</span>
+      <span class="tag">Media-processing automation</span><span class="tag">Web scraping</span>
+      <span class="tag">API design</span><span class="tag">Data migration</span>
+      <span class="tag">Secrets &amp; operational security</span><span class="tag">Business-logic modeling</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>Mohamed Eltanbedawy</b> · Business &amp; Data Analyst | AI Automation &amp; Commerce Engineering<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<!-- ============================= ARABIC ============================= -->
+<div id="doc-ar" dir="rtl" style="display:none">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">→ tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="اللغة">
+      <button class="btn-en" onclick="setLang('en')">English</button>
+      <button class="btn-ar active" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">دراسة حالة · أتمتة بالذكاء الاصطناعي وهندسة تجارة إلكترونية</div>
+    <h1 style="max-width:none">الراقي — نظام تشغيل تجارة إلكترونية بالذكاء الاصطناعي</h1>
+    <p class="lead">منصّة ذاتية التشغيل مدعومة بالـ AI تدير متجر مستحضرات تجميل من طرف إلى طرف: من إدخال المنتج، إلى المحتوى والنشر والبيع والعمليات.</p>
+    <div class="hook">صاحب المتجر يصوّر المنتج ويحدّد <b>السعر</b> فقط. والنظام يعمل <b>كل ما تبقّى</b>.</div>
+    <div class="tagrow">
+      <span class="tag">أتمتة العمليات</span><span class="tag">تكامل ذكاء اصطناعي</span>
+      <span class="tag">أنظمة موزّعة</span><span class="tag">n8n</span><span class="tag">PostgreSQL</span>
+      <span class="tag">WooCommerce</span><span class="tag">هندسة برومبت</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="سكوركارد الحالة" style="margin-top:28px">
+      <div class="sc-head">
+        <span class="t">سكوركارد الحالة</span>
+        <span class="live">production</span>
+      </div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">+50</div><div class="lbl">workflow آلي</div></div>
+        <div class="metric"><div class="val">1</div><div class="lbl">خطوة يدوية (صورة + سعر)</div></div>
+        <div class="metric"><div class="val">1</div><div class="lbl">عميل · مصر · تجزئة كوزمتكس</div></div>
+        <div class="metric"><div class="val">&lt; 1¢</div><div class="lbl">تكلفة الميديا للمنتج</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠١</span>الملخّص التنفيذي</h2>
+    <p>الراقي نظام تشغيل تجاري كامل الأتمتة ومدعوم بالذكاء الاصطناعي، مبنيّ لمتجر مستحضرات تجميل. يحوّل النشاط بالكامل إلى عملية رقمية ذاتية التشغيل: إدخال المنتج، بحث السوق، توليد المحتوى، إنتاج الصور والفيديو، النشر، خدمة العملاء، إدارة الطلبات، ومزامنة البيانات التشغيلية — كلها تعمل آليًا.</p>
+    <p>صاحب المتجر يقوم بمهمة يدوية واحدة فقط: يصوّر المنتج، يُدخل سعر التكلفة والبيع، ويرسل Google Form. من هذه اللحظة، المنصّة تتولّى الباقي. والأساس متعدد المستأجرين تحته — إعدادات ومفاتيح لكل عميل — انتقل لاحقًا إلى مشروع منفصل لتاجر أجهزة منزلية في موريتانيا، مبني حول مشكلة مختلفة تمامًا: <a href="salamasons.html">SalamaSons، حلقة ذكاء إعلانات وتوصيات</a>.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٢</span>المشكلة</h2>
+    <p>في سوق الكوزمتكس بالدفع عند الاستلام في مصر، المشغّل الواحد ينفّذ <b>15–20 خطوة يدوية لكل منتج</b>: بحث، تحليل، تسعير، كتابة إعلانات، تصميم صور، مونتاج فيديو، نشر، رد على العملاء، ومتابعة شحن. هذا السقف اليدوي يحدّ عدد المنتجات القابلة للاختبار شهريًا — وفي سوق يعتمد على اختبار الكميات، هذا السقف هو <i>سقف الربح نفسه</i>.</p>
+    <div class="callout">الهدف لم يكن بناء موقع. الهدف كان إزالة الإنسان من كل خطوة لا تحتاج حكمًا بشريًا.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٣</span>الفلسفة التصميمية</h2>
+    <p>كل workflow أُعيد تصميمه بمبدأ الأتمتة أولًا. بدل سؤال <i>«كيف يعمل الموظفون أسرع؟»</i>، يسأل النظام <i>«لماذا يفعل البشر هذا أصلًا؟»</i>. يبقى للبشر فقط القرارات التي تحتاج حكمًا — الموافقة على منتج، مراجعة محتوى، اعتماد سعر — فيتحوّل دور المشغّل من <b>منفّذ</b> إلى <b>مراجِع</b>، ويصبح عدد المنتجات المختبَرة دالة في الميزانية لا في ساعات العمل.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٤</span>دوري في المشروع</h2>
+    <p>صمّمت، هندست، نشرت، وأتولّى صيانة المنصّة بالكامل بمفردي. شمل ذلك:</p>
+    <div class="grid2">
+      <div class="panel"><h3>الاستراتيجية والتحليل</h3><p>تحليل الأعمال، هندسة العمليات، ومعمارية النظام والأتمتة.</p></div>
+      <div class="panel"><h3>الذكاء الاصطناعي والبيانات</h3><p>معمارية الـ AI، هندسة البرومبت، خطوط المحتوى، وتصميم قاعدة البيانات.</p></div>
+      <div class="panel"><h3>الهندسة</h3><p>خدمات Node.js الخلفية، WordPress/WooCommerce، التكاملات، والبنية التحتية.</p></div>
+      <div class="panel"><h3>التشغيل</h3><p>النشر، المراقبة، الصيانة، والتحسين المستمر.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٥</span>المعمارية</h2>
+    <p>معمارية <b>pull-model موزّعة</b>. قاعدة PostgreSQL مركزية تحمل حالة كل منتج؛ ومنسّق (Dispatcher) يقرأ الحالات دوريًا ويستدعي المرحلة المناسبة لكل منتج؛ وخدمات Node.js مصغّرة عديمة الحالة تنفّذ المهام الثقيلة (سكرابينج، معالجة صور وفيديو) خارج محرك الأتمتة؛ وبوابة AI موحّدة تجرّد ثلاثة مزوّدين خلف عقد واحد مع احتياط تلقائي.</p>
+    <div class="arch">
+      <div class="layer"><div class="node accent"><div class="t">Google Form</div><div class="s">صورة · تكلفة · سعر</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node"><div class="t">Pipeline Dispatcher</div><div class="s">محرك الحالات · يقرأ PostgreSQL</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer">
+        <div class="node det"><div class="t">محرك التسعير</div><div class="s">كود حتمي</div></div>
+        <div class="node ai"><div class="t">بوابة AI موحّدة</div><div class="s">OpenAI · Gemini · OpenRouter + احتياط</div></div>
+        <div class="node"><div class="t">خدمة الميديا</div><div class="s">Node.js · rembg · sharp · ffmpeg</div></div>
+      </div>
+      <div class="arrow">↓</div>
+      <div class="layer">
+        <div class="node"><div class="t">متجر WooCommerce</div></div>
+        <div class="node"><div class="t">فيسبوك / إنستجرام</div></div>
+        <div class="node"><div class="t">Messenger و WhatsApp</div><div class="s">وكيل مبيعات AI</div></div>
+      </div>
+      <div class="arch-note">PostgreSQL المركزية تحمل كل الحالة · ونظام إنذار مركزي يرسل أي فشل إلى تليجرام</div>
+    </div>
+    <div class="figure reveal"><span>مكان صورة كانفاس n8n<br>كانفاس الـ workflows في الـ production<br><em>(مع تمويه بيانات الاعتماد والمفاتيح)</em><span class="file">assets/commerce-os-n8n-canvas.png</span></span><img src="../assets/commerce-os-n8n-canvas.png" alt="مكان صورة كانفاس n8n كانفاس الـ workflows في الـ production (مع تمويه بيانات الاعتماد والم" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٦</span>دورة حياة المنتج من طرف إلى طرف</h2>
+    <p class="muted" style="margin-top:-4px">إرسال واحد على Google Form يشغّل هذه السلسلة كاملة، بلا أي تدخّل بشري إضافي.</p>
+    <div class="steps">
+      <div class="step"><div class="badge"></div><div><h3>الإدخال</h3><p>صاحب المتجر يرسل Google Form: صور المنتج، سعر التكلفة، سعر البيع، الفئة، ومعلومات أساسية.</p></div></div>
+      <div class="step"><div class="badge"></div><div><h3>تحليل المنتج</h3><p>الـ AI يستخرج النوع، المزايا، الخامات، الألوان، الجمهور المستهدف، الفوائد، الاعتراضات، التموضع، وحالات الاستخدام.</p></div></div>
+      <div class="step"><div class="badge"></div><div><h3>بحث السوق</h3><p>الـ AI يدرس الترندات والمنافسين ولغة العملاء ودوافع الشراء ونقاط الألم لبناء التموضع.</p></div></div>
+      <div class="step"><div class="badge"></div><div><h3>عقل المنتج (Product Brain)</h3><p>يُولّد كائن معرفة: USP، شخصيات العملاء، الخطافات العاطفية والتحويلية، معالجة الاعتراضات، أفكار البيع المتقاطع، نقاط البيع، والأسئلة الشائعة.</p></div></div>
+      <div class="step"><div class="badge"></div><div><h3>توليد الصور</h3><p>صور تجارية احترافية (لايف ستايل، استوديو، حملات). صورة الهاتف الأصلية لا تُستخدم علنًا أبدًا.</p></div></div>
+      <div class="step"><div class="badge"></div><div><h3>إنتاج الفيديو</h3><p>فيديوهات ترويجية بسيناريو، ستوري بورد، خطافات، كابشنز، سكربت تعليق صوتي، ونسخ لكل منصة.</p></div></div>
+      <div class="step"><div class="badge"></div><div><h3>محتوى السوشيال</h3><p>بوستات فيسبوك/إنستجرام، ريلز، كابشنز، CTAs، هاشتاجات، وخطة محتوى شهرية بجدول نشر.</p></div></div>
+      <div class="step"><div class="badge"></div><div><h3>منتج WooCommerce</h3><p>يُنشأ المنتج تلقائيًا: عنوان، أوصاف، مواصفات، SEO، معرض صور، فئات، تسعير، خصائص، وسوم، وميتاداتا.</p></div></div>
+      <div class="step"><div class="badge"></div><div><h3>طابور النشر</h3><p>يُدرَج المنتج في تقويم النشر الشهري على السوشيال.</p></div></div>
+      <div class="step"><div class="badge"></div><div><h3>مزامنة وكيل المبيعات</h3><p>قاعدة معرفة وكيل Messenger/WhatsApp تتحدّث فورًا — كل منتج جديد قابل للبيع بلا إعادة تدريب.</p></div></div>
+    </div>
+    <div class="ba">
+      <figure><div class="ba-shot"><span>صورة خام<br>لقطة موبايل صاحب المتجر<span class="file">assets/commerce-os-before.png</span></span><img src="../assets/commerce-os-before.png" alt="صورة خام لقطة موبايل صاحب المتجر" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div><figcaption><b>قبل</b> — صورة الموبايل الخام</figcaption></figure>
+      <div class="ba-arrow">→</div>
+      <figure><div class="ba-shot"><span>مولّدة<br>صورة إعلانية<span class="file">assets/commerce-os-after.png</span></span><img src="../assets/commerce-os-after.png" alt="مولّدة صورة إعلانية" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div><figcaption><b>بعد</b> — الصورة الإعلانية المولّدة</figcaption></figure>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٧</span>قرارات هندسية مميّزة</h2>
+    <div class="grid2">
+      <div class="panel"><h3>فصل صارم بين اللغة والمال</h3><p>الـ AI مسؤول عن اللغة والوصف والتحليل البصري فقط. كل ما يمسّ المال أو الحالة — التسعير، إجماليات الطلبات، انتقالات المراحل — يُنفَّذ بكود حتمي، ما يزيل فئة كاملة من الأخطاء من المسار المالي.</p></div>
+      <div class="panel"><h3>التحكّم عبر التهيئة</h3><p>عشرات الإعدادات في قاعدة البيانات تتحكّم بالسلوك: أي مزوّد AI وأي موديل، كم بوست، أي قوالب فيديو، ألوان الهوية، شرائح الهامش، أسعار الشحن، تفعيل النشر. تغيير السلوك = تعديل خلية لا كود.</p></div>
+      <div class="panel"><h3>تحقّق الخروج في كل مرحلة</h3><p>كل workflow ينتهي بإعادة قراءة قاعدة البيانات للتأكد أن ما كان مفترضًا كتابته كُتب فعلًا. لا يُعتبر نجاحًا ما لم يُثبَت — فتتحوّل الأعطال الصامتة إلى فورية ومرئية.</p></div>
+      <div class="panel"><h3>أقفال بنيوية بدل الاعتماد على الانضباط</h3><p>لا يمكن وسم أصل بأنه «جاهز» ورابط ملفه فارغ؛ الشرط مفروض في نقطة واحدة يستحيل تجاوزها، فيستحيل هيكليًا نشر منشور بلا صورة.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٨</span>الذكاء الاصطناعي وهندسة البرومبت</h2>
+    <p>تجلس <b>بوابة AI موحّدة</b> فوق ثلاثة مزوّدين (OpenAI، Google Gemini، OpenRouter) خلف عقد استدعاء واحد، مع سلسلة احتياط تلقائية عند الفشل أو تجاوز الحصص، وتسجيل تكلفة كل استدعاء. خطوط البرومبت تولّد عقل المنتج، ونصوص تسويقية بزوايا بيع متعددة، وسكربتات فيديو، وبرومبتات صور، ومعرفة وكيل المبيعات — وكلها تمرّ على طبقة تحقّق تفرض قواعد المحتوى قبل أي تخزين أو نشر.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٩</span>البيانات وقاعدة البيانات</h2>
+    <p>قاعدة <b>PostgreSQL</b> مركزية هي مصدر الحقيقة الوحيد: المنتجات، الطلبات، العملاء، المحتوى، قاعدة المعرفة، سجلّات الأتمتة، والبيانات التشغيلية — بفهارس وحقول JSONB وviews وtriggers. الترحيل من جداول البيانات السحابية أزال سقف الأداء الذي ظهر تحت الحمل: صار زمن الاستعلام دالة في العمل النشط لا في حجم الأرشيف.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">١٠</span>المكدّس التقني</h2>
+    <div class="schema">
+      <div class="schema-row"><div class="k">الأتمتة والتنسيق</div><div class="v"><span class="tag">n8n (self-hosted · Docker)</span> <span class="tag">Webhooks</span></div></div>
+      <div class="schema-row"><div class="k">البيانات</div><div class="v"><span class="tag">PostgreSQL</span> <span class="tag">Google Sheets</span> <span class="tag">Google Forms/Drive</span></div></div>
+      <div class="schema-row"><div class="k">الخلفية والميديا</div><div class="v"><span class="tag">Node.js / Express</span> <span class="tag">Puppeteer</span> <span class="tag">sharp</span> <span class="tag">rembg</span> <span class="tag">ffmpeg</span></div></div>
+      <div class="schema-row"><div class="k">الذكاء الاصطناعي</div><div class="v"><span class="tag">OpenAI</span> <span class="tag">Google Gemini</span> <span class="tag">OpenRouter</span> <span class="tag">Prompt Engineering</span></div></div>
+      <div class="schema-row"><div class="k">المتجر</div><div class="v"><span class="tag">WordPress</span> <span class="tag">WooCommerce</span> <span class="tag">Elementor Pro</span> <span class="tag">Astra Pro</span></div></div>
+      <div class="schema-row"><div class="k">القنوات والبنية</div><div class="v"><span class="tag">Meta Graph API</span> <span class="tag">WhatsApp API</span> <span class="tag">Telegram</span> <span class="tag">Cloudflare Tunnel</span> <span class="tag">REST APIs</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">١١</span>الأثر والنتائج</h2>
+    <div class="results">
+      <div class="result"><div><b>الوقت لكل منتج:</b> من ساعات عمل يدوي إلى دقائق تشغيل آلي.</div></div>
+      <div class="result"><div><b>مخرجات المنتج الواحد:</b> عدة بوستات، صور إعلانية بأدوار مختلفة، فيديوهات ترويجية، وقاعدة معرفة كاملة لوكيل المبيعات.</div></div>
+      <div class="result"><div><b>تكلفة الميديا:</b> أقل من سنت واحد للمنتج العادي — المعالجة البصرية والفيديو محليًا بتكلفة تقارب الصفر، والتكلفة الوحيدة استدعاءات النصوص.</div></div>
+      <div class="result"><div><b>قابلية التوسّع:</b> صار سقف النظام هو ميزانية الإعلان لا ساعات المشغّل.</div></div>
+      <div class="result"><div><b>التحوّل لمنتج:</b> متعدد المستأجرين من الأساس (إعدادات ومفاتيح لكل عميل) — وهو الأساس الذي بُني عليه لاحقًا مشروع عميل ثانٍ مختلف.</div></div>
+    </div>
+    <div class="figure reveal"><span>مكان صورة محادثة<br>محادثة وكيل المبيعات على Messenger<br><em>(مع تمويه هوية العميل)</em><span class="file">assets/commerce-os-sales-agent-chat.png</span></span><img src="../assets/commerce-os-sales-agent-chat.png" alt="مكان صورة محادثة محادثة وكيل المبيعات على Messenger (مع تمويه هوية العميل)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">١٢</span>المهارات المُظهَرة</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">تصميم أنظمة موزّعة</span><span class="tag">هندسة workflows</span>
+      <span class="tag">تصميم وتحسين قواعد بيانات</span><span class="tag">خدمات مصغّرة</span>
+      <span class="tag">تكامل ذكاء اصطناعي</span><span class="tag">هندسة برومبت</span>
+      <span class="tag">أتمتة معالجة الوسائط</span><span class="tag">استخراج بيانات الويب</span>
+      <span class="tag">تصميم واجهات برمجية</span><span class="tag">ترحيل بيانات</span>
+      <span class="tag">أمن تشغيلي وإدارة أسرار</span><span class="tag">نمذجة منطق تجاري</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>محمد الطنبداوي</b> · Business &amp; Data Analyst | هندسة أتمتة وتجارة إلكترونية بالـ AI<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<script>
+function setLang(l){
+  document.getElementById('doc-en').style.display=(l==='en')?'':'none';
+  document.getElementById('doc-ar').style.display=(l==='ar')?'':'none';
+  document.querySelectorAll('.btn-en').forEach(b=>b.classList.toggle('active',l==='en'));
+  document.querySelectorAll('.btn-ar').forEach(b=>b.classList.toggle('active',l==='ar'));
+  document.documentElement.lang=l;
+  document.documentElement.dir=(l==='ar')?'rtl':'ltr';
+  window.scrollTo(0,0);
+}
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
+</body>
+</html>

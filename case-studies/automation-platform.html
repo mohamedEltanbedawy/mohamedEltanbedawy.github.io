@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The n8n Automation Platform · Case Study · Mohamed Eltanbedawy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/design-system.css">
+</head>
+<body>
+
+<!-- ============================= ENGLISH ============================= -->
+<div id="doc-en" dir="ltr">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">← tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button class="btn-en active" onclick="setLang('en')">English</button>
+      <button class="btn-ar" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">Case Study · Independent · Automation Engineering</div>
+    <h1 style="max-width:none">The Automation Platform — ~50 workflows in production</h1>
+    <p class="lead">A self-hosted n8n instance that runs real businesses: a staged product pipeline, a unified AI gateway, media services, sales agents, scrapers, and a central alerter. Not demos — production workflows with execution history, failure rates, and things that break at 2am.</p>
+    <div class="hook">Most automation portfolios show one workflow. This is <b>an operating system</b> made of them.</div>
+    <div class="tagrow">
+      <span class="tag">n8n (self-hosted, Docker)</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span>
+      <span class="tag">Puppeteer</span><span class="tag">AI Gateway</span><span class="tag">Cloudflare Tunnel</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="Case scorecard" style="margin-top:28px">
+      <div class="sc-head"><span class="t">platform scorecard — measured on the live instance</span><span class="live">running</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">~50</div><div class="lbl">unique workflows in production</div></div>
+        <div class="metric"><div class="val">447</div><div class="lbl">production executions in the measured period</div></div>
+        <div class="metric"><div class="val">9.2<em>%</em></div><div class="lbl">failure rate — every failure alerted, not silent</div></div>
+        <div class="metric"><div class="val">50.8<em>s</em></div><div class="lbl">average run time per execution</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">These are figures read off my own running instance, not estimates. The failure rate is published deliberately: a platform that claims zero failures isn't measuring.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">01</span>Why Build a Platform Instead of Automations</h2>
+    <p>Anyone can wire a webhook to a spreadsheet. The problem starts at the tenth workflow: two of them write the same field, one fails silently at 3am, a provider changes its quota, and nobody knows which run produced which row. At that point you no longer have automations — you have an unmanaged distributed system.</p>
+    <div class="callout">So I built it as a platform: staged pipelines with names, one database holding all state, one gateway for AI providers, one alerter for every failure, and configuration instead of edits.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">02</span>The Workflow Families</h2>
+    <div class="grid2">
+      <div class="panel"><h3>The staged product pipeline (PG-00 → PG-95)</h3><p>A numbered chain where each stage owns one job: Scrape Dispatcher, Manual Intake, Content Factory, Media Factory, Knowledge Sync, Publisher, AI Gateway, Alerter. The numbering isn't cosmetic — it's the execution order and the debugging map.</p></div>
+      <div class="panel"><h3>Client deployment families</h3><p>Per-client workflow sets (Product Intelligence, Media Assets, Content Generator, WooCommerce Publish, Operation Engine, page scrapers) — the same architecture instantiated per tenant with its own configuration and keys.</p></div>
+      <div class="panel"><h3>Conversational sales agents</h3><p>Messenger and WhatsApp agents built and iterated through several versions, plus a GPT-4-backed Messenger bot handling text, image, and voice input — with knowledge synced from the product database so new products are sellable without retraining.</p></div>
+      <div class="panel"><h3>Scrapers &amp; utilities</h3><p>Google Maps lead scraper, supplier catalog scrapers, an automated resume-processing flow, a LinkedIn post generator, and a Dockerized video-render workflow — the long tail where automation actually pays.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">03</span>Architecture</h2>
+    <div class="arch">
+      <div class="layer"><div class="node accent"><div class="t">Triggers</div><div class="s">forms · webhooks · schedules</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node"><div class="t">Pipeline Dispatcher</div><div class="s">reads state from PostgreSQL · fires the right stage</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer">
+        <div class="node det"><div class="t">Deterministic Services</div><div class="s">pricing · state transitions · money</div></div>
+        <div class="node ai"><div class="t">Unified AI Gateway</div><div class="s">3 providers · fallback chain · per-call cost log</div></div>
+        <div class="node"><div class="t">Node.js Media Service</div><div class="s">rembg · sharp · ffmpeg · Puppeteer</div></div>
+      </div>
+      <div class="arrow">↓</div>
+      <div class="layer">
+        <div class="node"><div class="t">Storefronts &amp; Channels</div><div class="s">WooCommerce · Meta · Messenger · WhatsApp</div></div>
+        <div class="node"><div class="t">Central Alerter</div><div class="s">every failure → Telegram</div></div>
+      </div>
+      <div class="arch-note">PostgreSQL holds all state · heavy work runs outside the automation engine · Cloudflare Tunnel exposes local services safely</div>
+    </div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>n8n canvas — the production workflow list<br><em>(blur credentials &amp; keys)</em><span class="file">assets/n8n-workflow-list.png</span></span><img src="../assets/n8n-workflow-list.png" alt="SCREENSHOT SLOT n8n canvas — the production workflow list (blur credentials &amp; keys)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">04</span>Engineering Decisions That Made It Survivable</h2>
+    <div class="results">
+      <div class="result"><div><b>One gateway, three providers:</b> every AI call goes through a single contract over OpenAI, Gemini, and OpenRouter, with an automatic fallback chain on failure or quota limits — and per-call cost logging, so spend is a number rather than a surprise.</div></div>
+      <div class="result"><div><b>AI never touches money:</b> language, description, and visual analysis are AI's job. Pricing, totals, and state transitions run in deterministic code — a whole class of unpredictable errors removed from the financial path.</div></div>
+      <div class="result"><div><b>Exit-checks, not optimism:</b> each workflow ends by re-reading the database to verify what should have been written actually was. Nothing counts as success until it's proven — silent failures become immediate, visible ones.</div></div>
+      <div class="result"><div><b>Heavy work outside the engine:</b> scraping, image, and video processing run in stateless Node.js microservices, so a slow render can't block the orchestration layer.</div></div>
+      <div class="result"><div><b>Configuration over code:</b> provider, model, post counts, video templates, brand colors, margin tiers, shipping rates, publishing on/off — dozens of database settings drive behavior. Changing behavior edits a cell.</div></div>
+      <div class="result"><div><b>One alerter for everything:</b> any failure anywhere pushes to Telegram. A 9.2% failure rate is only acceptable because every one of those failures is seen.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">05</span>Where It Runs</h2>
+    <p>This platform isn't theoretical infrastructure — it's the engine underneath the other builds in this portfolio: the <a href="commerce-os.html">Al-Raky AI Commerce Operating System</a>, the <a href="salamasons.html">SalamaSons ad-intelligence loop</a>, and the <a href="jotia.html">Jotia dropshipping platform</a>. Same instance, same conventions, three different problems.</p>
+    <div class="results">
+      <div class="result"><div>Ad-engagement analytics push AI recommendations to Telegram every 4 hours.</div></div>
+      <div class="result"><div>Per-product handling across the content chain dropped from hours to minutes.</div></div>
+      <div class="result"><div>Media processing runs locally at near-zero cost — only text calls carry a per-call price.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">06</span>What I'd Fix</h2>
+    <p>Honest accounting: the instance carries duplicate workflow versions from heavy iteration — several "v2" copies and experimental drafts that were never cleaned up. It's the signature of fast experimentation, not of disciplined housekeeping, and it's the first thing I'd consolidate before handing this to a team.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">07</span>Skills Demonstrated</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Workflow engineering</span><span class="tag">Distributed system design</span>
+      <span class="tag">AI gateway / provider abstraction</span><span class="tag">Prompt engineering</span>
+      <span class="tag">Node.js microservices</span><span class="tag">Web scraping</span>
+      <span class="tag">PostgreSQL state modeling</span><span class="tag">Observability &amp; alerting</span>
+      <span class="tag">Self-hosting &amp; Docker</span><span class="tag">Secrets management</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>Mohamed Eltanbedawy</b> · eCommerce &amp; Growth Analyst — Automation &amp; AI<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<!-- ============================= ARABIC ============================= -->
+<div id="doc-ar" dir="rtl" style="display:none">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">→ tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="اللغة">
+      <button class="btn-en" onclick="setLang('en')">English</button>
+      <button class="btn-ar active" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">دراسة حالة · مستقل · هندسة أتمتة</div>
+    <h1 style="max-width:none">منصة الأتمتة — نحو 50 workflow في الـ production</h1>
+    <p class="lead">نسخة n8n ذاتية الاستضافة تُشغّل أعمالًا حقيقية: خط منتجات مرحلي، وبوابة AI موحّدة، وخدمات ميديا، ووكلاء مبيعات، وسكرابرز، ونظام إنذار مركزي. ليست عروضًا تجريبية — بل workflows في الـ production لها سجل تنفيذ ومعدل فشل وأشياء تنكسر الثانية صباحًا.</p>
+    <div class="hook">أغلب بورتفوليوهات الأتمتة تعرض workflow واحدًا. هذه <b>نظام تشغيل</b> مبني منها.</div>
+    <div class="tagrow">
+      <span class="tag">n8n (self-hosted · Docker)</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span>
+      <span class="tag">Puppeteer</span><span class="tag">بوابة AI</span><span class="tag">Cloudflare Tunnel</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="سكوركارد المنصة" style="margin-top:28px">
+      <div class="sc-head"><span class="t">سكوركارد المنصة — مقاسة على النسخة الحية</span><span class="live">تعمل</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">~50</div><div class="lbl">workflow فريد في الـ production</div></div>
+        <div class="metric"><div class="val">447</div><div class="lbl">تنفيذ production في الفترة المقاسة</div></div>
+        <div class="metric"><div class="val">9.2<em>%</em></div><div class="lbl">معدل فشل — كل فشل يُنذَر به، لا يمر صامتًا</div></div>
+        <div class="metric"><div class="val">50.8<em>ث</em></div><div class="lbl">متوسط زمن التشغيل لكل تنفيذ</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">هذه أرقام مقروءة من نسختي الحية، لا تقديرات. ومعدل الفشل منشور عن قصد: المنصة التي تدّعي صفر أعطال هي منصة لا تقيس.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠١</span>لماذا منصة بدل أتمتات متفرقة</h2>
+    <p>أي أحد يستطيع توصيل webhook بجدول بيانات. المشكلة تبدأ عند الـ workflow العاشر: اثنان منها يكتبان نفس الحقل، وواحد يفشل صامتًا الثالثة فجرًا، ومزوّد يغيّر حصته، ولا أحد يعرف أي تشغيل أنتج أي صف. عند تلك النقطة لم تعد تملك أتمتات — بل نظامًا موزعًا غير مُدار.</p>
+    <div class="callout">فبنيتها كمنصة: خطوط مرحلية بأسماء، وقاعدة بيانات واحدة تحمل كل الحالة، وبوابة واحدة لمزوّدي الـ AI، ونظام إنذار واحد لكل فشل، وإعدادات بدل التعديلات.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٢</span>عائلات الـ Workflows</h2>
+    <div class="grid2">
+      <div class="panel"><h3>خط المنتجات المرحلي (PG-00 ← PG-95)</h3><p>سلسلة مرقّمة كل مرحلة فيها تملك مهمة واحدة: Scrape Dispatcher وManual Intake وContent Factory وMedia Factory وKnowledge Sync وPublisher وAI Gateway وAlerter. الترقيم ليس تجميليًا — إنه ترتيب التنفيذ وخريطة التشخيص.</p></div>
+      <div class="panel"><h3>عائلات نشر العملاء</h3><p>مجموعات workflows لكل عميل (Product Intelligence وMedia Assets وContent Generator وWooCommerce Publish وOperation Engine وسكرابرز الصفحات) — نفس المعمارية مُنشأة لكل مستأجر بإعداداته ومفاتيحه.</p></div>
+      <div class="panel"><h3>وكلاء مبيعات محادثة</h3><p>وكلاء Messenger وWhatsApp بُنوا وطُوّروا عبر عدة إصدارات، بالإضافة لبوت Messenger مدعوم بـ GPT-4 يتعامل مع النص والصورة والصوت — بمعرفة متزامنة من قاعدة المنتجات، فكل منتج جديد قابل للبيع بلا إعادة تدريب.</p></div>
+      <div class="panel"><h3>سكرابرز وأدوات</h3><p>سكرابر ليدز من Google Maps، وسكرابرز كتالوجات الموردين، وتدفق معالجة سير ذاتية آلي، ومولّد بوستات LinkedIn، وworkflow رندر فيديو بالـ Docker — الذيل الطويل حيث تدفع الأتمتة ثمنها فعلًا.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٣</span>المعمارية</h2>
+    <div class="arch">
+      <div class="layer"><div class="node accent"><div class="t">المشغّلات</div><div class="s">فورمات · webhooks · جدولة</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node"><div class="t">Pipeline Dispatcher</div><div class="s">يقرأ الحالة من PostgreSQL · يشغّل المرحلة الصحيحة</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer">
+        <div class="node det"><div class="t">خدمات حتمية</div><div class="s">تسعير · انتقالات حالة · مال</div></div>
+        <div class="node ai"><div class="t">بوابة AI موحّدة</div><div class="s">3 مزوّدين · سلسلة احتياط · سجل تكلفة لكل استدعاء</div></div>
+        <div class="node"><div class="t">خدمة ميديا Node.js</div><div class="s">rembg · sharp · ffmpeg · Puppeteer</div></div>
+      </div>
+      <div class="arrow">↓</div>
+      <div class="layer">
+        <div class="node"><div class="t">المتاجر والقنوات</div><div class="s">WooCommerce · Meta · Messenger · WhatsApp</div></div>
+        <div class="node"><div class="t">نظام الإنذار المركزي</div><div class="s">كل فشل ← تليجرام</div></div>
+      </div>
+      <div class="arch-note">PostgreSQL تحمل كل الحالة · المهام الثقيلة تعمل خارج محرك الأتمتة · Cloudflare Tunnel يكشف الخدمات المحلية بأمان</div>
+    </div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>كانفاس n8n — قائمة workflows الـ production<br><em>(مع تمويه بيانات الاعتماد والمفاتيح)</em><span class="file">assets/n8n-workflow-list.png</span></span><img src="../assets/n8n-workflow-list.png" alt="مكان سكرينشوت كانفاس n8n — قائمة workflows الـ production (مع تمويه بيانات الاعتماد والمفا" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٤</span>قرارات هندسية جعلتها قابلة للبقاء</h2>
+    <div class="results">
+      <div class="result"><div><b>بوابة واحدة، ثلاثة مزوّدين:</b> كل استدعاء AI يمر بعقد واحد فوق OpenAI وGemini وOpenRouter، بسلسلة احتياط تلقائية عند الفشل أو تجاوز الحصص — وتسجيل تكلفة لكل استدعاء، فيصير الإنفاق رقمًا لا مفاجأة.</div></div>
+      <div class="result"><div><b>الـ AI لا يلمس المال أبدًا:</b> اللغة والوصف والتحليل البصري مهمة الـ AI. أما التسعير والإجماليات وانتقالات الحالة فتعمل بكود حتمي — فئة كاملة من الأخطاء غير المتوقعة أُزيلت من المسار المالي.</div></div>
+      <div class="result"><div><b>تحقّق خروج، لا تفاؤل:</b> كل workflow ينتهي بإعادة قراءة قاعدة البيانات للتأكد أن ما كان مفترضًا كتابته كُتب فعلًا. لا يُعتبر نجاحًا ما لم يُثبَت — فتتحول الأعطال الصامتة إلى فورية ومرئية.</div></div>
+      <div class="result"><div><b>المهام الثقيلة خارج المحرك:</b> السكرابينج ومعالجة الصور والفيديو تعمل في خدمات Node.js مصغّرة عديمة الحالة، فلا يستطيع رندر بطيء أن يعطّل طبقة التنسيق.</div></div>
+      <div class="result"><div><b>إعدادات بدل كود:</b> المزوّد والموديل وعدد البوستات وقوالب الفيديو وألوان الهوية وشرائح الهامش وأسعار الشحن وتفعيل النشر — عشرات الإعدادات في قاعدة البيانات تقود السلوك. تغيير السلوك = تعديل خلية.</div></div>
+      <div class="result"><div><b>نظام إنذار واحد لكل شيء:</b> أي فشل في أي مكان يُدفع إلى تليجرام. معدل فشل 9.2% مقبول فقط لأن كل واحد من تلك الأعطال يُرى.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٥</span>أين تعمل</h2>
+    <p>هذه المنصة ليست بنية نظرية — إنها المحرك تحت باقي الأعمال في هذا البورتفوليو: <a href="commerce-os.html">نظام تشغيل التجارة بالذكاء الاصطناعي للراقي</a>، و<a href="salamasons.html">حلقة ذكاء الإعلانات لـ SalamaSons</a>، و<a href="jotia.html">منصة Jotia للدروبشيبينج</a>. نفس النسخة، نفس الأعراف، ثلاث مشاكل مختلفة.</p>
+    <div class="results">
+      <div class="result"><div>تحليلات تفاعل الإعلانات تدفع توصيات AI إلى تليجرام كل 4 ساعات.</div></div>
+      <div class="result"><div>زمن معالجة المنتج الواحد عبر سلسلة المحتوى انخفض من ساعات إلى دقائق.</div></div>
+      <div class="result"><div>معالجة الميديا تعمل محليًا بتكلفة تقارب الصفر — والتكلفة الوحيدة استدعاءات النصوص.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٦</span>ما الذي سأصلحه</h2>
+    <p>محاسبة صادقة: النسخة تحمل إصدارات مكررة من workflows نتيجة تجريب كثيف — عدة نسخ «v2» ومسودات تجريبية لم تُنظَّف أبدًا. هذه بصمة التجريب السريع لا الانضباط في الترتيب، وهي أول ما سأدمجه قبل تسليم هذا لفريق.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٧</span>المهارات المُظهَرة</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">هندسة workflows</span><span class="tag">تصميم أنظمة موزّعة</span>
+      <span class="tag">بوابة AI / تجريد المزوّدين</span><span class="tag">هندسة برومبت</span>
+      <span class="tag">خدمات Node.js مصغّرة</span><span class="tag">استخراج بيانات الويب</span>
+      <span class="tag">نمذجة حالة على PostgreSQL</span><span class="tag">مراقبة وإنذار</span>
+      <span class="tag">استضافة ذاتية وDocker</span><span class="tag">إدارة أسرار</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>محمد الطنبداوي</b> · eCommerce &amp; Growth Analyst — أتمتة وذكاء اصطناعي<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<script>
+function setLang(l){
+  document.getElementById('doc-en').style.display=(l==='en')?'':'none';
+  document.getElementById('doc-ar').style.display=(l==='ar')?'':'none';
+  document.querySelectorAll('.btn-en').forEach(b=>b.classList.toggle('active',l==='en'));
+  document.querySelectorAll('.btn-ar').forEach(b=>b.classList.toggle('active',l==='ar'));
+  document.documentElement.lang=l;
+  document.documentElement.dir=(l==='ar')?'rtl':'ltr';
+  window.scrollTo(0,0);
+}
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Growth &amp; Acquisition Intelligence · Case Study · Mohamed Eltanbedawy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/design-system.css">
+</head>
+<body>
+
+<!-- ============================= ENGLISH ============================= -->
+<div id="doc-en" dir="ltr">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">← tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button class="btn-en active" onclick="setLang('en')">English</button>
+      <button class="btn-ar" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">Case Study · MENA Ride-Hailing Leader · Analytics Product 04 / 07</div>
+    <h1 style="max-width:none">Growth &amp; Acquisition Intelligence</h1>
+    <p class="lead">From install to loyal user, tracked daily: paired daily / 30-day-rolling trends for the whole acquisition chain, a column-per-day MTD heatmap, and a new-user retention cohort that answers the question growth teams avoid — do they stick?</p>
+    <div class="tagrow">
+      <span class="tag">Acquisition Funnels</span><span class="tag">Cohort Analysis</span><span class="tag">Tableau</span>
+      <span class="tag">SQL</span><span class="tag">Rolling Windows</span><span class="tag">MTD Tracking</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="Product scorecard" style="margin-top:28px">
+      <div class="sc-head"><span class="t">product scorecard — structural facts</span><span class="live">production</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">2<em>×</em></div><div class="lbl">every metric charted daily and 30-day rolling, side by side</div></div>
+        <div class="metric"><div class="val">31</div><div class="lbl">columns — one per day — in the MTD heatmap</div></div>
+        <div class="metric"><div class="val">13</div><div class="lbl">months in the new-user retention cohort</div></div>
+        <div class="metric"><div class="val">6</div><div class="lbl">funnel stages — install to activation</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">Note on numbers: no figure from inside a client dashboard is presented here as an achievement. Published screenshots have absolute figures blurred.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">01</span>The Business Problem</h2>
+    <p>Acquisition spend is judged twice: did the funnel convert this month, and did the users it bought stay? Growth teams tracking daily numbers drown in noise; teams tracking monthly numbers react a month late. And a spike in signups means nothing if activation lags — or if the cohort churns by month two.</p>
+    <div class="callout">The goal: one product that reads acquisition at daily speed with rolling-window stability — and connects every acquisition month to its retention afterlife.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">02</span>My Role</h2>
+    <p>Sole analyst on the product: SQL for the install-to-activation chain, the paired daily/rolling view architecture, the MTD heatmap tracker, and the new-user cohort model.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">03</span>What I Built</h2>
+    <div class="grid2">
+      <div class="panel"><h3>Growth Dashboard — paired trends</h3><p>Installs, signups, new users, TPU, ARPU, and same-day activation rate — each charted twice, daily on the left, 30-day rolling on the right, with 30D rolling retention and graduation rates alongside. Noise and signal, on one screen.</p></div>
+      <div class="panel"><h3>Acquisition MTD Tracker</h3><p>A monthly summary strip (signups, registration conversion, activation rate, social-media activation) above a heatmap with one column per calendar day, split by city group and product grouping, with in-row relative coloring — a slow day shows up the same morning.</p></div>
+      <div class="panel"><h3>New-User Retention Cohort</h3><p>A 13-month triangle heatmap of monthly acquisition cohorts × months since activation, each cell carrying both retention percentage and absolute counts — the "do they stick" answer, per acquisition month.</p></div>
+      <div class="panel"><h3>Churn &amp; Margin Model (Sheets)</h3><p>A pivot-based model connecting customer segments to retention, trips, and margin by month, with team-query vs comparison splits. Described text-only: the file carries an internal data classification, so no screenshot is published.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">04</span>Signature Build Details</h2>
+    <div class="results">
+      <div class="result"><div><b>Daily and rolling, always paired:</b> every headline metric renders twice on purpose — the daily line catches events, the 30-day rolling line shows whether anything actually changed. One layout decision that ended arguments about noise.</div></div>
+      <div class="result"><div><b>A column per day:</b> the MTD heatmap gives each calendar day its own column across city and product groups — month-to-date pacing is a glance, not a query.</div></div>
+      <div class="result"><div><b>Funnel math with conversion at every joint:</b> signups → registered → activated with registration conversion and activation rate computed between each stage, monthly, weekly, and daily.</div></div>
+      <div class="result"><div><b>Graduation as a first-class metric:</b> beyond retention, a rolling graduation rate tracks users moving up engagement tiers — growth quality, not just growth volume.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">05</span>KPIs Defined &amp; Governed</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Activation Rate</span><span class="tag">Registration Conversion</span><span class="tag">ARPU</span>
+      <span class="tag">TPU</span><span class="tag">30D Retention</span><span class="tag">Graduation Rate</span>
+      <span class="tag">Reactivation</span>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">06</span>Decisions Enabled</h2>
+    <div class="results">
+      <div class="result"><div>Growth teams saw funnel pacing against the month in real time, not at review meetings.</div></div>
+      <div class="result"><div>The cohort triangle connected acquisition pushes to their retention outcomes, month by month.</div></div>
+      <div class="result"><div>Rolling views separated campaign spikes from actual trend changes before budgets moved.</div></div>
+    </div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Growth Dashboard — paired daily / rolling trends<br><em>(blur all absolute figures)</em><span class="file">assets/gro-growth-dashboard.png</span></span><img src="../assets/gro-growth-dashboard.png" alt="SCREENSHOT SLOT Growth Dashboard — paired daily / rolling trends (blur all absolute figure" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Acquisition MTD Tracker — daily heatmap<br><em>(blur all absolute figures)</em><span class="file">assets/gro-mtd-heatmap.png</span></span><img src="../assets/gro-mtd-heatmap.png" alt="SCREENSHOT SLOT Acquisition MTD Tracker — daily heatmap (blur all absolute figures)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">07</span>Skills Demonstrated</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Funnel analysis</span><span class="tag">Cohort analysis</span>
+      <span class="tag">Rolling-window design</span><span class="tag">MTD heatmap trackers</span>
+      <span class="tag">Growth metrics design</span><span class="tag">Advanced SQL</span>
+      <span class="tag">Sheets modeling</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>Mohamed Eltanbedawy</b> · Business &amp; Data Analyst — BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<!-- ============================= ARABIC ============================= -->
+<div id="doc-ar" dir="rtl" style="display:none">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">→ tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="اللغة">
+      <button class="btn-en" onclick="setLang('en')">English</button>
+      <button class="btn-ar active" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">دراسة حالة · شركة نقل تشاركي رائدة في الشرق الأوسط · منتج تحليلي 04 / 07</div>
+    <h1 style="max-width:none">ذكاء النمو والاستحواذ</h1>
+    <p class="lead">من التثبيت إلى المستخدم الوفي، متتبعًا يوميًا: اتجاهات مزدوجة يومي / متحرك 30 يومًا لسلسلة الاستحواذ كاملة، هيت ماب MTD بعمود لكل يوم، وكوهورت احتفاظ للمستخدمين الجدد يجيب السؤال الذي تتجنبه فرق النمو — هل يبقون؟</p>
+    <div class="tagrow">
+      <span class="tag">أقماع استحواذ</span><span class="tag">تحليل كوهورت</span><span class="tag">Tableau</span>
+      <span class="tag">SQL</span><span class="tag">نوافذ متحركة</span><span class="tag">تتبع MTD</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="سكوركارد المنتج" style="margin-top:28px">
+      <div class="sc-head"><span class="t">سكوركارد المنتج — حقائق بنيوية</span><span class="live">production</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">2<em>×</em></div><div class="lbl">كل مقياس مرسوم يوميًا ومتحرك 30 يومًا، جنبًا إلى جنب</div></div>
+        <div class="metric"><div class="val">31</div><div class="lbl">عمودًا — واحد لكل يوم — في هيت ماب الـ MTD</div></div>
+        <div class="metric"><div class="val">13</div><div class="lbl">شهرًا في كوهورت احتفاظ المستخدمين الجدد</div></div>
+        <div class="metric"><div class="val">6</div><div class="lbl">مراحل قمع — من التثبيت إلى التفعيل</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">ملاحظة عن الأرقام: لا يُعرض هنا أي رقم من داخل داشبوردات العميل كإنجاز. اللقطات المنشورة أرقامها المطلقة مموّهة.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠١</span>المشكلة</h2>
+    <p>إنفاق الاستحواذ يُحاكم مرتين: هل حوّل القمع هذا الشهر، وهل بقي المستخدمون الذين اشتراهم؟ فرق النمو التي تتابع أرقامًا يومية تغرق في الضوضاء؛ والتي تتابع أرقامًا شهرية تتفاعل متأخرة شهرًا. وقفزة التسجيلات لا تعني شيئًا إذا تأخر التفعيل — أو إذا تسرب الكوهورت بحلول الشهر الثاني.</p>
+    <div class="callout">الهدف: منتج واحد يقرأ الاستحواذ بسرعة يومية وباستقرار النوافذ المتحركة — ويربط كل شهر استحواذ بمصيره الاحتفاظي.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٢</span>دوري</h2>
+    <p>المحلل الوحيد على المنتج: SQL لسلسلة التثبيت-إلى-التفعيل، معمارية العروض المزدوجة يومي/متحرك، متتبع هيت ماب الـ MTD، ونموذج كوهورت المستخدمين الجدد.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٣</span>ما بنيته</h2>
+    <div class="grid2">
+      <div class="panel"><h3>داشبورد النمو — اتجاهات مزدوجة</h3><p>التثبيتات والتسجيلات والمستخدمون الجدد وTPU وARPU ومعدل التفعيل بنفس اليوم — كل منها مرسوم مرتين، يومي على جهة ومتحرك 30 يومًا على الأخرى، مع معدلي الاحتفاظ والترقّي المتحركين بجانبها. الضوضاء والإشارة، على شاشة واحدة.</p></div>
+      <div class="panel"><h3>متتبع الاستحواذ MTD</h3><p>شريط ملخص شهري (تسجيلات، تحويل التسجيل، معدل التفعيل، تفعيل السوشيال ميديا) فوق هيت ماب بعمود لكل يوم تقويمي، مقسمة بمجموعة المدينة وتجميعة المنتج، بتلوين نسبي داخل الصف — اليوم الضعيف يظهر صباح نفس اليوم.</p></div>
+      <div class="panel"><h3>كوهورت احتفاظ المستخدمين الجدد</h3><p>مثلث heatmap من 13 شهرًا لكوهورتات الاستحواذ الشهرية × الأشهر منذ التفعيل، كل خلية تحمل نسبة الاحتفاظ والأعداد المطلقة — إجابة «هل يبقون» لكل شهر استحواذ.</p></div>
+      <div class="panel"><h3>نموذج التسرب والهامش (Sheets)</h3><p>نموذج pivot يربط شرائح العملاء بالاحتفاظ والرحلات والهامش شهريًا، بتقسيمات مقارنة. يُوصف نصيًا فقط: الملف يحمل تصنيف بيانات داخلي، فلا تُنشر له لقطة.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٤</span>تفاصيل بناء مميزة</h2>
+    <div class="results">
+      <div class="result"><div><b>يومي ومتحرك، مزدوجان دائمًا:</b> كل مقياس رئيسي يُرسم مرتين عمدًا — الخط اليومي يلتقط الأحداث، والمتحرك 30 يومًا يُظهر هل تغيّر شيء فعلًا. قرار تخطيط واحد أنهى جدالات الضوضاء.</div></div>
+      <div class="result"><div><b>عمود لكل يوم:</b> هيت ماب الـ MTD تعطي كل يوم تقويمي عموده الخاص عبر مجموعات المدن والمنتجات — إيقاع الشهر-حتى-تاريخه نظرة، لا استعلام.</div></div>
+      <div class="result"><div><b>حساب قمعي بتحويل عند كل مفصل:</b> تسجيل ← اكتمال ← تفعيل مع تحويل التسجيل ومعدل التفعيل محسوبين بين كل مرحلتين، شهريًا وأسبوعيًا ويوميًا.</div></div>
+      <div class="result"><div><b>الترقّي مقياس من الدرجة الأولى:</b> بعد الاحتفاظ، معدل ترقٍّ متحرك يتتبع المستخدمين الصاعدين بين فئات التفاعل — جودة النمو، لا حجمه فقط.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٥</span>مؤشرات معرّفة ومحوكمة</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Activation Rate</span><span class="tag">Registration Conversion</span><span class="tag">ARPU</span>
+      <span class="tag">TPU</span><span class="tag">30D Retention</span><span class="tag">Graduation Rate</span>
+      <span class="tag">Reactivation</span>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٦</span>القرارات التي أتاحها</h2>
+    <div class="results">
+      <div class="result"><div>فرق النمو رأت إيقاع القمع مقابل الشهر لحظيًا، لا في اجتماعات المراجعة.</div></div>
+      <div class="result"><div>مثلث الكوهورت ربط حملات الاستحواذ بنتائجها الاحتفاظية، شهرًا بشهر.</div></div>
+      <div class="result"><div>العروض المتحركة فصلت قفزات الحملات عن تغيّرات الاتجاه الفعلية قبل تحريك الميزانيات.</div></div>
+    </div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>داشبورد النمو — الاتجاهات المزدوجة يومي / متحرك<br><em>(مع تمويه كل الأرقام المطلقة)</em><span class="file">assets/gro-growth-dashboard.png</span></span><img src="../assets/gro-growth-dashboard.png" alt="مكان سكرينشوت داشبورد النمو — الاتجاهات المزدوجة يومي / متحرك (مع تمويه كل الأرقام المطلقة" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>متتبع الاستحواذ MTD — الهيت ماب اليومية<br><em>(مع تمويه كل الأرقام المطلقة)</em><span class="file">assets/gro-mtd-heatmap.png</span></span><img src="../assets/gro-mtd-heatmap.png" alt="مكان سكرينشوت متتبع الاستحواذ MTD — الهيت ماب اليومية (مع تمويه كل الأرقام المطلقة)" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٧</span>المهارات المُظهَرة</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">تحليل قمعي</span><span class="tag">تحليل كوهورت</span>
+      <span class="tag">تصميم نوافذ متحركة</span><span class="tag">متتبعات هيت ماب MTD</span>
+      <span class="tag">تصميم مقاييس نمو</span><span class="tag">SQL متقدمة</span>
+      <span class="tag">نمذجة Sheets</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>محمد الطنبداوي</b> · Business &amp; Data Analyst — BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<script>
+function setLang(l){
+  document.getElementById('doc-en').style.display=(l==='en')?'':'none';
+  document.getElementById('doc-ar').style.display=(l==='ar')?'':'none';
+  document.querySelectorAll('.btn-en').forEach(b=>b.classList.toggle('active',l==='en'));
+  document.querySelectorAll('.btn-ar').forEach(b=>b.classList.toggle('active',l==='ar'));
+  document.documentElement.lang=l;
+  document.documentElement.dir=(l==='ar')?'rtl':'ltr';
+  window.scrollTo(0,0);
+}
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+# ملفات مؤقتة من Word/Office
+~$*
+*.tmp
+# نسخ الصور الأصلية (محلية فقط)
+assets/_originals/
+assets/_*
+# نظام التشغيل
+Thumbs.db
+Desktop.ini
+.DS_Store
