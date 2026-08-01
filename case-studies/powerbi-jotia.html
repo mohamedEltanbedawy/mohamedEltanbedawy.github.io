@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A Power BI order-lifecycle audit built on 156 real orders from a dropshipping operation I owned and ran: star schema, 35 DAX measures, a what-if recovery simulator, and two completion rates that disagree by 4.3 points.">
+<title>Jotia Order Audit in Power BI · Case Study · Mohamed Eltanbedawy</title>
+<link rel="canonical" href="https://mohamedeltanbedawy.github.io/case-studies/powerbi-jotia.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mohamed Eltanbedawy">
+<meta property="og:url" content="https://mohamedeltanbedawy.github.io/case-studies/powerbi-jotia.html">
+<meta property="og:title" content="Jotia Order Audit in Power BI · Case Study · Mohamed Eltanbedawy">
+<meta property="og:description" content="A Power BI order-lifecycle audit built on 156 real orders from a dropshipping operation I owned and ran: star schema, 35 DAX measures, a what-if recovery simulator, and two completion rates that disagree by 4.3 points.">
+<meta property="og:image" content="https://mohamedeltanbedawy.github.io/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mohamed Eltanbedawy — Business &amp; Data Analyst">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ar_EG">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jotia Order Audit in Power BI · Case Study · Mohamed Eltanbedawy">
+<meta name="twitter:description" content="156 real orders. A star schema, 35 DAX measures, and a completion rate that was understated by 4.3 points.">
+<meta name="twitter:image" content="https://mohamedeltanbedawy.github.io/assets/og-cover.png">
+<meta name="author" content="Mohamed Eltanbedawy">
+<meta name="theme-color" content="#0E7A5C">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/design-system.css">
+</head>
+<body>
+
+<!-- ============================= ENGLISH ============================= -->
+<div id="doc-en" dir="ltr">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">← tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button class="btn-en active" onclick="setLang('en')">English</button>
+      <button class="btn-ar" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">Case Study · My Own Operation · Power BI &amp; Data Modelling</div>
+    <h1 style="max-width:none">Jotia Order Audit — Measuring My Own Operation in Power BI</h1>
+    <p class="lead">I ran a dropshipping operation as owner, operator, and analyst. This is the Power BI audit of its order lifecycle, built on the 156 orders that survived in exportable form: a star schema, 35 DAX measures, a what-if recovery simulator, and a completion rate that turned out to be understated.</p>
+    <div class="hook">The interesting finding was not the cancellation rate. It was that <b>the number everyone would compute was wrong</b> — and that cancellation happened <b>late</b>, which changes who owns the problem.</div>
+    <div class="tagrow">
+      <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Star Schema</span>
+      <span class="tag">What-If Parameters</span><span class="tag">Data Quality Audit</span><span class="tag">Own Data</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="Case scorecard" style="margin-top:28px">
+      <div class="sc-head"><span class="t">case scorecard — verified against source</span><span class="live">my own data</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">156</div><div class="lbl">unique orders, zero duplicates</div></div>
+        <div class="metric"><div class="val">6</div><div class="lbl">tables — star schema, 4 relationships</div></div>
+        <div class="metric"><div class="val">35</div><div class="lbl">DAX measures in 7 folders</div></div>
+        <div class="metric"><div class="val">20<em>/20</em></div><div class="lbl">figures reconciled to source before publishing</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">This is my own operational data, not a client's and not a sample dataset. Every figure on this page can be recomputed from the source export.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">01</span>The Question</h2>
+    <p>I built and ran a dropshipping store for roughly eighteen months in Egypt: sourcing inventory through an affiliate supplier platform, running the ads, handling the orders. Cash on delivery, which in this market means a meaningful share of orders never complete. I knew the cancellation rate was bad. What I did not know was <i>why</i>, or what it had actually cost.</p>
+    <div class="callout">Two questions, one dataset: is the completion rate I would quote even correct — and is cancellation a marketing problem or an operations problem?</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">02</span>The Data — Including What Is Missing</h2>
+    <p>The operation ran longer and carried more orders than this export contains. What survived in exportable form is 156 unique orders between 7 September 2021 and 20 November 2022. I am publishing that number rather than the larger one I cannot evidence.</p>
+    <div class="results">
+      <div class="result"><div><b>Bursts, not continuity:</b> only <b>6 of the 15 calendar months</b> in the range contain any orders. That single fact removes the trend line from the entire report — a line drawn across nine empty months implies movement that never happened.</div></div>
+      <div class="result"><div><b>No cost data:</b> commission is gross affiliate commission, not net profit. Margin analysis is therefore out of scope, and the report says so on its face.</div></div>
+      <div class="result"><div><b>Anomalies retained, not cleaned:</b> one order carries a <b>negative commission of −£36</b> — a reversal. One order contains two line items in a single field. One governorate appeared under two spellings. The first two are flagged in the model with boolean columns; the third was normalised.</div></div>
+    </div>
+    <p style="margin-top:16px">Publishing the limitations was a deliberate choice. A dashboard that presents 156 orders as if they were a complete history is not a smaller lie than one that invents them.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">03</span>The Model</h2>
+    <p>A proper star schema rather than one flat table — because the point of this build was to demonstrate modelling, and because a flat table makes half the measures below impossible to write cleanly.</p>
+    <div class="arch">
+      <div class="layer"><div class="node accent"><div class="t">Dim_Date</div><div class="s">456 rows · marked as date table</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer">
+        <div class="node"><div class="t">Dim_Status</div><div class="s">3 rows · manual, for controlled sort</div></div>
+        <div class="node det"><div class="t">Fact_Orders</div><div class="s">156 rows</div></div>
+        <div class="node"><div class="t">Dim_Geography</div><div class="s">22 governorates → 5 regions</div></div>
+      </div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node"><div class="t">Dim_Product</div><div class="s">7 products → 4 families</div></div></div>
+      <div class="arch-note">plus three disconnected tables — a what-if parameter, a waterfall step table, and a timing-metric selector — deliberately unrelated to the fact</div>
+    </div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Power BI model view — star schema<span class="file">assets/pbi-jotia-model.png</span></span><img src="../assets/pbi-jotia-model.png" alt="Power BI model view showing the star schema: Fact_Orders surrounded by Dim_Date, Dim_Status, Dim_Geography and Dim_Product, with three disconnected helper tables" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    <div class="results" style="margin-top:20px">
+      <div class="result"><div><b>The third outcome:</b> the source had three statuses — Completed, Cancelled, In-Shipping. But an order last touched in November 2022 and still marked "In-Shipping" is not in transit; it was abandoned. I mapped it to a third resolution, <b>Unresolved</b>, rather than folding it into either success or failure.</div></div>
+      <div class="result"><div><b>Volatile columns removed:</b> the export carried "days from creation to today" fields that recompute every time the file is opened. Numbers that change daily for no business reason do not belong in a historical report.</div></div>
+      <div class="result"><div><b>Implicit measures disabled:</b> every numeric column is set to summarise as None, so nobody can drag a field onto a visual and get a meaningless sum. Auto date/time is off.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">04</span>Finding One — Two Completion Rates, One Dataset</h2>
+    <p>Fifteen orders were never resolved. Any completion rate computed over all 156 puts those fifteen in the denominator as though they were failures, when in truth their outcome is simply unknown.</p>
+    <div class="results">
+      <div class="result"><div><b>Delivery rate over all orders:</b> 63 ÷ 156 = <b>40.4%</b></div></div>
+      <div class="result"><div><b>Delivery rate over resolved orders only:</b> 63 ÷ 141 = <b>44.7%</b></div></div>
+      <div class="result"><div><b>Measurement gap:</b> <b>+4.3 percentage points</b> — the naive figure understates real performance by that much</div></div>
+    </div>
+    <div class="callout">Neither number is wrong. Reporting only one of them, without saying which, is.</div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Page 1 — Order Resolution Audit<span class="file">assets/pbi-jotia-page1.png</span></span><img src="../assets/pbi-jotia-page1.png" alt="Power BI page one: Order Resolution Audit, showing the two completion rates, the timing diagnosis, the lead-days distribution and the regional matrix" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">05</span>Finding Two — Cancellation Happens Late</h2>
+    <p>This is the finding that changes what you would actually do about the problem.</p>
+    <div class="results">
+      <div class="result"><div><b>Average days to deliver:</b> 2.37 (median 2, maximum 11)</div></div>
+      <div class="result"><div><b>Average days to cancel:</b> 8.40 (median 6, maximum <b>90</b>)</div></div>
+      <div class="result"><div><b>Gap:</b> <b>+6.03 days</b></div></div>
+    </div>
+    <p style="margin-top:16px">Customers who received their order received it in about two days. Customers who cancelled had waited roughly eight days first — and three orders from September 2021 were not closed out until 33, 33 and 90 days later.</p>
+    <div class="callout">If cancellation were <i>faster</i> than delivery, the cause would be targeting, price, or lead quality — a marketing problem. It is <b>slower</b>. This is a fulfilment problem, and it belongs to operations.</div>
+    <p>The geography supports the same diagnosis. Unresolved share rises steadily with distance from the capital: <b>Greater Cairo 7.5% → Canal 18.2% → Upper Egypt 29.4%</b>. Nearly a third of Upper Egypt orders were neither delivered nor cancelled — they were simply left.</p>
+    <p class="muted" style="font-size:13.5px">Regional rates are shown beside their order counts throughout, because a rate computed on five orders is not a conclusion.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">06</span>Finding Three — More Was Lost Than Earned</h2>
+    <div class="results">
+      <div class="result"><div><b>Commission booked:</b> £14,778 across £32,978 of gross order value — a 44.8% commission rate</div></div>
+      <div class="result"><div><b>Commission realised:</b> <b>£6,150</b> — a realisation rate of 41.6%</div></div>
+      <div class="result"><div><b>Lost to cancellation:</b> <b>£6,881</b></div></div>
+      <div class="result"><div><b>Sitting unresolved:</b> £1,747</div></div>
+    </div>
+    <div class="callout">More commission was lost to cancellation than was ever actually earned.</div>
+    <p>The waterfall proves the arithmetic rather than asserting it: three steps are supplied — booked, lost, at risk — and Power BI computes the total itself. That total lands on £6,150, which is the realised figure. The chart validates its own conclusion.</p>
+    <p>Beside it sits a what-if parameter. Move the recovery-rate slider and projected commission recomputes: at 25% recovery, £8,307; at 50%, £10,464; at 100%, £14,778 — back to the booked figure, as it must. It turns a static finding into a question the reader can interrogate.</p>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Page 2 — Commission Recovery<span class="file">assets/pbi-jotia-page2.png</span></span><img src="../assets/pbi-jotia-page2.png" alt="Power BI page two: Commission Recovery, showing the waterfall from booked to realised, the interactive recovery-rate simulator, monthly order volume and product family breakdown" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">07</span>Engineering Decisions</h2>
+    <div class="results">
+      <div class="result"><div><b>Reconciliation before visuals:</b> twenty figures were computed independently from the source file and matched against the model before a single chart was drawn. Twenty of twenty agreed. Building visuals on an unverified model means rebuilding them.</div></div>
+      <div class="result"><div><b>Dynamic titles:</b> several visual titles are DAX measures rather than typed text, so the narration recomputes under filter instead of contradicting the numbers beside it.</div></div>
+      <div class="result"><div><b>Disconnected tables by design:</b> the what-if parameter and the waterfall step table have no relationships. They are display scaffolding, not data — and a reader of the model can see that immediately.</div></div>
+      <div class="result"><div><b>Distributions in natural order:</b> the lead-days histogram is sorted by a dedicated sort column, not by count. A distribution sorted by frequency is a ranking wearing a distribution's clothes.</div></div>
+      <div class="result"><div><b>Fixed snapshot, not TODAY():</b> ageing is measured against a fixed date from the data, so the report says the same thing next year as it does today.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">08</span>Skills Demonstrated</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Power BI semantic modelling</span><span class="tag">Star schema design</span>
+      <span class="tag">DAX (CALCULATE, time logic, dynamic text)</span><span class="tag">What-if parameters</span>
+      <span class="tag">Waterfall &amp; distribution design</span><span class="tag">Data quality auditing</span>
+      <span class="tag">Reconciliation discipline</span><span class="tag">Honest limitations reporting</span>
+    </div>
+    <p style="margin-top:22px">The complete file is published with the model, the measures, and the DAX intact — open it and read the definitions rather than taking my word for any of it.</p>
+    <div class="tagrow" style="margin-top:6px">
+      <a class="act" href="../Jotia-Order-Audit.pbix" download>Download the .pbix ↓</a>
+      <a class="act" href="jotia.html">The engineering build behind it →</a>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>Mohamed Eltanbedawy</b> · Business &amp; Data Analyst — BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<!-- ============================= ARABIC ============================= -->
+<div id="doc-ar" dir="rtl" style="display:none">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">→ tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="اللغة">
+      <button class="btn-en" onclick="setLang('en')">English</button>
+      <button class="btn-ar active" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">دراسة حالة · عمليتي أنا · Power BI ونمذجة البيانات</div>
+    <h1 style="max-width:none">تدقيق أوردرات جوتيا — أقيس عمليتي أنا في Power BI</h1>
+    <p class="lead">شغّلت عملية دروبشيبينج كمالك ومشغّل ومحلل. دي تدقيق دورة حياة الأوردرات فيها بـ Power BI، مبني على الـ 156 أوردر اللي فضلت في صورة قابلة للتصدير: star schema، و35 مقياس DAX، ومحاكي استرداد تفاعلي، ومعدل إكمال طلع مقلّل من الأداء الحقيقي.</p>
+    <div class="hook">الاكتشاف المهم مكانش معدل الإلغاء. كان إن <b>الرقم اللي أي حد كان هيحسبه غلط</b> — وإن الإلغاء بيحصل <b>متأخر</b>، وده بيغيّر مين صاحب المشكلة أصلاً.</div>
+    <div class="tagrow">
+      <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Star Schema</span>
+      <span class="tag">What-If Parameters</span><span class="tag">تدقيق جودة بيانات</span><span class="tag">داتا خاصة</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="سكوركارد الحالة" style="margin-top:28px">
+      <div class="sc-head"><span class="t">سكوركارد — متحقق منه مقابل المصدر</span><span class="live">داتاي أنا</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">156</div><div class="lbl">أوردر فريد، صفر مكرر</div></div>
+        <div class="metric"><div class="val">6</div><div class="lbl">جداول — star schema و4 علاقات</div></div>
+        <div class="metric"><div class="val">35</div><div class="lbl">مقياس DAX في 7 فولدرات</div></div>
+        <div class="metric"><div class="val">20<em>/20</em></div><div class="lbl">رقم اتطابق مع المصدر قبل النشر</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">دي داتا تشغيلية خاصة بيا، مش داتا عميل ولا داتاسِت تدريبي. كل رقم في الصفحة دي يمكن إعادة حسابه من ملف التصدير الأصلي.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">01</span>السؤال</h2>
+    <p>بنيت وشغّلت متجر دروبشيبينج حوالي تمنتاشر شهر في مصر: بجيب البضاعة من منصة مورّد بالعمولة، وبشغّل الإعلانات، وبتابع الأوردرات. الدفع عند الاستلام — واللي معناه في السوق ده إن نسبة معتبرة من الأوردرات مبتكملش. كنت عارف إن معدل الإلغاء وحش. اللي مكنتش عارفه هو <i>ليه</i>، ولا كام كلّفني فعلاً.</p>
+    <div class="callout">سؤالين وداتاسِت واحد: هل معدل الإكمال اللي كنت هقوله صح أصلاً — وهل الإلغاء مشكلة تسويق ولا مشكلة تشغيل؟</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">02</span>الداتا — وكمان اللي ناقص فيها</h2>
+    <p>العملية اشتغلت مدة أطول وحملت أوردرات أكتر من اللي في ملف التصدير ده. اللي فضل في صورة قابلة للتصدير هو 156 أوردر فريد بين 7 سبتمبر 2021 و20 نوفمبر 2022. بنشر الرقم ده مش الرقم الأكبر اللي مش قادر أثبته.</p>
+    <div class="results">
+      <div class="result"><div><b>دفعات مش استمرارية:</b> <b>6 شهور بس من 15 شهر تقويمي</b> في المدى فيها أوردرات. الحقيقة دي لوحدها شالت خط الاتجاه من التقرير كله — خط مرسوم عبر تسع شهور فاضية بيوحي بحركة محصلتش.</div></div>
+      <div class="result"><div><b>مفيش بيانات تكلفة:</b> العمولة هنا عمولة إجمالية، مش ربح صافي. فتحليل الهامش خارج النطاق، والتقرير بيقول كده على وشه.</div></div>
+      <div class="result"><div><b>الشذوذات اتحفظت متنضفتش:</b> أوردر واحد عليه <b>عمولة سالبة −£36</b> — قيد عكس. وأوردر فيه صنفين في خانة واحدة. ومحافظة اتكتبت بإملاءين. الاتنين الأولانيين متعلّمين في الموديل بأعمدة منطقية، والتالتة اتوحّدت.</div></div>
+    </div>
+    <p style="margin-top:16px">نشر القيود كان قرار مقصود. الداشبورد اللي بتقدّم 156 أوردر كأنهم التاريخ الكامل مش كذبة أصغر من اللي بتخترع أوردرات.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">03</span>الموديل</h2>
+    <p>star schema حقيقي مش جدول واحد مسطح — لأن الهدف من البناء ده إظهار النمذجة، ولأن الجدول المسطح بيخلي نص المقاييس اللي تحت مستحيل كتابتها بشكل نضيف.</p>
+    <div class="arch">
+      <div class="layer"><div class="node accent"><div class="t">Dim_Date</div><div class="s">456 صف · متعلّم كجدول تاريخ</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer">
+        <div class="node"><div class="t">Dim_Status</div><div class="s">3 صفوف · يدوي، للتحكم في الترتيب</div></div>
+        <div class="node det"><div class="t">Fact_Orders</div><div class="s">156 صف</div></div>
+        <div class="node"><div class="t">Dim_Geography</div><div class="s">22 محافظة ← 5 أقاليم</div></div>
+      </div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node"><div class="t">Dim_Product</div><div class="s">7 منتجات ← 4 عائلات</div></div></div>
+      <div class="arch-note">بالإضافة لتلات جداول غير مرتبطة — معامل محاكاة، وجدول خطوات الشلال، ومحدد مقياس زمني — غير مرتبطة بالفاكت عن قصد</div>
+    </div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>عرض الموديل في Power BI — star schema<span class="file">assets/pbi-jotia-model.png</span></span><img src="../assets/pbi-jotia-model.png" alt="عرض الموديل في Power BI: Fact_Orders محاط بـ Dim_Date و Dim_Status و Dim_Geography و Dim_Product، وتلات جداول مساعدة غير مرتبطة" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    <div class="results" style="margin-top:20px">
+      <div class="result"><div><b>النتيجة التالتة:</b> المصدر كان فيه تلات حالات — Completed و Cancelled و In-Shipping. لكن أوردر آخر لمسة ليه نوفمبر 2022 ولسه مكتوب "جاري الشحن" مش في الشحن، ده اتساب. عملتله نتيجة تالتة، <b>غير محسوم</b>، بدل ما أحطه في النجاح أو الفشل.</div></div>
+      <div class="result"><div><b>الأعمدة المتغيرة اتشالت:</b> ملف التصدير كان فيه أعمدة "أيام من الإنشاء لحد النهاردة" بتتحسب من جديد كل ما الملف يتفتح. الأرقام اللي بتتغير يومياً بلا سبب تجاري ملهاش مكان في تقرير تاريخي.</div></div>
+      <div class="result"><div><b>المقاييس الضمنية مقفولة:</b> كل عمود رقمي متظبط على عدم التجميع، فمفيش حد يقدر يسحب حقل على فيجوال ويطلع مجموع بلا معنى. و auto date/time مقفول.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">04</span>الاكتشاف الأول — معدلان للإكمال وداتاسِت واحد</h2>
+    <p>خمستاشر أوردر متحسموش أبداً. وأي معدل إكمال محسوب على الـ 156 كلهم بيحط الخمستاشر دول في المقام كأنهم فشل، والحقيقة إن نتيجتهم ببساطة مش معروفة.</p>
+    <div class="results">
+      <div class="result"><div><b>معدل التوصيل على كل الأوردرات:</b> 63 ÷ 156 = <b>40.4%</b></div></div>
+      <div class="result"><div><b>معدل التوصيل على المحسوم فقط:</b> 63 ÷ 141 = <b>44.7%</b></div></div>
+      <div class="result"><div><b>فجوة القياس:</b> <b>+4.3 نقطة مئوية</b> — الرقم الساذج بيقلل من الأداء الحقيقي بالقدر ده</div></div>
+    </div>
+    <div class="callout">ولا واحد من الرقمين غلط. الغلط إنك تنشر واحد منهم بس، من غير ما تقول أنهي واحد.</div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>الصفحة 1 — تدقيق حسم الأوردرات<span class="file">assets/pbi-jotia-page1.png</span></span><img src="../assets/pbi-jotia-page1.png" alt="الصفحة الأولى في Power BI: تدقيق حسم الأوردرات، وفيها المعدلين، والتشخيص الزمني، وتوزيع أيام الحسم، وجدول الأقاليم" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">05</span>الاكتشاف التاني — الإلغاء بيحصل متأخر</h2>
+    <p>ده الاكتشاف اللي بيغيّر اللي هتعمله فعلاً تجاه المشكلة.</p>
+    <div class="results">
+      <div class="result"><div><b>متوسط أيام التوصيل:</b> 2.37 (وسيط 2، أقصى 11)</div></div>
+      <div class="result"><div><b>متوسط أيام الإلغاء:</b> 8.40 (وسيط 6، أقصى <b>90</b>)</div></div>
+      <div class="result"><div><b>الفرق:</b> <b>+6.03 يوم</b></div></div>
+    </div>
+    <p style="margin-top:16px">العملاء اللي استلموا، استلموا في حوالي يومين. العملاء اللي ألغوا، كانوا مستنيين حوالي تمن أيام الأول — وتلات أوردرات من سبتمبر 2021 متقفلوش غير بعد 33 و33 و90 يوم.</p>
+    <div class="callout">لو كان الإلغاء <i>أسرع</i> من التوصيل، كان السبب استهداف أو سعر أو جودة ليد — مشكلة تسويق. لكنه <b>أبطأ</b>. دي مشكلة تنفيذ وتوصيل، وصاحبها التشغيل.</div>
+    <p>والجغرافيا بتدعم نفس التشخيص. نسبة غير المحسوم بتزيد بثبات كل ما تبعد عن العاصمة: <b>القاهرة الكبرى 7.5% ← القناة 18.2% ← الصعيد 29.4%</b>. تقريباً تلت أوردرات الصعيد لا اتسلّمت ولا اتلغت — اتسابت وخلاص.</p>
+    <p class="muted" style="font-size:13.5px">نسب الأقاليم معروضة جنب عدد أوردراتها في كل مكان، لأن نسبة محسوبة على خمس أوردرات مش استنتاج.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">06</span>الاكتشاف التالت — الضايع أكبر من المكسوب</h2>
+    <div class="results">
+      <div class="result"><div><b>العمولة المسجّلة:</b> £14,778 على £32,978 قيمة أوردرات إجمالية — معدل عمولة 44.8%</div></div>
+      <div class="result"><div><b>العمولة المحققة:</b> <b>£6,150</b> — معدل تحقق 41.6%</div></div>
+      <div class="result"><div><b>الضايع في الإلغاء:</b> <b>£6,881</b></div></div>
+      <div class="result"><div><b>المعلّق غير المحسوم:</b> £1,747</div></div>
+    </div>
+    <div class="callout">العمولة اللي ضاعت في الإلغاء أكبر من اللي اتكسبت فعلاً.</div>
+    <p>والشلال بيثبت الحساب بدل ما يدّعيه: بيتحطله تلات خطوات بس — المسجّل، والضايع، والمعلّق — وPower BI بيحسب الإجمالي بنفسه. والإجمالي بيقع على £6,150، وهو رقم المحقق. الرسم بيتحقق من نتيجته بنفسه.</p>
+    <p>وجنبه معامل محاكاة. حرّك مؤشر معدل الاسترداد والعمولة المتوقعة بتتحسب من جديد: عند 25% استرداد، £8,307؛ وعند 50%، £10,464؛ وعند 100%، £14,778 — بترجع للرقم المسجّل، زي ما المفروض. فبيتحول الاكتشاف الساكن لسؤال القارئ يقدر يجرّبه.</p>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>الصفحة 2 — استرداد العمولة<span class="file">assets/pbi-jotia-page2.png</span></span><img src="../assets/pbi-jotia-page2.png" alt="الصفحة التانية في Power BI: استرداد العمولة، وفيها الشلال من المسجّل للمحقق، ومحاكي معدل الاسترداد التفاعلي، وحجم الأوردرات الشهري، وتقسيم عائلات المنتجات" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">07</span>قرارات هندسية</h2>
+    <div class="results">
+      <div class="result"><div><b>المطابقة قبل الفيجوالات:</b> عشرين رقم اتحسبوا بشكل مستقل من الملف المصدر واتطابقوا مع الموديل قبل ما يترسم أي رسم. عشرين من عشرين اتفقوا. بناء الفيجوالات على موديل غير متحقق منه معناه إعادة بنائها.</div></div>
+      <div class="result"><div><b>عناوين ديناميكية:</b> كذا عنوان فيجوال عبارة عن مقاييس DAX مش نص مكتوب، فالسرد بيتحسب من جديد تحت الفلتر بدل ما يناقض الأرقام اللي جنبه.</div></div>
+      <div class="result"><div><b>جداول غير مرتبطة عن قصد:</b> معامل المحاكاة وجدول خطوات الشلال مالهمش علاقات. دول سقالة عرض، مش داتا — واللي بيقرا الموديل بيشوف ده فوراً.</div></div>
+      <div class="result"><div><b>التوزيعات بترتيبها الطبيعي:</b> هيستوجرام أيام الحسم مترتب بعمود ترتيب مخصص، مش بالعدد. التوزيع المرتب بالتكرار ترتيب متنكر في هيئة توزيع.</div></div>
+      <div class="result"><div><b>لقطة ثابتة مش TODAY():</b> التقادم بيتقاس مقابل تاريخ ثابت من الداتا نفسها، فالتقرير بيقول نفس الكلام السنة الجاية زي النهاردة.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">08</span>المهارات المعروضة</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">نمذجة دلالية في Power BI</span><span class="tag">تصميم star schema</span>
+      <span class="tag">DAX (CALCULATE ومنطق زمني ونص ديناميكي)</span><span class="tag">معاملات محاكاة</span>
+      <span class="tag">تصميم شلالات وتوزيعات</span><span class="tag">تدقيق جودة بيانات</span>
+      <span class="tag">انضباط المطابقة</span><span class="tag">إعلان القيود بصدق</span>
+    </div>
+    <p style="margin-top:22px">الملف كامل منشور بالموديل والمقاييس والـ DAX زي ما هي — افتحه واقرا التعريفات بنفسك بدل ما تصدقني في أي حاجة.</p>
+    <div class="tagrow" style="margin-top:6px">
+      <a class="act" href="../Jotia-Order-Audit.pbix" download>حمّل ملف الـ pbix ↓</a>
+      <a class="act" href="jotia.html">البناء الهندسي وراه ←</a>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>محمد الطنبداوي</b> · Business &amp; Data Analyst — BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<script>
+function setLang(l){
+  document.getElementById('doc-en').style.display=(l==='en')?'':'none';
+  document.getElementById('doc-ar').style.display=(l==='ar')?'':'none';
+  document.querySelectorAll('.btn-en').forEach(b=>b.classList.toggle('active',l==='en'));
+  document.querySelectorAll('.btn-ar').forEach(b=>b.classList.toggle('active',l==='ar'));
+  document.documentElement.lang=l;
+  document.documentElement.dir=(l==='ar')?'rtl':'ltr';
+  window.scrollTo(0,0);
+}
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
+</body>
+</html>
