@@ -103,7 +103,7 @@
       <div class="layer"><div class="node"><div class="t">Dim_Product</div><div class="s">7 products → 4 families</div></div></div>
       <div class="arch-note">plus three disconnected tables — a what-if parameter, a waterfall step table, and a timing-metric selector — deliberately unrelated to the fact</div>
     </div>
-    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Power BI model view — star schema<span class="file">assets/pbi-jotia-model.png</span></span><img src="../assets/pbi-jotia-model.png" alt="Power BI model view showing the star schema: Fact_Orders surrounded by Dim_Date, Dim_Status, Dim_Geography and Dim_Product, with three disconnected helper tables" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Power BI model view — star schema<span class="file">assets/pbi-jotia-model.png</span></span><img src="../assets/pbi-jotia-model.png" alt="Power BI model view showing the star schema: Fact_Orders surrounded by Dim_Date, Dim_Status, Dim_Geography and Dim_Product, with three disconnected helper tables" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
     <div class="results" style="margin-top:20px">
       <div class="result"><div><b>The third outcome:</b> the source had three statuses — Completed, Cancelled, In-Shipping. But an order last touched in November 2022 and still marked "In-Shipping" is not in transit; it was abandoned. I mapped it to a third resolution, <b>Unresolved</b>, rather than folding it into either success or failure.</div></div>
       <div class="result"><div><b>Volatile columns removed:</b> the export carried "days from creation to today" fields that recompute every time the file is opened. Numbers that change daily for no business reason do not belong in a historical report.</div></div>
@@ -120,7 +120,7 @@
       <div class="result"><div><b>Measurement gap:</b> <b>+4.3 percentage points</b> — the naive figure understates real performance by that much</div></div>
     </div>
     <div class="callout">Neither number is wrong. Reporting only one of them, without saying which, is.</div>
-    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Page 1 — Order Resolution Audit<span class="file">assets/pbi-jotia-page1.png</span></span><img src="../assets/pbi-jotia-page1.png" alt="Power BI page one: Order Resolution Audit, showing the two completion rates, the timing diagnosis, the lead-days distribution and the regional matrix" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Page 1 — Order Resolution Audit<span class="file">assets/pbi-jotia-page1.png</span></span><img src="../assets/pbi-jotia-page1.png" alt="Power BI page one: Order Resolution Audit, showing the two completion rates, the timing diagnosis, the lead-days distribution and the regional matrix" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
   </section>
 
   <section>
@@ -148,7 +148,7 @@
     <div class="callout">More commission was lost to cancellation than was ever actually earned.</div>
     <p>The waterfall proves the arithmetic rather than asserting it: three steps are supplied — booked, lost, at risk — and Power BI computes the total itself. That total lands on £6,150, which is the realised figure. The chart validates its own conclusion.</p>
     <p>Beside it sits a what-if parameter. Move the recovery-rate slider and projected commission recomputes: at 25% recovery, £8,307; at 50%, £10,464; at 100%, £14,778 — back to the booked figure, as it must. It turns a static finding into a question the reader can interrogate.</p>
-    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Page 2 — Commission Recovery<span class="file">assets/pbi-jotia-page2.png</span></span><img src="../assets/pbi-jotia-page2.png" alt="Power BI page two: Commission Recovery, showing the waterfall from booked to realised, the interactive recovery-rate simulator, monthly order volume and product family breakdown" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Page 2 — Commission Recovery<span class="file">assets/pbi-jotia-page2.png</span></span><img src="../assets/pbi-jotia-page2.png" alt="Power BI page two: Commission Recovery, showing the waterfall from booked to realised, the interactive recovery-rate simulator, monthly order volume and product family breakdown" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
   </section>
 
   <section>
@@ -258,7 +258,7 @@
       <div class="layer"><div class="node"><div class="t">Dim_Product</div><div class="s">7 منتجات ← 4 عائلات</div></div></div>
       <div class="arch-note">بالإضافة لتلات جداول غير مرتبطة — معامل محاكاة، وجدول خطوات الشلال، ومحدد مقياس زمني — غير مرتبطة بالفاكت عن قصد</div>
     </div>
-    <div class="figure reveal"><span>مكان سكرينشوت<br>عرض الموديل في Power BI — star schema<span class="file">assets/pbi-jotia-model.png</span></span><img src="../assets/pbi-jotia-model.png" alt="عرض الموديل في Power BI: Fact_Orders محاط بـ Dim_Date و Dim_Status و Dim_Geography و Dim_Product، وتلات جداول مساعدة غير مرتبطة" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>عرض الموديل في Power BI — star schema<span class="file">assets/pbi-jotia-model.png</span></span><img src="../assets/pbi-jotia-model.png" alt="عرض الموديل في Power BI: Fact_Orders محاط بـ Dim_Date و Dim_Status و Dim_Geography و Dim_Product، وتلات جداول مساعدة غير مرتبطة" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
     <div class="results" style="margin-top:20px">
       <div class="result"><div><b>النتيجة التالتة:</b> المصدر كان فيه تلات حالات — Completed و Cancelled و In-Shipping. لكن أوردر آخر لمسة ليه نوفمبر 2022 ولسه مكتوب "جاري الشحن" مش في الشحن، ده اتساب. عملتله نتيجة تالتة، <b>غير محسوم</b>، بدل ما أحطه في النجاح أو الفشل.</div></div>
       <div class="result"><div><b>الأعمدة المتغيرة اتشالت:</b> ملف التصدير كان فيه أعمدة "أيام من الإنشاء لحد النهاردة" بتتحسب من جديد كل ما الملف يتفتح. الأرقام اللي بتتغير يومياً بلا سبب تجاري ملهاش مكان في تقرير تاريخي.</div></div>
@@ -275,7 +275,7 @@
       <div class="result"><div><b>فجوة القياس:</b> <b>+4.3 نقطة مئوية</b> — الرقم الساذج بيقلل من الأداء الحقيقي بالقدر ده</div></div>
     </div>
     <div class="callout">ولا واحد من الرقمين غلط. الغلط إنك تنشر واحد منهم بس، من غير ما تقول أنهي واحد.</div>
-    <div class="figure reveal"><span>مكان سكرينشوت<br>الصفحة 1 — تدقيق حسم الأوردرات<span class="file">assets/pbi-jotia-page1.png</span></span><img src="../assets/pbi-jotia-page1.png" alt="الصفحة الأولى في Power BI: تدقيق حسم الأوردرات، وفيها المعدلين، والتشخيص الزمني، وتوزيع أيام الحسم، وجدول الأقاليم" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>الصفحة 1 — تدقيق حسم الأوردرات<span class="file">assets/pbi-jotia-page1.png</span></span><img src="../assets/pbi-jotia-page1.png" alt="الصفحة الأولى في Power BI: تدقيق حسم الأوردرات، وفيها المعدلين، والتشخيص الزمني، وتوزيع أيام الحسم، وجدول الأقاليم" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
   </section>
 
   <section>
@@ -303,7 +303,7 @@
     <div class="callout">العمولة اللي ضاعت في الإلغاء أكبر من اللي اتكسبت فعلاً.</div>
     <p>والشلال بيثبت الحساب بدل ما يدّعيه: بيتحطله تلات خطوات بس — المسجّل، والضايع، والمعلّق — وPower BI بيحسب الإجمالي بنفسه. والإجمالي بيقع على £6,150، وهو رقم المحقق. الرسم بيتحقق من نتيجته بنفسه.</p>
     <p>وجنبه معامل محاكاة. حرّك مؤشر معدل الاسترداد والعمولة المتوقعة بتتحسب من جديد: عند 25% استرداد، £8,307؛ وعند 50%، £10,464؛ وعند 100%، £14,778 — بترجع للرقم المسجّل، زي ما المفروض. فبيتحول الاكتشاف الساكن لسؤال القارئ يقدر يجرّبه.</p>
-    <div class="figure reveal"><span>مكان سكرينشوت<br>الصفحة 2 — استرداد العمولة<span class="file">assets/pbi-jotia-page2.png</span></span><img src="../assets/pbi-jotia-page2.png" alt="الصفحة التانية في Power BI: استرداد العمولة، وفيها الشلال من المسجّل للمحقق، ومحاكي معدل الاسترداد التفاعلي، وحجم الأوردرات الشهري، وتقسيم عائلات المنتجات" hidden loading="lazy" onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>الصفحة 2 — استرداد العمولة<span class="file">assets/pbi-jotia-page2.png</span></span><img src="../assets/pbi-jotia-page2.png" alt="الصفحة التانية في Power BI: استرداد العمولة، وفيها الشلال من المسجّل للمحقق، ومحاكي معدل الاسترداد التفاعلي، وحجم الأوردرات الشهري، وتقسيم عائلات المنتجات" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
   </section>
 
   <section>
