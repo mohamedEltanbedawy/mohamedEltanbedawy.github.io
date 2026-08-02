@@ -185,7 +185,7 @@
       <div class="metric"><div class="val">2,000<em>+</em></div><div class="lbl">SQL queries written against live production tables</div></div>
       <div class="metric"><div class="val">50<em>+</em></div><div class="lbl">BI dashboards shipped across nine countries</div></div>
       <div class="metric"><div class="val">~50</div><div class="lbl">n8n automation workflows in production</div></div>
-      <div class="metric"><div class="val">10<em>+</em></div><div class="lbl">client eCommerce stores built &amp; operated end to end</div></div>
+      <div class="metric"><div class="val">10<em>+</em></div><div class="lbl">eCommerce stores built &amp; operated end to end</div></div>
     </div>
   </div>
 
@@ -278,7 +278,7 @@
   <section id="analytics" style="padding:40px 0 24px">
     <div class="label"><svg class="ico"><use href="#i-chart"/></svg><b>02</b> — Analytics &amp; BI</div>
     <h2 class="sec-title">The analysis that answered the expensive questions</h2>
-    <p class="sec-sub">24 documented dashboards across nine countries · click any row to open it · figures blurred by policy</p>
+    <p class="sec-sub">24 documented dashboards across nine countries, plus the internal tooling built alongside them · click any row to open it · figures blurred by policy</p>
     <div class="xlist">
       <details class="xrow">
         <summary>
@@ -369,6 +369,19 @@
           <p>City averages hide everything a territory manager needs. I built zone maps for Jeddah and Riyadh from real district-composition files — with the district-to-zone mapping documented inside the dashboard so definitions are auditable — colored by a selectable metric, beside three-level hierarchical tables running from zone group down to individual districts.</p>
           <div class="k-line">polygon mapping · metric selector · zone hierarchy · outlet performance</div>
           <a class="act" href="case-studies/geospatial-intelligence.html">Read the case study <svg class="ico"><use href="#i-arrow"/></svg></a>
+        </div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-flow"/></svg></span>
+          <span class="xmain"><span class="xtitle">Careem for Business — Reconciliation Tooling</span><span class="xsum">Not a dashboard: the Apps Script tool that made a recurring manual comparison mechanical.</span></span>
+          <span class="xmeta">11 sheets</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody">
+          <p>The corporate billing system exported a complete list of invoices and companies every cycle, but nothing that said what had changed. I built a diff engine that matches on unique ID in both directions — catching what arrived <em>and</em> what disappeared — and an HTML Service review dialog that turns the comparison into a recorded Tracked / Not Tracked decision. Eleven sheets acting as an explicit state machine, with every record in exactly one state at a time.</p>
+          <div class="k-line">diff engine · onEdit triggers · HTML Service UI · state modelling · internal tooling</div>
+          <a class="act" href="case-studies/c4b-reconciliation.html">Read the case study <svg class="ico"><use href="#i-arrow"/></svg></a>
         </div>
       </details>
       <details class="xrow">
@@ -923,7 +936,7 @@
   <section id="ar-analytics" style="padding:40px 0 24px">
     <div class="label"><svg class="ico"><use href="#i-chart"/></svg><b>02</b> — التحليلات والـ BI</div>
     <h2 class="sec-title">التحليل الذي أجاب الأسئلة الأغلى</h2>
-    <p class="sec-sub">24 داشبورد موثقًا عبر تسع دول · انقر أي صف ليُفتح · الأرقام مموّهة بسياسة معلنة</p>
+    <p class="sec-sub">24 داشبورد موثقًا عبر تسع دول، ومعها الأدوات الداخلية المبنية جنبها · انقر أي صف ليُفتح · الأرقام مموّهة بسياسة معلنة</p>
     <div class="xlist">
       <details class="xrow">
         <summary>
@@ -1014,6 +1027,19 @@
           <p>متوسطات المدينة تخفي كل ما يحتاجه مدير المنطقة. بنيت خرائط مناطق لجدة والرياض من ملفات تكوين أحياء حقيقية — وخريطة الحي-إلى-المنطقة موثقة داخل الداشبورد فالتعريفات قابلة للتدقيق — ملوّنة بمقياس قابل للاختيار، بجانب جداول هرمية بثلاثة مستويات من مجموعة المنطقة نزولًا للأحياء.</p>
           <div class="k-line">خرائط مضلعات · مُحدد مقياس · هرمية المناطق · أداء المنافذ</div>
           <a class="act" href="case-studies/geospatial-intelligence.html">اقرأ دراسة الحالة <svg class="ico" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></a>
+        </div>
+      </details>
+      <details class="xrow">
+        <summary>
+          <span class="xicon"><svg viewBox="0 0 24 24"><use href="#i-flow"/></svg></span>
+          <span class="xmain"><span class="xtitle">كريم للشركات — أداة المطابقة</span><span class="xsum">مش داشبورد: أداة Apps Script اللي خلّت مقارنة يدوية متكررة تبقى آلية.</span></span>
+          <span class="xmeta">١١ شيت</span>
+          <span class="xtoggle"></span>
+        </summary>
+        <div class="xbody">
+          <p>نظام الفوترة كان بيصدّر قايمة كاملة بالفواتير والشركات كل دورة، بس مفيش حاجة بتقول إيه اللي اتغيّر. بنيت محرّك مقارنة بيطابق على المعرّف الفريد في الاتجاهين — بيمسك اللي وصل <em>واللي اختفى</em> — ونافذة مراجعة بـ HTML Service بتحوّل المقارنة لقرار مسجّل Tracked / Not Tracked. ١١ شيت شغالين كآلة حالات صريحة، وكل سجل في حالة واحدة بالظبط.</p>
+          <div class="k-line">محرك مقارنة · onEdit triggers · واجهة HTML Service · نمذجة حالات · أدوات داخلية</div>
+          <a class="act" href="case-studies/c4b-reconciliation.html">اقرأ دراسة الحالة <svg class="ico" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></a>
         </div>
       </details>
       <details class="xrow">

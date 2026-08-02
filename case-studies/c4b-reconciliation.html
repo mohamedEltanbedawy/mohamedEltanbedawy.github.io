@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="An internal reconciliation tool for Careem for Business built in Google Apps Script: a diff engine that classifies every corporate invoice and company as new, deleted or active between data dumps, with an in-sheet review dialog that turns the comparison into a decision.">
+<title>Careem for Business — Reconciliation Tooling · Case Study · Mohamed Eltanbedawy</title>
+<link rel="canonical" href="https://mohamedeltanbedawy.github.io/case-studies/c4b-reconciliation.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mohamed Eltanbedawy">
+<meta property="og:url" content="https://mohamedeltanbedawy.github.io/case-studies/c4b-reconciliation.html">
+<meta property="og:title" content="Careem for Business — Reconciliation Tooling · Case Study · Mohamed Eltanbedawy">
+<meta property="og:description" content="An internal reconciliation tool for Careem for Business built in Google Apps Script: a diff engine that classifies every corporate invoice and company as new, deleted or active between data dumps, with an in-sheet review dialog that turns the comparison into a decision.">
+<meta property="og:image" content="https://mohamedeltanbedawy.github.io/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mohamed Eltanbedawy — Business &amp; Data Analyst">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ar_EG">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Careem for Business — Reconciliation Tooling · Case Study · Mohamed Eltanbedawy">
+<meta name="twitter:description" content="An internal reconciliation tool for Careem for Business built in Google Apps Script: a diff engine that classifies every corporate invoice and company as new, deleted or active between data dumps.">
+<meta name="twitter:image" content="https://mohamedeltanbedawy.github.io/assets/og-cover.png">
+<meta name="author" content="Mohamed Eltanbedawy">
+<meta name="theme-color" content="#0E7A5C">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/design-system.css">
+</head>
+<body>
+
+<!-- ============================= ENGLISH ============================= -->
+<div id="doc-en" dir="ltr">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">← tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button class="btn-en active" onclick="setLang('en')">English</button>
+      <button class="btn-ar" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">Case Study · Careem · Internal Tooling &amp; Automation</div>
+    <h1 style="max-width:none">Careem for Business — Reconciliation Tooling in Apps Script</h1>
+    <p class="lead">The corporate billing system produced a flat dump of invoices and companies. Nothing in it said what had <em>changed</em>. I built a diff engine in Google Apps Script that classifies every record as new, deleted or active between dumps, and an in-sheet review dialog that turns that comparison into a recorded decision.</p>
+    <div class="tagrow">
+      <span class="tag">Google Apps Script</span><span class="tag">Diff Engine</span><span class="tag">HTML Service</span>
+      <span class="tag">Internal Tooling</span><span class="tag">Reconciliation</span><span class="tag">Process Automation</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="Case scorecard" style="margin-top:28px">
+      <div class="sc-head"><span class="t">case scorecard — structural facts</span><span class="live">shipped &amp; used</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">2</div><div class="lbl">mirrored pipelines — invoices and companies</div></div>
+        <div class="metric"><div class="val">11</div><div class="lbl">sheets forming the state machine</div></div>
+        <div class="metric"><div class="val">3</div><div class="lbl">states per record — new, deleted, active</div></div>
+        <div class="metric"><div class="val">0</div><div class="lbl">rows compared by eye</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">No client names, invoice values, company counts or colleague names appear anywhere in this case study. The mechanism is the story, not the data that ran through it.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">01</span>The Problem</h2>
+    <p>Careem for Business is the corporate side of the product: companies hold accounts, employees ride against them, and invoices settle monthly. Each cycle the billing system exported a fresh dump into a spreadsheet — the current, complete list of invoices and of companies.</p>
+    <p>A complete list answers the wrong question. What the team actually needed to know was the <strong>delta</strong>: which companies appeared since last cycle, which disappeared, and which were already known and simply carried forward. That difference is what drives follow-up, because a company that vanished from the dump is either churned or a data error, and both need a human to look.</p>
+    <p>Getting there meant eyeballing two long lists side by side, every cycle. That is exactly the task humans are worst at and least willing to redo carefully the second time.</p>
+    <div class="callout">The goal was never a report. It was to make the comparison impossible to get wrong, and to make the decision that follows it get written down.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">02</span>The Architecture</h2>
+    <p>The workbook is a small state machine. Each entity — invoices and companies — moves through the same five sheets, and a shared <span class="mono">View</span> sheet renders whichever slice the operator asked for.</p>
+    <div class="arch">
+      <div class="layer"><div class="node accent"><div class="t">Data Dump</div><div class="s">this cycle's export from billing</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node det"><div class="t">Diff Engine</div><div class="s">onEdit trigger · matches on unique ID against Previous Data Dump</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer">
+        <div class="node"><div class="t">New</div><div class="s">present now, absent before</div></div>
+        <div class="node"><div class="t">Deleted</div><div class="s">present before, absent now</div></div>
+      </div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node"><div class="t">Review Dialog</div><div class="s">HTML Service modal · select rows · assign Tracked / Not Tracked</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node det"><div class="t">Dashboard Filter</div><div class="s">the decided, active set — the only sheet downstream reporting reads</div></div></div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">Two identical chains run in parallel — <span class="mono">Invoice-*</span> and <span class="mono">Company-*</span> — because invoices and companies churn independently and conflating them hides both.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">03</span>What I Built</h2>
+    <div class="grid2">
+      <div class="panel"><h3>The Diff Engine</h3><p>An <span class="mono">onEdit</span> trigger fires when the Data Dump sheet changes. It reads the current dump and the previous one, and matches on the unique ID column in both directions: IDs present now but not before are appended to <span class="mono">New</span>; IDs present before but not now are appended to <span class="mono">Deleted</span>. Two passes, one per direction, because a one-directional check silently misses everything that left.</p></div>
+      <div class="panel"><h3>The Review Dialog</h3><p>A modal built with HTML Service renders the pending rows as a table with a checkbox per row and a single status dropdown. The operator ticks what they have verified, chooses Tracked or Not Tracked, and submits. The dialog is deliberately narrow: it shows the unique ID and the name and nothing else, because a review screen that shows everything invites reading instead of deciding.</p></div>
+      <div class="panel"><h3>Decisions That Move Rows</h3><p>On submit, each selected row is written to the Dashboard Filter sheet with its assigned status and removed from the pending sheet. A record cannot sit in two states at once, and the pending queue drains as it is worked — so the length of the New sheet is itself the backlog indicator, with no separate tracker to fall out of sync.</p></div>
+      <div class="panel"><h3>The Operator Menu</h3><p>A custom <span class="mono">C4B</span> menu attaches to the spreadsheet on open, grouped by intent rather than by function name: the two update actions first, then the six view actions (new, deleted and active, for each entity), then per-account-manager views. Every action clears the shared View sheet before writing, so a stale render can never be mistaken for a current one.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">04</span>Engineering Decisions</h2>
+    <div class="results">
+      <div class="result"><div><b>Match on ID, never on row position.</b> Rows arrive in whatever order the export produced. Comparing by position would have manufactured a false delta on every cycle where the source reordered.</div></div>
+      <div class="result"><div><b>Delete from the bottom up.</b> The submit loop walks the sheet in reverse. Deleting rows top-down shifts every index beneath the deletion and silently skips records — the classic spreadsheet-automation bug, and the reason the loop is written the way it is.</div></div>
+      <div class="result"><div><b>Confirm with a count, not a checkmark.</b> After a submit the dialog reports how many records were updated and offers "Do Again" or "Close". An operator who expected twelve and reads seven catches the problem immediately, in the moment, rather than a cycle later.</div></div>
+      <div class="result"><div><b>One sheet is the truth.</b> Downstream reporting reads only Dashboard Filter. The dump, the previous dump and the pending queues are working state — visible, auditable, and deliberately not what anyone reports on.</div></div>
+      <div class="result"><div><b>Clear before render.</b> Every view action wipes the shared View sheet before pasting. Appending to a stale render is how someone ends up reporting last month's list with this month's title.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">05</span>Why It Matters</h2>
+    <p>This is the least glamorous thing in the portfolio and one of the most representative. It was not requested as a project. It existed because a recurring manual comparison was producing errors, and the fastest way to stop the errors was to make the comparison mechanical and the decision recorded.</p>
+    <div class="results">
+      <div class="result"><div><b>Tooling, not reporting.</b> Most analyst output describes a process. This one changed it — the reconciliation stopped being a person's careful afternoon and became a trigger plus a review queue.</div></div>
+      <div class="result"><div><b>State modelling in a spreadsheet.</b> Eleven sheets acting as an explicit state machine, with a record in exactly one state at any time. The same discipline I later applied to a PostgreSQL product pipeline in the <a href="commerce-os.html">Commerce OS</a>, just with cheaper primitives.</div></div>
+      <div class="result"><div><b>Built for the person using it.</b> Custom menu, modal dialog, count-based confirmation. The engineering is unremarkable; the interface decisions are what made it get used instead of abandoned.</div></div>
+      <div class="result"><div><b>Written while I was a Business Analyst.</b> Alongside the Tableau and SQL work — the same instinct that had already produced <a href="../index.html#analytics">the dashboard stack</a>, pointed at an operational process instead of a question.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">06</span>Skills Demonstrated</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Google Apps Script</span><span class="tag">HTML Service UI</span>
+      <span class="tag">Event-driven triggers</span><span class="tag">Set reconciliation</span>
+      <span class="tag">State modelling</span><span class="tag">Internal tool design</span>
+      <span class="tag">Process automation</span><span class="tag">Operational UX</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>Mohamed Eltanbedawy</b> · Business &amp; Data Analyst — BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<!-- ============================= ARABIC ============================= -->
+<div id="doc-ar" dir="rtl" style="display:none">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">← tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="اللغة">
+      <button class="btn-en" onclick="setLang('en')">English</button>
+      <button class="btn-ar active" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">دراسة حالة · كريم · أدوات داخلية وأتمتة</div>
+    <h1 style="max-width:none">كريم للشركات — أداة مطابقة بـ Apps Script</h1>
+    <p class="lead">نظام الفوترة كان بيطلّع كشفاً مسطّحاً بالفواتير والشركات. مفيش حاجة فيه بتقول إيه اللي <em>اتغيّر</em>. بنيت محرّك مقارنة بـ Google Apps Script بيصنّف كل سجل كجديد أو محذوف أو نشط بين كشف وكشف، ونافذة مراجعة جوّه الشيت بتحوّل المقارنة دي لقرار مسجّل.</p>
+    <div class="tagrow">
+      <span class="tag">Google Apps Script</span><span class="tag">محرك مقارنة</span><span class="tag">HTML Service</span>
+      <span class="tag">أدوات داخلية</span><span class="tag">مطابقة</span><span class="tag">أتمتة عمليات</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="بطاقة الحالة" style="margin-top:28px">
+      <div class="sc-head"><span class="t">بطاقة الحالة — حقائق بنيوية</span><span class="live">اتسلّمت واتستخدمت</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">٢</div><div class="lbl">خطّان متطابقان — الفواتير والشركات</div></div>
+        <div class="metric"><div class="val">١١</div><div class="lbl">شيت بتكوّن آلة الحالات</div></div>
+        <div class="metric"><div class="val">٣</div><div class="lbl">حالات لكل سجل — جديد، محذوف، نشط</div></div>
+        <div class="metric"><div class="val">٠</div><div class="lbl">صفوف بتتقارن بالعين</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">مفيش أسماء عملاء ولا قيم فواتير ولا أعداد شركات ولا أسماء زملاء في أي مكان في دراسة الحالة دي. الآلية هي القصة، مش الداتا اللي عدّت فيها.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠١</span>المشكلة</h2>
+    <p>كريم للشركات هو الجانب المؤسسي من المنتج: شركات بتفتح حسابات، موظفينها بيركبوا عليها، والفواتير بتتسوّى شهرياً. كل دورة كان نظام الفوترة بيصدّر كشفاً جديداً في شيت — القايمة الحالية الكاملة للفواتير وللشركات.</p>
+    <p>القايمة الكاملة بتجاوب على السؤال الغلط. اللي الفريق كان محتاج يعرفه فعلاً هو <strong>الفرق</strong>: أنهي شركات ظهرت من آخر دورة، وأنهي اختفت، وأنهي كانت معروفة أصلاً وكمّلت زي ما هي. الفرق ده هو اللي بيحرّك المتابعة، لأن شركة اختفت من الكشف يا إما سابت الخدمة يا إما فيه خطأ بيانات — والاتنين محتاجين حد يبص.</p>
+    <p>الوصول لده كان معناه إنك تبصّ على قايمتين طويلتين جنب بعض، كل دورة. وده بالظبط الشغل اللي البني آدم أسوأ ما يكون فيه وأقل ما يكون مستعد يعيده بتركيز تاني مرة.</p>
+    <div class="callout">الهدف مكانش تقرير أبداً. الهدف كان إن المقارنة تبقى مستحيل تغلط فيها، وإن القرار اللي بيتبعها يتكتب.</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٢</span>المعمارية</h2>
+    <p>الشيت عبارة عن آلة حالات صغيرة. كل كيان — الفواتير والشركات — بيتحرّك خلال نفس الخمس شيتات، وشيت <span class="mono">View</span> مشترك بيعرض الشريحة اللي المشغّل طلبها.</p>
+    <div class="arch">
+      <div class="layer"><div class="node accent"><div class="t">Data Dump</div><div class="s">تصدير الدورة دي من الفوترة</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node det"><div class="t">محرّك المقارنة</div><div class="s">onEdit trigger · مطابقة بالمعرّف الفريد مع الكشف السابق</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer">
+        <div class="node"><div class="t">New</div><div class="s">موجود دلوقتي، مكانش موجود قبل</div></div>
+        <div class="node"><div class="t">Deleted</div><div class="s">كان موجود، مش موجود دلوقتي</div></div>
+      </div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node"><div class="t">نافذة المراجعة</div><div class="s">HTML Service · اختيار صفوف · تعيين Tracked / Not Tracked</div></div></div>
+      <div class="arrow">↓</div>
+      <div class="layer"><div class="node det"><div class="t">Dashboard Filter</div><div class="s">المجموعة النشطة المقرَّرة — الشيت الوحيد اللي التقارير بتقراه</div></div></div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">خطّان متطابقان بيشتغلوا بالتوازي — <span class="mono">Invoice-*</span> و<span class="mono">Company-*</span> — لأن الفواتير والشركات بتتغيّر باستقلال، وخلطهم بيخفي الاتنين.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٣</span>اللي بنيته</h2>
+    <div class="grid2">
+      <div class="panel"><h3>محرّك المقارنة</h3><p><span class="mono">onEdit</span> trigger بيشتغل لما شيت الـ Data Dump يتغيّر. بيقرا الكشف الحالي والكشف السابق، ويطابق على عمود المعرّف الفريد <b>في الاتجاهين</b>: المعرّفات الموجودة دلوقتي ومكانتش قبل بتتضاف لـ <span class="mono">New</span>؛ والموجودة قبل ومش موجودة دلوقتي بتتضاف لـ <span class="mono">Deleted</span>. مرّتان، واحدة لكل اتجاه — لأن الفحص في اتجاه واحد بيفوّت بصمت كل اللي مشي.</p></div>
+      <div class="panel"><h3>نافذة المراجعة</h3><p>مودال متبني بـ HTML Service بيعرض الصفوف المعلّقة كجدول فيه checkbox لكل صف وقايمة حالة واحدة. المشغّل بيعلّم على اللي تحقق منه، يختار Tracked أو Not Tracked، ويبعت. النافذة ضيّقة عن قصد: بتعرض المعرّف والاسم وبس، لأن شاشة مراجعة بتعرض كل حاجة بتغري بالقراية بدل القرار.</p></div>
+      <div class="panel"><h3>قرارات بتحرّك الصفوف</h3><p>عند الإرسال، كل صف مختار بيتكتب في شيت Dashboard Filter بحالته المعيَّنة وبيتشال من شيت الانتظار. السجل مايقدرش يقعد في حالتين في نفس الوقت، وطابور الانتظار بيفضى وهو بيتشتغل — يعني طول شيت New هو نفسه مؤشر المتأخرات، من غير متتبّع منفصل يقع في عدم تطابق.</p></div>
+      <div class="panel"><h3>منيو المشغّل</h3><p>منيو <span class="mono">C4B</span> مخصص بيتركب على الشيت عند الفتح، مجمّع حسب النية مش حسب اسم الدالة: إجراءا التحديث الأول، بعدين ستة إجراءات عرض (جديد ومحذوف ونشط، لكل كيان)، بعدين عروض لكل مسؤول حساب. كل إجراء بيمسح شيت الـ View المشترك قبل ما يكتب، فعرض قديم عمره ما هيتلخبط مع عرض حالي.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٤</span>قرارات هندسية</h2>
+    <div class="results">
+      <div class="result"><div><b>المطابقة بالمعرّف، مش بموقع الصف أبداً.</b> الصفوف بتيجي بالترتيب اللي التصدير طلّعه. المقارنة بالموقع كانت هتصنّع فرقاً وهمياً في كل دورة يعيد فيها المصدر الترتيب.</div></div>
+      <div class="result"><div><b>الحذف من تحت لفوق.</b> حلقة الإرسال بتمشي في الشيت بالعكس. الحذف من فوق لتحت بيزحلق كل فهرس تحت المحذوف وبيتخطّى سجلات بصمت — ده الباج الكلاسيكي في أتمتة الشيتات، وده سبب كتابة الحلقة بالشكل ده.</div></div>
+      <div class="result"><div><b>التأكيد برقم، مش بعلامة صح.</b> بعد أي إرسال بتقول النافذة كام سجل اتحدّث وبتدّي خيار «Do Again» أو «Close». المشغّل اللي كان متوقع اتناشر وقرا سبعة بيمسك المشكلة فوراً في لحظتها، مش بعد دورة.</div></div>
+      <div class="result"><div><b>شيت واحد هو الحقيقة.</b> التقارير بتقرا Dashboard Filter بس. الكشف والكشف السابق وطوابير الانتظار كلها حالة شغل — ظاهرة وقابلة للتدقيق، ومش حاجة حد بيقرّر عليها، عن قصد.</div></div>
+      <div class="result"><div><b>امسح قبل ما تعرض.</b> كل إجراء عرض بيمسح شيت الـ View المشترك قبل اللصق. الإضافة فوق عرض قديم هي اللي بتخلّي حد يطلّع قايمة الشهر اللي فات بعنوان الشهر ده.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٥</span>ليه ده مهم</h2>
+    <p>ده أقل حاجة بريقاً في البورتفوليو، ومن أكترهم تمثيلاً ليّا. مكانش مطلوباً كمشروع. هو موجود لأن مقارنة يدوية متكررة كانت بتنتج أخطاء، وأسرع طريقة توقّف الأخطاء إن المقارنة تبقى آلية والقرار يتسجّل.</p>
+    <div class="results">
+      <div class="result"><div><b>أداة، مش تقرير.</b> معظم مخرجات الأنالِست بتوصف عملية. دي غيّرتها — المطابقة بطّلت تبقى «بعد ضهر مركّز» لواحد وبقت trigger وطابور مراجعة.</div></div>
+      <div class="result"><div><b>نمذجة حالات جوّه شيت.</b> ١١ شيت شغالين كآلة حالات صريحة، والسجل في حالة واحدة بالظبط في أي وقت. نفس الانضباط اللي طبّقته بعدين على بايبلاين منتجات في PostgreSQL في <a href="commerce-os.html">الـ Commerce OS</a>، بس بأدوات أرخص.</div></div>
+      <div class="result"><div><b>متبني للشخص اللي هيستخدمه.</b> منيو مخصص، نافذة مودال، تأكيد بعدد. الهندسة نفسها عادية؛ قرارات الواجهة هي اللي خلّته يُستخدم بدل ما يتساب.</div></div>
+      <div class="result"><div><b>اتكتب وأنا Business Analyst.</b> جنب شغل Tableau والـ SQL — نفس الغريزة اللي طلّعت <a href="../index.html#analytics">مجموعة الداشبوردات</a>، بس موجّهة لعملية تشغيلية بدل سؤال.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">٠٦</span>المهارات المُظهَرة</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Google Apps Script</span><span class="tag">واجهات HTML Service</span>
+      <span class="tag">Triggers مدفوعة بالأحداث</span><span class="tag">مطابقة المجموعات</span>
+      <span class="tag">نمذجة الحالات</span><span class="tag">تصميم أدوات داخلية</span>
+      <span class="tag">أتمتة العمليات</span><span class="tag">تجربة المشغّل</span>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>محمد الطنبداوي</b> · Business &amp; Data Analyst — BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<script>
+function setLang(l){
+  document.getElementById('doc-en').style.display=(l==='en')?'':'none';
+  document.getElementById('doc-ar').style.display=(l==='ar')?'':'none';
+  document.querySelectorAll('.btn-en').forEach(b=>b.classList.toggle('active',l==='en'));
+  document.querySelectorAll('.btn-ar').forEach(b=>b.classList.toggle('active',l==='ar'));
+  document.documentElement.lang=l;
+  document.documentElement.dir=(l==='ar')?'rtl':'ltr';
+  window.scrollTo(0,0);
+}
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
+</body>
+</html>
