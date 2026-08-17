@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="An internal reconciliation tool for Careem for Business built in Google Apps Script: a diff engine that classifies every corporate invoice and company as new, deleted or active between data dumps, with an in-sheet review dialog that turns the comparison into a decision.">
-<title>Careem for Business — Reconciliation Tooling · Case Study · Mohamed Eltanbedawy</title>
+<meta name="description" content="An internal reconciliation tool for the corporate (B2B) side of a MENA ride-hailing platform, built in Google Apps Script: a diff engine that classifies every corporate invoice and company as new, deleted or active between data dumps, with an in-sheet review dialog that turns the comparison into a decision.">
+<title>Corporate Accounts (B2B) — Reconciliation Tooling · Case Study · Mohamed Eltanbedawy</title>
 <link rel="canonical" href="https://mohamedeltanbedawy.github.io/case-studies/c4b-reconciliation.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Mohamed Eltanbedawy">
 <meta property="og:url" content="https://mohamedeltanbedawy.github.io/case-studies/c4b-reconciliation.html">
-<meta property="og:title" content="Careem for Business — Reconciliation Tooling · Case Study · Mohamed Eltanbedawy">
-<meta property="og:description" content="An internal reconciliation tool for Careem for Business built in Google Apps Script: a diff engine that classifies every corporate invoice and company as new, deleted or active between data dumps, with an in-sheet review dialog that turns the comparison into a decision.">
+<meta property="og:title" content="Corporate Accounts (B2B) — Reconciliation Tooling · Case Study · Mohamed Eltanbedawy">
+<meta property="og:description" content="An internal reconciliation tool for the corporate (B2B) side of a MENA ride-hailing platform, built in Google Apps Script: a diff engine that classifies every corporate invoice and company as new, deleted or active between data dumps, with an in-sheet review dialog that turns the comparison into a decision.">
 <meta property="og:image" content="https://mohamedeltanbedawy.github.io/assets/og-cover.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -18,8 +18,8 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="ar_EG">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Careem for Business — Reconciliation Tooling · Case Study · Mohamed Eltanbedawy">
-<meta name="twitter:description" content="An internal reconciliation tool for Careem for Business built in Google Apps Script: a diff engine that classifies every corporate invoice and company as new, deleted or active between data dumps.">
+<meta name="twitter:title" content="Corporate Accounts (B2B) — Reconciliation Tooling · Case Study · Mohamed Eltanbedawy">
+<meta name="twitter:description" content="An internal reconciliation tool for the corporate (B2B) side of a MENA ride-hailing platform, built in Google Apps Script: a diff engine that classifies every corporate invoice and company as new, deleted or active between data dumps.">
 <meta name="twitter:image" content="https://mohamedeltanbedawy.github.io/assets/og-cover.png">
 <meta name="author" content="Mohamed Eltanbedawy">
 <meta name="theme-color" content="#0E7A5C">
@@ -48,8 +48,8 @@
 <div class="wrap-narrow">
 
   <header class="hero" style="padding:56px 0 8px">
-    <div class="eyebrow">Case Study · Careem · Internal Tooling &amp; Automation</div>
-    <h1 style="max-width:none">Careem for Business — Reconciliation Tooling in Apps Script</h1>
+    <div class="eyebrow">Case Study · MENA Ride-Hailing Leader · Internal Tooling &amp; Automation</div>
+    <h1 style="max-width:none">Corporate Accounts (B2B) — Reconciliation Tooling in Apps Script</h1>
     <p class="lead">The corporate billing system produced a flat dump of invoices and companies. Nothing in it said what had <em>changed</em>. I built a diff engine in Google Apps Script that classifies every record as new, deleted or active between dumps, and an in-sheet review dialog that turns that comparison into a recorded decision.</p>
     <div class="tagrow">
       <span class="tag">Google Apps Script</span><span class="tag">Diff Engine</span><span class="tag">HTML Service</span>
@@ -72,7 +72,7 @@
 
   <section>
     <h2><span class="h-num">01</span>The Problem</h2>
-    <p>Careem for Business is the corporate side of the product: companies hold accounts, employees ride against them, and invoices settle monthly. Each cycle the billing system exported a fresh dump into a spreadsheet — the current, complete list of invoices and of companies.</p>
+    <p>The corporate (B2B) side of the product: companies hold accounts, employees ride against them, and invoices settle monthly. Each cycle the billing system exported a fresh dump into a spreadsheet — the current, complete list of invoices and of companies.</p>
     <p>A complete list answers the wrong question. What the team actually needed to know was the <strong>delta</strong>: which companies appeared since last cycle, which disappeared, and which were already known and simply carried forward. That difference is what drives follow-up, because a company that vanished from the dump is either churned or a data error, and both need a human to look.</p>
     <p>Getting there meant eyeballing two long lists side by side, every cycle. That is exactly the task humans are worst at and least willing to redo carefully the second time.</p>
     <div class="callout">The goal was never a report. It was to make the comparison impossible to get wrong, and to make the decision that follows it get written down.</div>
@@ -176,8 +176,8 @@
 <div class="wrap-narrow">
 
   <header class="hero" style="padding:56px 0 8px">
-    <div class="eyebrow">دراسة حالة · كريم · أدوات داخلية وأتمتة</div>
-    <h1 style="max-width:none">كريم للشركات — أداة مطابقة بـ Apps Script</h1>
+    <div class="eyebrow">دراسة حالة · شركة نقل تشاركي رائدة في الشرق الأوسط · أدوات داخلية وأتمتة</div>
+    <h1 style="max-width:none">حسابات الشركات (B2B) — أداة مطابقة بـ Apps Script</h1>
     <p class="lead">نظام الفوترة كان بيطلّع كشفاً مسطّحاً بالفواتير والشركات. مفيش حاجة فيه بتقول إيه اللي <em>اتغيّر</em>. بنيت محرّك مقارنة بـ Google Apps Script بيصنّف كل سجل كجديد أو محذوف أو نشط بين كشف وكشف، ونافذة مراجعة جوّه الشيت بتحوّل المقارنة دي لقرار مسجّل.</p>
     <div class="tagrow">
       <span class="tag">Google Apps Script</span><span class="tag">محرك مقارنة</span><span class="tag">HTML Service</span>
@@ -200,7 +200,7 @@
 
   <section>
     <h2><span class="h-num">٠١</span>المشكلة</h2>
-    <p>كريم للشركات هو الجانب المؤسسي من المنتج: شركات بتفتح حسابات، موظفينها بيركبوا عليها، والفواتير بتتسوّى شهرياً. كل دورة كان نظام الفوترة بيصدّر كشفاً جديداً في شيت — القايمة الحالية الكاملة للفواتير وللشركات.</p>
+    <p>الجانب المؤسسي (B2B) من المنتج: شركات بتفتح حسابات، موظفينها بيركبوا عليها، والفواتير بتتسوّى شهرياً. كل دورة كان نظام الفوترة بيصدّر كشفاً جديداً في شيت — القايمة الحالية الكاملة للفواتير وللشركات.</p>
     <p>القايمة الكاملة بتجاوب على السؤال الغلط. اللي الفريق كان محتاج يعرفه فعلاً هو <strong>الفرق</strong>: أنهي شركات ظهرت من آخر دورة، وأنهي اختفت، وأنهي كانت معروفة أصلاً وكمّلت زي ما هي. الفرق ده هو اللي بيحرّك المتابعة، لأن شركة اختفت من الكشف يا إما سابت الخدمة يا إما فيه خطأ بيانات — والاتنين محتاجين حد يبص.</p>
     <p>الوصول لده كان معناه إنك تبصّ على قايمتين طويلتين جنب بعض، كل دورة. وده بالظبط الشغل اللي البني آدم أسوأ ما يكون فيه وأقل ما يكون مستعد يعيده بتركيز تاني مرة.</p>
     <div class="callout">الهدف مكانش تقرير أبداً. الهدف كان إن المقارنة تبقى مستحيل تغلط فيها، وإن القرار اللي بيتبعها يتكتب.</div>
