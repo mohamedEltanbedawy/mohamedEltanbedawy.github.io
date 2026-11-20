@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K7M6HJHR');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A company-wide Power BI build for a fictional Saudi restaurant chain on sample data: 45 files from six systems, one shared model with 23 tables and 115 DAX measures, and eight report pages from sales to the general ledger.">
+<title>Mawqid Restaurants: One Model for Every Department in Power BI · Case Study · Mohamed Eltanbedawy</title>
+<link rel="canonical" href="https://mohamedeltanbedawy.github.io/case-studies/powerbi-mawqid.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mohamed Eltanbedawy">
+<meta property="og:url" content="https://mohamedeltanbedawy.github.io/case-studies/powerbi-mawqid.html">
+<meta property="og:title" content="Mawqid Restaurants: One Model for Every Department in Power BI · Case Study · Mohamed Eltanbedawy">
+<meta property="og:description" content="Ten branches, six source systems, one shared model. The branch with the highest sales kept 3.8% of its revenue as profit.">
+<meta property="og:image" content="https://mohamedeltanbedawy.github.io/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mohamed Eltanbedawy, Business and Data Analyst">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ar_EG">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mawqid Restaurants: One Model for Every Department in Power BI">
+<meta name="twitter:description" content="Ten branches, six source systems, one shared model. The branch with the highest sales kept 3.8% of its revenue as profit.">
+<meta name="twitter:image" content="https://mohamedeltanbedawy.github.io/assets/og-cover.png">
+<meta name="author" content="Mohamed Eltanbedawy">
+<meta name="theme-color" content="#0E7A5C">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/design-system.css">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K7M6HJHR"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ============================= ENGLISH ============================= -->
+<div id="doc-en" dir="ltr">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">← tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button class="btn-en active" onclick="setLang('en')">English</button>
+      <button class="btn-ar" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">Case Study · Sample Data · Power BI &amp; Data Modelling</div>
+    <h1 style="max-width:none">Mawqid Restaurants: One Power&nbsp;BI Model for Every Department</h1>
+    <p class="lead">A company-wide Power BI build for a fictional Saudi restaurant chain with ten branches, three of them in Tabuk. Point of sale, four delivery apps, inventory, HR, customer feedback and the general ledger, loaded from 45 messy files into one shared model and read through eight report pages.</p>
+    <div class="hook">Every department had its own report and its own truth. Put on one model, the branch with the <b>highest sales kept 3.8% of its revenue as profit</b> against a 14% budget, and each department's report held one part of the reason.</div>
+    <div class="tagrow">
+      <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Power Query</span><span class="tag">Star Schema</span>
+      <span class="tag">Restaurants &amp; F&amp;B</span><span class="tag">KSA</span><span class="tag">Sample Data</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="Case scorecard" style="margin-top:28px">
+      <div class="sc-head"><span class="t">case scorecard · reconciled across systems</span><span class="live">sample data</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">45</div><div class="lbl">source files from six systems, 22 months</div></div>
+        <div class="metric"><div class="val">23</div><div class="lbl">tables, 11 facts at seven grains, 41 relationships</div></div>
+        <div class="metric"><div class="val">115</div><div class="lbl">DAX measures in eight folders</div></div>
+        <div class="metric"><div class="val">0.00</div><div class="lbl">payroll and commissions gap against the ledger</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">The data is synthetic: a fictional chain, generated for this build with Saudi restaurant patterns. Every figure on this page describes the sample data and the method, not a real business. Delivery app names are real brands used as labels; their numbers say nothing about those companies.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">01</span>The Question</h2>
+    <p>A restaurant owner gets a sales report from the point of sale, a settlement from each delivery app, a stock count from the kitchen, a payroll file from HR and a profit and loss from the accountant. Each one is right on its own. None of them answers the question the owner actually has.</p>
+    <div class="callout">Which branches make money, which only look busy, and which department holds the reason?</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">02</span>The Data: Six Systems That Do Not Agree on a Branch Name</h2>
+    <p>45 files from January 2025 to October 2026: hourly point-of-sale exports, monthly item sales, a settlement file from each of HungerStation, Jahez, Keeta and ToYou, purchase invoices, stock counts, a waste log, recipes, employees, timesheets, payroll, 15,436 reviews and complaints, the general ledger and the budget. About 730,000 rows in total.</p>
+    <div class="results">
+      <div class="result"><div><b>One branch, four names:</b> the point of sale says B04, the ledger says CC104, HR says RUH-OLY, and every delivery app writes the branch its own way. Jahez writes it in Arabic, and two cities each have a district with the same name, so the app mapping is keyed on city and branch together.</div></div>
+      <div class="result"><div><b>Four date formats:</b> day first in one app, month first in another, ISO in the rest, and 05-Mar-2023 in HR. Money arrives as "SAR 1,234.50" text in one file, and one app has no commission-rate column at all.</div></div>
+      <div class="result"><div><b>The usual mess:</b> 30 purchase lines exported twice, chicken bought in 10 kg cartons but counted in kilos, waste reasons typed seven ways, Saudi nationality spelled four ways, a column added to the POS export in January 2026, and a budget with the months as columns.</div></div>
+      <div class="result"><div><b>Two missing days:</b> one branch's hourly POS files skip 14 and 15 August 2025. The item report, the apps and the ledger all have them.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">03</span>The Model: Eleven Facts, One Set of Dimensions</h2>
+    <p>Eleven fact tables at seven grains, from one row per branch, hour and channel to one row per ledger account and month. They never join each other. Date, branch, item, ingredient, supplier, channel and account are shared, so one Branch slicer reaches sales, the kitchen, the staff and the profit and loss at once.</p>
+    <div class="results" style="margin-top:20px">
+      <div class="result"><div><b>Monthly tables on the first of the month:</b> item sales, stock counts, payroll, the ledger and the budget join the date table on the month's first day, and daily facts roll up to the same months.</div></div>
+      <div class="result"><div><b>Theoretical usage from recipes:</b> items sold times grams per recipe, through a recipe bridge. Actual usage is opening stock plus purchases minus closing stock. What is left after recorded waste is the unexplained variance.</div></div>
+      <div class="result"><div><b>One inactive relationship:</b> stock counts relate to the date table twice, as closing stock for their own month and as opening stock for the next. The second is inactive and switched on with USERELATIONSHIP inside the measure.</div></div>
+      <div class="result"><div><b>No second filter path:</b> employees are not related to branches. Headcount, exits and Saudization move the branch filter onto the employee's branch with TREATAS, so the slicer works without an ambiguous model.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">04</span>Finding One: The Busiest Branch Keeps the Least</h2>
+    <p>Riyadh Al Olaya had the chain's highest revenue in 2026, SAR 9.30M before VAT, and an EBITDA margin of 3.8% against a 14% budget. Tabuk Al Muruj made SAR 5.65M and kept 24.2%. No single department's report shows this. Each one shows a piece of it.</p>
+    <div class="results">
+      <div class="result"><div><b>Sales:</b> delivery is 68% of Olaya's sales, against 32% to 48% in the other branches.</div></div>
+      <div class="result"><div><b>Delivery apps:</b> commissions take 16% of its revenue.</div></div>
+      <div class="result"><div><b>Kitchen:</b> waste is 7.1% of food cost, against about 2.3% elsewhere.</div></div>
+      <div class="result"><div><b>People:</b> SAR 105.6 of sales per labour hour against 118 to 132, overtime of only 1.7%, and 36 exits since January 2025. The branch is overstaffed and churning, not short of hands.</div></div>
+      <div class="result"><div><b>Customers:</b> the lowest rating in the chain, 3.79.</div></div>
+    </div>
+    <div class="callout">Revenue ranks the branches. Profit ranks them differently, and the reason is spread across four departments.</div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>People<span class="file">assets/pbi-mawqid-people.png</span></span><img src="../assets/pbi-mawqid-people.png" alt="Power BI people page: six KPI cards, sales per labour hour by branch with Al Olaya lowest, headcount by role and nationality, labour cost and overtime by quarter, and a people scorecard by branch" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Executive Summary<span class="file">assets/pbi-mawqid-executive.png</span></span><img src="../assets/pbi-mawqid-executive.png" alt="Power BI executive page: six KPI cards, a branch scorecard with sales, delivery share, food cost, waste, labour cost and EBITDA, monthly revenue with EBITDA margin, and a key findings panel" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">05</span>Finding Two: A Beef Price Rise the Menu Only Half Covered</h2>
+    <p>The beef supplier raised minced beef 18% from March 2026. Chain food cost moved from 29.7% to 32.0% of sales. The 5% menu increase in June brought it back to 31.1%, not to where it was.</p>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Kitchen &amp; Inventory<span class="file">assets/pbi-mawqid-kitchen.png</span></span><img src="../assets/pbi-mawqid-kitchen.png" alt="Power BI kitchen page: five KPI cards, actual against theoretical food cost by month, minced beef cost per kg jumping in March 2026, waste and unexplained variance by branch, and food cost by ingredient" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">06</span>Finding Three: A New Manager, and Beef That Leaves Without a Record</h2>
+    <p>Jeddah Al Hamra changed branch manager on 10 November 2025. From that month, the beef the kitchen used but neither sold nor logged as waste rose from about 1% of usage to about 11%, and lamb and chicken followed.</p>
+    <div class="results">
+      <div class="result"><div><b>The customer side agrees:</b> "inconsistent portions" went from 5.6% to 28.6% of the branch's complaints in the same months.</div></div>
+      <div class="result"><div><b>What the data does not prove:</b> portions served larger than the recipe is the likely reading, but stock data alone cannot tell portioning from loss. The report flags a variance to check on the floor, not a cause.</div></div>
+    </div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Customers<span class="file">assets/pbi-mawqid-customers.png</span></span><img src="../assets/pbi-mawqid-customers.png" alt="Power BI customers page: four KPI cards, complaints by type, average rating by branch, Al Hamra share of complaints about inconsistent portions rising from late 2025, and complaint mix by branch" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">07</span>Finding Four: Keeta Brings Orders and Keeps the Money</h2>
+    <p>Keeta's share of delivery orders grew from 9% to 26%. Its commission rose from 12% to 21% in July 2025, it carries the deepest restaurant-funded discount at 9.2%, and the smallest basket. After commission and discount, a Keeta order returns SAR 56.87 to the restaurant against SAR 67.79 on Jahez.</p>
+    <div class="results">
+      <div class="result"><div><b>Service as well as price:</b> 15.6% of Keeta orders arrive late, the highest of the four, and its rating is the lowest at 4.12.</div></div>
+      <div class="result"><div><b>The budget missed it:</b> delivery commissions in 2026 run 25% over budget, because the budget did not plan for delivery growth.</div></div>
+    </div>
+    <div class="callout">Order count says Keeta is a growth channel. Payout per order says every Keeta order moved from another app costs the restaurant about eleven riyals.</div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Delivery Apps<span class="file">assets/pbi-mawqid-delivery.png</span></span><img src="../assets/pbi-mawqid-delivery.png" alt="Power BI delivery apps page: six KPI cards, monthly orders by app, order value against payout per order for each app, an app economics table, and late delivery rate by branch" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">08</span>Finding Five: The New Branch Paid Back Slower Than Planned</h2>
+    <p>Riyadh Al Malqa opened on 15 September 2025, with rent and pre-opening costs from July. It lost about SAR 900K from July to November and turned profitable in December. The budget assumed it would reach normal sales in three months; October came in at SAR 414K against a SAR 555K budget.</p>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Finance<span class="file">assets/pbi-mawqid-finance.png</span></span><img src="../assets/pbi-mawqid-finance.png" alt="Power BI finance page: six KPI cards, EBITDA margin against budget by branch, where each riyal of revenue goes by branch, profit and loss against budget, and monthly EBITDA against budget" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">09</span>What I Would Tell the Owner</h2>
+    <div class="results">
+      <div class="result"><div><b>Fix Olaya before opening another branch.</b> Cut the roster to the sales per labour hour of the other Riyadh branches, start a waste review, and push dine-in and pickup with its own offers. It is the biggest branch, so every point of margin there is worth the most.</div></div>
+      <div class="result"><div><b>Renegotiate or rebalance Keeta.</b> Reduce the restaurant-funded discount first, then ask for a lower commission against the volume. Track payout per order, not orders.</div></div>
+      <div class="result"><div><b>Audit portions at Al Hamra.</b> Weigh plates against the recipe for two weeks and compare the variance after.</div></div>
+      <div class="result"><div><b>Reprice beef dishes, not the whole menu.</b> The June increase spread the cost over items that did not need it.</div></div>
+      <div class="result"><div><b>Rebuild the delivery budget</b> on the current channel mix, so commissions stop showing as a surprise.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">10</span>Engineering Decisions</h2>
+    <div class="results">
+      <div class="result"><div><b>Systems reconciled before any page:</b> payroll against the ledger and app commissions against the ledger both match to zero. Food cost rebuilt from purchases and stock counts misses the ledger by SAR 84 on SAR 34M.</div></div>
+      <div class="result"><div><b>A gap explained to the riyal:</b> hourly sales sit SAR 39,806.42 below the item report. That is exactly the two missing days at one branch, and the app files miss the POS by SAR 15,937.35, the app orders on those same two days.</div></div>
+      <div class="result"><div><b>A bug the laptop's clock caused:</b> on Egypt's daylight-saving start days, parsed dates came back at 01:00 and no longer matched the date table, so 1,165 app orders dropped out of two apps. Dates are now built from their year, month and day parts, and every type conversion runs in en-US whatever the machine's language.</div></div>
+      <div class="result"><div><b>Growth on comparable days only:</b> year-on-year growth compares dates that have a year before them, so it reads 19.5% instead of 142%, and the new branch is labelled rather than inflating it.</div></div>
+      <div class="result"><div><b>The model as code:</b> the project is saved as a Power BI Project, with the model in TMDL and the pages in PBIR, generated by scripts and kept in version control.</div></div>
+      <div class="result"><div><b>A month axis that reads the same everywhere:</b> monthly charts run on a text YYYY-MM column, because a date axis prints month names in the viewer's Windows language.</div></div>
+    </div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Sales Overview<span class="file">assets/pbi-mawqid-sales.png</span></span><img src="../assets/pbi-mawqid-sales.png" alt="Power BI sales overview page: five KPI cards, monthly net sales with delivery share, sales by business-day hour, and net sales by branch and channel" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Sales Patterns<span class="file">assets/pbi-mawqid-patterns.png</span></span><img src="../assets/pbi-mawqid-patterns.png" alt="Power BI sales patterns page: average daily sales by hour on normal days against Ramadan, sales by weekday, category share by channel, menu items ranked by sales, and delivery and cash share by quarter" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">11</span>Skills Demonstrated</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Multi-source Power Query cleaning</span><span class="tag">Eleven-fact star schema</span>
+      <span class="tag">DAX (TREATAS, USERELATIONSHIP, SAMEPERIODLASTYEAR)</span><span class="tag">Recipe-based food cost</span>
+      <span class="tag">Profit and loss against budget</span><span class="tag">Cross-system reconciliation</span>
+      <span class="tag">Restaurant operations: delivery apps, labour, waste</span><span class="tag">Power BI Projects (TMDL, PBIR)</span>
+    </div>
+    <p style="margin-top:22px">The sample dataset is published as it was handed to Power BI, mess included. Load it and recompute any number on this page.</p>
+    <div class="tagrow" style="margin-top:6px">
+      <a class="act" href="../Mawqid-Restaurants-Sample-Data.zip" download>Download the sample dataset (.zip) ↓</a>
+      <a class="act" href="powerbi-saudi-store.html">The Saudi store audit →</a>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>Mohamed Eltanbedawy</b> · Business &amp; Data Analyst, BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<!-- ============================= ARABIC ============================= -->
+<div id="doc-ar" dir="rtl" style="display:none">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">→ tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="اللغة">
+      <button class="btn-en" onclick="setLang('en')">English</button>
+      <button class="btn-ar active" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">دراسة حالة · بيانات تجريبية · Power BI ونمذجة البيانات</div>
+    <h1 style="max-width:none">مطاعم موقد: موديل واحد لكل أقسام الشركة في Power BI</h1>
+    <p class="lead">بناء Power BI لسلسلة مطاعم سعودية وهمية عندها عشر فروع، منهم تلاتة في تبوك. نقاط البيع، وأربع تطبيقات توصيل، والمخزون، والموارد البشرية، وتقييمات العملاء، والحسابات العامة، كلهم اتحمّلوا من 45 ملف مش نضيف في موديل واحد مشترك، واتقروا من خلال تمن صفحات.</p>
+    <div class="hook">كل قسم كان عنده تقريره والحقيقة بتاعته. لما اتحطوا على موديل واحد، الفرع اللي <b>مبيعاته الأعلى ربحه 3.8% بس من إيراده</b> وموازنته 14%، وكل تقرير قسم كان شايل حتة من السبب.</div>
+    <div class="tagrow">
+      <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Power Query</span><span class="tag">Star Schema</span>
+      <span class="tag">مطاعم</span><span class="tag">السعودية</span><span class="tag">بيانات تجريبية</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="سكوركارد الحالة" style="margin-top:28px">
+      <div class="sc-head"><span class="t">سكوركارد · اتطابق بين الأنظمة</span><span class="live">بيانات تجريبية</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">45</div><div class="lbl">ملف من ست أنظمة على 22 شهر</div></div>
+        <div class="metric"><div class="val">23</div><div class="lbl">جدول، منهم 11 جدول حقائق بسبع مستويات، و41 علاقة</div></div>
+        <div class="metric"><div class="val">115</div><div class="lbl">مقياس DAX في تمن فولدرات</div></div>
+        <div class="metric"><div class="val">0.00</div><div class="lbl">فرق المرتبات والعمولات عن الحسابات العامة</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">البيانات تجريبية: سلسلة وهمية، والبيانات اتولّدت للبناء ده بأنماط المطاعم السعودية. كل رقم في الصفحة دي بيوصف البيانات التجريبية والطريقة، مش بيزنس حقيقي. أسماء تطبيقات التوصيل ماركات حقيقية مستخدمة كتسميات بس، وأرقامها مابتقولش أي حاجة عن الشركات دي.</p>
+  </section>
+
+  <section>
+    <h2><span class="h-num">01</span>السؤال</h2>
+    <p>صاحب المطعم بيوصله تقرير مبيعات من نقاط البيع، وتسوية من كل تطبيق توصيل، وجرد من المطبخ، وملف مرتبات من الموارد البشرية، وأرباح وخسائر من المحاسب. كل واحد فيهم صح لوحده. ومفيش واحد فيهم بيجاوب على السؤال اللي صاحب المطعم عايزه.</p>
+    <div class="callout">أنهي فروع بتكسب، وأنهي فروع شكلها زحمة وبس، وأنهي قسم عنده السبب؟</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">02</span>الداتا: ست أنظمة مش متفقين حتى على اسم الفرع</h2>
+    <p>45 ملف من يناير 2025 لأكتوبر 2026: مبيعات نقاط البيع بالساعة، ومبيعات الأصناف بالشهر، وملف تسوية من كل تطبيق (هنقرستيشن وجاهز وكيتا وتويو)، وفواتير المشتريات، والجرد، وسجل الهالك، والوصفات، والموظفين، والحضور، والمرتبات، و15,436 تقييم وشكوى، والحسابات العامة، والموازنة. حوالي 730 ألف صف.</p>
+    <div class="results">
+      <div class="result"><div><b>فرع واحد بأربع أسامي:</b> نقاط البيع بتقول B04، والحسابات CC104، والموارد البشرية RUH-OLY، وكل تطبيق بيكتب الفرع بطريقته. جاهز بيكتبه بالعربي، وفيه مدينتين كل واحدة فيها حي بنفس الاسم، فربط التطبيقات معمول على المدينة والفرع مع بعض.</div></div>
+      <div class="result"><div><b>أربع أشكال للتاريخ:</b> اليوم الأول في تطبيق، والشهر الأول في تطبيق تاني، وسنة-شهر-يوم في الباقي، و05-Mar-2023 في الموارد البشرية. والفلوس جاية كنص زي "SAR 1,234.50" في ملف، وتطبيق مفيهوش عمود نسبة العمولة أصلاً.</div></div>
+      <div class="result"><div><b>اللخبطة المعتادة:</b> 30 سطر مشتريات متصدّرين مرتين، والفراخ بتتشرى بكرتونة 10 كيلو وبتتجرد بالكيلو، وأسباب الهالك متكتبة بسبع أشكال، والجنسية السعودية بأربع أشكال، وعمود اتضاف لملفات نقاط البيع في يناير 2026، وموازنة الشهور فيها أعمدة.</div></div>
+      <div class="result"><div><b>يومين ناقصين:</b> ملفات الساعات لفرع واحد ناقصها 14 و15 أغسطس 2025. تقرير الأصناف والتطبيقات والحسابات فيهم اليومين.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">03</span>الموديل: حداشر جدول حقائق وجداول أساسية مشتركة</h2>
+    <p>حداشر جدول حقائق بسبع مستويات، من صف لكل فرع وساعة وطريقة بيع لحد صف لكل حساب وشهر. عمرهم ما بيتربطوا ببعض. التاريخ والفرع والصنف والخامة والمورد وطريقة البيع والحساب جداول مشتركة، ففلتر الفرع الواحد بيوصل للمبيعات والمطبخ والموظفين والأرباح مرة واحدة.</p>
+    <div class="results" style="margin-top:20px">
+      <div class="result"><div><b>الجداول الشهرية على أول يوم في الشهر:</b> مبيعات الأصناف والجرد والمرتبات والحسابات والموازنة بيتربطوا بالتاريخ على أول يوم في الشهر، والجداول اليومية بتتجمع لنفس الشهور.</div></div>
+      <div class="result"><div><b>الاستهلاك النظري من الوصفات:</b> الكمية المباعة من كل صنف في جرامات الوصفة، من خلال جدول ربط للوصفات. الاستهلاك الفعلي هو الجرد الافتتاحي زائد المشتريات ناقص الجرد الختامي. واللي بيفضل بعد الهالك المسجّل هو الفرق اللي مالوش تفسير.</div></div>
+      <div class="result"><div><b>علاقة واحدة موقوفة:</b> الجرد مربوط بالتاريخ مرتين، مرة كجرد ختامي لشهره، ومرة كجرد افتتاحي للشهر اللي بعده. التانية موقوفة وبتشتغل بـ USERELATIONSHIP جوه المقياس.</div></div>
+      <div class="result"><div><b>من غير طريق تاني للفلتر:</b> الموظفين مش مربوطين بالفروع بعلاقة. عدد الموظفين والخروج والسعودة بتنقل فلتر الفرع على فرع الموظف بـ TREATAS، فالفلتر شغال والموديل مفيهوش لبس.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">04</span>الاكتشاف الأول: أزحم فرع هو اللي بيكسب أقل</h2>
+    <p>الرياض العليا كان أعلى إيراد في السلسلة في 2026، 9.30 مليون ريال من غير ضريبة، وربحه التشغيلي 3.8% وموازنته 14%. تبوك المروج عمل 5.65 مليون وكسب 24.2%. ولا تقرير قسم لوحده بيبيّن ده. كل واحد بيبيّن حتة.</p>
+    <div class="results">
+      <div class="result"><div><b>المبيعات:</b> التوصيل 68% من مبيعات العليا، والفروع التانية بين 32% و48%.</div></div>
+      <div class="result"><div><b>تطبيقات التوصيل:</b> العمولات واخدة 16% من إيراده.</div></div>
+      <div class="result"><div><b>المطبخ:</b> الهالك 7.1% من تكلفة الأكل، والباقي حوالي 2.3%.</div></div>
+      <div class="result"><div><b>الموظفين:</b> 105.6 ريال مبيعات لكل ساعة شغل والباقي بين 118 و132، والأوفر تايم 1.7% بس، و36 موظف مشيوا من أول 2025. يعني العدد زيادة والناس بتمشي، مش ناقص إيدين.</div></div>
+      <div class="result"><div><b>العملاء:</b> أقل تقييم في السلسلة، 3.79.</div></div>
+    </div>
+    <div class="callout">الإيراد بيرتّب الفروع بشكل، والربح بيرتّبها بشكل تاني، والسبب متوزع على أربع أقسام.</div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>الموظفين<span class="file">assets/pbi-mawqid-people.png</span></span><img src="../assets/pbi-mawqid-people.png" alt="صفحة الموظفين في Power BI: ست كروت، والمبيعات لكل ساعة شغل بالفرع والعليا أقلهم، وعدد الموظفين بالوظيفة والجنسية، وتكلفة العمالة والأوفر تايم بالربع، وجدول الموظفين بالفرع" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>ملخص الإدارة<span class="file">assets/pbi-mawqid-executive.png</span></span><img src="../assets/pbi-mawqid-executive.png" alt="صفحة الإدارة في Power BI: ست كروت، وجدول الفروع بالمبيعات ونصيب التوصيل وتكلفة الأكل والهالك وتكلفة العمالة والربح، والإيراد الشهري مع نسبة الربح، وملخص أهم الاكتشافات" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">05</span>الاكتشاف التاني: غلاء اللحمة والمنيو غطّى نصه بس</h2>
+    <p>مورد اللحمة رفع سعر اللحمة المفرومة 18% من مارس 2026. تكلفة الأكل في السلسلة طلعت من 29.7% لـ 32.0% من المبيعات. زيادة المنيو 5% في يونيو رجّعتها لـ 31.1%، مش للي كانت عليه.</p>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>المطبخ والمخزون<span class="file">assets/pbi-mawqid-kitchen.png</span></span><img src="../assets/pbi-mawqid-kitchen.png" alt="صفحة المطبخ في Power BI: خمس كروت، وتكلفة الأكل الفعلية قصاد النظرية بالشهر، وسعر كيلو اللحمة المفرومة وهو بيقفز في مارس 2026، والهالك والفرق اللي مالوش تفسير بالفرع، وتكلفة الأكل بالخامة" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">06</span>الاكتشاف التالت: مدير جديد، ولحمة بتخرج من غير ما تتسجّل</h2>
+    <p>جدة الحمرا غيّر مدير الفرع في 10 نوفمبر 2025. من الشهر ده، اللحمة اللي المطبخ استهلكها ومااتباعتش ولا اتسجلت هالك طلعت من حوالي 1% من الاستهلاك لحوالي 11%، والضاني والفراخ مشيوا وراها.</p>
+    <div class="results">
+      <div class="result"><div><b>العملاء بيقولوا نفس الكلام:</b> شكاوى "الحصص مش ثابتة" طلعت من 5.6% لـ 28.6% من شكاوى الفرع في نفس الشهور.</div></div>
+      <div class="result"><div><b>اللي الداتا مابتثبتهوش:</b> الأرجح إن الحصص بتتغرف أكبر من الوصفة، لكن الجرد لوحده مايفرّقش بين الغَرف والفقد. التقرير بيعلّم على فرق محتاج مراجعة على الأرض، مش سبب.</div></div>
+    </div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>العملاء<span class="file">assets/pbi-mawqid-customers.png</span></span><img src="../assets/pbi-mawqid-customers.png" alt="صفحة العملاء في Power BI: أربع كروت، والشكاوى بالنوع، ومتوسط التقييم بالفرع، ونصيب شكاوى الحصص في الحمرا وهو بيطلع من آخر 2025، وتوزيع الشكاوى بالفرع" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">07</span>الاكتشاف الرابع: كيتا بتجيب أوردرات وبتاخد الفلوس</h2>
+    <p>نصيب كيتا من أوردرات التوصيل طلع من 9% لـ 26%. عمولتها طلعت من 12% لـ 21% في يوليو 2025، وفيها أكبر خصم بيدفعه المطعم (9.2%)، وأصغر سلة. بعد العمولة والخصم، أوردر كيتا بيرجّع للمطعم 56.87 ريال، وأوردر جاهز 67.79.</p>
+    <div class="results">
+      <div class="result"><div><b>الخدمة كمان مش السعر بس:</b> 15.6% من أوردرات كيتا بتوصل متأخرة، أعلى واحدة في الأربعة، وتقييمها الأقل، 4.12.</div></div>
+      <div class="result"><div><b>الموازنة ماشافتش ده:</b> عمولات التوصيل في 2026 أعلى من الموازنة بـ 25%، لأن الموازنة ماحسبتش نمو التوصيل.</div></div>
+    </div>
+    <div class="callout">عدد الأوردرات بيقول إن كيتا قناة نمو. صافي الأوردر بيقول إن كل أوردر بيتنقل لكيتا من تطبيق تاني بيكلّف المطعم حوالي حداشر ريال.</div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>تطبيقات التوصيل<span class="file">assets/pbi-mawqid-delivery.png</span></span><img src="../assets/pbi-mawqid-delivery.png" alt="صفحة تطبيقات التوصيل في Power BI: ست كروت، والأوردرات الشهرية لكل تطبيق، وقيمة الأوردر قصاد اللي بيرجع للمطعم لكل تطبيق، وجدول اقتصاديات التطبيقات، ونسبة التأخير بالفرع" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">08</span>الاكتشاف الخامس: الفرع الجديد رجّع فلوسه أبطأ من الخطة</h2>
+    <p>الرياض الملقا افتتح 15 سبتمبر 2025، والإيجار ومصاريف ما قبل الافتتاح من يوليو. خسر حوالي 900 ألف ريال من يوليو لنوفمبر، وبدأ يكسب في ديسمبر. الموازنة افترضت إنه يوصل لمبيعاته الطبيعية في تلات شهور، وأكتوبر جه 414 ألف والموازنة 555 ألف.</p>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>المالية<span class="file">assets/pbi-mawqid-finance.png</span></span><img src="../assets/pbi-mawqid-finance.png" alt="صفحة المالية في Power BI: ست كروت، ونسبة الربح قصاد الموازنة بالفرع، وكل ريال إيراد بيروح فين بالفرع، والأرباح والخسائر قصاد الموازنة، والربح الشهري قصاد الموازنة" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">09</span>اللي هقوله لصاحب المطاعم</h2>
+    <div class="results">
+      <div class="result"><div><b>صلّح العليا قبل ما تفتح فرع جديد.</b> قلّل الورديات لحد ما مبيعات ساعة الشغل توصل لفروع الرياض التانية، وابدأ مراجعة للهالك، وادفع الأكل في المطعم والاستلام بعروض خاصة بيه. ده أكبر فرع، فكل نقطة ربح فيه بتفرق أكتر.</div></div>
+      <div class="result"><div><b>فاوض كيتا أو وازن بينها وبين الباقي.</b> قلّل الخصم اللي بيدفعه المطعم الأول، وبعدين اطلب عمولة أقل قصاد الحجم. وتابع صافي الأوردر، مش عدد الأوردرات.</div></div>
+      <div class="result"><div><b>راجع الحصص في الحمرا.</b> اوزن الأطباق قصاد الوصفة أسبوعين، وقارن الفرق بعدها.</div></div>
+      <div class="result"><div><b>زوّد أسعار أطباق اللحمة، مش المنيو كله.</b> زيادة يونيو وزّعت التكلفة على أصناف ماكانتش محتاجة.</div></div>
+      <div class="result"><div><b>اعمل موازنة التوصيل من جديد</b> على التوزيع الحالي بين طرق البيع، عشان العمولات ماتبقاش مفاجأة.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">10</span>قرارات هندسية</h2>
+    <div class="results">
+      <div class="result"><div><b>الأنظمة اتطابقت قبل أي صفحة:</b> المرتبات قصاد الحسابات، وعمولات التطبيقات قصاد الحسابات، الاتنين فرقهم صفر. وتكلفة الأكل المحسوبة من المشتريات والجرد بتفرق عن الحسابات 84 ريال بس على 34 مليون.</div></div>
+      <div class="result"><div><b>فرق متفسّر بالريال:</b> مبيعات الساعات أقل من تقرير الأصناف بـ 39,806.42 ريال. ده بالظبط اليومين الناقصين في فرع واحد، وملفات التطبيقات بتفرق عن نقاط البيع بـ 15,937.35، وده أوردرات التطبيقات في نفس اليومين.</div></div>
+      <div class="result"><div><b>غلطة سببها ساعة اللابتوب:</b> في أيام بداية التوقيت الصيفي في مصر، التواريخ كانت بتطلع الساعة 1 الصبح ومابقتش بتطابق جدول التاريخ، فـ 1,165 أوردر من تطبيقين وقعوا من التقرير. دلوقتي التاريخ بيتبني من السنة والشهر واليوم، وكل تحويل أنواع بيشتغل بإعدادات en-US مهما كانت لغة الجهاز.</div></div>
+      <div class="result"><div><b>النمو على الأيام اللي ليها مقارنة بس:</b> النمو عن السنة اللي فاتت بيقارن الأيام اللي ليها سنة قبلها، فبيطلع 19.5% مش 142%، والفرع الجديد متعلّم عليه بدل ما يكبّر الرقم.</div></div>
+      <div class="result"><div><b>الموديل ككود:</b> المشروع محفوظ كمشروع Power BI، الموديل بصيغة TMDL والصفحات بصيغة PBIR، ومتولّدين بسكربتات ومتسجلين في نظام إدارة النسخ.</div></div>
+      <div class="result"><div><b>محور شهور بيتقري زي ما هو في أي جهاز:</b> الرسوم الشهرية على عمود نصي YYYY-MM، لأن محور التاريخ بيكتب أسامي الشهور بلغة ويندوز عند اللي بيشوف التقرير.</div></div>
+    </div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>نظرة على المبيعات<span class="file">assets/pbi-mawqid-sales.png</span></span><img src="../assets/pbi-mawqid-sales.png" alt="صفحة المبيعات في Power BI: خمس كروت، وصافي المبيعات الشهري مع نصيب التوصيل، والمبيعات بساعة يوم العمل، وصافي المبيعات بالفرع وطريقة البيع" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>أنماط البيع<span class="file">assets/pbi-mawqid-patterns.png</span></span><img src="../assets/pbi-mawqid-patterns.png" alt="صفحة أنماط البيع في Power BI: متوسط المبيعات اليومية بالساعة في الأيام العادية قصاد رمضان، والمبيعات بأيام الأسبوع، ونصيب كل فئة في كل طريقة بيع، والأصناف مترتبة بالمبيعات، ونصيب التوصيل والكاش بالربع" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">11</span>المهارات</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">تنضيف مصادر متعددة في Power Query</span><span class="tag">Star schema بحداشر جدول حقائق</span>
+      <span class="tag">DAX (TREATAS, USERELATIONSHIP, SAMEPERIODLASTYEAR)</span><span class="tag">تكلفة الأكل من الوصفات</span>
+      <span class="tag">الأرباح والخسائر قصاد الموازنة</span><span class="tag">مطابقة بين الأنظمة</span>
+      <span class="tag">تشغيل المطاعم: التوصيل والعمالة والهالك</span><span class="tag">مشاريع Power BI (TMDL, PBIR)</span>
+    </div>
+    <p style="margin-top:22px">ملف البيانات التجريبية منشور زي ما اتسلّم لـ Power BI، باللخبطة اللي فيه. حمّله واحسب أي رقم في الصفحة دي بنفسك.</p>
+    <div class="tagrow" style="margin-top:6px">
+      <a class="act" href="../Mawqid-Restaurants-Sample-Data.zip" download>حمّل ملف البيانات التجريبية (.zip) ↓</a>
+      <a class="act" href="powerbi-saudi-store.html">تدقيق المتجر السعودي ←</a>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>محمد الطنبداوي</b> · Business &amp; Data Analyst، BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<script>
+function setLang(l){
+  if(document.documentElement.lang!==l){(window.dataLayer=window.dataLayer||[]).push({event:'language_switch',site_language:l});}
+  document.getElementById('doc-en').style.display=(l==='en')?'':'none';
+  document.getElementById('doc-ar').style.display=(l==='ar')?'':'none';
+  document.querySelectorAll('.btn-en').forEach(b=>b.classList.toggle('active',l==='en'));
+  document.querySelectorAll('.btn-ar').forEach(b=>b.classList.toggle('active',l==='ar'));
+  document.documentElement.lang=l;
+  document.documentElement.dir=(l==='ar')?'rtl':'ltr';
+  window.scrollTo(0,0);
+}
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
+</body>
+</html>

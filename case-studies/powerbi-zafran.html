@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K7M6HJHR');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A Power BI build for a fictional Saudi restaurant chain on sample data, designed like a product: a custom dark theme, page backgrounds built as code, icon navigation, and SVG charts inside tables, on a 15-table model with 125 DAX measures.">
+<title>Zafran Kitchen: A Power BI Report Designed Like a Product · Case Study · Mohamed Eltanbedawy</title>
+<link rel="canonical" href="https://mohamedeltanbedawy.github.io/case-studies/powerbi-zafran.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mohamed Eltanbedawy">
+<meta property="og:url" content="https://mohamedeltanbedawy.github.io/case-studies/powerbi-zafran.html">
+<meta property="og:title" content="Zafran Kitchen: A Power BI Report Designed Like a Product · Case Study · Mohamed Eltanbedawy">
+<meta property="og:description" content="Seven pages, one design system. The busiest delivery app paid SAR 58 per order; dine-in paid SAR 126.">
+<meta property="og:image" content="https://mohamedeltanbedawy.github.io/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mohamed Eltanbedawy, Business and Data Analyst">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ar_EG">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Zafran Kitchen: A Power BI Report Designed Like a Product">
+<meta name="twitter:description" content="Seven pages, one design system. The busiest delivery app paid SAR 58 per order; dine-in paid SAR 126.">
+<meta name="twitter:image" content="https://mohamedeltanbedawy.github.io/assets/og-cover.png">
+<meta name="author" content="Mohamed Eltanbedawy">
+<meta name="theme-color" content="#0E7A5C">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/design-system.css">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K7M6HJHR"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ============================= ENGLISH ============================= -->
+<div id="doc-en" dir="ltr">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">← tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button class="btn-en active" onclick="setLang('en')">English</button>
+      <button class="btn-ar" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">Case Study · Sample Data · Power BI &amp; Report Design</div>
+    <h1 style="max-width:none">Zafran Kitchen: A Power&nbsp;BI Report Designed Like a Product</h1>
+    <p class="lead">A seven-page Power BI report for a fictional modern Saudi kitchen with nine branches in six cities, three of them in Tabuk. The brief for this one was the design: a report an owner opens because it is clear and good to look at, not because they have to. Under it sits a 15-table model with 125 DAX measures.</p>
+    <div class="hook">The busiest delivery partner paid the restaurant <b>SAR 58 per order</b> after commission and discount. A dine-in order paid <b>SAR 126</b>, and the chain's own app, launched in March, paid SAR 96.</div>
+    <div class="tagrow">
+      <span class="tag">Power BI</span><span class="tag">Report Design</span><span class="tag">DAX</span><span class="tag">SVG in DAX</span>
+      <span class="tag">Menu Engineering</span><span class="tag">Restaurants &amp; F&amp;B</span><span class="tag">KSA</span><span class="tag">Sample Data</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="Case scorecard" style="margin-top:28px">
+      <div class="sc-head"><span class="t">case scorecard · 2026, January to October</span><span class="live">sample data</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">7</div><div class="lbl">report pages on one design system</div></div>
+        <div class="metric"><div class="val">125</div><div class="lbl">DAX measures in seven folders, five of them drawing SVG</div></div>
+        <div class="metric"><div class="val">673K</div><div class="lbl">orders over 22 months, nine branches, seven channels</div></div>
+        <div class="metric"><div class="val">21.5%</div><div class="lbl">EBITDA margin on SAR 32.0M of revenue in 2026</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">The data is synthetic: a fictional chain, generated for this build with Saudi restaurant patterns, Ramadan and Eid included. Every figure on this page describes the sample data and the method, not a real business. Delivery app names are real brands used as labels; their numbers say nothing about those companies. EBITDA is at branch level, before head-office costs.</p>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Home<span class="file">assets/pbi-zafran-home.png</span></span><img src="../assets/pbi-zafran-home.png" alt="Power BI home page for Zafran Kitchen: a brand header with live revenue, EBITDA, orders and rating, and six tiles that each show one live KPI and open a report page" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">01</span>The Question</h2>
+    <p>The previous restaurant build, Mawqid, proved the model: six systems reconciled into one. Its pages were correct and plain. Owners do not read plain reports for long. This build keeps the same discipline and asks a different question.</p>
+    <div class="callout">What does a restaurant report look like when it is designed the way a good app is designed, and does the design help the owner find the money faster?</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">02</span>The Design System</h2>
+    <div class="results">
+      <div class="result"><div><b>A theme, not formatting by hand:</b> one custom theme sets the dark palette, fonts, axes, tooltips, slicers and tables for every visual. Saffron is the brand colour; teal, violet, sky, ember and rose each own one page.</div></div>
+      <div class="result"><div><b>Backgrounds built as code:</b> every page background is drawn from a layout file: the navigation rail, the header, the KPI tiles with their icons and the chart panels with titles. The visuals sit transparent on top, placed from the same layout, so nothing drifts out of line.</div></div>
+      <div class="result"><div><b>Navigation like an app:</b> a rail of icons on the left of every page and six tiles on the home page, each a transparent button over its drawing. The tiles show a live number, so the home page is already a summary.</div></div>
+      <div class="result"><div><b>Charts inside tables:</b> the branch scorecard draws a monthly revenue sparkline, a bar against budget with a target tick, and a five-step rating for every branch. The menu table draws a coloured class badge and a margin bar. All of it is SVG written by DAX measures.</div></div>
+      <div class="result"><div><b>Text that changes with the filters:</b> the KPI deltas, the brand line on the home page, the slowest kitchen slot, the top complaint and the best and weakest branch are all measures, so the words stay true when the filter changes.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">03</span>The Model</h2>
+    <p>Eleven CSV files from January 2025 to October 2026: 673,000 orders by hour and channel, monthly item sales, daily labour, 36,000 reviews, monthly expenses and the budget. Six fact tables share date, hour, branch, channel, channel group, menu item and customer.</p>
+    <div class="results">
+      <div class="result"><div><b>Growth on comparable days:</b> 2026 is compared with the same days of 2025, because the data ends in October.</div></div>
+      <div class="result"><div><b>Menu class as a column:</b> each dish is a Star, Plowhorse, Puzzle or Dog against the average of its own category: popular means at least 70% of a fair share of the category's items, profitable means a margin per item at or above the category average.</div></div>
+      <div class="result"><div><b>Profit and loss from five sources:</b> revenue from orders, food cost from item sales, labour from shifts, commissions and payment fees from each channel's rate, and occupancy and marketing from expenses, read as a waterfall from revenue to EBITDA.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">04</span>Finding One: Volume Is Not What the Restaurant Keeps</h2>
+    <p>Delivery is 47.7% of 2026 revenue, and commissions and payment fees take SAR 2.92M, 9.1% of all revenue. Per order, the gap between channels is wide. After commission and the discount the restaurant funds, a Keeta order pays SAR 58, Jahez and HungerStation SAR 64, the chain's own app SAR 96, and a dine-in order SAR 126.</p>
+    <div class="results">
+      <div class="result"><div><b>The own app already pays:</b> launched on 1 March 2026, the Zafran App took 15.1% of delivery revenue in its first eight months and saved an estimated SAR 406K of commission.</div></div>
+      <div class="result"><div><b>Keeta grows on price:</b> the deepest discount at 6.7% and the lowest payout, while its share of delivery orders keeps rising.</div></div>
+    </div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Revenue &amp; Channels<span class="file">assets/pbi-zafran-revenue.png</span></span><img src="../assets/pbi-zafran-revenue.png" alt="Power BI revenue and channels page: five KPI cards, revenue by channel by month, net payout per order by channel, an orders heatmap by hour and weekday, and a channel economics table" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">05</span>Finding Two: Thursday and Friday Nights in Jeddah</h2>
+    <p>Al Shati in Jeddah is the chain's second-largest branch. Its average prep time is 19.6 minutes against 16.2 to 16.3 for most branches, and the gap sits in one place: Thursday and Friday from 8 PM to midnight, where prep has climbed from about 30 minutes in January to about 35, against 18 everywhere else.</p>
+    <div class="results">
+      <div class="result"><div><b>The roster did not follow the rush:</b> Al Shati runs 10.2% overtime, twice the chain's level, and has the highest sales per labour hour of the full-service restaurants. It is short of hands at its peak, not overstaffed.</div></div>
+      <div class="result"><div><b>Guests notice:</b> its rating is 3.90 against 4.23 to 4.34 elsewhere, and wait time is the top complaint across the chain at 38% of negative reviews.</div></div>
+      <div class="result"><div><b>Budget:</b> it is the only branch clearly under budget, at 92%.</div></div>
+    </div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Kitchen &amp; Labor<span class="file">assets/pbi-zafran-kitchen.png</span></span><img src="../assets/pbi-zafran-kitchen.png" alt="Power BI kitchen and labour page: five KPI cards, a prep-time heatmap by hour and weekday, peak-night prep at Al Shati against the other branches by month, sales per labour hour and overtime by branch" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Guests &amp; Loyalty<span class="file">assets/pbi-zafran-guests.png</span></span><img src="../assets/pbi-zafran-guests.png" alt="Power BI guests and loyalty page: five KPI cards, rating by month, negative reviews by topic with wait time first, sentiment by channel, and active members by month" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">06</span>Finding Three: Eight Dishes Earn 39% of the Margin</h2>
+    <p>Of 30 dishes, 8 are Stars and earn 39% of the menu margin. 11 Plowhorses earn another 39%: popular, with a thin margin. 7 Puzzles earn 17%, and 4 Dogs earn 5%.</p>
+    <div class="results">
+      <div class="result"><div><b>The Plowhorses are where the money moves:</b> Chicken Kabsa and Chicken Mandi are the two best sellers and both sit below their category's margin. A small portion or price change on two dishes moves more than any new item.</div></div>
+      <div class="result"><div><b>Puzzles to promote:</b> Family Mandi Feast earns more than five times its category's average margin per item and is rarely ordered. It belongs in the catering offer and on the home screen of the app.</div></div>
+      <div class="result"><div><b>Food cost:</b> 30.9% against a 30% target, led by grills at 35.9% after the lamb price rise in February 2026.</div></div>
+    </div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Menu Engineering<span class="file">assets/pbi-zafran-menu.png</span></span><img src="../assets/pbi-zafran-menu.png" alt="Power BI menu engineering page: five KPI cards, a matrix of popularity against margin within each category, counts and margin share for Stars, Plowhorses, Puzzles and Dogs, an item table with class badges and margin bars, and food cost by category" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">07</span>Finding Four: The Cloud Kitchen Out-Earns the Restaurants</h2>
+    <p>The Riyadh North cloud kitchen opened in June 2025. In 2026 it made SAR 3.46M at a 26.1% EBITDA margin, 9% over budget, the best in the chain. Hittin in Riyadh made more revenue, SAR 3.89M, and kept 14.5%, the weakest: higher rent, and labour at 23.7% of sales against 15.1% at the cloud kitchen.</p>
+    <div class="callout">The next Riyadh opening has a stronger case as a cloud kitchen than as another dining room.</div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Branch Scorecard<span class="file">assets/pbi-zafran-branches.png</span></span><img src="../assets/pbi-zafran-branches.png" alt="Power BI branch scorecard: five KPI cards and a table of nine branches with a revenue sparkline, a bar against budget, EBITDA, food cost and labour percentages, prep minutes and a rating, with best and weakest branch below" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    <div class="figure reveal"><span>SCREENSHOT SLOT<br>Executive Pulse<span class="file">assets/pbi-zafran-executive.png</span></span><img src="../assets/pbi-zafran-executive.png" alt="Power BI executive page: five KPI cards with growth against 2025, revenue against budget by month, revenue by channel group, a waterfall from revenue to EBITDA, and EBITDA margin by branch" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">08</span>What I Would Tell the Owner</h2>
+    <div class="results">
+      <div class="result"><div><b>Add two people to Al Shati on Thursday and Friday nights.</b> Then watch peak prep, the rating and overtime for four weeks.</div></div>
+      <div class="result"><div><b>Push the Zafran App.</b> Every order moved from Keeta to the app is worth about SAR 38 more. Cut the funded discount on Keeta before chasing its volume.</div></div>
+      <div class="result"><div><b>Re-engineer two dishes, not the menu.</b> A portion or price change on Chicken Kabsa and Chicken Mandi, and Family Mandi Feast moved into catering and the app.</div></div>
+      <div class="result"><div><b>Open the next Riyadh site as a cloud kitchen,</b> and review Hittin's rent and roster before its lease renews.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">09</span>Engineering Decisions</h2>
+    <div class="results">
+      <div class="result"><div><b>The report as code:</b> the model is TMDL, the pages are PBIR, and one Python script draws the backgrounds, writes the theme and places every visual. It was checked against Microsoft's published schemas, then opened and reviewed page by page in Power BI Desktop.</div></div>
+      <div class="result"><div><b>What Power BI Desktop caught:</b> a circular dependency between a calculated column and its sort column, table columns marked active that hid every measure column, a format string that printed 0MM, and table images clipped by the default image box. Each was fixed in the build script, not by hand.</div></div>
+      <div class="result"><div><b>A percent sign that turned bars black:</b> the budget bar is an SVG data URI. A literal % in its label broke the colour codes, so every shape fell back to black. The label now writes %25.</div></div>
+      <div class="result"><div><b>Readable in any language setting:</b> every type conversion in Power Query and every number formatted inside an SVG runs in en-US, because the laptop runs Windows in Arabic.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">10</span>Skills Demonstrated</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">Report design system</span><span class="tag">Custom Power BI theme</span>
+      <span class="tag">SVG visuals in DAX</span><span class="tag">Dynamic text measures</span>
+      <span class="tag">Menu engineering (Kasavana–Smith)</span><span class="tag">Delivery channel economics</span>
+      <span class="tag">Labour and service analysis</span><span class="tag">Power BI Projects (TMDL, PBIR)</span>
+    </div>
+    <p style="margin-top:22px">The sample dataset is published as it was handed to Power BI. Load it and recompute any number on this page.</p>
+    <div class="tagrow" style="margin-top:6px">
+      <a class="act" href="../Zafran-Kitchen-Sample-Data.zip" download>Download the sample dataset (.zip) ↓</a>
+      <a class="act" href="powerbi-mawqid.html">The Mawqid build →</a>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>Mohamed Eltanbedawy</b> · Business &amp; Data Analyst, BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+
+<!-- ============================= ARABIC ============================= -->
+<div id="doc-ar" dir="rtl" style="display:none">
+
+<header class="toolbar">
+  <div class="wrap-narrow" style="display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px">
+    <div class="wb-title"><a href="../index.html">→ tanbedawy<span class="dot">.</span>workbook</a></div>
+    <div class="lang-toggle" role="group" aria-label="اللغة">
+      <button class="btn-en" onclick="setLang('en')">English</button>
+      <button class="btn-ar active" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</header>
+
+<main class="cs">
+<div class="wrap-narrow">
+
+  <header class="hero" style="padding:56px 0 8px">
+    <div class="eyebrow">دراسة حالة · بيانات تجريبية · Power BI وتصميم التقارير</div>
+    <h1 style="max-width:none">زعفران كيتشن: تقرير Power BI متصمم زي المنتج</h1>
+    <p class="lead">تقرير Power BI من سبع صفحات لمطعم سعودي حديث وهمي عنده تسع فروع في ست مدن، منهم تلاتة في تبوك. المطلوب في المشروع ده كان التصميم: تقرير صاحب المطعم يفتحه عشان واضح وشكله حلو، مش عشان مضطر. وتحته موديل من 15 جدول و125 مقياس DAX.</p>
+    <div class="hook">أكتر شريك توصيل بيرجّع للمطعم <b>58 ريال في الأوردر</b> بعد العمولة والخصم. أوردر الأكل في المطعم بيرجّع <b>126 ريال</b>، وتطبيق المطعم نفسه، اللي اتطلق في مارس، بيرجّع 96.</div>
+    <div class="tagrow">
+      <span class="tag">Power BI</span><span class="tag">تصميم التقارير</span><span class="tag">DAX</span><span class="tag">SVG من DAX</span>
+      <span class="tag">هندسة المنيو</span><span class="tag">مطاعم</span><span class="tag">السعودية</span><span class="tag">بيانات تجريبية</span>
+    </div>
+  </header>
+
+  <section class="no-rule">
+    <div class="scorecard reveal" aria-label="سكوركارد الحالة" style="margin-top:28px">
+      <div class="sc-head"><span class="t">سكوركارد · 2026 من يناير لأكتوبر</span><span class="live">بيانات تجريبية</span></div>
+      <div class="sc-grid">
+        <div class="metric"><div class="val">7</div><div class="lbl">صفحات على نظام تصميم واحد</div></div>
+        <div class="metric"><div class="val">125</div><div class="lbl">مقياس DAX في سبع فولدرات، منهم خمسة بيرسموا SVG</div></div>
+        <div class="metric"><div class="val">673K</div><div class="lbl">أوردر على 22 شهر، تسع فروع، وسبع طرق بيع</div></div>
+        <div class="metric"><div class="val">21.5%</div><div class="lbl">ربح تشغيلي على إيراد 32.0 مليون ريال في 2026</div></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:13.5px">البيانات تجريبية: سلسلة وهمية، اتولدت للمشروع ده بأنماط المطاعم السعودية، ومعاها رمضان والأعياد. كل رقم في الصفحة دي بيوصف البيانات التجريبية والطريقة، مش بيزنس حقيقي. أسماء تطبيقات التوصيل ماركات حقيقية مستخدمة كتسميات بس، وأرقامها مابتقولش حاجة عن الشركات دي. الربح التشغيلي على مستوى الفرع، قبل مصاريف الإدارة.</p>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>الصفحة الرئيسية<span class="file">assets/pbi-zafran-home.png</span></span><img src="../assets/pbi-zafran-home.png" alt="الصفحة الرئيسية لزعفران كيتشن في Power BI: رأس بالبراند فيه الإيراد والربح والأوردرات والتقييم، وست كروت كل واحد فيه رقم حي وبيفتح صفحة" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">01</span>السؤال</h2>
+    <p>مشروع المطاعم اللي قبله، موقد، أثبت الموديل: ست أنظمة اتطابقت في موديل واحد. صفحاته كانت صح وعادية، وأصحاب المطاعم مابيقعدوش كتير قدام تقرير عادي. المشروع ده ماشي بنفس الانضباط، وبيسأل سؤال تاني.</p>
+    <div class="callout">تقرير المطعم يبقى شكله إيه لو اتصمم زي ما التطبيق الكويس بيتصمم؟ وهل التصميم بيساعد صاحب المطعم يلاقي الفلوس أسرع؟</div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">02</span>نظام التصميم</h2>
+    <div class="results">
+      <div class="result"><div><b>ثيم مش تنسيق بالإيد:</b> ثيم واحد بيحدد الألوان الغامقة والخطوط والمحاور والتلميحات والفلاتر والجداول لكل الرسوم. الزعفراني لون البراند، وكل صفحة ليها لون من التركواز والبنفسجي والأزرق والبرتقالي والوردي.</div></div>
+      <div class="result"><div><b>خلفيات متبنية بالكود:</b> خلفية كل صفحة بتترسم من ملف تخطيط: شريط التنقل، والرأس، وكروت المؤشرات بأيقوناتها، وكروت الرسوم بعناوينها. الرسوم شفافة فوقها، ومتحطة من نفس التخطيط، فمفيش حاجة بتخرج عن الصف.</div></div>
+      <div class="result"><div><b>تنقل زي التطبيق:</b> شريط أيقونات على شمال كل صفحة، وست كروت في الصفحة الرئيسية، كل واحد زرار شفاف فوق رسمته. الكروت فيها رقم حي، فالصفحة الرئيسية نفسها ملخص.</div></div>
+      <div class="result"><div><b>رسوم جوه الجداول:</b> جدول الفروع بيرسم خط إيراد شهري، وشريط قصاد الموازنة بعلامة الهدف، وتقييم من خمس درجات لكل فرع. وجدول الأصناف بيرسم شارة ملونة للتصنيف وشريط للربح. كل ده SVG مكتوب بمقاييس DAX.</div></div>
+      <div class="result"><div><b>كلام بيتغير مع الفلاتر:</b> نسب التغيير في الكروت، وسطر البراند في الرئيسية، وأبطأ وقت في المطبخ، وأكتر شكوى، وأحسن وأضعف فرع، كلهم مقاييس، فالكلام بيفضل صح لما الفلتر يتغير.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">03</span>الموديل</h2>
+    <p>حداشر ملف CSV من يناير 2025 لأكتوبر 2026: 673 ألف أوردر بالساعة وطريقة البيع، ومبيعات الأصناف الشهرية، والعمالة اليومية، و36 ألف تقييم، والمصاريف الشهرية، والموازنة. ست جداول حقائق بيشتركوا في التاريخ، والساعة، والفرع، وطريقة البيع، ومجموعتها، والصنف، والعميل.</p>
+    <div class="results">
+      <div class="result"><div><b>النمو على أيام تتقارن:</b> 2026 بتتقارن بنفس الأيام من 2025، لأن البيانات بتخلص في أكتوبر.</div></div>
+      <div class="result"><div><b>تصنيف المنيو كعمود:</b> كل طبق نجم أو حصان شغل أو لغز أو ضعيف، قصاد متوسط فئته هو: المطلوب يعني على الأقل 70% من نصيبه العادل في الفئة، والمربح يعني ربح الطبق الواحد قد متوسط الفئة أو أكتر.</div></div>
+      <div class="result"><div><b>الأرباح والخسائر من خمس مصادر:</b> الإيراد من الأوردرات، وتكلفة الأكل من مبيعات الأصناف، والعمالة من الورديات، والعمولات ورسوم الدفع من نسبة كل قناة، والإشغال والتسويق من المصاريف، ومتقرية كشلال من الإيراد للربح.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">04</span>الاكتشاف الأول: الحجم مش هو اللي المطعم بيحتفظ بيه</h2>
+    <p>التوصيل 47.7% من إيراد 2026، والعمولات ورسوم الدفع بتاخد 2.92 مليون ريال، يعني 9.1% من الإيراد كله. وفي الأوردر الواحد الفرق بين القنوات كبير: بعد العمولة والخصم اللي المطعم بيدفعه، أوردر كيتا بيرجّع 58 ريال، وجاهز وهنقرستيشن 64، وتطبيق المطعم 96، والأكل في المطعم 126.</p>
+    <div class="results">
+      <div class="result"><div><b>تطبيق المطعم بدأ يكسب:</b> اتطلق أول مارس 2026، وأخد 15.1% من إيراد التوصيل في أول تمن شهور، ووفّر حوالي 406 ألف ريال عمولات.</div></div>
+      <div class="result"><div><b>كيتا بتكبر بالسعر:</b> أعلى خصم 6.7% وأقل فلوس راجعة، ونصيبها من أوردرات التوصيل لسه بيزيد.</div></div>
+    </div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>الإيراد وقنوات البيع<span class="file">assets/pbi-zafran-revenue.png</span></span><img src="../assets/pbi-zafran-revenue.png" alt="صفحة الإيراد وقنوات البيع في Power BI: خمس كروت، والإيراد بالقناة كل شهر، وصافي اللي بيرجع لكل أوردر بالقناة، وخريطة حرارية للأوردرات بالساعة واليوم، وجدول اقتصاديات القنوات" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">05</span>الاكتشاف التاني: ليالي الخميس والجمعة في جدة</h2>
+    <p>فرع الشاطئ في جدة تاني أكبر فرع. متوسط وقت التحضير فيه 19.6 دقيقة قصاد 16.2 لـ 16.3 لأغلب الفروع، والفرق متجمع في مكان واحد: الخميس والجمعة من 8 بالليل لنص الليل، والتحضير هناك طلع من حوالي 30 دقيقة في يناير لحوالي 35، قصاد 18 في كل الفروع التانية.</p>
+    <div class="results">
+      <div class="result"><div><b>الوردية ماماشيتش مع الزحمة:</b> الشاطئ فيه أوفر تايم 10.2%، ضعف مستوى السلسلة، وأعلى مبيعات لكل ساعة شغل بين فروع الصالات. يعني ناقصه ناس وقت الذروة، مش زيادة.</div></div>
+      <div class="result"><div><b>الضيوف حاسين:</b> تقييمه 3.90 قصاد 4.23 لـ 4.34 في الباقي، ووقت الانتظار أكتر شكوى في السلسلة كلها: 38% من التقييمات السلبية.</div></div>
+      <div class="result"><div><b>الموازنة:</b> هو الفرع الوحيد اللي تحت الموازنة بوضوح، عند 92%.</div></div>
+    </div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>المطبخ والعمالة<span class="file">assets/pbi-zafran-kitchen.png</span></span><img src="../assets/pbi-zafran-kitchen.png" alt="صفحة المطبخ والعمالة في Power BI: خمس كروت، وخريطة حرارية لوقت التحضير بالساعة واليوم، وتحضير ليالي الذروة في الشاطئ قصاد باقي الفروع كل شهر، والمبيعات لكل ساعة شغل والأوفر تايم بالفرع" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>الضيوف والولاء<span class="file">assets/pbi-zafran-guests.png</span></span><img src="../assets/pbi-zafran-guests.png" alt="صفحة الضيوف والولاء في Power BI: خمس كروت، والتقييم كل شهر، والتقييمات السلبية بالموضوع ووقت الانتظار أولهم، والمشاعر بالقناة، والأعضاء النشطين كل شهر" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">06</span>الاكتشاف التالت: تمن أطباق بيجيبوا 39% من الربح</h2>
+    <p>من 30 طبق، 8 نجوم بيجيبوا 39% من ربح المنيو. و11 حصان شغل بيجيبوا 39% تانيين: مطلوبين وربحهم قليل. و7 ألغاز بيجيبوا 17%، و4 ضعاف بيجيبوا 5%.</p>
+    <div class="results">
+      <div class="result"><div><b>الفلوس بتتحرك في أحصنة الشغل:</b> كبسة الفراخ ومندي الفراخ أكتر طبقين بيتباعوا، والاتنين ربحهم تحت متوسط فئتهم. تعديل صغير في الحصة أو السعر في طبقين بيحرّك أكتر من أي صنف جديد.</div></div>
+      <div class="result"><div><b>ألغاز تستاهل ترويج:</b> وليمة المندي العائلية ربحها أكتر من خمس أضعاف متوسط فئتها للطبق، ونادراً ما بتتطلب. مكانها عرض الكيترينج والشاشة الرئيسية في التطبيق.</div></div>
+      <div class="result"><div><b>تكلفة الأكل:</b> 30.9% قصاد هدف 30%، وأعلاها المشويات 35.9% بعد غلاء اللحمة في فبراير 2026.</div></div>
+    </div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>هندسة المنيو<span class="file">assets/pbi-zafran-menu.png</span></span><img src="../assets/pbi-zafran-menu.png" alt="صفحة هندسة المنيو في Power BI: خمس كروت، ومصفوفة الطلب قصاد الربح جوه كل فئة، وعدد ونصيب الربح للنجوم وأحصنة الشغل والألغاز والضعاف، وجدول الأصناف بشارات التصنيف وشرايط الربح، وتكلفة الأكل بالفئة" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">07</span>الاكتشاف الرابع: المطبخ السحابي بيكسب أكتر من المطاعم</h2>
+    <p>المطبخ السحابي في شمال الرياض افتتح يونيو 2025. في 2026 عمل 3.46 مليون ريال بربح تشغيلي 26.1%، وفوق الموازنة بـ 9%، وده الأحسن في السلسلة. فرع حطين في الرياض عمل إيراد أكتر، 3.89 مليون، واحتفظ بـ 14.5% بس، وده الأضعف: إيجار أعلى، وعمالة 23.7% من المبيعات قصاد 15.1% في المطبخ السحابي.</p>
+    <div class="callout">الفرع الجاي في الرياض حجته أقوى كمطبخ سحابي من صالة أكل جديدة.</div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>تقييم الفروع<span class="file">assets/pbi-zafran-branches.png</span></span><img src="../assets/pbi-zafran-branches.png" alt="جدول الفروع في Power BI: خمس كروت وجدول للتسع فروع فيه خط الإيراد، وشريط قصاد الموازنة، ونسب الربح وتكلفة الأكل والعمالة، ودقايق التحضير، والتقييم، وتحته أحسن وأضعف فرع" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+    <div class="figure reveal"><span>مكان سكرينشوت<br>نبض الإدارة<span class="file">assets/pbi-zafran-executive.png</span></span><img src="../assets/pbi-zafran-executive.png" alt="صفحة الإدارة في Power BI: خمس كروت بالنمو عن 2025، والإيراد قصاد الموازنة كل شهر، والإيراد بمجموعة البيع، وشلال من الإيراد للربح، والربح التشغيلي بالفرع" hidden onload="this.hidden=false;this.previousElementSibling.hidden=true" onerror="this.remove()"></div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">08</span>اللي هقوله لصاحب المطعم</h2>
+    <div class="results">
+      <div class="result"><div><b>زوّد اتنين في الشاطئ ليالي الخميس والجمعة.</b> وبعدها راقب تحضير الذروة والتقييم والأوفر تايم أربع أسابيع.</div></div>
+      <div class="result"><div><b>ادفع تطبيق زعفران.</b> كل أوردر بيتنقل من كيتا للتطبيق بيرجّع حوالي 38 ريال زيادة. قلل الخصم اللي بتدفعه على كيتا قبل ما تجري ورا حجمها.</div></div>
+      <div class="result"><div><b>عدّل طبقين، مش المنيو كله.</b> تعديل في الحصة أو السعر لكبسة الفراخ ومندي الفراخ، ونقل وليمة المندي العائلية للكيترينج والتطبيق.</div></div>
+      <div class="result"><div><b>افتح الفرع الجاي في الرياض كمطبخ سحابي،</b> وراجع إيجار حطين والوردية فيه قبل تجديد العقد.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">09</span>قرارات هندسية</h2>
+    <div class="results">
+      <div class="result"><div><b>التقرير ككود:</b> الموديل TMDL، والصفحات PBIR، وسكربت بايثون واحد بيرسم الخلفيات ويكتب الثيم ويحط كل رسمة في مكانها. اتراجع على سكيمات مايكروسوفت المنشورة، وبعدين اتفتح واتراجع صفحة صفحة في Power BI Desktop.</div></div>
+      <div class="result"><div><b>اللي Power BI Desktop مسكه:</b> اعتماد دائري بين عمود محسوب وعمود ترتيبه، وأعمدة في الجداول متعلّم عليها active كانت بتخبي كل أعمدة المقاييس، وصيغة أرقام كانت بتطبع 0MM، وصور جوه الجداول مقطوعة من مقاس الصورة الافتراضي. كل واحدة اتصلحت في سكربت البناء، مش بالإيد.</div></div>
+      <div class="result"><div><b>علامة نسبة سوّدت الشرايط:</b> شريط الموازنة صورة SVG جوه رابط بيانات. علامة % في الرقم بوّظت أكواد الألوان، فكل الأشكال بقت سودا. دلوقتي الرقم بيتكتب %25.</div></div>
+      <div class="result"><div><b>بيتقري في أي لغة للجهاز:</b> كل تحويل أنواع في Power Query وكل رقم بيتكتب جوه SVG بيشتغل بـ en-US، لأن اللابتوب ويندوز عربي.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="h-num">10</span>المهارات</h2>
+    <div class="tagrow accent" style="margin-top:8px">
+      <span class="tag">نظام تصميم للتقارير</span><span class="tag">ثيم Power BI مخصوص</span>
+      <span class="tag">رسوم SVG من DAX</span><span class="tag">نصوص ديناميكية بالمقاييس</span>
+      <span class="tag">هندسة المنيو (Kasavana–Smith)</span><span class="tag">اقتصاديات قنوات التوصيل</span>
+      <span class="tag">تحليل العمالة والخدمة</span><span class="tag">مشاريع Power BI (TMDL, PBIR)</span>
+    </div>
+    <p style="margin-top:22px">ملف البيانات التجريبية منشور زي ما اتسلّم لـ Power BI. حمّله واحسب أي رقم في الصفحة دي بنفسك.</p>
+    <div class="tagrow" style="margin-top:6px">
+      <a class="act" href="../Zafran-Kitchen-Sample-Data.zip" download>حمّل ملف البيانات التجريبية (.zip) ↓</a>
+      <a class="act" href="powerbi-mawqid.html">مشروع موقد ←</a>
+    </div>
+  </section>
+
+  <div class="cs-footer">
+    <b>محمد الطنبداوي</b> · Business &amp; Data Analyst، BI &amp; Analytics<br>
+    <a href="mailto:mohamed.tanbedawy@gmail.com">mohamed.tanbedawy@gmail.com</a> · <a href="https://linkedin.com/in/tanbedawy" target="_blank" rel="noopener">linkedin.com/in/tanbedawy</a>
+  </div>
+
+</div>
+</main>
+</div>
+
+<script>
+function setLang(l){
+  if(document.documentElement.lang!==l){(window.dataLayer=window.dataLayer||[]).push({event:'language_switch',site_language:l});}
+  document.getElementById('doc-en').style.display=(l==='en')?'':'none';
+  document.getElementById('doc-ar').style.display=(l==='ar')?'':'none';
+  document.querySelectorAll('.btn-en').forEach(b=>b.classList.toggle('active',l==='en'));
+  document.querySelectorAll('.btn-ar').forEach(b=>b.classList.toggle('active',l==='ar'));
+  document.documentElement.lang=l;
+  document.documentElement.dir=(l==='ar')?'rtl':'ltr';
+  window.scrollTo(0,0);
+}
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
+</body>
+</html>
